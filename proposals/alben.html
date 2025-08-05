@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigChange & Alben Landscapes</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Roboto Flex & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700;8..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <style>
+        /* Custom styles based on BigChange Brand Guidelines */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #282922; /* Charcoal */
+            background-color: #F4F4F4; /* Light Grey */
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 700; /* Bold */
+        }
+
+        .bg-navy { background-color: #0A2240; }
+        .text-navy { color: #0A2240; }
+        
+        .bg-energy-blue { background-color: #0072CE; }
+        .text-energy-blue { color: #0072CE; }
+        
+        .bg-green-accent { background-color: #28E289; }
+        .text-green-accent { color: #28E289; }
+        
+        .bg-orange-accent { background-color: #FF6B00; }
+        .text-orange-accent { color: #FF6B00; }
+
+        .brand-gradient {
+            background: linear-gradient(90deg, #0A2240 0%, #0072CE 100%);
+        }
+
+        .icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sticky Nav */
+        #sticky-nav {
+            transition: top 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="brand-gradient text-white py-8 md:py-12">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-10 md:h-12" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0A2240/FFFFFF?text=BigChange';">
+                <span class="text-4xl font-light">&times;</span>
+                <!-- Alben Landscapes Logo -->
+                <img src="https://iili.io/FPBJP8x.md.png" alt="Alben Landscapes Logo" class="h-16 md:h-20" onerror="this.onerror=null;this.src='https://placehold.co/200x80/FFFFFF/0A2240?text=Alben+Landscapes';">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">A Partnership to Grow Your Landscape</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto">A proposal to empower Alben Landscapes with a unified, powerful, and scalable job management platform.</p>
+        </div>
+    </header>
+
+    <!-- Sticky Nav -->
+    <nav id="sticky-nav" class="fixed top-[-100px] left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-8" onerror="this.onerror=null;this.src='https://placehold.co/150x32/000000/FFFFFF?text=BigChange';">
+                    <span class="text-2xl font-light text-gray-300">&times;</span>
+                    <img src="https://iili.io/FPnESiQ.md.png" alt="Alben Landscapes Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=Alben+Landscapes';">
+                </div>
+                <div class="hidden md:flex items-center justify-end text-xs">
+                    <a href="#current-state" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Current Position</a>
+                    <a href="#challenges" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Challenges</a>
+                    <a href="#aims" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Goals</a>
+                    <a href="#roi" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">ROI</a>
+                    <a href="#summary" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Summary</a>
+                    <a href="#next-steps" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Next Steps</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-navy focus:outline-none">
+                        <span class="icon">menu</span>
+                    </button>
+                </div>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#current-state" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Current Position</a>
+                <a href="#challenges" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Challenges</a>
+                <a href="#aims" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Goals</a>
+                <a href="#roi" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">ROI</a>
+                <a href="#summary" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Summary</a>
+                <a href="#next-steps" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Next Steps</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+
+        <!-- Current State of Play Section -->
+        <section id="current-state" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                     <h2 class="text-4xl font-bold text-center text-navy">Current State of Play</h2>
+                     <img src="https://iili.io/FPnESiQ.md.png" alt="Alben Landscapes Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Alben+Landscapes';">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 max-w-6xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">groups</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Regional Operation</h4>
+                            <p class="text-gray-600 text-sm">Alben Landscapes operates with a skilled team of approximately 50 staff spread across three key regions: the Northwest, Halifax/Leeds, and Penrith.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">business_center</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Diverse Business Mix</h4>
+                            <p class="text-gray-600 text-sm">Your business is strategically balanced, with 60-70% focused on recurring grounds maintenance and 30-40% on higher-margin project work.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">handshake</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Key Commercial Partnerships</h4>
+                            <p class="text-gray-600 text-sm">You have established strong relationships with major builders for fencing and garden installations on new developments, alongside work for schools, colleges, and hospitals.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">construction</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Specialist Services</h4>
+                            <p class="text-gray-600 text-sm">Beyond core services, you offer valuable specialist work including gritting, snow clearance, and tree surgery, adding further revenue streams.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4 lg:col-span-2">
+                        <span class="icon text-energy-blue text-3xl mt-1">link_off</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Fragmented Systems</h4>
+                            <p class="text-gray-600 text-sm">Operations are currently run on a bespoke system from Scope Solutions which has reached its limitations. This is supplemented by manual processes and separate, disconnected tools for vehicle tracking, holiday requests, and financial management, creating data silos and inefficiency.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain & Challenges Section -->
+        <section id="challenges" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                    <h2 class="text-4xl font-bold text-center text-navy">Pain & Challenges</h2>
+                    <img src="https://iili.io/FPnESiQ.md.png" alt="Alben Landscapes Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Alben+Landscapes';">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-10 max-w-5xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">edit_document</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Manual & Inefficient Financials</h4>
+                            <p class="text-gray-600 text-sm">The current need to manually extract data and create Excel sheets to invoice through Sage 50 is a major workflow bottleneck. This slows down your entire financial cycle, delays payments, and consumes significant administrative time that could be better spent elsewhere.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">sync_problem</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Fragmented Systems Create Blind Spots</h4>
+                            <p class="text-gray-600 text-sm">Your bespoke system has been outgrown. Relying on separate, disconnected tools for core functions like vehicle tracking, job allocation, and holiday requests means there is no single source of truth, making it impossible to get a clear, unified view of your operations.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">support_agent</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Risk of Poor Customer Service</h4>
+                            <p class="text-gray-600 text-sm">Without an integrated system to track customer complaints and queries, there's a significant risk of issues being missed or poorly handled. This can damage your reputation with high-value clients like schools and major construction partners, where service quality is paramount.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">visibility_off</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Lack of Real-Time Operational Control</h4>
+                            <p class="text-gray-600 text-sm">The inability to see live job completion rates, team locations, and project profitability in real-time forces management to be reactive. This hinders proactive decision-making, efficient resource allocation, and your ability to maximise margins on every job.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aims & Business Goals Section -->
+        <section id="aims" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                 <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                    <span class="text-4xl font-light">&times;</span>
+                    <img src="https://iili.io/FPnESiQ.md.png" alt="Alben Landscapes Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Alben+Landscapes';">
+                </div>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">Aims & Business Goals</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">hub</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Create a Single Source of Truth</h4>
+                            <p class="text-gray-600 text-sm">Implement one unified, cloud-based platform that seamlessly combines CRM, job scheduling, vehicle tracking, and financials. Eliminate data silos and provide every team member with access to the same live, accurate information.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">model_training</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Automate Financial & Admin Workflows</h4>
+                            <p class="text-gray-600 text-sm">Replace time-consuming manual processes with streamlined, digital workflows. Implement a seamless, bidirectional integration with Sage 50 to automate quoting, invoicing, and contract management, freeing up valuable office time.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">monitoring</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Achieve Total Operational Visibility</h4>
+                            <p class="text-gray-600 text-sm">Gain a live, 360-degree view of your entire operation through a real-time dashboard. Track job completion rates, monitor vehicle utilisation, and analyse project margins instantly to make smarter, data-driven decisions.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">thumb_up</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Elevate Customer Service & Communication</h4>
+                            <p class="text-gray-600 text-sm">Utilise an integrated complaints and communications system to ensure every customer query is tracked and resolved efficiently. Leverage automatic notifications to keep clients informed and provide a superior service experience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI & Driving Value Section -->
+        <section id="roi" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                 <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                    <span class="text-4xl font-light">&times;</span>
+                    <img src="https://iili.io/FPnESiQ.md.png" alt="Alben Landscapes Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Alben+Landscapes';">
+                </div>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">ROI & Driving Value</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10 max-w-5xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">speed</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Supercharge Field Team Productivity</h4>
+                            <p class="text-gray-600 text-sm">Empower your 50-strong team with intelligent scheduling and route optimisation to minimise travel time and maximise billable hours. Digital job sheets ensure they have all the info they need, increasing the number of jobs completed per day and driving revenue from both maintenance and project work.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">savings</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Accelerate Cash Flow & Protect Margins</h4>
+                            <p class="text-gray-600 text-sm">The bidirectional Sage 50 integration transforms your financial workflow, enabling instant, error-free invoicing the moment a job is completed. Real-time job costing allows you to monitor margins live, ensuring every task—from a small maintenance visit to a large commercial fencing project—is profitable.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">shield</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Strengthen Your Professional Reputation</h4>
+                            <p class="text-gray-600 text-sm">Demonstrate a best-in-class commitment to safety and compliance with mandatory vehicle checks, digital risk assessments, and AI dash cams. This not only reduces operational risk but also enhances your professional image, giving you a competitive edge when bidding for contracts with schools, hospitals, and major builders.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">rocket_launch</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Build a Platform for Future Growth</h4>
+                            <p class="text-gray-600 text-sm">A modern, scalable system removes the operational bottlenecks that are holding you back. With BigChange, you gain a robust foundation to confidently take on more project work, expand your service offerings, and grow your operations across all three regions without being constrained by technology.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Summary Section -->
+        <section id="summary" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <h2 class="text-4xl font-bold text-center text-navy">Our Understanding: A Summary</h2>
+                </div>
+                <p class="text-center text-gray-600 max-w-4xl mx-auto mb-12">Based on our conversation, here is a summary of our understanding of Alben Landscapes' current position and the opportunity to move forward with BigChange.</p>
+                
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg border-t-4 border-energy-blue">
+                    <ul class="space-y-4 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="icon text-energy-blue mr-3 mt-1">apartment</span>
+                            <div>
+                                <h4 class="font-bold text-navy">The Challenge</h4>
+                                <p>Alben Landscapes is a successful, growing business whose potential is being constrained by an outdated, fragmented, and manual operational system. This leads to administrative bottlenecks, a lack of real-time visibility, and potential gaps in customer service.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="icon text-energy-blue mr-3 mt-1">hub</span>
+                            <div>
+                                <h4 class="font-bold text-navy">The Solution</h4>
+                                <p>BigChange offers a single, all-in-one cloud platform to replace your disparate systems. It will provide a unified hub for your entire operation, from the initial customer quote and job scheduling right through to vehicle tracking, field operations, and seamless integration with Sage 50 for invoicing.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="icon text-energy-blue mr-3 mt-1">auto_graph</span>
+                            <div>
+                                <h4 class="font-bold text-navy">The Impact</h4>
+                                <p>By automating manual tasks and providing complete visibility, BigChange will unlock significant efficiency gains, improve cash flow, enhance safety and compliance, and deliver a superior customer experience. It provides the robust, scalable foundation needed to support Alben's continued growth.</p>
+                            </div>
+                        </li>
+                         <li class="flex items-start">
+                            <span class="icon text-energy-blue mr-3 mt-1">flag</span>
+                            <div>
+                                <h4 class="font-bold text-navy">The Path Forward</h4>
+                                <p>We propose a structured 90-day implementation plan, led by a dedicated onboarding manager. This ensures a smooth transition for your 50-strong team, with comprehensive training and 24/7 support to guarantee a successful go-live and immediate return on investment.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Steps Section -->
+        <section id="next-steps" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <h2 class="text-4xl font-bold text-navy mb-4">Next Steps: On-Site Deep Dive</h2>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-8">We are looking forward to visiting you on-site this Friday to conduct a detailed, hands-on demonstration of the BigChange platform.</p>
+                <div class="max-w-xl mx-auto bg-gray-50 p-6 rounded-lg shadow-inner border border-gray-200">
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <div class="flex-shrink-0">
+                            <span class="icon text-energy-blue" style="font-size: 48px;">event</span>
+                        </div>
+                        <div class="text-left">
+                            <p class="font-bold text-navy">Date: Friday, 8th August 2025</p>
+                            <p class="text-gray-700">Location: Alben Landscapes LTD, Lowe Farm Cottage, Leyland Lane, Leyland, PR26 8LB</p>
+                            <p class="text-sm text-gray-600 mt-2">Our goal for this session is to dive deeper into your specific requirements and demonstrate exactly how BigChange can be configured to solve your unique operational challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white">
+        <div class="container mx-auto px-4 md:px-8 py-12 text-center">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-10 mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0A2240/FFFFFF?text=BigChange';">
+            <h2 class="text-3xl font-bold">Ready for your BigChange?</h2>
+            <p class="text-gray-300 mt-2 mb-6">Let's make your business unstoppable.</p>
+            <p class="text-xs text-gray-400 mt-8">This proposal has been built specifically for Alben Landscapes.</p>
+            <p class="text-sm text-gray-500 mt-8">&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sticky Nav functionality
+            const nav = document.getElementById('sticky-nav');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            window.onscroll = function() {
+                if (window.pageYOffset > headerHeight) {
+                    nav.style.top = "0";
+                } else {
+                    nav.style.top = "-100px";
+                }
+            };
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            const mobileLinks = document.querySelectorAll('#mobile-menu a, #sticky-nav a[href^="#"]');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')){
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
