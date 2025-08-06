@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigChange & Instagroup</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Roboto Flex & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700;8..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <style>
+        /* Custom styles based on BigChange Brand Guidelines */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #282922; /* Charcoal */
+            background-color: #F4F4F4; /* Light Grey */
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 700; /* Bold */
+        }
+
+        .bg-navy { background-color: #0A2240; }
+        .text-navy { color: #0A2240; }
+        
+        .bg-energy-blue { background-color: #0072CE; }
+        .text-energy-blue { color: #0072CE; }
+        
+        .bg-green-accent { background-color: #28E289; }
+        .text-green-accent { color: #28E289; }
+        
+        .bg-orange-accent { background-color: #FF6B00; }
+        .text-orange-accent { color: #FF6B00; }
+
+        .brand-gradient {
+            background: linear-gradient(90deg, #0A2240 0%, #0072CE 100%);
+        }
+
+        .icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sticky Nav */
+        #sticky-nav {
+            transition: top 0.3s;
+        }
+        
+        .gantt-bar {
+            transition: all 0.3s ease-in-out;
+            border-radius: 4px;
+        }
+
+        .gantt-bar:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        }
+
+        .gantt-bar.active {
+            box-shadow: 0 0 0 3px #0072CE, 0 4px 12px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .gantt-row::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #e5e7eb; /* gray-200 */
+        }
+
+        .gantt-row:last-child::after {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="brand-gradient text-white py-8 md:py-12">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-10 md:h-12" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0A2240/FFFFFF?text=BigChange';">
+                <span class="text-4xl font-light">&times;</span>
+                <!-- Instagroup Logo -->
+                <img src="https://iili.io/Fiq3Ka2.md.png" alt="Instagroup Logo" class="h-16 md:h-20" onerror="this.onerror=null;this.src='https://placehold.co/200x80/FFFFFF/0A2240?text=Instagroup';">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">From Chaos to Control: A Platform for Instagroup's Future</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto">A proposal to empower Instagroup with a unified, powerful, and scalable platform to manage rapid expansion.</p>
+        </div>
+    </header>
+
+    <!-- Sticky Nav -->
+    <nav id="sticky-nav" class="fixed top-[-100px] left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-8" onerror="this.onerror=null;this.src='https://placehold.co/150x32/000000/FFFFFF?text=BigChange';">
+                    <span class="text-2xl font-light text-gray-300">&times;</span>
+                    <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=Instagroup';">
+                </div>
+                <div class="hidden md:flex items-center justify-end text-xs">
+                    <a href="#current-state" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Current Position</a>
+                    <a href="#challenges" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Challenges</a>
+                    <a href="#aims" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Goals</a>
+                    <a href="#roi" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">ROI</a>
+                    <a href="#project-team" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Team</a>
+                    <a href="#implementation-plan" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Implementation</a>
+                    <a href="#investment-overview" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Investment</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-navy focus:outline-none">
+                        <span class="icon">menu</span>
+                    </button>
+                </div>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#current-state" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Current Position</a>
+                <a href="#challenges" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Challenges</a>
+                <a href="#aims" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Goals</a>
+                <a href="#roi" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">ROI</a>
+                <a href="#project-team" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Team</a>
+                <a href="#implementation-plan" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Implementation</a>
+                <a href="#investment-overview" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Investment</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+        
+        <!-- Simpro Group Section -->
+        <section id="simpro-group" class="bg-navy text-white py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <img src="https://i.postimg.cc/BQrJr7RZ/Simprogroup-removebg-preview.png" alt="Simpro Group Logo" class="h-12 mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/200x48/FFFFFF/0A2240?text=Simpro+Group';">
+                <h2 class="text-4xl font-bold text-white mb-4">Part of a Global Leader in Field Service Management</h2>
+                <p class="text-lg text-gray-300 max-w-4xl mx-auto mb-8">
+                    Simpro Group is the dominant field service management SaaS leader, driven by innovation, customer centricity, and global expansion in key markets. Our portfolio champions the growth mindset that drives trade businesses forward. AroFlo, BigChange, ClockShark and Simpro platforms provide centralized operating systems that enhance efficiency, drive profitability, and fuel growth.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-10">
+                    <div class="bg-white p-6 rounded-lg flex items-center space-x-4">
+                        <span class="icon text-navy text-4xl">business_center</span>
+                        <div>
+                            <p class="text-3xl font-bold text-navy">24,000+</p>
+                            <p class="text-gray-600">Businesses Served</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg flex items-center space-x-4">
+                        <span class="icon text-navy text-4xl">groups</span>
+                        <div>
+                            <p class="text-3xl font-bold text-navy">450,000+</p>
+                            <p class="text-gray-600">Users Worldwide</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg flex items-center space-x-4">
+                        <span class="icon text-navy text-4xl">badge</span>
+                        <div>
+                            <p class="text-3xl font-bold text-navy">700+</p>
+                            <p class="text-gray-600">Employees</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BigChange Story Timeline -->
+        <section id="bigchange-story" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-4xl font-bold text-center text-navy mb-4">BigChange's Story &amp; Timeline</h2>
+                <p class="text-lg text-gray-600 text-center max-w-3xl mx-auto mb-16">From Startup to Industry Leader - A Journey of Innovation &amp; Growth</p>
+                
+                <div class="relative">
+                    <!-- Timeline Line -->
+                    <div class="hidden md:block absolute top-2.5 left-0 w-full h-0.5 bg-gray-300"></div>
+                    
+                    <div class="relative grid grid-cols-1 md:grid-cols-4 gap-x-12 gap-y-12">
+                        <!-- Timeline Item 1: 2013 -->
+                        <div class="relative">
+                            <div class="md:text-center">
+                                <div class="absolute top-0 left-0 md:relative md:left-auto md:mx-auto w-5 h-5 rounded-full bg-energy-blue border-4 border-gray-100 ring-2 ring-gray-300"></div>
+                                <h3 class="text-xl font-bold text-navy mt-8 md:mt-4">Founded by Martin Port</h3>
+                                <p class="font-semibold text-energy-blue mt-1">2013</p>
+                                <p class="mt-4 text-gray-600 text-sm">Martin Port, a serial entrepreneur from Leeds, founded BigChange with the goal of revolutionising the field service management industry, bringing together job management, CRM and vehicle tracking in one native platform.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 2: 2013-2020 -->
+                        <div class="relative">
+                            <div class="md:text-center">
+                                <div class="absolute top-0 left-0 md:relative md:left-auto md:mx-auto w-5 h-5 rounded-full bg-energy-blue border-4 border-gray-100 ring-2 ring-gray-300"></div>
+                                <h3 class="text-xl font-bold text-navy mt-8 md:mt-4">Rapid Growth</h3>
+                                <p class="font-semibold text-energy-blue mt-1">2013-2020</p>
+                                <p class="mt-4 text-gray-600 text-sm">BigChange experienced explosive growth - scaling from launch to over $30 million in annual recurring revenue by 2020, and acquiring around 2000 customers by that point.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 3: 2021 -->
+                        <div class="relative">
+                            <div class="md:text-center">
+                                <div class="absolute top-0 left-0 md:relative md:left-auto md:mx-auto w-5 h-5 rounded-full bg-energy-blue border-4 border-gray-100 ring-2 ring-gray-300"></div>
+                                <h3 class="text-xl font-bold text-navy mt-8 md:mt-4">GHP Investment</h3>
+                                <p class="font-semibold text-energy-blue mt-1">2021</p>
+                                <p class="mt-4 text-gray-600 text-sm">In February 2021, BigChange received a £75 million growth investment from Boston-based private equity firm Great Hill Partners, valuing the business at around £100 million.</p>
+                            </div>
+                        </div>
+
+                        <!-- Timeline Item 4: 2024 -->
+                        <div class="relative">
+                            <div class="md:text-center">
+                                <div class="absolute top-0 left-0 md:relative md:left-auto md:mx-auto w-5 h-5 rounded-full bg-energy-blue border-4 border-gray-100 ring-2 ring-gray-300"></div>
+                                <h3 class="text-xl font-bold text-navy mt-8 md:mt-4">K1 Partners Investment</h3>
+                                <p class="font-semibold text-energy-blue mt-1">2024</p>
+                                <p class="mt-4 text-gray-600 text-sm">In November 2024, BigChange was acquired by Simpro Group, backed by K1 Investment Management—marking a major milestone in its growth journey as part of a powerful portfolio of field service software solutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current State of Play Section -->
+        <section id="current-state" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                     <h2 class="text-4xl font-bold text-center text-navy">Current State of Play</h2>
+                     <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Instagroup';">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 max-w-6xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">rocket_launch</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Rapid Growth</h4>
+                            <p class="text-gray-600 text-sm">Instagroup is experiencing phenomenal growth, doubling its turnover year-on-year to £100 million, with the contracting division alone set to grow by another £5 million this year.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">groups</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Complex Workforce</h4>
+                            <p class="text-gray-600 text-sm">The contracting division relies on a mixed workforce of employed installers and a large subcontractor network, all requiring heavy back-office input to manage jobs.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">link_off</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Fragmented Systems</h4>
+                            <p class="text-gray-600 text-sm">Operations are managed across a patchwork of disconnected systems—including an old version of NAV Dynamics, Salesforce, compliance software, and numerous spreadsheets—creating data silos and operational chaos.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain & Challenges Section -->
+        <section id="challenges" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                    <h2 class="text-4xl font-bold text-center text-navy">Pain & Challenges</h2>
+                    <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Instagroup';">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-10 max-w-7xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">visibility_off</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">No Subcontractor Visibility</h4>
+                            <p class="text-gray-600 text-sm">A complete lack of visibility over subcontractor activities leads to a chaotic booking process, risking missed appointments and poor customer service.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">sync_problem</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">No Single Source of Truth</h4>
+                            <p class="text-gray-600 text-sm">Data spread across multiple systems means there is no unified view of the operation, hindering effective, data-driven decision-making.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">warning</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Significant Compliance Risk</h4>
+                            <p class="text-gray-600 text-sm">Inadequate RAMs and a lack of enforced processes create a serious health and safety compliance risk with significant potential consequences.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">layers_clear</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Operational Instability</h4>
+                            <p class="text-gray-600 text-sm">The current state is described as a "stack of cards waiting to fall over," which is unsustainable and has already led to the loss of a key department head.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">table_rows</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Unusable Data</h4>
+                            <p class="text-gray-600 text-sm">Tracker spreadsheets lack individual references, making data correlation impossible. Even basic Excel lookups cannot be performed, rendering the data useless for analysis.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">support</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Team is Overwhelmed</h4>
+                            <p class="text-gray-600 text-sm">The team is described as "hands up, help us," indicating they are desperate for a solution after failed attempts to manage the chaos with additional resources.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">edit_document</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Manual Workarounds</h4>
+                            <p class="text-gray-600 text-sm">The reliance on manual processes and disconnected systems creates a heavy administrative burden, wasting time and increasing the risk of human error.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">trending_down</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Growth at Risk</h4>
+                            <p class="text-gray-600 text-sm">The current operational chaos is the single biggest threat to achieving the projected £5 million growth in the contracting division this year.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aims & Business Goals Section -->
+        <section id="aims" class="py-12 md:py-16 bg-gray-50">
+            <div class="container mx-auto px-4 md:px-8">
+                 <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                    <span class="text-4xl font-light">&times;</span>
+                    <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Instagroup';">
+                </div>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">Aims & Business Goals</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-8 max-w-7xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">hub</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Establish a Single Source of Truth</h4>
+                            <p class="text-gray-600 text-sm">Replace fragmented systems with one unified platform for the entire contracting division.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">visibility</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Gain Subcontractor Control</h4>
+                            <p class="text-gray-600 text-sm">Achieve real-time visibility of all subcontractor schedules and job progress to manage them effectively.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">checklist</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Enforce & Automate Compliance</h4>
+                            <p class="text-gray-600 text-sm">Implement forced digital workflows to ensure H&S checks and RAMs are completed on every job.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">rocket_launch</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Build for Sustainable Growth</h4>
+                            <p class="text-gray-600 text-sm">Create a scalable foundation to handle the expected £5 million growth and future expansion.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">model_training</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Stabilize the Division</h4>
+                            <p class="text-gray-600 text-sm">Move from a chaotic, reactive state to a stable, proactive operational model to improve performance and staff morale.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">query_stats</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Enable Data-Driven Decisions</h4>
+                            <p class="text-gray-600 text-sm">Turn unusable spreadsheet data into a structured, reportable asset for strategic analysis and insight.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">support_agent</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Support the Team</h4>
+                            <p class="text-gray-600 text-sm">Provide the operational team with the tools they desperately need to succeed and reduce their daily administrative burden.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">monitoring</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Achieve Full Cost Visibility</h4>
+                            <p class="text-gray-600 text-sm">Track live labour, material, and travel costs against every job. Understand true profitability in real-time and give senior leadership the financial oversight needed to make informed strategic decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI & Driving Value Section -->
+        <section id="roi" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                 <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                    <span class="text-4xl font-light">&times;</span>
+                    <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Instagroup';">
+                </div>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">ROI & Driving Value</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 max-w-6xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">speed</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Unlock Growth Revenue</h4>
+                            <p class="text-gray-600 text-sm">The current chaos is the biggest threat to achieving your £5 million growth target. A streamlined system provides the capacity to deliver that additional revenue.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">shield</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Mitigate Compliance Failures</h4>
+                            <p class="text-gray-600 text-sm">The cost of a single H&S failure can be immense. Enforced digital compliance on every job provides an essential layer of protection for the business.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">savings</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Eliminate Administrative Waste</h4>
+                            <p class="text-gray-600 text-sm">Replacing chaotic, manual processes will reclaim hundreds of administrative hours, allowing your team to focus on productive, value-adding activities.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">manage_accounts</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Enable Strategic Decisions</h4>
+                            <p class="text-gray-600 text-sm">A single source of truth and powerful reporting tools allow leadership to get a clear, real-time view of the entire contracting division for smarter decision-making.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">verified_user</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Guarantee Proof of Work</h4>
+                            <p class="text-gray-600 text-sm">Ensure 100% of compliance photos, paperwork, and risk assessments are completed and returned from the field every time. Forced mobile workflows eliminate missed steps and provide a complete, auditable record of all work.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">paid</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Increase Profitability</h4>
+                            <p class="text-gray-600 text-sm">Greater efficiency, reduced waste, and better visibility over costs and subcontractor performance will have a direct, positive impact on the profitability of every job.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- The Partnership Team Section -->
+        <section id="project-team" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">The Partnership Team</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <!-- Tim Deathridge -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <div class="w-32 h-32 rounded-full mx-auto mb-4 bg-gray-100 border-2 border-gray-200 flex items-center justify-center p-2">
+                            <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-auto w-full" onerror="this.onerror=null;this.src='https://placehold.co/128x128/FFFFFF/000000?text=IG';" />
+                        </div>
+                        <h3 class="text-xl font-bold text-navy">Tim Deathridge</h3>
+                        <p class="text-energy-blue font-semibold">COO, Instagroup</p>
+                    </div>
+                    <!-- Alex Freeman -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <div class="w-32 h-32 rounded-full mx-auto mb-4 bg-gray-100 border-2 border-gray-200 flex items-center justify-center p-2">
+                             <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-auto w-full" onerror="this.onerror=null;this.src='https://placehold.co/128x128/FFFFFF/000000?text=IG';" />
+                        </div>
+                        <h3 class="text-xl font-bold text-navy">Alex Freeman</h3>
+                        <p class="text-energy-blue font-semibold">Partnerships Manager, Instagroup</p>
+                    </div>
+                    <!-- Serge Fagelman -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <img src="https://i.postimg.cc/85sxRxmR/Serge1.jpg" alt="Serge Fagelman" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-gray-200" />
+                        <h3 class="text-xl font-bold text-navy">Serge Fagelman</h3>
+                        <p class="text-energy-blue font-semibold">Corporate Sales Director, BigChange</p>
+                    </div>
+                    <!-- Lee Wilkinson -->
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                        <img src="https://i.postimg.cc/hjw6pM2H/Lee1.jpg" alt="Lee Wilkinson" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-2 border-gray-200" />
+                        <h3 class="text-xl font-bold text-navy">Lee Wilkinson</h3>
+                        <p class="text-energy-blue font-semibold">Pre-Sales Engineer, BigChange</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation and Training Approach Section -->
+        <section id="implementation-training" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">Implementation and Training Approach</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-4">
+                            <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                            <span class="text-2xl font-light">&times;</span>
+                            <img src="https://iili.io/Fiq3fvS.md.webp" alt="Instagroup Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=Instagroup';">
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy">A Tailored Partnership for Success</h3>
+                        <p class="text-gray-700">We recognise this is a significant project. We will tailor a bespoke onboarding plan to meet the specific needs of the Instagroup team, ensuring a seamless transition.</p>
+                        <p class="text-gray-700">It is vital that we work together to develop a mutually agreed implementation and training approach that accounts for the unique nuances of your operation.</p>
+                        
+                        <div class="mt-6">
+                            <h4 class="text-xl font-bold text-navy mb-3">Training &amp; Rollout Strategy</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start"><span class="icon text-energy-blue mr-2">groups</span><div><span class="font-bold">Office Users:</span> Live workshops (online or onsite) covering CRM, job booking, scheduling, and reporting.</div></li>
+                                <li class="flex items-start"><span class="icon text-energy-blue mr-2">engineering</span><div><span class="font-bold">Road Users & Subs:</span> Onsite toolbox talks focusing on practical skills like tablet usage, job completion, and capturing photos.</div></li>
+                                <li class="flex items-start"><span class="icon text-energy-blue mr-2">star</span><div><span class="font-bold">Super Users:</span> Deep-dive workshops to empower them as team champions and first-line support.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://i.postimg.cc/5yL2qsBt/Training.png" alt="Training Session" class="rounded-lg shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Training';">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accelerated Project Timeline Section -->
+        <section id="implementation-plan" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <h3 class="text-3xl font-bold text-navy text-center mb-4">Accelerated Project Timeline</h3>
+                <div class="space-y-4 text-center max-w-4xl mx-auto mb-8">
+                    <p class="text-gray-700">A successful rollout depends on a strong partnership. Given the urgency, we will adopt a focused and collaborative approach to implementation, ensuring all stakeholders are aligned on key timings and dependencies to achieve a rapid and successful go-live for the entire contracting division.</p>
+                    <p class="text-center text-sm text-gray-500 italic">Click on each phase below to see more details.</p>
+                </div>
+                
+                <div id="gantt-chart-container" class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="lg:col-span-2">
+                        <div class="grid grid-cols-12">
+                            <!-- Y-Axis Labels -->
+                            <div class="col-span-3 space-y-2 pr-4 text-right text-sm font-semibold">
+                                <div class="h-12 flex items-center justify-end text-navy">Discovery &amp; Planning</div>
+                                <div class="h-12 flex items-center justify-end text-navy">Configuration &amp; Testing</div>
+                                <div class="h-12 flex items-center justify-end text-navy">Training &amp; Go-Live</div>
+                                <div class="h-12 flex items-center justify-end text-navy">Post Go-Live Support</div>
+                            </div>
+                            <!-- Gantt Area -->
+                            <div class="col-span-9">
+                                <div class="grid grid-cols-3 gap-2 text-center text-xs font-bold text-navy mb-2">
+                                    <div>Month 1</div>
+                                    <div>Month 2</div>
+                                    <div>Month 3</div>
+                                </div>
+                                <div class="relative space-y-2 text-white font-bold text-xs">
+                                    <!-- Grid Lines -->
+                                    <div class="absolute inset-0 grid grid-cols-3 gap-2 border-l border-gray-200">
+                                        <div class="border-r border-gray-200"></div>
+                                        <div class="border-r border-gray-200"></div>
+                                    </div>
+                                    <!-- Discovery -->
+                                    <div class="h-12 relative gantt-row">
+                                        <div class="gantt-bar active cursor-pointer absolute top-2 left-0 w-1/3 h-8 bg-energy-blue flex items-center px-2" 
+                                             data-title="Discovery, Planning & System Configuration" 
+                                             data-timeline="Month 1" 
+                                             data-description="An intensive initial phase combining requirements gathering, workflow mapping, and core system build.">
+                                            <span class="icon text-xs mr-1">manage_search</span><span class="hidden sm:inline">Discovery</span>
+                                        </div>
+                                    </div>
+                                    <!-- Config & Testing -->
+                                    <div class="h-12 relative gantt-row">
+                                        <div class="gantt-bar cursor-pointer absolute top-2 h-8 bg-orange-accent flex items-center px-2" style="left: 33.33%; width: 33.33%"
+                                             data-title="Configuration & User Acceptance Testing" 
+                                             data-timeline="Month 2" 
+                                             data-description="System configuration is finalised based on discovery, followed by rigorous testing by your super users to ensure it meets all operational needs.">
+                                            <span class="icon text-xs mr-1">science</span><span class="hidden sm:inline">Testing</span>
+                                        </div>
+                                    </div>
+                                    <!-- Training & Go-Live -->
+                                    <div class="h-12 relative gantt-row">
+                                        <div class="gantt-bar cursor-pointer absolute top-2 h-8 bg-green-accent text-navy flex items-center px-2" style="left: 66.66%; width: 33.33%"
+                                             data-title="Full Training & Go-Live" 
+                                             data-timeline="Month 3" 
+                                             data-description="A full-scale training program is executed for all users, leading to the official Go-Live where BigChange becomes the primary operational system.">
+                                            <span class="icon text-xs mr-1">flag</span><span class="hidden sm:inline">Go-Live</span>
+                                        </div>
+                                    </div>
+                                    <!-- Support -->
+                                    <div class="h-12 relative gantt-row">
+                                        <div class="gantt-bar cursor-pointer absolute top-2 h-8 bg-navy flex items-center px-2" style="left: 66.66%; width: 33.33%"
+                                             data-title="Post Go-Live Support" 
+                                             data-timeline="Ongoing from Month 3" 
+                                             data-description="A period of hypercare support to ensure a smooth transition, establish reporting, and focus on continuous improvement.">
+                                            <span class="icon text-xs mr-1">support_agent</span><span class="hidden sm:inline">Support</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="gantt-details" class="bg-gray-50 p-6 rounded-lg shadow-inner">
+                        <h4 id="gantt-title" class="text-xl font-bold text-navy"></h4>
+                        <p id="gantt-timeline" class="font-semibold text-energy-blue my-2"></p>
+                        <p id="gantt-description" class="text-sm text-gray-700"></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unrivalled Support Section -->
+        <section id="unrivalled-support" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                    <h2 class="text-4xl font-bold text-center text-navy">Unrivalled Support. Unmatched Service.</h2>
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=BigChange';">
+                </div>
+                <p class="text-lg text-gray-600 text-center max-w-4xl mx-auto mb-12">BigChange provides round-the-clock support to ensure help is always on hand. Every customer is assigned a dedicated Onboarding Manager to guide them through implementation, followed by a Customer Success Manager post go-live to ensure long-term value and continuous improvement.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center">
+                        <img src="https://i.postimg.cc/CMPcgpQG/655f5ff114bac7a6c1449f8d-tab-2-guy-on-computer.jpg" alt="24-7 Customer Support" class="w-full h-48 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/FFFFFF?text=Support';">
+                        <h3 class="text-2xl font-bold text-navy mb-2">24/7 UK-Based Support</h3>
+                        <p class="text-gray-700">Our UK-based support team is available 24/7 to provide assistance whenever you need it. Whether it's a technical query or a question about a feature, we're here to help you get the most out of BigChange.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center">
+                        <img src="https://i.postimg.cc/C5Tx2xqF/Implementation.png" alt="Dedicated Onboarding Manager" class="w-full h-48 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/FFFFFF?text=Implementation';">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Dedicated Onboarding</h3>
+                        <p class="text-gray-700">A dedicated Onboarding Manager will guide you through every step of the implementation process, ensuring a smooth and successful transition to BigChange. They'll work with you to configure the system to your specific needs.</p>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-lg text-center">
+                        <img src="https://i.postimg.cc/vB9Q5wSC/Customer-Success.jpg" alt="Customer Success Manager" class="w-full h-48 object-cover rounded-md mb-4" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/FFFFFF?text=Customer+Success';">
+                        <h3 class="text-2xl font-bold text-navy mb-2">Lifetime Customer Success</h3>
+                        <p class="text-gray-700">Once you're live, a Customer Success Manager will be your long-term partner, helping you to drive more value from BigChange, providing ongoing training, and identifying opportunities for continuous improvement.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Built for Scale Section -->
+        <section id="built-for-scale" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-center text-navy mb-4">Built for Scale: How We Migrate & Protect</h2>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 items-start">
+                    <!-- Data Migration -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <div class="flex items-center justify-center h-56 bg-gray-100 rounded-md mb-6 p-4">
+                            <img src="https://i.postimg.cc/rFGdR3dD/Excel-Logo.png" alt="Excel Logo" class="h-24" onerror="this.onerror=null;this.src='https://placehold.co/100x100/CCCCCC/FFFFFF?text=Excel';">
+                            <span class="icon text-energy-blue mx-4" style="font-size: 48px;">arrow_forward</span>
+                            <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-16" onerror="this.onerror=null;this.src='https://placehold.co/150x64/000000/FFFFFF?text=BigChange';">
+                        </div>
+                        <h3 class="text-2xl font-bold text-navy mb-4">Data Migration</h3>
+                        <p class="text-gray-700">We understand that migrating your existing data can be daunting. We’ve built a streamlined and proven approach to ensure a smooth transition. Key operational data can be imported efficiently into BigChange using pre-defined Excel templates.</p>
+                        <p class="text-gray-700 mt-4">Our experienced onboarding team provide hands-on guidance and validation throughout the process. Whether you're consolidating systems or starting from spreadsheets, our structured approach ensures minimal disruption and maximum data integrity.</p>
+                    </div>
+                    <!-- Security -->
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <img src="https://i.postimg.cc/ZRpx2jqX/ISOAccreds.jpg" alt="Security Accreditations" class="w-full h-56 object-contain rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/600x300/CCCCCC/FFFFFF?text=Security';">
+                        <h3 class="text-2xl font-bold text-navy mb-4">Security</h3>
+                        <p class="text-gray-700">BigChange treats the confidentiality, integrity, and availability of your data as paramount. Our Information Security Management System (ISMS) is certified to ISO 27001, and we align with additional standards such as ISO 22301 for Business Continuity.</p>
+                        <ul class="space-y-3 text-gray-700 text-sm mt-4">
+                            <li class="flex items-start"><span class="icon text-energy-blue mr-2">cloud</span><div><strong>Cloud Infrastructure:</strong> We host on AWS, leveraging its globally secure and resilient infrastructure, including multi-region data storage and encryption at rest and in transit.</div></li>
+                            <li class="flex items-start"><span class="icon text-energy-blue mr-2">shield</span><div><strong>Continuous Protection:</strong> We conduct regular vulnerability scanning, third-party pen testing, and maintain a comprehensive backup regime across multiple geographies.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Overview Section -->
+        <section id="investment-overview" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <h2 class="text-4xl font-bold text-center text-navy">Your Investment Overview</h2>
+                </div>
+                <p class="text-center text-gray-600 max-w-4xl mx-auto mb-12">A transparent, all-inclusive investment for your new job management platform, including a significant partnership discount.</p>
+                
+                <div class="max-w-md mx-auto">
+                    <div class="border-4 border-energy-blue rounded-lg p-8 bg-blue-50 text-center flex flex-col relative shadow-2xl">
+                         <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 inline-block bg-orange-accent text-white text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">Exclusive Offer</span>
+                        <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-12 mx-auto mt-6 mb-4" onerror="this.onerror=null;this.src='https://placehold.co/150x48/000000/FFFFFF?text=BigChange';">
+                        
+                        <div class="my-4">
+                            <p class="text-xl font-medium text-gray-500">RRP: <span class="line-through">£7,493.10/month</span></p>
+                            <p class="text-5xl font-extrabold text-navy">£6,768.10<span class="text-xl font-medium text-gray-500">/month</span></p>
+                        </div>
+
+                        <div class="bg-green-accent text-navy font-bold py-3 px-4 rounded-lg my-4">
+                            <p class="text-2xl">£725 MONTHLY SAVING</p>
+                        </div>
+                        
+                        <a href="https://landing.bigchange.com/0BVxGDY30Kp" target="_blank" class="w-full bg-energy-blue hover:bg-navy text-white font-bold py-4 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105 mt-4">
+                            View Order Form
+                        </a>
+                        <p class="text-xs text-gray-500 mt-4">Based on a 36-month contract term. Prices exclude VAT.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white">
+        <div class="container mx-auto px-4 md:px-8 py-12 text-center">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-10 mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0A2240/FFFFFF?text=BigChange';">
+            <h2 class="text-3xl font-bold">Ready for your BigChange?</h2>
+            <p class="text-gray-300 mt-2 mb-6">Let's turn chaos into control, together.</p>
+            <p class="text-xs text-gray-400 mt-8">This proposal has been built specifically for Instagroup.</p>
+            <p class="text-sm text-gray-500 mt-8">&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sticky Nav functionality
+            const nav = document.getElementById('sticky-nav');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            window.onscroll = function() {
+                if (window.pageYOffset > headerHeight) {
+                    nav.style.top = "0";
+                } else {
+                    nav.style.top = "-100px";
+                }
+            };
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            const mobileLinks = document.querySelectorAll('#mobile-menu a, #sticky-nav a[href^="#"]');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')){
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Gantt Chart Interactivity
+            const ganttBars = document.querySelectorAll('.gantt-bar');
+            const ganttTitle = document.getElementById('gantt-title');
+            const ganttTimeline = document.getElementById('gantt-timeline');
+            const ganttDescription = document.getElementById('gantt-description');
+
+            function updateDetails(bar) {
+                if (!bar || !ganttTitle || !ganttTimeline || !ganttDescription) return;
+                
+                ganttTitle.textContent = bar.dataset.title;
+                ganttTimeline.textContent = bar.dataset.timeline;
+                ganttDescription.textContent = bar.dataset.description;
+
+                ganttBars.forEach(b => b.classList.remove('active'));
+                bar.classList.add('active');
+            }
+
+            ganttBars.forEach(bar => {
+                bar.addEventListener('click', () => {
+                    updateDetails(bar);
+                });
+            });
+
+            if (ganttBars.length > 0) {
+                updateDetails(document.querySelector('.gantt-bar.active') || ganttBars[0]);
+            }
+        });
+    </script>
+
+</body>
+</html>
