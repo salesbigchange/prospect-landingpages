@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigChange: Transforming Automotive Field Service</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700;8..144,800&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #282922; /* Charcoal */
+            background-color: #F4F4F4; /* Light Grey */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 700;
+        }
+        .text-navy { color: #0A2240; }
+        .bg-navy { background-color: #0A2240; }
+        .text-energy-blue { color: #0072CE; }
+        .bg-energy-blue { background-color: #0072CE; }
+        .brand-gradient {
+            background: linear-gradient(90deg, #0A2240 0%, #0072CE 100%);
+        }
+        .icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 48px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px;
+            }
+        }
+        .section-title {
+            color: #0A2240; /* Navy */
+        }
+        .section-intro {
+            color: #555;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <main>
+
+        <header class="brand-gradient text-white py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-12 md:h-16 mx-auto mb-8" onerror="this.onerror=null;this.src='https://placehold.co/250x64/FFFFFF/0A2240?text=BigChange';">
+                <h1 class="text-4xl md:text-6xl font-extrabold mb-4">DRIVE or BE DRIVEN</h1>
+                <p class="text-lg md:text-xl max-w-4xl mx-auto text-gray-200">Your mobile service business is a high-stakes logistics operation. Fragmented systems, manual processes, and a lack of visibility aren't just inefficient—they are actively costing you money and holding back your growth.</p>
+            </div>
+        </header>
+
+        <section id="what-is" class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title mb-4">What is BigChange?</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto section-intro mb-12">It’s a 5-in-1 job management system that replaces manual and paper-based processes. One simple-to-use platform connects your back office, mobile teams, and customers, giving you complete control of your operations.</p>
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center max-w-6xl mx-auto">
+                    <div class="flex flex-col items-center">
+                        <span class="icon text-energy-blue mb-3">group</span>
+                        <h3 class="text-xl font-bold text-navy">CRM</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="icon text-energy-blue mb-3">event_available</span>
+                        <h3 class="text-xl font-bold text-navy">Job Scheduling</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="icon text-energy-blue mb-3">phone_iphone</span>
+                        <h3 class="text-xl font-bold text-navy">Mobile App</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="icon text-energy-blue mb-3">pin_drop</span>
+                        <h3 class="text-xl font-bold text-navy">Live Tracking</h3>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <span class="icon text-energy-blue mb-3">monitoring</span>
+                        <h3 class="text-xl font-bold text-navy">Business Intelligence</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works" class="py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title mb-4">The Journey of a Job</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto section-intro mb-12">Follow the path of a typical job from start to finish. See how BigChange creates a seamless, automated flow that saves time, eliminates errors, and delights customers.</p>
+                <div class="relative">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-y-8 md:gap-x-8 text-center relative">
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white border-2 border-energy-blue rounded-full w-24 h-24 flex items-center justify-center text-energy-blue mb-3 z-10"><span class="icon">request_quote</span></div>
+                            <h4 class="text-lg font-bold text-navy">1. Quote & Book</h4>
+                            <p class="text-sm text-gray-600 max-w-xs">A customer calls. Your team creates a quote and books the job in seconds from the CRM.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white border-2 border-energy-blue rounded-full w-24 h-24 flex items-center justify-center text-energy-blue mb-3 z-10"><span class="icon">edit_calendar</span></div>
+                            <h4 class="text-lg font-bold text-navy">2. Schedule & Dispatch</h4>
+                            <p class="text-sm text-gray-600 max-w-xs">Instantly assign the best technician based on their location, skills, and availability.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white border-2 border-energy-blue rounded-full w-24 h-24 flex items-center justify-center text-energy-blue mb-3 z-10"><span class="icon">satellite_alt</span></div>
+                            <h4 class="text-lg font-bold text-navy">3. Track & Communicate</h4>
+                            <p class="text-sm text-gray-600 max-w-xs">The customer automatically receives an ETA with a live tracking link. No more "where are you?" calls.</p>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <div class="bg-white border-2 border-energy-blue rounded-full w-24 h-24 flex items-center justify-center text-energy-blue mb-3 z-10"><span class="icon">task_alt</span></div>
+                            <h4 class="text-lg font-bold text-navy">4. Complete & Invoice</h4>
+                            <p class="text-sm text-gray-600 max-w-xs">The technician completes the job on their app. An invoice is automatically generated and sent.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="challenges" class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title mb-4">Are These Your Daily Headaches?</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto section-intro mb-12">If you're running a mobile automotive service, you're not just fixing vehicles—you're fighting a daily battle against logistical chaos. See if these challenges sound familiar.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-6xl mx-auto">
+                    <div class="bg-gray-50 rounded-lg shadow-inner border p-8 hover:shadow-lg hover:-translate-y-1 transition-all">
+                        <span class="icon text-energy-blue mb-4">wrong_location</span>
+                        <h3 class="text-2xl font-bold text-navy mb-2">Workforce Inefficiency</h3>
+                        <p class="text-gray-600">Struggling to schedule the right technician for the right job? Wasting fuel on poor routing? Losing track of your team in the field?</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-inner border p-8 hover:shadow-lg hover:-translate-y-1 transition-all">
+                        <span class="icon text-energy-blue mb-4">receipt_long</span>
+                        <h3 class="text-2xl font-bold text-navy mb-2">Administrative Overload</h3>
+                        <p class="text-gray-600">Is your team drowning in paperwork? Are you losing money on missed invoices or inaccurate quotes? Is your cashflow suffering from slow billing?</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg shadow-inner border p-8 hover:shadow-lg hover:-translate-y-1 transition-all">
+                        <span class="icon text-energy-blue mb-4">support_agent</span>
+                        <h3 class="text-2xl font-bold text-navy mb-2">Customer Frustration</h3>
+                        <p class="text-gray-600">Fielding constant "Where's my technician?" calls? Failing to meet ETAs? Struggling to provide a modern, professional service experience?</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="results" class="py-12 md:py-20">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title mb-4">The Transformation in Numbers</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto section-intro mb-12">This isn't just about better software. It's about a better business. Our customers see dramatic, measurable improvements that directly impact their bottom line.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold text-center section-title mb-4">Boost Performance, Cut Costs</h3>
+                        <p class="text-center text-gray-600 mb-6">BigChange drives significant gains in efficiency, slashing waste and saving you money where it counts.</p>
+                        <div class="chart-container">
+                            <canvas id="benefitsChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6 flex flex-col justify-center items-center">
+                        <h3 class="text-xl font-bold text-center section-title mb-4">Create Raving Fans</h3>
+                        <p class="text-center text-gray-600 mb-6">Deliver a modern, professional experience that builds trust and wins you more business.</p>
+                        <div class="text-center">
+                            <div class="text-8xl font-black text-navy">+25%</div>
+                            <div class="text-lg font-semibold text-energy-blue">Typical Customer Service Rating Increase</div>
+                            <div class="mt-6 space-y-3 text-left">
+                                <div class="flex items-center"><span class="icon text-green-500 text-2xl mr-3">check_circle</span><span>Automated ETA Alerts</span></div>
+                                <div class="flex items-center"><span class="icon text-green-500 text-2xl mr-3">check_circle</span><span>Digital, Paperless Job Sheets</span></div>
+                                <div class="flex items-center"><span class="icon text-green-500 text-2xl mr-3">check_circle</span><span>Instant, Accurate Invoicing</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="intelligence" class="py-12 md:py-20 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center section-title mb-4">From Guesswork to Governance</h2>
+                <p class="text-lg text-center max-w-3xl mx-auto section-intro mb-12">Stop running your business on gut feel. BigChange captures thousands of data points and turns them into actionable intelligence, giving you the power to make smarter, more profitable decisions.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="bg-gray-50 rounded-lg shadow-inner border p-6">
+                         <h3 class="text-xl font-bold text-center section-title mb-4">Do More With Less</h3>
+                         <p class="text-center text-gray-600 mb-8">Transform your support staff ratio. Empower a single admin to manage more field engineers than ever before, breaking the link between revenue and overhead.</p>
+                         <div class="flex justify-around items-center text-center">
+                            <div>
+                                <p class="text-lg font-semibold text-gray-500">Before</p>
+                                <div class="text-navy my-2 flex items-center justify-center gap-x-2"><span class="icon text-4xl">person</span> <span class="text-2xl font-light">→</span> <span class="icon text-4xl">engineering</span><span class="icon text-4xl">engineering</span><span class="icon text-4xl">engineering</span></div>
+                                <p class="text-gray-500 font-semibold">1 Admin per 3 Engineers</p>
+                            </div>
+                            <div class="text-6xl font-thin text-gray-300">→</div>
+                             <div>
+                                <p class="text-lg font-semibold text-energy-blue">After BigChange</p>
+                                <div class="text-navy my-2 flex items-center justify-center gap-x-2"><span class="icon text-4xl">person</span> <span class="text-2xl font-light">→</span> <span class="icon text-4xl">engineering</span><span class="icon text-4xl">engineering</span><span class="icon text-4xl">engineering</span><span class="icon text-4xl">engineering</span><span class="icon text-4xl">engineering</span>...</div>
+                                <p class="text-energy-blue font-semibold">1 Admin per 10+ Engineers</p>
+                            </div>
+                         </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h3 class="text-xl font-bold text-center section-title mb-4">Unlock Real-Time Business Intelligence</h3>
+                        <p class="text-center text-gray-600 mb-6">Get a 360-degree view of your performance and instantly identify opportunities to improve profitability.</p>
+                        <div class="chart-container">
+                            <canvas id="intelligenceChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-navy text-white mt-12 md:mt-20">
+            <div class="container mx-auto px-4 md:px-8 py-10 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Stop Idling. Start Accelerating.</h2>
+                <p class="text-lg max-w-3xl mx-auto text-gray-300 mb-8">Ready to see how a unified platform can transform your business? Schedule a demo today and take control of your operations.</p>
+                <a href="https://www.bigchange.com/demo" target="_blank" class="bg-energy-blue text-white font-bold py-4 px-10 rounded-lg hover:bg-blue-500 transition-colors text-xl shadow-lg hover:shadow-xl">Book Your Free Demo</a>
+                 <p class="text-xs text-gray-500 mt-10">&copy; 2024 BigChange. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        const brandColors = {
+            navy: '#0A2240',
+            energyBlue: '#0072CE',
+            greenAccent: '#28E289',
+            orangeAccent: '#FF6B00',
+            lightGrey: '#F4F4F4',
+            charcoal: '#282922'
+        };
+
+        function wrapLabel(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxWidth) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        }
+
+        const defaultTooltipCallback = {
+            title: function(tooltipItems) {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            }
+        };
+
+        const benefitsData = {
+            labels: ['Overall Productivity', 'Fuel Consumption', 'Admin Reporting Time', 'Driving Performance'],
+            datasets: [{
+                label: 'Improvement / Reduction (%)',
+                data: [20, 10, 90, 20],
+                backgroundColor: [brandColors.energyBlue, brandColors.navy, brandColors.greenAccent, brandColors.orangeAccent],
+                borderRadius: 4
+            }]
+        };
+
+        new Chart(document.getElementById('benefitsChart'), {
+            type: 'bar',
+            data: benefitsData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) { return value + '%' }
+                        }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: { callbacks: defaultTooltipCallback }
+                }
+            }
+        });
+
+        const intelligenceData = {
+            labels: [
+                'Job Profitability',
+                'Resource Utilisation',
+                'Fleet Performance',
+                'Customer SLAs',
+                'First-Time Fix Rate'
+            ],
+            datasets: [{
+                label: 'Business Insight Level',
+                data: [90, 85, 95, 80, 88],
+                fill: true,
+                backgroundColor: 'rgba(0, 114, 206, 0.2)',
+                borderColor: brandColors.energyBlue,
+                pointBackgroundColor: brandColors.energyBlue,
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: brandColors.energyBlue
+            }]
+        };
+
+        new Chart(document.getElementById('intelligenceChart'), {
+            type: 'radar',
+            data: intelligenceData,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                elements: {
+                    line: {
+                        borderWidth: 3
+                    }
+                },
+                scales: {
+                    r: {
+                        angleLines: {
+                            color: '#e0e0e0'
+                        },
+                        grid: {
+                            color: '#e0e0e0'
+                        },
+                        pointLabels: {
+                            font: {
+                                size: 12,
+                                weight: 'bold'
+                            },
+                            color: brandColors.charcoal
+                        },
+                        ticks: {
+                            display: false,
+                            stepSize: 25
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
