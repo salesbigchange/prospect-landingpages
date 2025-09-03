@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Clik to BigChange: A Proposal for MFM Group</title>
+    <meta name="description" content="A tailored proposal for MFM Group outlining the business case, ROI, and implementation plan for transitioning from Clik to the BigChange job management platform.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+    
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="BigChange & MFM Group: A Partnership for Growth">
+    <meta property="og:description" content="An interactive infographic exploring the benefits and savings of adopting BigChange's all-in-one job management system.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+    
+    <!-- JSON-LD for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BigChange Job Management Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "62.95",
+        "priceCurrency": "GBP",
+        "description": "Per user per month, includes software, tracking hardware, and support."
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "BigChange"
+      }
+    }
+    </script>
+
+    <!-- Inline CSS for Single-File Deployment -->
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            /* Brand Colors from BigChange Brand Guidelines */
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282922;
+            --bc-white: #FFFFFF;
+            
+            /* Spacing & Sizing Tokens */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            /* Other Design Tokens */
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* General Layout & Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .chip {
+            display: inline-block;
+            padding: var(--spacing-1) var(--spacing-2);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            background-color: var(--bc-light-grey);
+            color: var(--bc-navy);
+        }
+
+        /* Navigation Bar */
+        .main-nav {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: var(--spacing-4) 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--box-shadow);
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .main-nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .main-nav .logo img { height: 40px; }
+        .main-nav ul { list-style: none; display: flex; gap: var(--spacing-6); }
+        .main-nav ul a { font-weight: 600; color: var(--bc-navy); transition: color var(--transition-speed); }
+        .main-nav ul a:hover, .main-nav ul a.active { color: var(--bc-energy-blue); }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: calc(var(--spacing-16) + 4rem); /* Add extra padding for nav */
+            padding-bottom: var(--spacing-16);
+            text-align: center;
+        }
+        #hero h1, #hero h2, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+
+        /* Current -> Future Section */
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .state-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .state-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        /* Business Case Section */
+        .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
+        .meddic-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .meddic-card h4 { color: var(--bc-energy-blue); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; }
+        .meddic-card p, .meddic-card ul { font-size: 0.95rem; }
+        .meddic-card ul { list-style-position: inside; padding-left: var(--spacing-2); }
+        .assumption-flag { color: var(--bc-orange); font-style: italic; font-size: 0.8rem; }
+        .gantt-mini { display: flex; flex-direction: column; gap: var(--spacing-2); }
+        .gantt-mini-item { background-color: var(--bc-white); padding: var(--spacing-2) var(--spacing-4); border-radius: 0.5rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.9rem; }
+        .gantt-mini-item .bar { height: 8px; background-color: var(--bc-energy-blue); border-radius: 4px; }
+        .gantt-mini-item > .chip {
+             padding: var(--spacing-1) var(--spacing-4);
+             line-height: 1.5;
+             flex-shrink: 0;
+        }
+
+        /* ROI Calculator Section */
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-8);
+            background-color: var(--bc-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: var(--spacing-2); }
+        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
+        .calculator-buttons { display: flex; gap: var(--spacing-4); margin-top: var(--spacing-6); }
+        .calculator-buttons .btn { flex-grow: 1; padding: 0.6rem 1rem; font-size: 0.9rem; }
+        .btn-outline { background: transparent; color: var(--bc-energy-blue); border-color: var(--bc-energy-blue); }
+        .btn-outline:hover { background: var(--bc-energy-blue); color: var(--bc-white); }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
+        #assumptions-container {
+            margin-top: var(--spacing-8);
+            background-color: var(--bc-white);
+            border: 1px solid #e0e0e0;
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+        }
+        #assumptions-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-4);
+        }
+        #assumptions-list p { font-size: 0.85rem; }
+
+        /* SVG Donut Chart */
+        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        .donut-chart { transform: rotate(-90deg); }
+        .donut-segment { fill: none; stroke-width: 30; transition: stroke-dashoffset 0.5s ease-in-out; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
+        .donut-legend li { display: flex; align-items: center; gap: var(--spacing-2); font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+        .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
+
+        /* Proposal Section */
+        .proposal-item {
+            display: grid;
+            grid-template-columns: 3fr 1fr 1fr;
+            gap: var(--spacing-4);
+            padding: var(--spacing-4) 0;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+        }
+        .item-pricing { text-align: right; }
+        .item-pricing .rrp { text-decoration: line-through; opacity: 0.7; font-size: 0.85rem; }
+        .item-pricing .price { font-weight: 600; }
+        .item-saving {
+            text-align: right;
+            font-weight: 600;
+            color: var(--bc-green);
+        }
+        .savings-summary {
+            margin-top: var(--spacing-6);
+            padding: var(--spacing-6);
+            background: linear-gradient(45deg, var(--bc-green), #5effa8);
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: var(--bc-navy);
+        }
+
+        /* Other Sections */
+        .feature-panel { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .gantt-chart { display: flex; flex-direction: column; gap: var(--spacing-4); }
+        .gantt-phase { background-color: var(--bc-white); padding: var(--spacing-4); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+        .gantt-phase h4 { margin-bottom: var(--spacing-2); }
+        .gantt-timeline { position: relative; height: 20px; background-color: #e0e0e0; border-radius: 10px; margin-top: var(--spacing-2); }
+        .gantt-bar { position: absolute; height: 100%; background-color: var(--bc-energy-blue); border-radius: 10px; }
+        .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-6); }
+        .case-study-card { border: 1px solid #e5e7eb; padding: var(--spacing-6); border-radius: var(--border-radius); }
+        
+        /* Footer */
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+        #sources { margin-top: var(--spacing-4); }
+        #sources ul { list-style: none; }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper { grid-template-columns: 1fr; }
+            .main-nav ul { display: none; } /* Simplified nav for smaller screens */
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: var(--spacing-12) 0; }
+            .proposal-item { grid-template-columns: 1fr; text-align: center; }
+            .item-pricing, .item-saving { text-align: center; }
+        }
+
+        /* Print Styles */
+        @media print {
+            body { font-size: 10pt; color: #000; }
+            .main-nav, .cta-buttons, .calculator-buttons, #next-steps, footer { display: none !important; }
+            section { padding: 2cm 0; page-break-inside: avoid; }
+            #hero { background: transparent; color: #000; padding: 0 0 2cm 0; text-align: left; }
+            #hero h1, #hero h2, #hero p { color: #000; }
+            .container { padding: 0; }
+            .state-card, .meddic-card, .calculator-wrapper, .kpi-card, .feature-panel, .gantt-phase, .case-study-card {
+                background-color: transparent !important;
+                box-shadow: none !important;
+                border: 1px solid #ccc;
+                padding: 1cm;
+            }
+            .calculator-wrapper, .infographic-grid { display: block; }
+            .roi-results, .donut-chart-container { display: none; } /* Hide interactive elements */
+            .methodology details { border: none; }
+            .methodology details[open] { display: block; }
+            h1, h2, h3 { page-break-after: avoid; }
+            a { color: #000; text-decoration: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="main-nav" id="main-nav">
+        <div class="container">
+            <a href="#hero" class="logo">
+                <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" style="height: 35px;">
+            </a>
+            <ul>
+                <li><a href="#current-future" class="nav-link">Current vs Future</a></li>
+                <li><a href="#business-case" class="nav-link">Business Case</a></li>
+                <li><a href="#roi" class="nav-link">ROI & Savings</a></li>
+                <li><a href="#proposal" class="nav-link">Proposal</a></li>
+                <li><a href="#implementation" class="nav-link">Implementation</a></li>
+                <li><a href="#customer-success" class="nav-link">Success Stories</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <img src="https://www.mfmgroup.co.uk/wp-content/uploads/MFM-Retina-Logo.png" alt="MFM Group Logo" style="height: 50px; background: white; padding: 5px; border-radius: 8px;">
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px;">
+                </div>
+                <h1>From Clik to BigChange: Streamlined Job Management for MFM Group</h1>
+                <p class="subhead">A strategic proposal to transition MFM Group from an on-premise server to a resilient, all-in-one cloud platform—featuring full offline mobile capability, automated client communications, integrated certification, and seamless timesheet reconciliation.</p>
+                <div class="cta-buttons">
+                    <a href="#roi" class="btn btn-primary">Calculate ROI & Savings</a>
+                    <a href="#implementation" class="btn btn-secondary">View Implementation Plan</a>
+                    <a href="#customer-success" class="btn btn-primary">See Success Stories</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Current State vs. Future State</h2>
+                    <p>Mapping MFM Group's identified pains to tangible solutions within the BigChange platform.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3>
+                            <img src="https://www.cliksoftware.com/wp-content/themes/fanatic/assets/img/logos/jl-clik.svg" alt="Clik Software Logo" style="height:32px">
+                            Current State with Clik & On-Premise Server
+                        </h3>
+                        <ul>
+                            <li><strong>Server & Business Risk:</strong> On-premise servers are ~7 years old, recently failed causing half a day of downtime, and cost ~£20k to replace. Qlik software has been acquired and faces an 'end-of-life' future. <sup><a href="#sources">1</a></sup></li>
+                            <li><strong>Operational Friction:</strong> Timesheet process is a manual "bugbear," requiring days of admin effort to reconcile. Engineers must input times for every job, leading to errors. <sup><a href="#sources">2</a></sup></li>
+                            <li><strong>Disconnected Processes:</strong> Gas certification is managed in a separate app (Ink Works), and electrical tests use Excel spreadsheets, creating data silos and manual PDF handling. <sup><a href="#sources">3</a></sup></li>
+                            <li><strong>Manual Quoting:</strong> Creating a quote is a multi-step, manual process involving Word documents, PDF merging, and manual emailing, taking significant admin time. <sup><a href="#sources">4</a></sup></li>
+                            <li><strong>Limited Client Visibility:</strong> Client communication is reactive. Providing ETAs and job updates requires manual phone calls and emails, consuming helpdesk time. <sup><a href="#sources">5</a></sup></li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32Z" fill="var(--bc-green)"></path></svg>
+                            Future State with BigChange
+                        </h3>
+                        <ul>
+                            <li><strong>Cloud-Native Resilience:</strong> A fully managed SaaS platform eliminates server hardware costs, failure risks, and maintenance overhead, ensuring business continuity.</li>
+                            <li><strong>Automated Timesheets:</strong> Time is captured automatically when engineers start/finish jobs via the mobile app. This is reconciled against vehicle tracking data, virtually eliminating admin.</li>
+                            <li><strong>All-in-One Field App:</strong> Engineers complete jobs, risk assessments, and industry-standard certificates (e.g., Gas Safety) within a single app that works fully offline.</li>
+                            <li><strong>Integrated CRM-to-Invoice:</strong> Generate professional quotes from templates, get e-signatures, and convert to jobs in a few clicks, drastically reducing admin and eliminating manual document creation.</li>
+                            <li><strong>Proactive Customer Experience:</strong> Automated alerts (SMS/email) with live tracking links ("engineer on the way") reduce inbound calls and delight customers. A client portal provides 24/7 access to job history and documents.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="business-case">
+            <div class="container">
+                <div class="section-title">
+                    <h2>The Business Case</h2>
+                    <p>A summary of the key drivers for this project, based on our discovery sessions.</p>
+                </div>
+                <div class="meddic-grid">
+                    <div class="meddic-card">
+                        <h4>Metrics</h4>
+                        <p><strong>Engineers:</strong> 35 <sup><a href="#sources">1</a></sup></p>
+                        <p><strong>Office Staff:</strong> 20 <sup><a href="#sources">1</a></sup></p>
+                        <p><strong>Jobs/Month:</strong> 3,325 <span class="assumption-flag">(assumption)</span></p>
+                        <p><strong>First-Time-Fix:</strong> 85% <span class="assumption-flag">(assumption)</span></p>
+                        <p><strong>Admin Hours/Job:</strong> 0.75 hrs <span class="assumption-flag">(assumption)</span></p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Decision Makers</h4>
+                        <p><strong>Role:</strong> Rob Chamberlain (MD) & Matt (Director)</p>
+                        <p><strong>Key Outcomes:</strong> De-risk operations by moving off aging on-premise server, future-proof the business, consolidate software costs (trackers, dashcams), and drive operational efficiency.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Decision Criteria</h4>
+                        <ul>
+                            <li>Fully cloud-based platform (no servers)</li>
+                            <li>Robust offline mobile app functionality</li>
+                            <li>Integrated, all-in-one certification workflows</li>
+                            <li>Hardwired vehicle tracking (not device-based)</li>
+                            <li>Competitive Total Cost of Ownership vs. JobLogic</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Decision Process</h4>
+                        <div class="gantt-mini">
+                            <div class="gantt-mini-item"><span>1. Initial Demos</span> <span class="chip">Complete</span></div>
+                            <div class="gantt-mini-item"><span>2. Technical Deep-Dive</span> <span class="chip">Complete</span></div>
+                            <div class="gantt-mini-item"><span>3. Commercial Proposal Review</span> <span class="chip" style="background-color:var(--bc-orange); color:var(--bc-white)">In Progress</span></div>
+                            <div class="gantt-mini-item"><span>4. Final Director Decision</span></div>
+                        </div>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Current Issues</h4>
+                        <ul>
+                            <li>Server failure risk & downtime</li>
+                            <li>High cost of hardware replacement (~£20k)</li>
+                            <li>Time-consuming manual timesheet process</li>
+                            <li>Fragmented certification systems</li>
+                            <li>Inefficient, manual quoting process</li>
+                            <li>Lack of proactive client communication</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Project Lead</h4>
+                        <p><strong>Role:</strong> Simon Baber (Operations)</p>
+                        <p><strong>Motivation:</strong> Reduce manual workarounds (Excel, Word quotes), improve data integrity and auditability (ISO 9001), and streamline workflows for engineers and office staff from a single source of truth.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                    <h2>ROI & Savings Calculator</h2>
+                    <p>An interactive tool to forecast the financial benefits of adopting BigChange. Adjust the sliders to see how your business inputs affect the potential savings.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3 class="text-2xl font-bold mb-6 text-gray-700">Your Business Details</h3>
+                        <div class="space-y-6">
+                            <div class="calculator-input">
+                                <label for="engineers"><span>Field Engineers</span><span id="engineers-value">35</span></label>
+                                <input type="range" id="engineers" min="1" max="100" value="35">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="jobsPerDay"><span>Jobs per Engineer/Day</span><span id="jobsPerDay-value">5</span></label>
+                                <input type="range" id="jobsPerDay" min="1" max="15" value="5" step="1">
+                            </div>
+                             <div class="calculator-input">
+                                <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">20</span></label>
+                                <input type="range" id="officeStaff" min="1" max="50" value="20">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£24,686</span></label>
+                                <input type="range" id="officeSalary" min="18000" max="50000" value="24686" step="500">
+                            </div>
+                        </div>
+        
+                        <div id="assumptions-container" style="margin-top: var(--spacing-8); padding: var(--spacing-6); border-radius: var(--border-radius);">
+                            <h3 class="font-medium text-gray-700" style="margin-bottom: var(--spacing-4);">Key Assumptions</h3>
+                            <p class="mt-2 text-sm text-gray-600" style="font-size: 0.9rem; opacity: 0.8; margin-bottom: var(--spacing-4);">Based on anonymised data from the BigChange customer base.</p>
+                            <div id="assumptions-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-results space-y-8">
+                        <div>
+                             <h3 class="text-2xl font-bold mb-4 text-gray-700 text-center">Your Estimated Annual Savings</h3>
+                             <div class="text-center">
+                                <p class="total-savings" id="total-savings">£0</p>
+                                <p class="text-gray-500">Total Annual Business Benefit</p>
+                            </div>
+                            <div class="mt-6">
+                                <div class="donut-chart-container">
+                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                                    </svg>
+                                </div>
+                                 <ul class="donut-legend">
+                                   <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Engineer Productivity</li>
+                                   <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                                   <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                                 </ul>
+                            </div>
+                        </div>
+        
+                        <div class="calculation-breakdown">
+                            <h3 class="text-xl font-bold text-gray-700" style="margin-top: var(--spacing-8);">Calculation Breakdown</h3>
+                            <p class="text-gray-600 text-sm" style="opacity: 0.8;">Our estimates are grounded in proven results from over a third of the BigChange customer base. Expand each category to see the details.</p>
+                            <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary class="flex justify-between items-center font-medium text-gray-700 p-4" style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Engineer Productivity</span>
+                                    <span class="font-bold text-green-600" id="engineer-savings-total" style="color:var(--bc-green)">£0</span>
+                                </summary>
+                                <p class="text-sm text-gray-600 p-4" id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary class="flex justify-between items-center font-medium text-gray-700 p-4" style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Office Productivity</span>
+                                    <span class="font-bold text-green-600" id="office-savings-total" style="color:var(--bc-green)">£0</span>
+                                </summary>
+                                <p class="text-sm text-gray-600 p-4" id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary class="flex justify-between items-center font-medium text-gray-700 p-4" style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Fuel Savings</span>
+                                    <span class="font-bold text-green-600" id="fuel-savings-total" style="color:var(--bc-green)">£0</span>
+                                </summary>
+                                <p class="text-sm text-gray-600 p-4" id="fuel-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb;">Calculation details here.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proposal">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Your Tailored BigChange Proposal</h2>
+                    <p>Based on our discussions, here is the proposed package for MFM Group.</p>
+                </div>
+                <div class="proposal-card" style="background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow); max-width: 800px; margin: auto;">
+                    <div class="proposal-header" style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid #e5e7eb; padding-bottom: var(--spacing-4); margin-bottom: var(--spacing-6); flex-wrap: wrap; gap: var(--spacing-4);">
+                        <div>
+                            <h3 style="margin-bottom: var(--spacing-1);">Mannings Facilities Management Ltd</h3>
+                            <p style="font-size: 0.9rem;">Contract: 17461172879</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-weight: 600;">Monthly Investment: <span style="color: var(--bc-energy-blue); font-size: 1.5rem;">£4,119.45</span></p>
+                            <p style="font-size: 0.9rem;">Contract Term: 36 Months</p>
+                        </div>
+                    </div>
+                    <div class="proposal-items">
+                        <!-- item -->
+                        <div class="proposal-item">
+                            <div>
+                                <p style="font-weight: 600;">JobWatch Plus - Field Engineers (x25)</p>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">All-in-one software, tracking & rugged tablet.</p>
+                            </div>
+                            <div class="item-pricing">
+                                <p class="rrp">£99.95 /user/mo</p>
+                                <p class="price">£84.95 /user/mo</p>
+                            </div>
+                            <div class="item-saving">
+                                Save £375/mo
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="proposal-item">
+                           <div>
+                                <p style="font-weight: 600;">JobWatch - Back Office Users (x21)</p>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">Full access to the web-based back office.</p>
+                            </div>
+                             <div class="item-pricing">
+                                <p class="rrp">£79.95 /user/mo</p>
+                                <p class="price">£64.95 /user/mo</p>
+                            </div>
+                            <div class="item-saving">
+                                Save £315/mo
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="proposal-item">
+                            <div>
+                                <p style="font-weight: 600;">AI-Powered Dual Dashcams (x25)</p>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">Forward and cab-facing smart dashcams.</p>
+                            </div>
+                            <div class="item-pricing">
+                                <p class="rrp">£29.95 /user/mo</p>
+                                <p class="price">£19.95 /user/mo</p>
+                            </div>
+                            <div class="item-saving">
+                                Save £250/mo
+                            </div>
+                        </div>
+                        <!-- item -->
+                        <div class="proposal-item">
+                            <div>
+                                <p style="font-weight: 600;">Customer Service Elite Package</p>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">Premium support and services package.</p>
+                            </div>
+                            <div class="item-pricing">
+                                <p class="rrp">£200.00 /mo</p>
+                                <p class="price">£133.00 /mo</p>
+                            </div>
+                            <div class="item-saving">
+                                Save £67/mo
+                            </div>
+                        </div>
+                         <!-- item -->
+                        <div class="proposal-item" style="border-bottom: none;">
+                            <div>
+                                <p style="font-weight: 600;">Included at No Extra Cost</p>
+                                <p style="font-size: 0.85rem; opacity: 0.8;">On-Site Training Day (£1000) & Gas Safety Pack (£125/mo).</p>
+                            </div>
+                            <div class="item-pricing">
+                                <p class="rrp">£1,125.00</p>
+                                <p class="price">£0.00</p>
+                            </div>
+                            <div class="item-saving">
+                                Save £1000 + £125/mo
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="savings-summary">
+                        <h4 style="color: var(--bc-navy); margin-bottom: var(--spacing-2);">Total 3-Year Savings: £41,752</h4>
+                        <p>Includes £1,132 in monthly subscription savings and £1,000 in one-off fees waived.</p>
+                    </div>
+
+                    <div class="proposal-footer" style="text-align: center; margin-top: var(--spacing-8);">
+                         <a href="https://landing.bigchange.com/NYGA4akMrv2CAr2GS" target="_blank" class="btn btn-primary" style="background-color:var(--bc-green); color: var(--bc-navy);">View Full Proposal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="implementation">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Phased Implementation Plan</h2>
+                    <p>A structured, low-risk approach to ensure a smooth transition and rapid time-to-value.</p>
+                </div>
+                <div class="gantt-chart">
+                    <div class="gantt-phase">
+                        <h4>Phase 0: Project Kick-off & Data Preparation (Weeks 1-2)</h4>
+                        <p>Collaborative workshops to confirm workflows. We'll assist your team in exporting customer, site, and asset data from Clik into our import templates.</p>
+                        <div class="gantt-timeline"><div class="gantt-bar" style="width: 16%; left: 0%;"></div></div>
+                    </div>
+                    <div class="gantt-phase">
+                        <h4>Phase 1: Core System Go-Live (Weeks 3-6)</h4>
+                        <p>Configuration of CRM, Job Scheduling, and the Mobile App. On-site and remote training for office staff and engineers. BigChange tracking hardware installed across your fleet.</p>
+                         <div class="gantt-timeline"><div class="gantt-bar" style="width: 34%; left: 16%;"></div></div>
+                    </div>
+                    <div class="gantt-phase">
+                        <h4>Phase 2: Advanced Configuration & Automation (Weeks 7-9)</h4>
+                        <p>Building custom worksheets, reports, and alerts based on MFM's specific needs (e.g., quote required notifications). Setup of Client Portal and automated communications.</p>
+                        <div class="gantt-timeline"><div class="gantt-bar" style="width: 25%; left: 50%;"></div></div>
+                    </div>
+                    <div class="gantt-phase">
+                        <h4>Phase 3: Financial Integration & Review (Weeks 10-12)</h4>
+                        <p>Once MFM migrates from Opera to a supported accounting package (e.g., Sage), we will enable the full financial integration. Business review to measure initial KPIs and ROI.</p>
+                        <div class="gantt-timeline"><div class="gantt-bar" style="width: 25%; left: 75%;"></div></div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-8);">
+                    <a href="https://bigchangeonboarding.github.io/onboardingwelcompack/" target="_blank" class="btn btn-primary">View Onboarding Process</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="customer-success" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                 <div class="section-title">
+                    <h2>Customer Success Stories</h2>
+                    <p>See how businesses like MFM Group have become unstoppable with BigChange.</p>
+                </div>
+                <div class="case-studies-grid">
+                    <div class="case-study-card" style="background-color:var(--bc-white); box-shadow: var(--box-shadow); text-align: center;">
+                        <img src="https://i.ibb.co/Q76hSYPx/67da907891732db96c1bc88f-Sherwoods.jpg" alt="Sherwoods Case Study" style="width: 100%; border-radius: var(--border-radius); margin-bottom: var(--spacing-4);">
+                        <h4 style="color:var(--bc-navy);">Sherwoods</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: var(--spacing-6);">"BigChange gives us a bird’s-eye view of the entire business... It is integral to our operation and continued growth."</p>
+                        <a href="https://www.bigchange.com/success-stories/sherwoods-builds-a-business-case-for-a-bigchange-one-stop-management-system" target="_blank" class="btn btn-primary" style="background-color:var(--bc-orange);">Read Full Story</a>
+                    </div>
+                    <div class="case-study-card" style="background-color:var(--bc-white); box-shadow: var(--box-shadow); text-align: center;">
+                        <img src="https://i.ibb.co/nq2brv3b/67d4353d199a4e774fa30a55-FORTH.jpg" alt="Forth Engineering Case Study" style="width: 100%; border-radius: var(--border-radius); margin-bottom: var(--spacing-4);">
+                        <h4 style="color:var(--bc-navy);">Forth Engineering</h4>
+                        <p style="font-size: 0.9rem; margin-bottom: var(--spacing-6);">"The BigChange solution is five years ahead of the competition. It is the best system on the market by a country mile."</p>
+                        <a href="https://www.bigchange.com/success-stories/forth-roll-out-bigchange-job-management-system" target="_blank" class="btn btn-primary" style="background-color:var(--bc-orange);">Read Full Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer style="text-align: center;">
+        <div class="container">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: var(--spacing-6);">
+            <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-8);">This proposal has been built specifically for MFM Group.<br>&copy; 2025 BigChange. All rights reserved.</p>
+            <div id="sources" style="display: none;">
+                <p><strong>Discovery Sources:</strong></p>
+                <ul>
+                    <li>1: BigChange-x-MFM-bb3027-b93e.pdf</li>
+                    <li>2: BigChange-x-MFM-Group-Online-Demo-c6930cb5-854e.pdf</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Navigation Scrollspy ---
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('main > section');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '-50% 0px -50% 0px',
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${id}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => observer.observe(section));
+
+        // --- ROI Calculator Logic ---
+        const assumptions = {
+            avgJobDriveTimeMins: 47.95,
+            avgJobDurationMins: 52.75,
+            avgDistancePerJobMiles: 24.26,
+            avgMpg: 30.8,
+            avgFuelCostPerLitre: 1.70,
+            jobDurationSavingPercent: 0.0922,
+            jobDriveTimeSavingPercent: 0.1054,
+            jobDistanceSavingPercent: 0.1051,
+            backOfficeSavingPercent: 0.2454,
+            workingDaysPerMonth: 19,
+            engineerSalary: 35306 // Default from provided HTML
+        };
+
+        const inputs = {
+            engineers: document.getElementById('engineers'),
+            jobsPerDay: document.getElementById('jobsPerDay'),
+            officeStaff: document.getElementById('officeStaff'),
+            officeSalary: document.getElementById('officeSalary'),
+        };
+
+        const valueSpans = {
+            engineers: document.getElementById('engineers-value'),
+            jobsPerDay: document.getElementById('jobsPerDay-value'),
+            officeStaff: document.getElementById('officeStaff-value'),
+            officeSalary: document.getElementById('officeSalary-value'),
+        };
+        
+        const outputs = {
+            totalSavings: document.getElementById('total-savings'),
+            engineerSavingsTotal: document.getElementById('engineer-savings-total'),
+            officeSavingsTotal: document.getElementById('office-savings-total'),
+            fuelSavingsTotal: document.getElementById('fuel-savings-total'),
+            engineerCalcDetails: document.getElementById('engineer-calc-details'),
+            officeCalcDetails: document.getElementById('office-calc-details'),
+            fuelCalcDetails: document.getElementById('fuel-calc-details'),
+            donutEngineer: document.getElementById('donut-engineer'),
+            donutOffice: document.getElementById('donut-office'),
+            donutFuel: document.getElementById('donut-fuel'),
+        };
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+        }
+        
+        function formatNumber(value) {
+             return new Intl.NumberFormat('en-GB', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+        }
+
+        function populateAssumptions() {
+            const list = document.getElementById('assumptions-list');
+            if (!list) return;
+            list.innerHTML = `
+                <p><strong>Avg. Drive Time:</strong> ${assumptions.avgJobDriveTimeMins.toFixed(1)} mins</p>
+                <p><strong>Avg. Work Duration:</strong> ${assumptions.avgJobDurationMins.toFixed(1)} mins</p>
+                <p><strong>Avg. Job Distance:</strong> ${assumptions.avgDistancePerJobMiles.toFixed(1)} miles</p>
+                <p><strong>Drive Time Saving:</strong> ${(assumptions.jobDriveTimeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Work Duration Saving:</strong> ${(assumptions.jobDurationSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Office Saving:</strong> ${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Fuel Distance Saving:</strong> ${(assumptions.jobDistanceSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Avg. Vehicle MPG:</strong> ${assumptions.avgMpg}</p>
+                <p><strong>Diesel Cost:</strong> £${assumptions.avgFuelCostPerLitre.toFixed(2)} / litre</p>
+            `;
+        }
+
+        function calculateAndDisplay() {
+            const values = {};
+            for (const key in inputs) {
+                if(inputs[key]) {
+                    values[key] = parseFloat(inputs[key].value);
+                    if (valueSpans[key]) {
+                        if(key === 'officeSalary') {
+                             valueSpans[key].textContent = formatCurrency(values[key]);
+                        } else {
+                             valueSpans[key].textContent = values[key];
+                        }
+                    }
+                }
+            }
+
+            // Calculations
+            const dailyDriveHours = (values.jobsPerDay * assumptions.avgJobDriveTimeMins) / 60;
+            const dailyWorkHours = (values.jobsPerDay * assumptions.avgJobDurationMins) / 60;
+            
+            const dailyDriveTimeSaved = dailyDriveHours * assumptions.jobDriveTimeSavingPercent;
+            const dailyWorkTimeSaved = dailyWorkHours * assumptions.jobDurationSavingPercent;
+            const totalDailyTimeSavedHours = dailyDriveTimeSaved + dailyWorkTimeSaved;
+
+            const engineerProductivitySavings = (totalDailyTimeSavedHours / 8) * assumptions.engineerSalary * values.engineers;
+            
+            const officeProductivitySavings = values.officeSalary * values.officeStaff * assumptions.backOfficeSavingPercent;
+
+            const totalAnnualMiles = values.jobsPerDay * assumptions.avgDistancePerJobMiles * assumptions.workingDaysPerMonth * 12 * values.engineers;
+            const totalAnnualGallons = totalAnnualMiles / assumptions.avgMpg;
+            const totalAnnualLitres = totalAnnualGallons * 4.54609;
+            const totalAnnualFuelCost = totalAnnualLitres * assumptions.avgFuelCostPerLitre;
+            const fuelSavings = totalAnnualFuelCost * assumptions.jobDistanceSavingPercent;
+            
+            const totalAnnualBenefit = engineerProductivitySavings + officeProductivitySavings + fuelSavings;
+
+            // Update UI
+            outputs.totalSavings.textContent = formatCurrency(totalAnnualBenefit);
+            outputs.engineerSavingsTotal.textContent = formatCurrency(engineerProductivitySavings);
+            outputs.officeSavingsTotal.textContent = formatCurrency(officeProductivitySavings);
+            outputs.fuelSavingsTotal.textContent = formatCurrency(fuelSavings);
+
+            const engineerCountForText = values.engineers || '...';
+            outputs.engineerCalcDetails.innerHTML = `We estimate each of your <strong>${engineerCountForText} engineers</strong> could save <strong>${(totalDailyTimeSavedHours * 60).toFixed(0)} mins/day</strong>. This is based on saving ${ (assumptions.jobDriveTimeSavingPercent*100).toFixed(1) }% on driving time and ${ (assumptions.jobDurationSavingPercent*100).toFixed(1) }% on job duration. Annually, this time saving translates to a productivity gain worth <strong>${formatCurrency(engineerProductivitySavings)}</strong>.`;
+            outputs.officeCalcDetails.innerHTML = `Based on our data, BigChange can improve back-office efficiency by around <strong>${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</strong>. For your team of <strong>${values.officeStaff}</strong> with an average salary of <strong>${formatCurrency(values.officeSalary)}</strong>, this represents an annual productivity saving of <strong>${formatCurrency(officeProductivitySavings)}</strong>.`;
+            outputs.fuelCalcDetails.innerHTML = `Smarter routing can reduce travel distance. We estimate a <strong>${(assumptions.jobDistanceSavingPercent*100).toFixed(1)}% reduction</strong>. For <strong>${values.engineers} engineers</strong> covering an estimated <strong>${formatNumber(totalAnnualMiles)} miles/year</strong>, this could save <strong>${formatCurrency(fuelSavings)}</strong> in fuel costs.`;
+
+            // Update Donut Chart
+            const savingsBreakdown = [engineerProductivitySavings, officeProductivitySavings, fuelSavings];
+            const totalForChart = savingsBreakdown.reduce((a, b) => a + b, 0);
+            
+            if (totalForChart > 0) {
+                const circumference = 2 * Math.PI * 40;
+                const percentages = savingsBreakdown.map(s => s / totalForChart);
+                
+                let offset = 0;
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                
+                percentages.forEach((p, i) => {
+                    const length = p * circumference;
+                    const dasharray = `${length} ${circumference - length}`;
+                    if(segments[i]) {
+                        segments[i].setAttribute('stroke-dasharray', dasharray);
+                        segments[i].setAttribute('stroke-dashoffset', offset);
+                    }
+                    offset -= length;
+                });
+            } else { // Handle case where total is zero
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                segments.forEach(seg => {
+                    if(seg) seg.setAttribute('stroke-dasharray', `0 251.2`);
+                });
+            }
+        }
+
+        Object.values(inputs).forEach(input => {
+            if(input) input.addEventListener('input', calculateAndDisplay);
+        });
+
+        populateAssumptions();
+        calculateAndDisplay();
+    });
+    </script>
+</body>
+</html>
+
+
+
