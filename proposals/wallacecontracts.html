@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BigChange & Wallace Contracts</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Roboto Flex & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700;8..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <style>
+        /* Custom styles based on BigChange Brand Guidelines */
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #282922; /* Charcoal */
+            background-color: #F4F4F4; /* Light Grey */
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 700; /* Bold */
+        }
+
+        .bg-navy { background-color: #0A2240; }
+        .text-navy { color: #0A2240; }
+        
+        .bg-energy-blue { background-color: #0072CE; }
+        .text-energy-blue { color: #0072CE; }
+        
+        .bg-green-accent { background-color: #28E289; }
+        .text-green-accent { color: #28E289; }
+        
+        .bg-orange-accent { background-color: #FF6B00; }
+        .text-orange-accent { color: #FF6B00; }
+
+        .brand-gradient {
+            background: linear-gradient(90deg, #0A2240 0%, #0072CE 100%);
+        }
+
+        .icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Sticky Nav */
+        #sticky-nav {
+            transition: top 0.3s;
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Header Section -->
+    <header class="brand-gradient text-white py-8 md:py-12">
+        <div class="container mx-auto px-4 md:px-8 text-center">
+            <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-10 md:h-12" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0A2240/FFFFFF?text=BigChange';">
+                <span class="text-4xl font-light">&times;</span>
+                <!-- Wallace Contracts Logo -->
+                <img src="https://i.ibb.co/pr4qkZZF/colored-logo-2.png" alt="Wallace Contracts Logo" class="h-16 md:h-20" onerror="this.onerror=null;this.src='https://placehold.co/200x80/FFFFFF/0A2240?text=Wallace+Contracts';">
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4">From Manual Processes to Automated Precision</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto">A proposal to empower Wallace Contracts with a unified, digital platform to eliminate spreadsheets and streamline every aspect of your operation.</p>
+        </div>
+    </header>
+
+    <!-- Sticky Nav -->
+    <nav id="sticky-nav" class="fixed top-[-100px] left-0 right-0 bg-white/90 backdrop-blur-sm shadow-md z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-8" onerror="this.onerror=null;this.src='https://placehold.co/150x32/000000/FFFFFF?text=BigChange';">
+                    <span class="text-2xl font-light text-gray-300">&times;</span>
+                    <img src="https://i.ibb.co/pr4qkZZF/colored-logo-2.png" alt="Wallace Contracts Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=Wallace+Contracts';">
+                </div>
+                <div class="hidden md:flex items-center justify-end text-xs">
+                    <a href="#current-state" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Current Position</a>
+                    <a href="#challenges" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Challenges</a>
+                    <a href="#aims" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Goals</a>
+                    <a href="#roi" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">ROI</a>
+                    <a href="#case-study" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Case Study</a>
+                    <a href="#next-steps" class="px-2 py-2 mx-1 rounded-md font-medium text-gray-700 hover:bg-gray-200 transition-colors">Next Steps</a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-700 hover:text-navy focus:outline-none">
+                        <span class="icon">menu</span>
+                    </button>
+                </div>
+            </div>
+             <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden pb-4">
+                <a href="#current-state" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Current Position</a>
+                <a href="#challenges" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Challenges</a>
+                <a href="#aims" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Goals</a>
+                <a href="#roi" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">ROI</a>
+                <a href="#case-study" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Case Study</a>
+                <a href="#next-steps" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:bg-gray-200">Next Steps</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+
+        <!-- Current State of Play Section -->
+        <section id="current-state" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                     <h2 class="text-4xl font-bold text-center text-navy">Our Understanding</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8 max-w-6xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">domain</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Maintenance & Refurbishment Specialists</h4>
+                            <p class="text-gray-600 text-sm">Wallace Contracts is a leading maintenance and refurbishment contractor, delivering a wide range of services on projects of varying scales, from small reactive jobs to large, multi-month contracts.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">groups</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">A Skilled & Growing Team</h4>
+                            <p class="text-gray-600 text-sm">Your operation is powered by a team of skilled operatives, supported by dedicated office staff who manage everything from scheduling to invoicing.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">calculate</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Reliant on Manual Systems</h4>
+                            <p class="text-gray-600 text-sm">The entire business is run on a series of complex Excel spreadsheets, paper forms, and manual processes, which are becoming increasingly difficult to manage as you grow.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pain & Challenges Section -->
+        <section id="challenges" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                <div class="flex justify-center items-center gap-4 mb-12">
+                    <h2 class="text-4xl font-bold text-center text-navy">Pain & Challenges</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-10 max-w-5xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">edit_document</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Over-Reliance on Spreadsheets</h4>
+                            <p class="text-gray-600 text-sm">Every aspect of your operation, from quoting and scheduling to project tracking and timesheets, is managed in separate, disconnected Excel files. This is labour-intensive and creates a high risk of human error.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">sync_problem</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Duplicated Data Entry</h4>
+                            <p class="text-gray-600 text-sm">Information is manually copied and pasted between multiple spreadsheets. Job numbers, employee details, and project costs are entered multiple times, wasting 3-5 hours of admin time per week.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">visibility_off</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Lack of Real-Time Visibility</h4>
+                            <p class="text-gray-600 text-sm">With no live connection between the office and the field, you lack a real-time view of job progress, operative locations, and project profitability, making it difficult to react quickly to issues.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-orange-accent text-3xl mt-1">rule</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Compliance & Safety Gaps</h4>
+                            <p class="text-gray-600 text-sm">Relying on a separate app for vehicle checks and RAMS means there's no way to force completion before a job starts. Chasing operatives for this paperwork is inefficient and creates a compliance risk.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aims & Business Goals Section -->
+        <section id="aims" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                 <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                 </div>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">Aims & Business Goals</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 max-w-5xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">hub</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Create a Single Source of Truth</h4>
+                            <p class="text-gray-600 text-sm">Replace the entire suite of Excel spreadsheets with one, all-in-one platform to manage your customers, jobs, operatives, and financials in a single, connected system.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">model_training</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Automate Manual Processes</h4>
+                            <p class="text-gray-600 text-sm">Eliminate duplicated data entry by creating a seamless flow of information from the initial quote and job booking right through to timesheets and project costing.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">dynamic_feed</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Gain Real-Time Project Control</h4>
+                            <p class="text-gray-600 text-sm">Implement a system that provides live visibility of job progress, costs, and operative locations, allowing you to track profitability and make informed decisions in real-time.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-green-accent text-3xl mt-1">rocket_launch</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Build a Scalable & Professional Platform</h4>
+                            <p class="text-gray-600 text-sm">Move away from systems that are "not scalable forever" and adopt a professional, robust platform that can support your growth and enhance your business's value.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI & Driving Value Section -->
+        <section id="roi" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8">
+                 <div class="flex justify-center items-center space-x-4 md:space-x-8 mb-8">
+                    <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x40/000000/FFFFFF?text=BigChange';">
+                 </div>
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">ROI & Driving Value</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-8 gap-y-10 max-w-5xl mx-auto">
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">schedule</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Save 5+ Hours Per Week on Timesheets</h4>
+                            <p class="text-gray-600 text-sm">Automating your timesheet process by linking job data directly to payroll reports will eliminate the current 3-5 hours of manual data entry, saving over 200 administrative hours a year.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">payments</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Increase Profit Margin Visibility</h4>
+                            <p class="text-gray-600 text-sm">Live tracking of labour, materials, and fuel costs against each job gives you an instant, accurate view of your gross profit, replacing slow, retrospective spreadsheet calculations.</p>
+                        </div>
+                    </div>
+                     <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">check_circle</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Achieve 100% Health & Safety Compliance</h4>
+                            <p class="text-gray-600 text-sm">Forced workflows will ensure vehicle checks and RAMS are completed before operatives can start work, eliminating the need to chase them and guaranteeing your compliance.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-4">
+                        <span class="icon text-energy-blue text-3xl mt-1">engineering</span>
+                        <div>
+                            <h4 class="text-lg font-bold text-navy mb-1">Boost Operative Efficiency</h4>
+                            <p class="text-gray-600 text-sm">With clear digital job sheets, instant access to site information, and optimised scheduling, your operatives can spend more time on site and less time on paperwork or waiting for instructions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Case Study Section -->
+        <section id="case-study" class="py-12 md:py-16">
+            <div class="container mx-auto px-4 md:px-8">
+                <h2 class="text-4xl font-bold text-center text-navy mb-12">Proven Success in Your Sector</h4>
+                <div class="max-w-5xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="p-8 flex flex-col justify-center">
+                            <h3 class="text-3xl font-bold text-navy mb-4">Millane Contract Services</h3>
+                            <p class="text-gray-600 mb-6">"BigChange has completely transformed our health and safety management. The forced-step workflows ensure that our operatives complete all necessary checks before starting work. We now have a perfect, real-time audit trail for every job, which is invaluable for our commercial contracts."</p>
+                            <a href="https://www.bigchange.com/success-stories/bigchange-technology-helps-millane-contract-services-keep-on-top-of-workforce-health-and-safety" target="_blank" class="mt-auto inline-block bg-energy-blue text-white font-bold py-3 px-5 rounded-lg hover:bg-navy transition duration-300 text-center w-full sm:w-auto">
+                                Read Full Case Study
+                            </a>
+                        </div>
+                        <div class="md:h-full h-64">
+                             <img src="https://i.ibb.co/YFDptP7B/67d96ba2753e517f086ea0c6-Millane.jpg" alt="Millane Contract Services Team" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/CCCCCC/FFFFFF?text=Millane+Contracts'">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <!-- Watch Back Demo Section -->
+        <section id="next-steps" class="py-12 md:py-16 bg-white">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <span class="icon text-energy-blue text-6xl mb-4">videocam</span>
+                    <h2 class="text-4xl font-bold text-navy mb-4">Re-Watch Your Discovery Meeting</h2>
+                    <p class="text-gray-600 mb-8 text-lg">Share the recording of our on-site discussion with your team to review the key challenges and see how BigChange provides the solution to transform your operations.</p>
+                    <a href="https://app.fireflies.ai/view/BigChange-Wallace-Contracts-OnSite-Meeting::01K47EYQWZN0G5AP031M5Q08YV" target="_blank" class="inline-block bg-navy hover:bg-energy-blue text-white font-bold py-4 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+                        Watch Back The Demo
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-navy text-white">
+        <div class="container mx-auto px-4 md:px-8 py-12 text-center">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-10 mx-auto mb-4" onerror="this.onerror=null;this.src='https://placehold.co/200x50/0A2240/FFFFFF?text=BigChange';">
+            <h2 class="text-3xl font-bold">Ready for your BigChange?</h2>
+            <p class="text-gray-300 mt-2 mb-6">Let's make your business unstoppable.</p>
+            <p class="text-xs text-gray-400 mt-8">This proposal has been built specifically for Wallace Contracts.</p>
+            <p class="text-sm text-gray-500 mt-8">&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Sticky Nav functionality
+            const nav = document.getElementById('sticky-nav');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            window.onscroll = function() {
+                if (window.pageYOffset > headerHeight) {
+                    nav.style.top = "0";
+                } else {
+                    nav.style.top = "-100px";
+                }
+            };
+
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu on link click
+            const mobileLinks = document.querySelectorAll('#mobile-menu a, #sticky-nav a[href^="#"]');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if(!mobileMenu.classList.contains('hidden')){
+                         mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+
