@@ -1,0 +1,473 @@
+<!--
+  EDIT SUMMARY & GUIDE
+
+  Welcome! This is the pre-meeting landing page for the e.Surv discovery call.
+  It's based on the 'MFM.html' template and populated with details
+  extracted from the BDR call transcript with Kate.
+
+  QUICK EDIT POINTS:
+  1.  UPDATE LOGO: The e.Surv logo is currently a placeholder. Replace the URL in the #hero section.
+  2.  REVIEW CONTENT: All placeholder text has been replaced with content from the transcript. Review for accuracy. The main content is also available for editing in the JSON data block at the bottom of this file (`#premeeting-data`).
+  3.  MEETING LINK: The "Join Meeting" button in the #hero section links to a placeholder. Update the `href` with the correct meeting URL.
+  4.  AGENDA & CRITERIA: The agenda in `#agenda` is now tailored to the call. Adjust as needed.
+  5.  POST-MEETING WORKSPACE: The section with id `#tbc` is the post-meeting area. After the call, you will remove the 'tbc-overlay' div and populate the divs with `data-slot` attributes (e.g., data-slot="summary").
+
+  KEY SECTION IDs FOR NAVIGATION & EDITING:
+  - #hero: Main header section
+  - #at-a-glance: Quick summary cards
+  - #what-we-heard: Pains and Desired Outcomes
+  - #hypotheses: Your pre-meeting hypotheses
+  - #agenda: The discovery meeting agenda
+  - #tbc: The "To Be Continued" section for post-meeting updates
+-->
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discovery Prep: e.Surv × BigChange</title>
+    <meta name="description" content="Pre-meeting summary and agenda for the discovery session between e.Surv and BigChange, based on the initial qualification call.">
+    <meta name="author" content="Naomi Chew, BigChange">
+
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="Discovery Prep: e.Surv × BigChange">
+    <meta property="og:description" content="A summary of our understanding so far and the agenda for our upcoming discovery meeting.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png"> <!-- Using BigChange logo as a generic preview image -->
+
+    <!-- Inline CSS for Single-File Deployment -->
+    <style>
+        /* CSS Reset & Base Styles from MFM.html baseline */
+        :root {
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #333;
+            --bc-white: #FFFFFF;
+            --bc-muted-grey: #6b7280;
+            --bc-border-grey: #e5e7eb;
+
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* General Layout & Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-12) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); max-width: 800px; margin-left: auto; margin-right: auto; }
+        .section-title .icon {
+            color: var(--bc-energy-blue);
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-4);
+        }
+        .section-title p { color: var(--bc-muted-grey); }
+
+        /* Buttons */
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-2);
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: rgba(255, 255, 255, 0.1); color: var(--bc-white); border-color: rgba(255, 255, 255, 0.5); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+        .btn .icon { width: 20px; height: 20px; }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: var(--spacing-12);
+            padding-bottom: var(--spacing-12);
+            text-align: center;
+        }
+        #hero h1, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+
+        /* At a Glance Cards */
+        .glance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-6); }
+        .glance-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .glance-card h4 { color: var(--bc-energy-blue); font-size: 1rem; margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: var(--spacing-2); }
+        .glance-card h4 .icon { width: 20px; height: 20px; }
+        .glance-card .value { font-size: 1.5rem; font-weight: 600; color: var(--bc-navy); }
+        
+        .kpi-banner {
+            background: linear-gradient(45deg, var(--bc-energy-blue), #005bb5);
+            color: var(--bc-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: var(--spacing-12);
+        }
+        .kpi-banner h3 { color: var(--bc-white); }
+
+        /* Two-column layout */
+        .two-col-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .col-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .col-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .col-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .col-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .col-card li::before {
+            content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%;
+        }
+        .pains-list li::before { background-color: var(--bc-orange); }
+        .outcomes-list li::before { background-color: var(--bc-green); }
+        .callout {
+            background-color: var(--bc-white);
+            padding: var(--spacing-4);
+            border-radius: var(--border-radius);
+            margin-top: var(--spacing-2);
+            font-style: italic;
+            border-left: 4px solid var(--bc-energy-blue);
+            position: relative;
+        }
+
+        /* Hypotheses & Agenda */
+        .hypothesis-list { list-style: none; display: flex; flex-direction: column; gap: var(--spacing-4); }
+        .hypothesis-item { background-color: var(--bc-white); border: 1px solid var(--bc-border-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .hypothesis-item p:first-of-type { font-weight: 600; color: var(--bc-navy); }
+        .hypothesis-item .validation { color: var(--bc-muted-grey); font-size: 0.9rem; margin-top: var(--spacing-2); display: flex; align-items: center; gap: var(--spacing-2); }
+        .validation .icon { width: 18px; height: 18px; color: var(--bc-energy-blue); flex-shrink: 0; }
+        
+        #agenda { background-color: var(--bc-light-grey); }
+        .timeline { list-style: none; max-width: 700px; margin: auto; }
+        .timeline-item { position: relative; padding-bottom: var(--spacing-6); padding-left: var(--spacing-8); border-left: 2px solid var(--bc-border-grey); }
+        .timeline-item:last-child { border-left: none; padding-bottom: 0; }
+        .timeline-item::before { content: ''; position: absolute; left: -11px; top: 0; width: 20px; height: 20px; background-color: var(--bc-white); border: 4px solid var(--bc-energy-blue); border-radius: 50%; }
+        .timeline-item .time { font-weight: 700; color: var(--bc-energy-blue); }
+
+        /* TBC Section */
+        #tbc { position: relative; background-color: var(--bc-light-grey); }
+        .tbc-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: rgba(244, 244, 244, 0.8);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            z-index: 10;
+            border-radius: var(--border-radius);
+        }
+        .tbc-content-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-6); filter: blur(4px); }
+        .tbc-placeholder-card { background-color: var(--bc-white); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .tbc-badge { background-color: var(--bc-orange); color: var(--bc-white); padding: var(--spacing-2) var(--spacing-4); border-radius: 999px; font-weight: 600; }
+
+        /* Footer */
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; text-align: center; }
+        footer .container { display: flex; flex-direction: column; align-items: center; gap: var(--spacing-4); }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .two-col-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: var(--spacing-8) 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <img src="https://iili.io/K0YbBja.md.png" alt="e.Surv Logo" style="height: 50px;">
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px;">
+                </div>
+                <h1>Discovery Prep: e.Surv × BigChange</h1>
+                <p class="subhead">A focused session to explore how BigChange can address your scheduling, routing, and operational challenges, building on what we learned from our initial call.</p>
+                <div class="cta-buttons">
+                    <a href="https://meet.google.com/rzd-mwtd-xrv" target="_blank" class="btn btn-primary">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9A2.25 2.25 0 0013.5 5.25h-9A2.25 2.25 0 002.25 7.5v9A2.25 2.25 0 004.5 18.75z" /></svg>
+                        Join Meeting
+                    </a>
+                    <button class="btn btn-secondary" id="shareBtn">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 100-2.186m0 2.186c-.18-.324-.283-.696-.283-1.093s.103-.77.283-1.093m0-2.186l-9.566-5.314" /></svg>
+                        Share with Team
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="at-a-glance">
+            <div class="container">
+                <div class="glance-grid">
+                    <div class="glance-card">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6.375M9 12h6.375m-6.375 5.25h6.375M5.25 9h1.5m-1.5 3h1.5m-1.5 3h1.5" /></svg>Company Snapshot</h4>
+                        <p class="value">e.surv</p>
+                        <p class="description text-muted">Chartered Surveyors</p>
+                    </div>
+                    <div class="glance-card">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.962a3.75 3.75 0 015.908 0M13.5 9.75a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM3.75 6.375a3.75 3.75 0 117.5 0 3.75 3.75 0 01-7.5 0z" /></svg>Field Team Size</h4>
+                        <p class="value">~550-600 Surveyors</p>
+                        <p class="description text-muted">Nationwide Coverage</p>
+                    </div>
+                     <div class="glance-card">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Job Volume</h4>
+                        <p class="value">2,500-3,000</p>
+                        <p class="description text-muted">Jobs per day</p>
+                    </div>
+                    <div class="glance-card">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5" /></svg>Current Tools</h4>
+                        <p class="value">Bespoke Case Mgmt</p>
+                        <p class="description text-muted">Totality iPad App</p>
+                    </div>
+                </div>
+                 <div class="kpi-banner">
+                    <h3>Today's Target Outcomes</h3>
+                    <p>Improve routing efficiency, enhance surveyor work-life balance, and explore flexible, modern software solutions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="what-we-heard">
+            <div class="container">
+                <div class="section-title">
+                    <h2>What We Heard on the BDR Call</h2>
+                    <p>A summary of the key pains and objectives discussed with Kate during our initial conversation.</p>
+                </div>
+                <div class="two-col-grid">
+                    <div class="col-card">
+                        <h3>Observed Pains</h3>
+                        <ul class="pains-list">
+                            <li><strong>Inefficient Routing:</strong> Surveyors often cross paths or visit the same new housing estate on consecutive days.</li>
+                            <li><strong>Lack of Real-Time Data:</strong> The current system doesn't account for live traffic, roadworks, or allow for on-the-fly adjustments.</li>
+                            <li><strong>Poor Work-Life Balance:</strong> Schedules are sent late the night before, giving surveyors little agency over their work week and personal appointments.</li>
+                            <li>
+                                <strong>Manual Mileage Claims:</strong> The process is a "nuisance", leading to surveyors not claiming what they're owed because it's "too much hassle".
+                                <div class="callout">"A lot of our surveyors just don't claim the mileage because it's too much hassle."</div>
+                            </li>
+                             <li><strong>Fragmented Mobile Workflow:</strong> Fieldwork on the Totality app requires follow-up work at a home office to complete reports.</li>
+                        </ul>
+                    </div>
+                    <div class="col-card">
+                        <h3>Desired Outcomes</h3>
+                        <ul class="outcomes-list">
+                            <li><strong>Smarter Optimisation:</strong> A system that creates efficient routes and prevents overlapping surveyor paths.</li>
+                             <li><strong>Improved Surveyor Experience:</strong> A primary driver is improving work-life balance by providing schedules further in advance.</li>
+                            <li><strong>Automated Admin:</strong> Eliminate manual tasks like the "lengthy" mileage claims process and timesheets to save time and ensure fairness.</li>
+                            <li><strong>"Go Greener":</strong> Demonstrate effective routing to lenders as part of Net Zero initiatives.</li>
+                            <li><strong>Flexible & Modern Software:</strong> Explore modular solutions that can integrate with existing systems and provide better, more modern functionality.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="hypotheses" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Hypotheses to Validate</h2>
+                    <p>Some initial thoughts we'd like to explore with you during our discovery session today.</p>
+                </div>
+                <ul class="hypothesis-list">
+                    <li class="hypothesis-item">
+                        <p>Sub-optimal routing is leading to an estimated 10-15% excess mileage and is a source of frustration for surveyors.</p>
+                        <p class="validation"><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg><strong>Validation Method:</strong> Review sample routes and show BigChange's dynamic, traffic-aware routing engine.</p>
+                    </li>
+                    <li class="hypothesis-item">
+                        <p>The lack of advance scheduling is a key factor impacting surveyor work-life balance and contributes to attrition.</p>
+                         <p class="validation"><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg><strong>Validation Method:</strong> Discuss surveyor feedback and demonstrate multi-day scheduling and leave management in BigChange.</p>
+                    </li>
+                    <li class="hypothesis-item">
+                        <p>Automating mileage claims for the mixed fleet could save each surveyor 1-2 hours per month and resolve a significant fairness issue.</p>
+                         <p class="validation"><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg><strong>Validation Method:</strong> Walk through automated mileage capture via tracking and its application for both fleet and allowance vehicles.</p>
+                    </li>
+                    <li class="hypothesis-item">
+                        <p>A flexible, modular job management solution could integrate with your core case management system to solve the routing problem without requiring a full replacement.</p>
+                         <p class="validation"><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg><strong>Validation Method:</strong> Discuss our open API and show examples of how we integrate with bespoke ERP/CRM systems.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="agenda">
+            <div class="container">
+                <div class="section-title">
+                     <h2>Today’s Discovery Agenda</h2>
+                     <p>A plan for our 60-minute session to ensure we make the best use of your time.</p>
+                </div>
+                <ul class="timeline">
+                    <li class="timeline-item">
+                        <p class="time">5 mins</p>
+                        <p><strong>Introductions & Objectives:</strong> Align on the key goals for today's session.</p>
+                    </li>
+                    <li class="timeline-item">
+                        <p class="time">15 mins</p>
+                        <p><strong>'Day in the Life' Walkthrough:</strong> Understanding the current workflow from job creation to completion.</p>
+                    </li>
+                     <li class="timeline-item">
+                        <p class="time">20 mins</p>
+                        <p><strong>Pain Deep-Dive & Tailored Demo:</strong> Focusing on scheduling, routing, and the surveyor mobile experience.</p>
+                    </li>
+                    <li class="timeline-item">
+                        <p class="time">10 mins</p>
+                        <p><strong>Exploring Modularity:</strong> Discussing how BigChange can integrate or work alongside your existing systems.</p>
+                    </li>
+                     <li class="timeline-item">
+                        <p class="time">10 mins</p>
+                        <p><strong>Recap & Mutual Action Plan:</strong> Defining clear next steps and success criteria.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- TBC_START -->
+        <section id="tbc" data-phase="post-discovery" aria-disabled="true">
+            <div class="container">
+                 <div class="tbc-overlay">
+                    <div class="section-title">
+                        <span class="tbc-badge">To Be Continued</span>
+                        <h2 style="margin-top: var(--spacing-4);">Post-Meeting Workspace</h2>
+                        <p>This section will be updated right after our Discovery session with a summary and a tailored action plan.</p>
+                    </div>
+                </div>
+                <div class="tbc-content-grid">
+                    <div id="tbc-summary" data-slot="summary" class="tbc-placeholder-card"><h4>Meeting Summary</h4><p><!-- TODO: Insert meeting summary --></p></div>
+                    <div id="tbc-pains" data-slot="confirmed-pains" class="tbc-placeholder-card"><h4>Confirmed Pains & Impact</h4><p><!-- TODO: Insert confirmed pains & quantified impact --></p></div>
+                    <div id="tbc-solution" data-slot="solution" class="tbc-placeholder-card"><h4>Configured Solution</h4><p><!-- TODO: Insert configured solution overview --></p></div>
+                    <div id="tbc-integrations" data-slot="integrations" class="tbc-placeholder-card"><h4>Integrations & Data</h4><p><!-- TODO: Insert integrations & data migration plan --></p></div>
+                    <div id="tbc-commercials" data-slot="commercials" class="tbc-placeholder-card"><h4>Commercials Snapshot</h4><p><!-- TODO: Insert high-level commercials snapshot --></p></div>
+                    <div id="tbc-map" data-slot="mutual-action-plan" class="tbc-placeholder-card"><h4>Mutual Action Plan</h4><p><!-- TODO: Insert mutual action plan timeline --></p></div>
+                </div>
+            </div>
+        </section>
+        <!-- TBC_END -->
+
+    </main>
+    
+    <footer>
+        <div class="container">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px;">
+            <p>A partnership for growth.</p>
+             <div class="cta-buttons">
+                <a href="mailto:serge.fagelman@bigchange.com?cc=Naomi.chew@bigchange.com&subject=BigChange%20-%20Follow%20Up%20-%20E.Surv" class="btn btn-primary">Book Follow-up</a>
+            </div>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-4);">&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Embedded Data Block for easy iteration -->
+    <script type="application/json" id="premeeting-data">
+    {
+      "company": {
+        "name": "e.surv",
+        "sector": "Chartered Surveyors",
+        "hq": "Nationwide, UK",
+        "fleetSize": "550-600 surveyors",
+        "serviceTypes": ["Valuations", "Home Surveys"],
+        "currentSystems": "Bespoke Case Management System & Totality iPad App",
+        "jobVolume": "2,500-3,000 per day",
+        "integrations": "Open to integration via API"
+      },
+      "pains": [
+        "Inefficient routing: Surveyors crossing paths or making repeat site visits.",
+        "Lack of real-time data: No accounting for live traffic or roadworks.",
+        "Poor surveyor work-life balance due to late-night scheduling.",
+        "Cumbersome, manual mileage claim process is a 'nuisance' and often skipped.",
+        "Fragmented mobile workflow requires report completion at home office."
+      ],
+      "outcomes": [
+        "Improve routing to enhance surveyor work-life balance (Primary Driver).",
+        "Automate administrative tasks, especially mileage claims.",
+        "Explore flexible, modular software that can integrate with existing systems.",
+        "Increase operational efficiency and potentially complete more jobs.",
+        "Support 'Green' initiatives for lenders via optimized routing."
+      ],
+      "stakeholders": [
+        { "name": "Kate", "role": "Head of Business Analysis" },
+        { "name": "3x Regional Operations Directors", "role": "Key Decision Makers" }
+      ],
+      "constraints": {
+        "timings": "Early evaluation stage",
+        "budget": "[Not discussed]",
+        "integrations": "High preference for a modular solution that can integrate with their complex, in-house system.",
+        "dataMigration": "Data from bespoke system is a key consideration."
+      },
+      "timeline": "Currently in supplier discovery phase, seeking to understand possibilities.",
+      "agenda": [
+        { "time": "5m", "topic": "Introductions & Objectives" },
+        { "time": "15m", "topic": "Current Workflow Walkthrough" },
+        { "time": "20m", "topic": "Pain Deep-Dive & Tailored Demo" },
+        { "time": "10m", "topic": "Exploring Modularity & Integration" },
+        { "time": "10m", "topic": "Recap & Mutual Action Plan" }
+      ]
+    }
+    </script>
+    
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        // --- Share Button ---
+        const shareBtn = document.getElementById('shareBtn');
+        if (shareBtn) {
+            shareBtn.addEventListener('click', () => {
+                const pageUrl = window.location.href;
+                // Using deprecated execCommand for broader iframe compatibility
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = pageUrl;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                
+                const originalHTML = shareBtn.innerHTML;
+                shareBtn.innerHTML = 'Link Copied!';
+                setTimeout(() => {
+                    shareBtn.innerHTML = originalHTML;
+                }, 2000);
+            });
+        }
+    });
+    </script>
+</body>
+</html>
+
+
