@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alben Landscapes & Housing21 - A New Standard in Service</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Roboto Flex & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,700;8..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Google Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <style>
+        /* Custom styles for presentation layout */
+        html, body {
+            scroll-behavior: smooth;
+            height: 100%;
+            overflow: hidden; /* Hide default scrollbar */
+        }
+        .presentation-container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+        }
+        .slide {
+            height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 700;
+        }
+
+        .bg-alben-green { background-color: #8EC540; }
+        .text-alben-green { color: #8EC540; }
+        .border-alben-green { border-color: #8EC540; }
+        .bg-navy { background-color: #0A2240; }
+        .text-navy { color: #0A2240; }
+        .bg-energy-blue { background-color: #0072CE; }
+        .text-energy-blue { color: #0072CE; }
+        
+        .brand-gradient { background: linear-gradient(90deg, #0A2240 0%, #004b85 100%); }
+
+        .icon {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal; font-style: normal; font-size: 24px;
+            line-height: 1; letter-spacing: normal; text-transform: none;
+            display: inline-block; white-space: nowrap; word-wrap: normal;
+            direction: ltr; -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Side Navigation */
+        #side-nav {
+            position: fixed;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            z-index: 50;
+        }
+        #side-nav ul { list-style: none; padding: 0; margin: 0; }
+        #side-nav li { margin: 12px 0; position: relative; }
+        #side-nav a {
+            display: block; width: 12px; height: 12px;
+            background-color: rgba(10, 34, 64, 0.3);
+            border-radius: 50%; transition: all 0.3s ease;
+        }
+        #side-nav a.active {
+            background-color: #8EC540;
+            transform: scale(1.5);
+        }
+        #side-nav .tooltip {
+            position: absolute; top: 50%; right: 25px;
+            transform: translateY(-50%); background-color: #0A2240;
+            color: white; padding: 4px 10px; border-radius: 5px;
+            font-size: 12px; white-space: nowrap; opacity: 0;
+            visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        #side-nav li:hover .tooltip { opacity: 1; visibility: visible; }
+        
+        /* Scroll Down Arrow */
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            animation: bounce-vertical 2s infinite;
+        }
+        @keyframes bounce-vertical {
+            0%, 20%, 50%, 80%, 100% { transform: translate(-50%, 0); }
+            40% { transform: translate(-50%, -15px); }
+            60% { transform: translate(-50%, -7px); }
+        }
+
+        /* Feature Hub Styles */
+        .platform-hub-container {
+            position: relative; width: 100%; max-width: 600px;
+            aspect-ratio: 1 / 1; margin: auto;
+        }
+        .hub-center {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%); width: 140px; height: 140px;
+            background-color: #0A2240; border-radius: 50%; display: flex;
+            flex-direction: column; justify-content: center; align-items: center;
+            color: white; z-index: 10; box-shadow: 0 0 20px rgba(10, 34, 64, 0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(0, 114, 206, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 114, 206, 0); }
+        }
+        .hub-node {
+            position: absolute; width: 90px; height: 90px; display: flex;
+            flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: white; border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+            z-index: 5; padding: 8px; border: 3px solid transparent;
+        }
+        .hub-node.active, .hub-node:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 114, 206, 0.3);
+            border-color: #0072CE; z-index: 20;
+        }
+        .hub-node .icon { font-size: 28px; color: #0072CE; }
+        .hub-node .feature-name {
+            font-size: 9px; font-weight: 600; margin-top: 5px;
+            color: #0A2240; line-height: 1.2;
+        }
+        .hub-line {
+            position: absolute; background-color: #d1d5db; height: 2px;
+            transform-origin: left center; z-index: 1;
+        }
+        #feature-display-content { transition: opacity 0.4s ease-in-out; }
+
+        /* Connected Workflow Styles */
+        .workflow-node {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .workflow-node:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 114, 206, 0.2);
+        }
+
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Side Navigation -->
+    <nav id="side-nav">
+        <ul><!-- Links will be dynamically generated by JS --></ul>
+    </nav>
+
+    <!-- Fullscreen Button -->
+    <button id="fullscreen-btn" class="fixed bottom-5 right-5 z-50 bg-navy text-white rounded-full p-2 shadow-lg hover:bg-energy-blue transition-colors">
+        <span class="icon">fullscreen</span>
+    </button>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Home -->
+        <header id="home" class="slide brand-gradient text-white">
+            <div class="container mx-auto px-4 md:px-8 relative z-10 w-full">
+                <div class="grid md:grid-cols-5 items-center">
+                    <div class="md:col-span-3 text-center md:text-left">
+                        <div class="flex justify-center md:justify-start items-center space-x-4 md:space-x-8 mb-8">
+                            <img src="https://iili.io/FPBJP8x.md.png" alt="Alben Landscapes Logo" class="h-16 md:h-20" onerror="this.onerror=null;this.src='https://placehold.co/200x96/FFFFFF/0A2240?text=Alben+Landscapes';">
+                            <span class="text-4xl font-light opacity-50">&times;</span>
+                            <img src="https://iili.io/KGM15Bf.md.png" alt="Housing21 Logo" class="h-16 md:h-20" onerror="this.onerror=null;this.src='https://placehold.co/200x80/FFFFFF/0A2240?text=Housing21';">
+                        </div>
+                        <h1 class="text-4xl lg:text-5xl font-extrabold mb-4">Enhancing Our Partnership</h1>
+                        <p class="text-lg lg:text-xl max-w-lg mx-auto md:mx-0">Introducing a new system to elevate your customer experience and provide unparalleled transparency.</p>
+                        <div class="flex justify-center md:justify-start items-center gap-2 mt-4">
+                            <span class="text-gray-300 text-sm">Powered by</span>
+                            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" class="h-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div class="hidden md:block absolute top-0 right-0 h-full w-2/5 lg:w-1/2" style="clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);">
+                <img src="https://iili.io/KGMoffa.md.jpg" alt="Alben Landscapes operative working" class="w-full h-full object-cover object-center">
+            </div>
+            <a href="#commitment" class="scroll-down"><span class="icon text-white text-4xl">keyboard_arrow_down</span></a>
+        </header>
+
+        <main>
+            <!-- Slide 2: Our Commitment -->
+            <section id="commitment" class="slide bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-4xl font-bold text-navy">Our Commitment to You</h2>
+                            <p class="text-lg text-gray-700 mt-6">At Alben Landscapes, our partnership with Housing21 is our priority. We are continuously looking for ways to improve our service and deliver the best possible experience for you and your residents.</p>
+                            <p class="text-lg text-gray-700 mt-4">That's why we're making a significant investment in a new, state-of-the-art job management system. This upgrade is designed with one goal in mind: to provide you with an even more transparent, efficient, and reliable service.</p>
+                        </div>
+                        <div class="rounded-lg shadow-xl overflow-hidden h-[60vh]">
+                            <img src="https://iili.io/KGMo3WF.md.jpg" alt="Alben Landscapes team at work" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <a href="#communication" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+            
+            <!-- Slide 3: Enhanced Communication -->
+            <section id="communication" class="slide bg-gray-50">
+                 <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="rounded-lg shadow-xl overflow-hidden h-[60vh] order-2 md:order-1 bg-gray-200">
+                             <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/65855b4550222d41b127e0d2_6568bdefafc4a4b39f574f85_Live%20Tracking-desktop-1-min.webp" alt="Live tracking map from BigChange" class="w-full h-full object-contain">
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <h2 class="text-4xl font-bold text-navy">Unparalleled Communication</h2>
+                            <p class="text-lg text-gray-700 mt-6">Say goodbye to uncertainty. Our new system provides proactive, real-time communication at every stage of a job.</p>
+                            <div class="mt-6 space-y-4">
+                                <div class="flex items-start"><span class="icon text-energy-blue text-3xl mr-3">notifications</span><div><h3 class="font-bold text-navy text-lg">Automated Reminders</h3><p class="text-gray-600">Receive automatic reminders for upcoming scheduled visits at a pre-agreed timeframe, ensuring your teams and residents are always prepared.</p></div></div>
+                                <div class="flex items-start"><span class="icon text-energy-blue text-3xl mr-3">sms</span><div><h3 class="font-bold text-navy text-lg">'On the Day' ETA Updates</h3><p class="text-gray-600">On the day of the visit, you'll receive messages with an accurate estimated time of arrival.</p></div></div>
+                                <div class="flex items-start"><span class="icon text-energy-blue text-3xl mr-3">pin_drop</span><div><h3 class="font-bold text-navy text-lg">Live Operative Tracking</h3><p class="text-gray-600">When our team is on their way, you'll get an 'en-route' notification with a link to an 'Uber-style' map to track their progress right to your site.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#portal" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+
+            <!-- Slide 4: Client Portal -->
+            <section id="portal" class="slide bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-4xl font-bold text-navy">Your Client Portal: Full Visibility</h2>
+                            <p class="text-lg text-gray-700 mt-6">We're giving you direct access to your own secure client portal, putting all the information you need at your fingertips, 24/7.</p>
+                            <div class="mt-6 space-y-4">
+                                <div class="flex items-start"><span class="icon text-alben-green text-3xl mr-3">history</span><div><h3 class="font-bold text-navy text-lg">Access Historic Job Reports</h3><p class="text-gray-600">Instantly look back at any previous visit, complete with photographic evidence and detailed reports of the work carried out.</p></div></div>
+                                <div class="flex items-start"><span class="icon text-alben-green text-3xl mr-3">event_upcoming</span><div><h3 class="font-bold text-navy text-lg">View Upcoming Visits</h3><p class="text-gray-600">Easily see a full schedule of all upcoming maintenance visits and project work across all your sites.</p></div></div>
+                                <div class="flex items-start"><span class="icon text-alben-green text-3xl mr-3">request_quote</span><div><h3 class="font-bold text-navy text-lg">Review Invoices & Quotes</h3><p class="text-gray-600">Access invoices, review quotes for additional work, and approve them directly within the portal for maximum efficiency.</p></div></div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg shadow-xl overflow-hidden h-[60vh]">
+                            <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/6612c5f1e1e58fc04080c900_6549341ae3c6c7b12b646fa9_Reporting.avif" alt="Reporting dashboard from BigChange" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <a href="#real-time" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+            
+             <!-- Slide 5: Real-Time Updates -->
+            <section id="real-time" class="slide bg-gray-50">
+                 <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div class="rounded-lg shadow-xl overflow-hidden h-[60vh] order-2 md:order-1">
+                             <img src="https://iili.io/KGMoFig.md.jpg" alt="Alben operative using a tablet on site" class="w-full h-full object-cover">
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <h2 class="text-4xl font-bold text-navy">Real-Time Updates from Site</h2>
+                            <p class="text-lg text-gray-700 mt-6">Our field teams are now equipped with a mobile app that connects them directly to the back-office and your client portal.</p>
+                             <div class="mt-6 space-y-4">
+                                <div class="flex items-start"><span class="icon text-energy-blue text-3xl mr-3">camera_alt</span><div><h3 class="font-bold text-navy text-lg">Instant Proof of Work</h3><p class="text-gray-600">As soon as work is completed, our operatives upload time-stamped photos, notes, and completion reports directly from site.</p></div></div>
+                                <div class="flex items-start"><span class="icon text-energy-blue text-3xl mr-3">fact_check</span><div><h3 class="font-bold text-navy text-lg">Accurate, Digital Records</h3><p class="text-gray-600">This means you get instant, accurate, and verifiable records of all work carried out, providing a full audit trail and peace of mind.</p></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#compliance" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+
+            <!-- Slide 6: Compliance & Safety -->
+            <section id="compliance" class="slide bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <h2 class="text-4xl font-bold text-navy">Enhanced Compliance & Safety</h2>
+                            <p class="text-lg text-gray-700 mt-6">Health and safety is integral to our operations. Our new system digitises and automates our compliance processes, ensuring the highest standards are met on every visit.</p>
+                             <div class="mt-6 space-y-4">
+                                <div class="flex items-start"><span class="icon text-alben-green text-3xl mr-3">health_and_safety</span><div><h3 class="font-bold text-navy text-lg">Digital Risk Assessments</h3><p class="text-gray-600">Site-specific risk assessments and pre-start safety checks are now mandatory steps built into every job workflow on the mobile app.</p></div></div>
+                                <div class="flex items-start"><span class="icon text-alben-green text-3xl mr-3">assignment_turned_in</span><div><h3 class="font-bold text-navy text-lg">Complete Audit Trail</h3><p class="text-gray-600">Every completed check, signature, and report is digitally filed against the job, creating a robust, easily accessible audit trail for full compliance.</p></div></div>
+                            </div>
+                        </div>
+                        <div class="rounded-lg shadow-xl overflow-hidden h-[60vh]">
+                            <img src="https://iili.io/KGMoq0J.md.jpg" alt="Alben team working on a commercial site" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <a href="#awards" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+
+            <!-- Slide 7: Awards -->
+            <section id="awards" class="slide bg-gray-50">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center">
+                        <img src="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png" alt="BigChange Logo" class="h-12 mx-auto mb-4">
+                        <h2 class="text-4xl font-bold text-navy">Powered by an Award-Winning Platform</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4 mb-10">We've invested in a platform recognised for innovation and impact to bring you the best service.</p>
+                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-x-10 gap-y-8 flex-wrap justify-center items-center max-w-5xl mx-auto">
+                            <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/668d21f2d963b4f39907291e_QA-logo-2020-landscape%201.png" alt="Queen's Award" class="h-12 object-contain mx-auto">
+                            <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/667ec028b610000d4d4ccdc6_image001.png" alt="Megabuyte Award" class="h-12 object-contain mx-auto">
+                            <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/668bb8644702609993b90d99_Lloyds%20award.png" alt="Lloyds Bank Award" class="h-12 object-contain mx-auto">
+                            <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/667956b1d567d2c78ed10968_TechTrack%20logos.webp" alt="Tech Track 100" class="h-12 object-contain mx-auto">
+                            <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/667956b12608a890b58f29f9_BCA2022_company_2star.png" alt="Best Companies" class="h-12 object-contain mx-auto">
+                            <img src="https://cdn.prod.website-files.com/652cf498161daabd6b40ba1b/667956b14e69067cb12fe544_FT.webp" alt="Financial Times 1000" class="h-12 object-contain mx-auto">
+                        </div>
+                    </div>
+                </div>
+                <a href="#features" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+            
+            <!-- Slide 8: Features -->
+            <section id="features" class="slide bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-navy">One Connected System for a Seamless Service</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">Our new platform connects our back-office, mobile workforce, and fleet to provide a seamless experience for you. Click on a feature to learn more.</p>
+                    </div>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                        <div id="feature-display" class="bg-gray-50 p-8 rounded-lg min-h-[400px] lg:min-h-[500px] flex flex-col justify-center">
+                            <div id="feature-display-content"></div>
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <div id="platform-hub" class="platform-hub-container">
+                                <div class="hub-center">
+                                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Platform" class="w-24 h-auto">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#workflow" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+
+            <!-- Slide 9: Workflow -->
+            <section id="workflow" class="slide bg-gray-50">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-navy">Your Service, Connected</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">See how our new system creates a seamless flow of information from the first job request to the final report.</p>
+                    </div>
+                    <div class="relative max-w-5xl mx-auto">
+                        <!-- Central Hub -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+                            <div class="w-48 h-48 bg-navy rounded-full flex items-center justify-center shadow-2xl z-10">
+                                <span class="icon text-white text-5xl animate-pulse">hub</span>
+                            </div>
+                        </div>
+                        <!-- Connector Lines -->
+                        <div class="absolute top-1/2 left-1/2 w-px h-full -translate-y-1/2 bg-gray-300"></div>
+                        <div class="absolute top-1/2 left-1/2 h-px w-full -translate-x-1/2 bg-gray-300"></div>
+                        
+                        <!-- Feature Nodes -->
+                        <div class="grid grid-cols-2 grid-rows-2 gap-20">
+                            <div class="flex justify-center items-center">
+                                <div class="workflow-node bg-white p-6 rounded-lg shadow-lg text-center w-64">
+                                    <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/6612c5f16cab1ffc658d2124_65a93fd08f46cf9d52909be6_CRM-mobile.avif" alt="CRM" class="w-full h-32 object-contain rounded-md mb-4">
+                                    <h3 class="text-xl font-bold text-navy mb-2">Your Request</h3>
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <div class="workflow-node bg-white p-6 rounded-lg shadow-lg text-center w-64">
+                                    <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/6612c5f22a6aba8cccc3330a_65a6c2222bd0f15e91c64fbb_Scheduling-mobile-min.avif" alt="Scheduling" class="w-full h-32 object-contain rounded-md mb-4">
+                                    <h3 class="text-xl font-bold text-navy mb-2">Scheduling</h3>
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <div class="workflow-node bg-white p-6 rounded-lg shadow-lg text-center w-64">
+                                    <img src="https://iili.io/KGMoFig.md.jpg" alt="Mobile App" class="w-full h-32 object-cover rounded-md mb-4">
+                                    <h3 class="text-xl font-bold text-navy mb-2">Our Team on Site</h3>
+                                </div>
+                            </div>
+                            <div class="flex justify-center items-center">
+                                <div class="workflow-node bg-white p-6 rounded-lg shadow-lg text-center w-64">
+                                    <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/6612c5f1e1e58fc04080c900_6549341ae3c6c7b12b646fa9_Reporting.avif" alt="Vehicle Tracking" class="w-full h-32 object-contain rounded-md mb-4">
+                                    <h3 class="text-xl font-bold text-navy mb-2">Job Reports & Invoicing</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="#summary" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+            
+            <!-- Slide 10: Summary -->
+            <section id="summary" class="slide bg-white">
+                <div class="container mx-auto px-4 md:px-8">
+                    <div class="text-center mb-12">
+                        <h2 class="text-4xl font-bold text-navy">Key Benefits for Housing21</h2>
+                        <p class="text-lg text-gray-600 max-w-3xl mx-auto mt-4">This investment translates into direct benefits for you, your teams, and your residents.</p>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                             <span class="icon text-energy-blue text-4xl mb-3">group_add</span>
+                             <h3 class="text-xl font-bold text-navy mb-2">Improved Communication & Transparency</h3>
+                             <p class="text-gray-700">With every job fully visible, you'll get clearer updates and proof of work, reducing back-and-forth communication. You'll know exactly what's happening on site, at all times.</p>
+                        </div>
+                         <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                             <span class="icon text-energy-blue text-4xl mb-3">rocket_launch</span>
+                             <h3 class="text-xl font-bold text-navy mb-2">Faster Response Times</h3>
+                             <p class="text-gray-700">The system allows us to schedule more efficiently. For urgent requests, we can see where our teams are in real-time and get someone to you faster, reducing disruption.</p>
+                        </div>
+                         <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                             <span class="icon text-energy-blue text-4xl mb-3">verified_user</span>
+                             <h3 class="text-xl font-bold text-navy mb-2">Complete Compliance & Audit Trail</h3>
+                             <p class="text-gray-700">All jobs will have a full digital record attached, including dates, signatures, and photos, providing a full compliance trail for audits or tenant reassurance.</p>
+                        </div>
+                         <div class="bg-gray-50 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
+                             <span class="icon text-energy-blue text-4xl mb-3">workspace_premium</span>
+                             <h3 class="text-xl font-bold text-navy mb-2">Consistency & Quality Control</h3>
+                             <p class="text-gray-700">With all workflows built into structured job sheets, our operatives follow the same high standards across all your sites, ensuring nothing gets missed.</p>
+                        </div>
+                    </div>
+                </div>
+                 <a href="#closing" class="scroll-down"><span class="icon text-navy text-4xl">keyboard_arrow_down</span></a>
+            </section>
+        </main>
+
+        <!-- Slide 11: Closing -->
+        <footer id="closing" class="slide brand-gradient text-white">
+            <div class="container mx-auto px-4 md:px-8 text-center">
+                <img src="https://iili.io/FPBJP8x.md.png" alt="Alben Landscapes Logo" class="h-20 mx-auto mb-6" onerror="this.onerror=null;this.src='https://placehold.co/200x80/FFFFFF/0A2240?text=Alben+Landscapes';">
+                <h2 class="text-3xl font-bold">A Stronger Partnership for a Better Resident Experience</h2>
+                <p class="text-lg text-gray-300 mt-4 max-w-2xl mx-auto">We are excited to bring these improvements to our partnership with Housing21 and look forward to delivering this new standard of service.</p>
+                 <p class="text-sm text-gray-500 mt-12">&copy; 2025 Alben Landscapes. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.presentation-container');
+            const sections = document.querySelectorAll('.slide');
+            const navList = document.querySelector('#side-nav ul');
+
+            const sectionMap = {
+                'home': 'Introduction',
+                'commitment': 'Our Commitment',
+                'communication': 'Enhanced Communication',
+                'portal': 'Your Client Portal',
+                'real-time': 'Real-Time Updates',
+                'compliance': 'Compliance & Safety',
+                'awards': 'Award-Winning Platform',
+                'features': 'Platform Features',
+                'workflow': 'Connected Service',
+                'summary': 'Summary of Benefits',
+                'closing': 'Thank You'
+            };
+
+            Object.keys(sectionMap).forEach(id => {
+                const name = sectionMap[id];
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `<a href="#${id}" data-target-id="${id}"></a><span class="tooltip">${name}</span>`;
+                navList.appendChild(listItem);
+            });
+
+            const navLinks = document.querySelectorAll('#side-nav a');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        navLinks.forEach(link => {
+                            link.classList.toggle('active', link.getAttribute('data-target-id') === id);
+                        });
+                    }
+                });
+            }, { root: container, threshold: 0.5 });
+
+            sections.forEach(section => observer.observe(section));
+
+            // Feature Hub Logic
+            const hub = document.getElementById('platform-hub');
+            const featureDisplayContent = document.getElementById('feature-display-content');
+            if(hub && featureDisplayContent) {
+                const features = [
+                    { name: 'Your Enquiries', icon: 'support_agent', desc: 'Manage all customer interactions from a single place. Log calls, track history, and access contact details instantly.' },
+                    { name: 'Quotes & Approvals', icon: 'trending_up', desc: 'We can quickly generate and send quotes for your approval, streamlining the process for any additional works required.' },
+                    { name: 'Plan, Schedule & Dispatch', icon: 'event_available', desc: 'We intelligently assign jobs based on skill, location, and availability, ensuring the right team gets to you efficiently.' },
+                    { name: 'Live Tracking', icon: 'pin_drop', desc: 'Get a real-time view of our team on a live map, providing you with accurate ETAs and progress updates.' },
+                    { name: 'Customer Portal', icon: 'visibility', desc: 'You get a window into our operations. You can track job progress, view reports, and access documents 24/7.' },
+                    { name: 'Jobs & Workflow', icon: 'list_alt', desc: 'We standardise our processes with custom, step-by-step workflows to ensure jobs are completed to the highest standard every time.' },
+                    { name: 'Health & Safety', icon: 'health_and_safety', desc: 'We digitise our safety compliance, creating and managing risk assessments and safety checks within the app on every job.' },
+                    { name: 'Invoicing & Finance', icon: 'request_quote', desc: 'Our system streamlines finances from quote to payment, integrating with accounting software for fast, accurate invoicing.' },
+                ];
+                const updateFeatureDisplay = (feature) => {
+                    featureDisplayContent.style.opacity = 0;
+                    setTimeout(() => {
+                        featureDisplayContent.innerHTML = `<div class="flex items-center mb-4"><span class="icon text-energy-blue text-4xl mr-4">${feature.icon}</span><h3 class="text-3xl font-bold text-navy">${feature.name}</h3></div><p class="text-gray-700">${feature.desc}</p>`;
+                        featureDisplayContent.style.opacity = 1;
+                    }, 200);
+                };
+                const center_x = hub.offsetWidth / 2, center_y = hub.offsetHeight / 2;
+                const radius = hub.offsetWidth / 2 - 45;
+                const angleStep = (2 * Math.PI) / features.length;
+                features.forEach((feature, i) => {
+                    const angle = (i * angleStep) - (Math.PI / 2);
+                    const x = radius * Math.cos(angle) + center_x - 45, y = radius * Math.sin(angle) + center_y - 45;
+                    const node = document.createElement('div');
+                    node.className = 'hub-node';
+                    node.style.left = `${x}px`; node.style.top = `${y}px`;
+                    node.innerHTML = `<span class="icon">${feature.icon}</span><span class="feature-name">${feature.name}</span>`;
+                    node.addEventListener('click', () => { updateFeatureDisplay(feature); document.querySelectorAll('.hub-node.active').forEach(n=>n.classList.remove('active')); node.classList.add('active'); });
+                    const line = document.createElement('div');
+                    line.className = 'hub-line';
+                    const dist = Math.sqrt(Math.pow(x + 45 - center_x, 2) + Math.pow(y + 45 - center_y, 2));
+                    const rot = Math.atan2(y + 45 - center_y, x + 45 - center_x) * (180 / Math.PI);
+                    line.style.width = `${dist - 70}px`; line.style.top = `${center_y}px`; line.style.left = `${center_x}px`; line.style.transform = `rotate(${rot}deg)`;
+                    hub.appendChild(line); hub.appendChild(node);
+                });
+                if(features.length > 0) { updateFeatureDisplay(features[0]); hub.querySelector('.hub-node')?.classList.add('active'); }
+            }
+
+            // Keyboard navigation
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    container.scrollBy({ top: container.clientHeight, behavior: 'smooth' });
+                } else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    container.scrollBy({ top: -container.clientHeight, behavior: 'smooth' });
+                }
+            });
+
+            // Fullscreen logic
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            if (fullscreenBtn) {
+                const fullscreenIcon = fullscreenBtn.querySelector('.icon');
+
+                function toggleFullScreen() {
+                    if (!document.fullscreenElement) {
+                        document.documentElement.requestFullscreen().catch(err => {
+                            console.error(`Error attempting to enable full-screen mode: ${err.message} (${err.name})`);
+                        });
+                    } else {
+                        if (document.exitFullscreen) {
+                            document.exitFullscreen();
+                        }
+                    }
+                }
+
+                fullscreenBtn.addEventListener('click', toggleFullScreen);
+
+                document.addEventListener('fullscreenchange', () => {
+                    if (document.fullscreenElement) {
+                        fullscreenIcon.textContent = 'fullscreen_exit';
+                    } else {
+                        fullscreenIcon.textContent = 'fullscreen';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
