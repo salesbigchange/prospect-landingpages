@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Fragmented Spreadsheets to One Unified Solution: A Proposal for BeSure</title>
+    <meta name="description" content="A tailored proposal for BeSure Building & Maintenance outlining the business case, ROI, and implementation plan for consolidating Excel spreadsheets and paper processes into the single BigChange platform.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="BigChange & BeSure: A Partnership for Growth">
+    <meta property="og:description" content="An interactive proposal exploring the benefits of adopting BigChange's all-in-one system for building and maintenance management.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+ 
+    <!-- JSON-LD for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "name": "BigChange Job Management Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "79.95",
+        "priceCurrency": "GBP",
+        "description": "Per user per month, includes software, tracking hardware, and support."
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "BigChange"
+      }
+    }
+    </script>
+
+    <!-- Inline CSS for Single-File Deployment -->
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            /* Brand Colors from BigChange Brand Guidelines */
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282922;
+            --bc-white: #FFFFFF;
+            
+            /* Spacing & Sizing Tokens */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            /* Other Design Tokens */
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* General Layout & Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .section-title .icon {
+            color: var(--bc-energy-blue);
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-4);
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: var(--spacing-16);
+            padding-bottom: var(--spacing-16);
+            text-align: center;
+        }
+        #hero h1, #hero h2, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+        
+        /* Current -> Future Section */
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .state-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .state-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        /* Business Case Section */
+        #business-case { background-color: var(--bc-light-grey); }
+        .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
+        .meddic-card { background-color: var(--bc-white); padding: var(--spacing-6); border-radius: var(--border-radius); border: 1px solid #e5e7eb; }
+        .meddic-card h4 { color: var(--bc-energy-blue); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: var(--spacing-2); }
+        .meddic-card h4 .icon { width: 20px; height: 20px; }
+        .meddic-card p, .meddic-card ul { font-size: 0.95rem; }
+        .meddic-card ul { list-style-position: inside; padding-left: var(--spacing-2); }
+        
+        /* Case Studies Section */
+        .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-8); }
+        .case-study-card { background-color: var(--bc-white); border-radius: var(--border-radius); box-shadow: var(--box-shadow); overflow: hidden; display: flex; flex-direction: column; }
+        .case-study-card img { width: 100%; height: 250px; object-fit: cover; }
+        .case-study-content { padding: var(--spacing-6); flex-grow: 1; display: flex; flex-direction: column; }
+        .case-study-content h4 { color: var(--bc-navy); font-size: 1.25rem; }
+        .case-study-content .company-name { font-weight: 700; color: var(--bc-energy-blue); margin-bottom: var(--spacing-2); display: block; }
+        .case-study-content p { margin-bottom: var(--spacing-4); flex-grow: 1; font-size: 0.95rem; }
+        .btn-case-study {
+            display: inline-block;
+            margin-top: auto;
+            background-color: var(--bc-energy-blue);
+            color: var(--bc-white);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            align-self: flex-start;
+        }
+        .btn-case-study:hover { background-color: var(--bc-navy); text-decoration: none; }
+
+        /* ROI Calculator Section */
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-8);
+            background-color: var(--bc-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: var(--spacing-2); }
+        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
+        #assumptions-container {
+            margin-top: var(--spacing-8);
+            background-color: #f9fafb;
+            border: 1px solid #e0e0e0;
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+        }
+        #assumptions-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-4);
+        }
+        #assumptions-list p { font-size: 0.85rem; }
+
+        /* SVG Donut Chart */
+        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        .donut-chart { transform: rotate(-90deg); border-radius: 50%; }
+        .donut-segment { fill: none; stroke-width: 20; transition: stroke-dashoffset 0.5s ease-in-out; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
+        .donut-legend li { display: flex; align-items: center; gap: var(--spacing-2); font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        
+        .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
+        
+        /* Implementation Section */
+        .gantt-chart { display: flex; flex-direction: column; gap: var(--spacing-4); }
+        .gantt-phase { background-color: var(--bc-white); padding: var(--spacing-4); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+        .gantt-phase h4 { margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: var(--spacing-2); }
+        .gantt-phase .icon { width: 24px; height: 24px; color: var(--bc-energy-blue); }
+        .gantt-timeline { position: relative; height: 20px; background-color: #e0e0e0; border-radius: 10px; margin-top: var(--spacing-2); }
+        .gantt-bar { position: absolute; height: 100%; background-color: var(--bc-energy-blue); border-radius: 10px; }
+
+        /* Footer */
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper, .case-study-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: var(--spacing-12) 0; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <img src="https://iili.io/KOmPKLg.png" alt="BeSure Logo" style="height: 60px;">
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
+                </div>
+                <h1>From Disconnected Spreadsheets to a Single Source of Truth for BeSure</h1>
+                <p class="subhead">A strategic proposal to replace multiple Excel databases and paper-based processes with BigChange's all-in-one platform—driving reactive maintenance efficiency, improving job visibility, and enabling scalable growth.</p>
+                <div class="cta-buttons">
+                    <a href="#roi" class="btn btn-primary">Calculate Your ROI</a>
+                    <a href="#business-case" class="btn btn-secondary">View The Business Case</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
+                    <h2>Current State vs. Future State</h2>
+                    <p>Mapping BeSure's operational pains to tangible solutions within the BigChange platform.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3>
+                            <svg class="icon" style="height:40px; width: 40px; color: var(--bc-orange);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
+                            </svg>
+                            Current State with Multiple Systems
+                        </h3>
+                        <ul>
+                            <li><strong>Fragmented Data Silos:</strong> Using multiple, non-integrated Excel spreadsheets for different clients makes tracking jobs difficult and time-consuming.</li>
+                            <li><strong>Manual, Inefficient Scheduling:</strong> Supervisors physically arrange paper job sheets into piles each morning for operatives to collect, a process that is not scalable or flexible.</li>
+                            <li><strong>Lack of Real-Time Visibility:</strong> The office has no live information on job progress, only finding out about issues or completions when paper sheets are returned the next day.</li>
+                            <li><strong>Delayed Problem Solving:</strong> Issues like "no access" or incorrect phone numbers aren't known until the next day, delaying resolution and impacting customer satisfaction.</li>
+                            <li><strong>Growth Limitation:</strong> Current paper and spreadsheet processes are a barrier to growth, especially when looking to expand into new areas like London.</li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3>
+                             <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
+                             Future State with BigChange
+                        </h3>
+                        <ul>
+                            <li><strong>A Single Source of Truth:</strong> One central system to manage all clients and jobs, from quote to invoice, eliminating data fragmentation and confusion.</li>
+                            <li><strong>Dynamic Digital Scheduling:</strong> Jobs are sent directly to operatives' devices. Planners can see live availability and drag-and-drop jobs into diaries, optimising routes and workloads.</li>
+                            <li><strong>Complete Job Visibility:</strong> Live status updates (traveling, on-site, complete, issue) provide the office with a real-time view of the day's progress, enabling proactive management.</li>
+                            <li><strong>Instant Communication:</strong> Operatives report issues directly from site via the app, allowing the office to react immediately and reschedule or contact the client.</li>
+                            <li><strong>Scalable Foundations:</strong> A robust digital infrastructure that provides the control and efficiency needed to manage growth and take on more work confidently.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>ROI & Savings Calculator</h2>
+                    <p>An interactive tool to forecast the financial benefits of adopting BigChange. Adjust the sliders to see how your business inputs affect the potential savings.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3>Your Business Details</h3>
+                        <div>
+                            <div class="calculator-input">
+                                <label for="engineers"><span>Field Teams</span><span id="engineers-value">10</span></label>
+                                <input type="range" id="engineers" min="5" max="50" value="10">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="jobsPerDay"><span>Jobs per Team/Day</span><span id="jobsPerDay-value">4</span></label>
+                                <input type="range" id="jobsPerDay" min="1" max="20" value="4" step="1">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">2</span></label>
+                                <input type="range" id="officeStaff" min="1" max="10" value="2">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£28,000</span></label>
+                                <input type="range" id="officeSalary" min="20000" max="60000" value="28000" step="500">
+                            </div>
+                        </div>
+                        
+                        <div id="assumptions-container">
+                            <h3 style="margin-bottom: var(--spacing-4);">Key Assumptions</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: var(--spacing-4);">Based on anonymised data from the BigChange customer base.</p>
+                            <div id="assumptions-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-results">
+                        <div>
+                             <h3>Your Estimated Annual Savings</h3>
+                             <div>
+                                 <p class="total-savings" id="total-savings">£0</p>
+                                 <p>Total Annual Business Benefit</p>
+                             </div>
+                             <div>
+                                <div class="donut-chart-container">
+                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                                    </svg>
+                                </div>
+                                  <ul class="donut-legend">
+                                  <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Team Productivity</li>
+                                  <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                                  <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                                  </ul>
+                             </div>
+                        </div>
+                        
+                        <div class="calculation-breakdown">
+                            <h3 style="margin-top: var(--spacing-8);">Calculation Breakdown</h3>
+                            <p style="opacity: 0.8; font-size: 0.9rem;">Our estimates are grounded in proven results. Expand each category to see the details.</p>
+                            <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Team Productivity</span>
+                                    <span id="engineer-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Office Productivity</span>
+                                    <span id="office-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Fuel Savings</span>
+                                    <span id="fuel-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="fuel-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="implementation">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2>Phased Implementation Plan for BeSure</h2>
+                    <p>A structured, partnership-led approach to ensure a smooth transition and rapid time-to-value.</p>
+                </div>
+                <div class="gantt-chart">
+                    <div class="gantt-phase">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>Phase 1: Foundation &amp; Data Setup (Weeks 1-4)</h4>
+                        <p>We'll work with you to import your client and site data from Excel. We will then configure your core workflows and build your primary job sheets for disabled adaptations and reactive maintenance tasks.</p>
+                        <div class="gantt-timeline"><div class="gantt-bar" style="width: 33%; left: 0%;"></div></div>
+                    </div>
+                    <div class="gantt-phase">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.87a3 3 0 01-.879-2.122v-1.007m-5.159 0a2.25 2.25 0 10-4.5 0v1.007a3 3 0 00.879 2.122l1.621.87m5.159 0a2.25 2.25 0 104.5 0v1.007a3 3 0 00-.879-2.122l-1.621.87m-1.5-6a3.375 3.375 0 00-6.75 0" /></svg>Phase 2: Pilot Group Go-Live (Weeks 5-8)</h4>
+                        <p>Roll out BigChange to a select group of 3-4 operatives. This allows for focused training and real-world testing of the job management process, gathering crucial feedback before a company-wide launch.</p>
+                         <div class="gantt-timeline"><div class="gantt-bar" style="width: 34%; left: 33%;"></div></div>
+                    </div>
+                     <div class="gantt-phase">
+                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" /></svg>Phase 3: Full Rollout & Financial Integration (Weeks 9-12)</h4>
+                        <p>Using lessons from the pilot, we'll train and roll out to the remaining teams. The full Sage 50 integration will be enabled, and we will conduct a business review to measure initial KPIs and ROI.</p>
+                        <div class="gantt-timeline"><div class="gantt-bar" style="width: 33%; left: 67%;"></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="proposal">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0V5.625c0 .621.504 1.125 1.125 1.125H12m7.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>Your Commercial Proposal</h2>
+                    <p>A transparent breakdown of your investment and the exclusive discount applied.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card" style="border: 2px solid var(--bc-orange);">
+                        <h3>
+                            <svg class="icon" style="height:40px; width: 40px; color: var(--bc-orange);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            Standard RRP Pricing
+                        </h3>
+                        <ul style="list-style: none; margin-top: var(--spacing-6);">
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>6x Mobile Workforce (Tablet):</strong> £99.95 each</li>
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>2x Office Licence:</strong> £79.95 each</li>
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>2x Mobile Workforce (App):</strong> £79.95 each</li>
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>Elite Support Package:</strong> £200.00</li>
+                        </ul>
+                        <div style="text-align: right; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
+                            <h4 style="font-size: 1rem; color: var(--bc-charcoal); margin-bottom: 0.5rem;">Total Monthly RRP</h4>
+                            <p style="font-size: 2rem; font-weight: 700; color: var(--bc-orange); text-decoration: line-through;">£1,119.50</p>
+                        </div>
+                    </div>
+                    <div class="state-card" style="border: 2px solid var(--bc-green);">
+                        <h3>
+                             <svg class="icon" style="height:40px; width: 40px; color: var(--bc-green);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+                            </svg>
+                            Your Exclusive Offer
+                        </h3>
+                         <ul style="list-style: none; margin-top: var(--spacing-6);">
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>6x Mobile Workforce (Tablet):</strong> £89.95 each</li>
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>2x Office Licence:</strong> £69.95 each</li>
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>2x Mobile Workforce (App):</strong> £69.95 each</li>
+                           <li style="padding-left: 0; position: relative; margin-bottom: var(--spacing-4);"><strong>Elite Support Package:</strong> £133.00</li>
+                        </ul>
+                        <div style="text-align: right; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #ccc;">
+                             <h4 style="font-size: 1rem; color: var(--bc-charcoal); margin-bottom: 0.5rem;">Your Monthly Price</h4>
+                            <p style="font-size: 2.5rem; font-weight: 800; color: var(--bc-green);">£952.50</p>
+                            <p style="font-weight: 700; color: var(--bc-navy);">(Saving £2,004 per year)</p>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: var(--spacing-12);">
+                     <h3 style="margin-bottom: var(--spacing-4);">Ready to Accept?</h3>
+                     <p style="max-width: 600px; margin: 0 auto var(--spacing-8);">Click the button below to view and sign your proposal to begin your journey with BigChange.</p>
+                     <a href="https://landing.bigchange.com/Il9xnfdsNJlV" target="_blank" class="btn btn-primary" style="background-color: var(--bc-green); color: var(--bc-navy); font-size: 1.2rem; padding: 1rem 2.5rem;">Accept Your Proposal</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="rewatch-demo" style="background-color: var(--bc-light-grey);">
+            <div class="container" style="text-align: center;">
+                <div class="section-title" style="margin-bottom: var(--spacing-8);">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.357-.466.557-.327l5.603 3.112z" />
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 110-18 9 9 0 010 18z" />
+                       </svg>                      
+                    <h2>Re-watch the Discovery Meeting</h2>
+                    <p>Click the button below to watch the full recording of our demonstration and discussion.</p>
+                </div>
+                <a href="https://app.fireflies.ai/view/BigChange-x-Besure-Services-Ltd::01K7A9MDJBXXJJTP7ZRZTMRZ7X" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); font-size: 1.1rem; padding: 1rem 2rem;">Watch Recording</a>
+            </div>
+        </section>
+
+        <section id="case-studies" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>
+                    <h2>Success in the Building & Maintenance Sector</h2>
+                    <p>See how similar organisations have transformed their operations with BigChange.</p>
+                </div>
+                <div class="case-study-grid">
+                    <div class="case-study-card">
+                        <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67d96ba2753e517f086ea0c6_Millane.jpeg" alt="Millane Contract Services team">
+                        <div class="case-study-content">
+                            <span class="company-name">Millane Contract Services</span>
+                            <h4>BigChange helps Millane keep on top of workforce health and safety</h4>
+                            <p>Millane uses BigChange to manage everything from scheduling retail fit-outs to ensuring H&S compliance. Digital vehicle checks and automated alerts have given them complete confidence in their fleet's safety and operational readiness.</p>
+                            <a href="https://www.bigchange.com/success-stories/bigchange-technology-helps-millane-contract-services-keep-on-top-of-workforce-health-and-safety" target="_blank" class="btn-case-study">Read Case Study</a>
+                        </div>
+                    </div>
+                    <div class="case-study-card">
+                        <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67d96fc51ed3966706eb4d80_Nserv.jpeg" alt="Nserv van">
+                        <div class="case-study-content">
+                            <span class="company-name">Nserv</span>
+                            <h4>BigChange Boosts Facilities Management Productivity at Nserv</h4>
+                            <p>Nserv replaced multiple systems with BigChange to gain a single view of their mobile operation. Intelligent scheduling and real-time tracking have boosted productivity by 50 percent and significantly improved customer service.</p>
+                            <a href="https://www.bigchange.com/success-stories/bigchange-boosts-facilities-management-services-productivity-at-nserv" target="_blank" class="btn-case-study">Read Case Study</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer style="text-align: center;">
+        <div class="container">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: var(--spacing-6);">
+            <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-8);">This proposal has been built specifically for BeSure Building & Maintenance.<br>&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const assumptions = {
+            avgJobDriveTimeMins: 47.95,
+            avgJobDurationMins: 52.75,
+            avgDistancePerJobMiles: 24.26,
+            avgMpg: 30.8,
+            avgFuelCostPerLitre: 1.70,
+            jobDurationSavingPercent: 0.0922,
+            jobDriveTimeSavingPercent: 0.1054,
+            jobDistanceSavingPercent: 0.1051,
+            backOfficeSavingPercent: 0.2454,
+            workingDaysPerMonth: 21,
+            engineerSalary: 35000 
+        };
+
+        const inputs = {
+            engineers: document.getElementById('engineers'),
+            jobsPerDay: document.getElementById('jobsPerDay'),
+            officeStaff: document.getElementById('officeStaff'),
+            officeSalary: document.getElementById('officeSalary'),
+        };
+
+        const valueSpans = {
+            engineers: document.getElementById('engineers-value'),
+            jobsPerDay: document.getElementById('jobsPerDay-value'),
+            officeStaff: document.getElementById('officeStaff-value'),
+            officeSalary: document.getElementById('officeSalary-value'),
+        };
+        
+        const outputs = {
+            totalSavings: document.getElementById('total-savings'),
+            engineerSavingsTotal: document.getElementById('engineer-savings-total'),
+            officeSavingsTotal: document.getElementById('office-savings-total'),
+            fuelSavingsTotal: document.getElementById('fuel-savings-total'),
+            engineerCalcDetails: document.getElementById('engineer-calc-details'),
+            officeCalcDetails: document.getElementById('office-calc-details'),
+            fuelCalcDetails: document.getElementById('fuel-calc-details'),
+            donutEngineer: document.getElementById('donut-engineer'),
+            donutOffice: document.getElementById('donut-office'),
+            donutFuel: document.getElementById('donut-fuel'),
+        };
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+        }
+        
+        function formatNumber(value) {
+           return new Intl.NumberFormat('en-GB', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+        }
+
+        function populateAssumptions() {
+            const list = document.getElementById('assumptions-list');
+            if (!list) return;
+            list.innerHTML = `
+                <p><strong>Avg. Drive Time:</strong> ${assumptions.avgJobDriveTimeMins.toFixed(1)} mins</p>
+                <p><strong>Avg. Work Duration:</strong> ${assumptions.avgJobDurationMins.toFixed(1)} mins</p>
+                <p><strong>Avg. Job Distance:</strong> ${assumptions.avgDistancePerJobMiles.toFixed(1)} miles</p>
+                <p><strong>Drive Time Saving:</strong> ${(assumptions.jobDriveTimeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Work Duration Saving:</strong> ${(assumptions.jobDurationSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Office Saving:</strong> ${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Fuel Distance Saving:</strong> ${(assumptions.jobDistanceSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Avg. Vehicle MPG:</strong> ${assumptions.avgMpg}</p>
+                <p><strong>Diesel Cost:</strong> £${assumptions.avgFuelCostPerLitre.toFixed(2)} / litre</p>
+            `;
+        }
+
+        function calculateAndDisplay() {
+            const values = {};
+            for (const key in inputs) {
+                if(inputs[key]) {
+                    values[key] = parseFloat(inputs[key].value);
+                    if (valueSpans[key]) {
+                        if(key === 'officeSalary') {
+                           valueSpans[key].textContent = formatCurrency(values[key]);
+                        } else {
+                           valueSpans[key].textContent = values[key];
+                        }
+                    }
+                }
+            }
+
+            const dailyDriveHours = (values.jobsPerDay * assumptions.avgJobDriveTimeMins) / 60;
+            const dailyWorkHours = (values.jobsPerDay * assumptions.avgJobDurationMins) / 60;
+            const dailyDriveTimeSaved = dailyDriveHours * assumptions.jobDriveTimeSavingPercent;
+            const dailyWorkTimeSaved = dailyWorkHours * assumptions.jobDurationSavingPercent;
+            const totalDailyTimeSavedHours = dailyDriveTimeSaved + dailyWorkTimeSaved;
+            
+            const engineerHourlyRate = assumptions.engineerSalary / (52 * 40); 
+            const engineerProductivitySavings = totalDailyTimeSavedHours * engineerHourlyRate * values.engineers * assumptions.workingDaysPerMonth * 12;
+
+            const officeProductivitySavings = values.officeSalary * values.officeStaff * assumptions.backOfficeSavingPercent;
+            
+            const totalAnnualMiles = values.jobsPerDay * assumptions.avgDistancePerJobMiles * assumptions.workingDaysPerMonth * 12 * values.engineers;
+            const totalAnnualGallons = totalAnnualMiles / assumptions.avgMpg;
+            const totalAnnualLitres = totalAnnualGallons * 4.54609;
+            const totalAnnualFuelCost = totalAnnualLitres * assumptions.avgFuelCostPerLitre;
+            const fuelSavings = totalAnnualFuelCost * assumptions.jobDistanceSavingPercent;
+
+            const totalAnnualBenefit = engineerProductivitySavings + officeProductivitySavings + fuelSavings;
+
+            if (outputs.totalSavings) outputs.totalSavings.textContent = formatCurrency(totalAnnualBenefit);
+            if (outputs.engineerSavingsTotal) outputs.engineerSavingsTotal.textContent = formatCurrency(engineerProductivitySavings);
+            if (outputs.officeSavingsTotal) outputs.officeSavingsTotal.textContent = formatCurrency(officeProductivitySavings);
+            if (outputs.fuelSavingsTotal) outputs.fuelSavingsTotal.textContent = formatCurrency(fuelSavings);
+
+            const engineerCountForText = values.engineers || '...';
+            if (outputs.engineerCalcDetails) outputs.engineerCalcDetails.innerHTML = `We estimate each of your <strong>${engineerCountForText} teams</strong> could save <strong>${(totalDailyTimeSavedHours * 60).toFixed(0)} mins/day</strong>. This translates to a productivity gain worth <strong>${formatCurrency(engineerProductivitySavings)}</strong> annually.`;
+            if (outputs.officeCalcDetails) outputs.officeCalcDetails.innerHTML = `BigChange can improve back-office efficiency by around <strong>${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</strong>, representing an annual productivity saving of <strong>${formatCurrency(officeProductivitySavings)}</strong>.`;
+            if (outputs.fuelCalcDetails) outputs.fuelCalcDetails.innerHTML = `Smarter routing can reduce travel distance. We estimate a <strong>${(assumptions.jobDistanceSavingPercent*100).toFixed(1)}% reduction</strong>, which could save <strong>${formatCurrency(fuelSavings)}</strong> in fuel costs annually.`;
+            
+            const savingsBreakdown = [engineerProductivitySavings, officeProductivitySavings, fuelSavings];
+            const totalForChart = savingsBreakdown.reduce((a, b) => a + b, 0);
+            
+            if (totalForChart > 0) {
+                const circumference = 2 * Math.PI * 40;
+                const percentages = savingsBreakdown.map(s => s / totalForChart);
+                let offset = 0;
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                percentages.forEach((p, i) => {
+                    const length = p * circumference;
+                    const dasharray = `${length} ${circumference - length}`;
+                    if(segments[i]) {
+                        segments[i].setAttribute('stroke-dasharray', dasharray);
+                        segments[i].setAttribute('stroke-dashoffset', offset);
+                    }
+                    offset -= length;
+                });
+            } else {
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                segments.forEach(seg => {
+                    if(seg) seg.setAttribute('stroke-dasharray', `0 251.2`);
+                });
+            }
+        }
+
+        Object.values(inputs).forEach(input => {
+            if(input) input.addEventListener('input', calculateAndDisplay);
+        });
+
+        populateAssumptions();
+        calculateAndDisplay();
+    });
+    </script>
+</body>
+</html>
+
+
