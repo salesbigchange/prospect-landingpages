@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Paper Chaos to One Unified Platform: A Proposal for Kelly Plant Hire</title>
+    <meta name="description" content="A strategic proposal for Kelly Plant Hire to replace paper timesheets, Excel schedules, and disconnected systems (Syrinx/Sage) with BigChange's all-in-one platform. Enter information ONCE and let the technology do the rest.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="BigChange & Kelly Plant Hire: A Partnership for Scalable Operations">
+    <meta property="og:description" content="An interactive proposal exploring how BigChange's all-in-one system can resolve your core operational pains and provide a single, scalable platform for growth.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+ 
+    <!-- JSON-LD for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "name": "BigChange Job Management Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "79.95",
+        "priceCurrency": "GBP",
+        "description": "Per user per month, includes software, tracking hardware, and support."
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "BigChange"
+      }
+    }
+    </script>
+
+    <!-- Inline CSS for Single-File Deployment -->
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282922;
+            --bc-white: #FFFFFF;
+            
+            /* Spacing & Sizing Tokens */
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            /* Other Design Tokens */
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* General Layout & Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .section-title .icon { color: var(--bc-energy-blue); width: 48px; height: 48px; margin: 0 auto var(--spacing-4); }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: var(--spacing-16);
+            padding-bottom: var(--spacing-16);
+            text-align: center;
+        }
+        #hero h1, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: var(--border-radius); font-weight: 700; text-decoration: none; transition: all var(--transition-speed); border: 2px solid transparent; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+        
+        /* Pain Points Section */
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-8); }
+        .pain-card { background-color: #FFFBEB; border: 1px solid #FDE68A; padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; }
+        .pain-card .icon { color: var(--bc-orange); width: 48px; height: 48px; margin: 0 auto var(--spacing-4); }
+        .pain-card h3 { font-size: 1.25rem; color: #D97706; }
+        .pain-card .metric { font-size: 2.5rem; font-weight: 800; color: var(--bc-orange); margin: var(--spacing-4) 0; }
+        .pain-card p { font-size: 0.95rem; color: #78350F; }
+
+        /* Current -> Future Section */
+        #current-future { background-color: var(--bc-light-grey); }
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .state-card { background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .state-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .state-card li::before { content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%; }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        /* Solutions Section */
+        #solutions { background-color: var(--bc-white); }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-8); }
+        .solution-card { 
+            background-color: var(--bc-white);
+            padding: var(--spacing-6); 
+            border-radius: var(--border-radius); 
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+        }
+        .solution-card .icon-wrapper {
+            flex-shrink: 0;
+            background-color: #EBF8FF;
+            padding: 12px;
+            border-radius: 50%;
+            display: inline-flex;
+        }
+        .solution-card .icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+            color: var(--bc-energy-blue);
+        }
+        .solution-card h4 { 
+            font-size: 1.15rem; 
+            color: var(--bc-navy);
+            margin-bottom: var(--spacing-2);
+        }
+        .solution-card p { 
+            font-size: 0.95rem; 
+            color: #4A5568;
+            line-height: 1.6;
+        }
+        .solution-card p strong {
+            color: var(--bc-orange);
+            font-weight: 700;
+        }
+
+        /* ROI Calculator Section */
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--spacing-8); background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.5rem; }
+        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
+        #assumptions-container { margin-top: var(--spacing-8); background-color: #f9fafb; border: 1px solid #e0e0e0; padding: var(--spacing-6); border-radius: var(--border-radius); }
+        #assumptions-list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+        #assumptions-list p { font-size: 0.85rem; }
+        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        .donut-chart { transform: rotate(-90deg); border-radius: 50%; }
+        .donut-segment { fill: none; stroke-width: 20; transition: stroke-dashoffset 0.5s ease-in-out; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
+        .donut-legend li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
+        
+        /* Footer */
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper, .pain-grid, .solution-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: var(--spacing-12) 0; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <div style="background-color: white; padding: 10px; border-radius: var(--border-radius);">
+                        <img src="https://iili.io/KyGN9l2.md.png" alt="Kelly Plant Hire Logo" style="height: 60px;">
+                    </div>
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
+                </div>
+                <h1>From "Here, There & Everywhere" to One Unified Platform</h1>
+                <p class="subhead">A strategic proposal for Kelly Plant Hire to replace paper timesheets, Excel schedules, and disconnected systems (Syrinx & Sage) with BigChange's all-in-one platform. Enter information ONCE and let the technology do the rest.</p>
+                <div class="cta-buttons">
+                    <a href="#roi" class="btn btn-primary">Calculate Your ROI</a>
+                    <a href="#solutions" class="btn btn-secondary">Explore The Solution</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-x-Kelly-Plant-Hire-Ltd::01K9PNKR4TNFQC0JXQRK5PP2KB" target="_blank" class="btn btn-secondary">Watch Recording</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="pain-points">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+                    <h2>The "Very Time Consuming" Cost of Manual Processes</h2>
+                    <p>Your current "paper-based" operation is creating bottlenecks, costing significant admin hours, and delaying your ability to invoice.</p>
+                </div>
+                <div class="pain-grid">
+                    <div class="pain-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" /></svg>
+                        <h3>Paper Timesheet Chaos</h3>
+                        <p class="metric">5x Manual Handling</p>
+                        <p>Paper timesheets are sorted five times for different uses (Wages, Syrinx, Sage, Schedule). This is "very time consuming," difficult to get signed, and "paper gets lost," delaying invoicing.</p>
+                    </div>
+                    <div class="pain-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <h3>Disconnected Data Entry</h3>
+                        <p class="metric">4+ Systems</p>
+                        <p>You're juggling an Excel schedule, WhatsApp for updates, manual entry into Syrinx for invoicing, and then another manual import into Sage. Your core goal is: "information goes in once."</p>
+                    </div>
+                    <div class="pain-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V6.375c0-.621-.504-1.125-1.125-1.125H18.75M2.25 9v.75A.75.75 0 003 10.5h.75m0 0v-.375c0-.621-.504-1.125-1.125-1.125H3.75M2.25 12v.75A.75.75 0 003 13.5h.75m0 0v-.375c0-.621-.504-1.125-1.125-1.125H3.75M2.25 15v.75A.75.75 0 003 16.5h.75m0 0v-.375c0-.621-.504-1.125-1.125-1.125H3.75" /></svg>
+                        <h3>Invoicing Blocked by Paper</h3>
+                        <p class="metric">Days/Weeks Delay</p>
+                        <p>You "can't invoice without the tip ticket." Waiting for drivers to return paper tip tickets and signed timesheets creates a significant and unnecessary delay in your cashflow cycle.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
+                    <h2>Your "Information Goes in Once" Solution</h2>
+                    <p>Moving from a fragmented, multi-system process to a single, streamlined workflow.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3>
+                            <svg class="icon" style="height:40px; width: 40px; color: var(--bc-orange);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                            Current State: Paper, Excel, WhatsApp & Syrinx
+                        </h3>
+                        <ul>
+                            <li><strong>Manual Scheduling:</strong> Schedule built in Excel, then manually sent to drivers via WhatsApp. No live view of progress or availability.</li>
+                            <li><strong>Paper-Based Field Work:</strong> Drivers use paper timesheets and collect paper tip tickets. They then take photos and send them via WhatsApp.</li>
+                            <li><strong>Chasing Paper:</strong> Office team "forever chasing" drivers for signed paper timesheets and tip tickets, which are pre-requisites for invoicing.</li>
+                            <li><strong>Manual Data Re-Entry:</strong> All data from paper timesheets and tip tickets is manually entered into Syrinx just to create a basic invoice.</li>
+                            <li><strong>Disconnected Accounts:</strong> Invoices from Syrinx are then manually imported into Sage 50. Information is handled at least 5 times.</li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3>
+                             <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
+                             Future State with BigChange
+                        </h3>
+                        <ul>
+                            <li><strong>Live Digital Scheduling:</strong> One central, drag-and-drop schedule. Jobs are sent instantly to the driver's app, and the office sees live status updates (On Route, On Site, Done).</li>
+                            <li><strong>All-in-One Digital Workflow:</strong> Drivers use one app to get jobs, complete digital timesheets, and take mandatory photos of tip tickets, attaching them directly to the job.</li>
+                            <li><strong>Instant Proof of Service:</strong> The moment a job is finished, the office has the signed timesheet and all tip tickets attached, ready for invoicing. No chasing, no lost paper.</li>
+                            <li><strong>Elimination of Syrinx:</strong> BigChange replaces this step entirely. Job data (hours, tips, etc.) flows from the app to a digital job sheet, ready to be invoiced from BigChange.</li>
+                            <li><strong>Seamless Sage 50 Integration:</strong> Invoices created in BigChange are pushed directly into Sage 50 via our Platinum Partner integration. <strong>Information is entered ONCE.</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions">
+            <div class="container">
+                 <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>Your Blueprint for a Scalable Operation</h2>
+                    <p>Here’s exactly how BigChange resolves your core operational challenges, feature by feature.</p>
+                </div>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>End-to-End Digital Timesheets</h4>
+                            <p><strong>The Pain: "Paper gets lost".</strong> Drivers complete digital timesheets on their app, get a customer signature, and submit. The office receives it instantly, ending the "very time consuming" process of chasing and sorting paper.</p>
+                        </div>
+                    </div>
+                     <div class="solution-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Mandatory Tip Ticket Capture</h4>
+                            <p><strong>The Pain: "Can't invoice without the tip ticket".</strong> We make it a mandatory step. The driver *must* take a photo of the tip ticket on the app before they can complete the job, guaranteeing you have the proof you need to bill.</p>
+                        </div>
+                    </div>
+                     <div class="solution-card">
+                         <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Replace Syrinx & Integrate Sage</h4>
+                            <p><strong>The Pain: Multiple disconnected systems.</strong> BigChange replaces your Excel, WhatsApp, and Syrinx processes. We provide the schedule, the driver app, and the invoicing platform, which then feeds directly into Sage 50.</p>
+                        </div>
+                    </div>
+                     <div class="solution-card">
+                         <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Live, Drag-and-Drop Schedule</h4>
+                            <p><strong>The Pain: Static Excel spreadsheet.</strong> Manage your 40 sweepers from a live, visual planner. See who is available, who is on a job, and who is VOR. Drag and drop to schedule or reschedule jobs in seconds.</p>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                         <div class="icon-wrapper">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Full Fleet & Compliance</h4>
+                            <p><strong>The Pain: Managing the fleet.</strong> See all your trucks on one map. Get automated alerts for MOT, tax, and service intervals. Mandate daily vehicle checks on the app and get instant VOR alerts in the workshop.</p>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h6m-6 2.25h6M3 12l6.03 6.03m.002-12.06L3 12m7.5 7.5h6m6-6h-6m6 0v6m0-6V4.5m-6 6h-6m6 0v6m0-6V4.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Accurate Quoting & Rates</h4>
+                            <p><strong>The Pain: Manual rate emails.</strong> Create professional, branded quotes from the system. Set up different rates (half-load, full-load, per-tonne tips) for different customers to ensure 100% accurate billing every time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>ROI & Savings Calculator</h2>
+                    <p>An interactive tool to forecast the financial benefits of adopting BigChange. Adjust the sliders to see how your business inputs affect the potential savings.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3>Your Business Details</h3>
+                        <div>
+                            <div class="calculator-input">
+                                <label for="engineers"><span>Drivers / Sweepers</span><span id="engineers-value">25</span></label>
+                                <input type="range" id="engineers" min="10" max="60" value="25">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="jobsPerDay"><span>Jobs per Driver/Day</span><span id="jobsPerDay-value">2</span></label>
+                                <input type="range" id="jobsPerDay" min="1" max="10" value="2" step="1">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeStaff"><span>Office Staff / Planners</span><span id="officeStaff-value">4</span></label>
+                                <input type="range" id="officeStaff" min="1" max="15" value="4">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£30,000</span></label>
+                                <input type="range" id="officeSalary" min="20000" max="60000" value="30000" step="500">
+                            </div>
+                        </div>
+                        
+                        <div id="assumptions-container">
+                            <h3 style="margin-bottom: var(--spacing-4);">Key Assumptions</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: var(--spacing-4);">Based on anonymised data from the BigChange customer base.</p>
+                            <div id="assumptions-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-results">
+                        <div>
+                             <h3>Your Estimated Annual Savings</h3>
+                             <div>
+                                 <p class="total-savings" id="total-savings">£0</p>
+                                 <p>Total Annual Business Benefit</p>
+                             </div>
+                             <div>
+                                <div class="donut-chart-container">
+                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                                    </svg>
+                                </div>
+                                  <ul class="donut-legend">
+                                  <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Team Productivity</li>
+                                  <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                                  <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                                  </ul>
+                             </div>
+                        </div>
+                        
+                        <div class="calculation-breakdown">
+                            <h3 style="margin-top: var(--spacing-8);">Calculation Breakdown</h3>
+                            <p style="opacity: 0.8; font-size: 0.9rem;">Our estimates are grounded in proven results. Expand each category to see the details.</p>
+                            <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Team Productivity</span>
+                                    <span id="engineer-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Office Productivity</span>
+                                    <span id="office-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Fuel Savings</span>
+                                    <span id="fuel-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="fuel-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rewatch-demo" style="background-color: var(--bc-light-grey); padding-bottom: var(--spacing-16);">
+            <div class="container" style="text-align: center;">
+                <div class="section-title" style="margin-bottom: var(--spacing-8);">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.357-.466.557-.327l5.603 3.112z" />
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 110-18 9 9 0 010 18z" />
+                       </svg>                      
+                    <h2>Re-watch the Discovery Meeting</h2>
+                    <p>Click the button below to watch the full recording of our demonstration and share with Sean.</p>
+                </div>
+                <a href="https://app.fireflies.ai/view/BigChange-x-Kelly-Plant-Hire-Ltd::01K9PNKR4TNFQC0JXQRK5PP2KB" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); font-size: 1.1rem; padding: 1rem 2rem;">Watch Recording</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="text-align: center;">
+        <div class="container">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: var(--spacing-6);">
+            <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-8);">This proposal has been built specifically for Kelly Plant Hire.<br>&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const assumptions = {
+            avgJobDriveTimeMins: 47.95,
+            avgJobDurationMins: 120, // Avg 2 hours per job
+            avgDistancePerJobMiles: 24.26,
+            avgMpg: 30.8,
+            avgFuelCostPerLitre: 1.70,
+            jobDurationSavingPercent: 0.0922,
+            jobDriveTimeSavingPercent: 0.1054,
+            jobDistanceSavingPercent: 0.1051,
+            backOfficeSavingPercent: 0.2454, // To reflect saving admin time
+            workingDaysPerMonth: 21,
+            engineerSalary: 35000 // Sweeper driver salary
+        };
+
+        const inputs = {
+            engineers: document.getElementById('engineers'),
+            jobsPerDay: document.getElementById('jobsPerDay'),
+            officeStaff: document.getElementById('officeStaff'),
+            officeSalary: document.getElementById('officeSalary'),
+        };
+
+        const valueSpans = {
+            engineers: document.getElementById('engineers-value'),
+            jobsPerDay: document.getElementById('jobsPerDay-value'),
+            officeStaff: document.getElementById('officeStaff-value'),
+            officeSalary: document.getElementById('officeSalary-value'),
+        };
+        
+        const outputs = {
+            totalSavings: document.getElementById('total-savings'),
+            engineerSavingsTotal: document.getElementById('engineer-savings-total'),
+            officeSavingsTotal: document.getElementById('office-savings-total'),
+            fuelSavingsTotal: document.getElementById('fuel-savings-total'),
+            engineerCalcDetails: document.getElementById('engineer-calc-details'),
+            officeCalcDetails: document.getElementById('office-calc-details'),
+            fuelCalcDetails: document.getElementById('fuel-calc-details'),
+            donutEngineer: document.getElementById('donut-engineer'),
+            donutOffice: document.getElementById('donut-office'),
+            donutFuel: document.getElementById('donut-fuel'),
+        };
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+        }
+
+        function populateAssumptions() {
+            const list = document.getElementById('assumptions-list');
+            if (!list) return;
+            list.innerHTML = `
+                <p><strong>Avg. Drive Time:</strong> ${assumptions.avgJobDriveTimeMins.toFixed(1)} mins</p>
+                <p><strong>Avg. Work Duration:</strong> ${assumptions.avgJobDurationMins.toFixed(1)} mins</p>
+                <p><strong>Avg. Job Distance:</strong> ${assumptions.avgDistancePerJobMiles.toFixed(1)} miles</p>
+                <p><strong>Drive Time Saving:</strong> ${(assumptions.jobDriveTimeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Work Duration Saving:</strong> ${(assumptions.jobDurationSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Office Saving:</strong> ${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Fuel Distance Saving:</strong> ${(assumptions.jobDistanceSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Avg. Vehicle MPG:</strong> ${assumptions.avgMpg}</p>
+                <p><strong>Diesel Cost:</strong> £${assumptions.avgFuelCostPerLitre.toFixed(2)} / litre</p>
+            `;
+        }
+
+        function calculateAndDisplay() {
+            const values = {};
+            for (const key in inputs) {
+                if(inputs[key]) {
+                    values[key] = parseFloat(inputs[key].value);
+                    if (valueSpans[key]) {
+                        if(key === 'officeSalary') {
+                           valueSpans[key].textContent = formatCurrency(values[key]);
+                        } else {
+                           valueSpans[key].textContent = values[key];
+                        }
+                    }
+                }
+            }
+
+            const dailyDriveHours = (values.jobsPerDay * assumptions.avgJobDriveTimeMins) / 60;
+            const dailyWorkHours = (values.jobsPerDay * assumptions.avgJobDurationMins) / 60;
+            const dailyDriveTimeSaved = dailyDriveHours * assumptions.jobDriveTimeSavingPercent;
+            const dailyWorkTimeSaved = dailyWorkHours * assumptions.jobDurationSavingPercent;
+            const totalDailyTimeSavedHours = dailyDriveTimeSaved + dailyWorkTimeSaved;
+            
+            const engineerHourlyRate = assumptions.engineerSalary / (52 * 40); 
+            const engineerProductivitySavings = totalDailyTimeSavedHours * engineerHourlyRate * values.engineers * assumptions.workingDaysPerMonth * 12;
+
+            const officeProductivitySavings = values.officeSalary * values.officeStaff * assumptions.backOfficeSavingPercent;
+            
+            const totalAnnualMiles = values.jobsPerDay * assumptions.avgDistancePerJobMiles * assumptions.workingDaysPerMonth * 12 * values.engineers;
+            const totalAnnualGallons = totalAnnualMiles / assumptions.avgMpg;
+            const totalAnnualLitres = totalAnnualGallons * 4.54609;
+            const totalAnnualFuelCost = totalAnnualLitres * assumptions.avgFuelCostPerLitre;
+            const fuelSavings = totalAnnualFuelCost * assumptions.jobDistanceSavingPercent;
+
+            const totalAnnualBenefit = engineerProductivitySavings + officeProductivitySavings + fuelSavings;
+
+            if (outputs.totalSavings) outputs.totalSavings.textContent = formatCurrency(totalAnnualBenefit);
+            if (outputs.engineerSavingsTotal) outputs.engineerSavingsTotal.textContent = formatCurrency(engineerProductivitySavings);
+            if (outputs.officeSavingsTotal) outputs.officeSavingsTotal.textContent = formatCurrency(officeProductivitySavings);
+            if (outputs.fuelSavingsTotal) outputs.fuelSavingsTotal.textContent = formatCurrency(fuelSavings);
+
+            const engineerCountForText = values.engineers || '...';
+            if (outputs.engineerCalcDetails) outputs.engineerCalcDetails.innerHTML = `We estimate each of your <strong>${engineerCountForText} drivers</strong> could save <strong>${(totalDailyTimeSavedHours * 60).toFixed(0)} mins/day</strong>. This translates to a productivity gain worth <strong>${formatCurrency(engineerProductivitySavings)}</strong> annually.`;
+            if (outputs.officeCalcDetails) outputs.officeCalcDetails.innerHTML = `By eliminating <strong>5x manual data handling</strong> of timesheets and automating invoicing, your <strong>${values.officeStaff} office staff</strong> could reclaim <strong>${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</strong> of their time, a productivity gain worth <strong>${formatCurrency(officeProductivitySavings)}</strong>.`;
+            if (outputs.fuelCalcDetails) outputs.fuelCalcDetails.innerHTML = `Smarter routing and optimised scheduling can cut travel distance. We estimate a <strong>${(assumptions.jobDistanceSavingPercent*100).toFixed(1)}% reduction</strong>, which could save <strong>${formatCurrency(fuelSavings)}</strong> in fuel costs annually.`;
+            
+            const savingsBreakdown = [engineerProductivitySavings, officeProductivitySavings, fuelSavings];
+            const totalForChart = savingsBreakdown.reduce((a, b) => a + b, 0);
+            
+            if (totalForChart > 0) {
+                const circumference = 2 * Math.PI * 40;
+                const percentages = savingsBreakdown.map(s => s / totalForChart);
+                let offset = 0;
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                percentages.forEach((p, i) => {
+                    const length = p * circumference;
+                    const dasharray = `${length} ${circumference - length}`;
+                    if(segments[i]) {
+                        segments[i].setAttribute('stroke-dasharray', dasharray);
+                        segments[i].setAttribute('stroke-dashoffset', offset);
+                    }
+                    offset -= length;
+                });
+            } else {
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                segments.forEach(seg => {
+                    if(seg) seg.setAttribute('stroke-dasharray', `0 251.2`);
+                });
+            }
+        }
+
+        Object.values(inputs).forEach(input => {
+            if(input) input.addEventListener('input', calculateAndDisplay);
+        });
+
+        populateAssumptions();
+        calculateAndDisplay();
+    });
+    </script>
+</body>
+</html>
