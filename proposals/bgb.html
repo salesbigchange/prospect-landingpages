@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From Spreadsheet Chaos to One Integrated Global Platform: A Proposal for BGB Global Group</title>
+    <meta name="description" content="A strategic proposal for BGB Global Group to replace its 'scattergun' spreadsheet-driven processes with BigChange's all-in-one platform, saving one to two full-time roles in admin and building a scalable foundation for global growth.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="BigChange & BGB Global Group: A Partnership for Scalable Operations">
+    <meta property="og:description" content="An interactive proposal exploring how BigChange's all-in-one system can resolve your core operational pains and provide a single, scalable platform for your global workforce.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+    
+    <!-- JSON-LD for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "name": "BigChange Job Management Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "79.95",
+        "priceCurrency": "GBP",
+        "description": "Per user per month, includes software, tracking hardware, and support."
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "BigChange"
+      }
+    }
+    </script>
+
+    <!-- Inline CSS for Single-File Deployment -->
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282229;
+            --bc-white: #FFFFFF;
+            
+            /* Spacing & Sizing Tokens */
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            /* Other Design Tokens */
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* General Layout & Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .section-title .icon { color: var(--bc-energy-blue); width: 48px; height: 48px; margin: 0 auto var(--spacing-4); }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: var(--spacing-16);
+            padding-bottom: var(--spacing-16);
+            text-align: center;
+        }
+        #hero h1, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 0.8rem 1.8rem; border-radius: var(--border-radius); font-weight: 700; text-decoration: none; transition: all var(--transition-speed); border: 2px solid transparent; cursor: pointer; font-size: 1rem; }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+        
+        /* Pain Points Section */
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: var(--spacing-8); }
+        .pain-card { background-color: #FFFBEB; border: 1px solid #FDE68A; padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; }
+        .pain-card .icon { color: var(--bc-orange); width: 48px; height: 48px; margin: 0 auto var(--spacing-4); }
+        .pain-card h3 { font-size: 1.25rem; color: #D97706; }
+        .pain-card .metric { font-size: 2.5rem; font-weight: 800; color: var(--bc-orange); margin: var(--spacing-4) 0; }
+        .pain-card p { font-size: 0.95rem; color: #78350F; }
+
+        /* Current -> Future Section */
+        #current-future { background-color: var(--bc-light-grey); }
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .state-card { background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .state-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .state-card li::before { content: ''; position: absolute; left: 0; top: 5px; width: 20px; height: 20px; border-radius: 50%; }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        /* Solutions Section */
+        #solutions { background-color: var(--bc-white); }
+        .solution-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-8); }
+        .solution-card { 
+            background-color: var(--bc-white);
+            padding: var(--spacing-6); 
+            border-radius: var(--border-radius); 
+            border: 1px solid #e2e8f0;
+            box-shadow: var(--box-shadow);
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-6);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1);
+        }
+        .solution-card .icon-wrapper {
+            flex-shrink: 0;
+            background-color: #EBF8FF;
+            padding: 12px;
+            border-radius: 50%;
+            display: inline-flex;
+        }
+        .solution-card .icon-wrapper svg {
+            width: 28px;
+            height: 28px;
+            color: var(--bc-energy-blue);
+        }
+        .solution-card h4 { 
+            font-size: 1.15rem; 
+            color: var(--bc-navy);
+            margin-bottom: var(--spacing-2);
+        }
+        .solution-card p { 
+            font-size: 0.95rem; 
+            color: #4A5568;
+            line-height: 1.6;
+        }
+        .solution-card p strong {
+            color: var(--bc-orange);
+            font-weight: 700;
+        }
+
+        /* ROI Calculator Section */
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--spacing-8); background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: 0.5rem; }
+        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
+        #assumptions-container { margin-top: var(--spacing-8); background-color: #f9fafb; border: 1px solid #e0e0e0; padding: var(--spacing-6); border-radius: var(--border-radius); }
+        #assumptions-list { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4); }
+        #assumptions-list p { font-size: 0.85rem; }
+        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        .donut-chart { transform: rotate(-90deg); border-radius: 50%; }
+        .donut-segment { fill: none; stroke-width: 20; transition: stroke-dashoffset 0.5s ease-in-out; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
+        .donut-legend li { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
+        
+        /* Footer */
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper, .pain-grid, .solution-grid { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: var(--spacing-12) 0; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <img src="https://iili.io/f9FB6Bt.png" alt="BGB Global Group Logo" style="height: 144px;">
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
+                </div>
+                <h1>From Spreadsheet Chaos to One Integrated Global Platform</h1>
+                <p class="subhead">A strategic proposal for BGB Global Group to replace its "scattergun" spreadsheet-driven processes with BigChange's all-in-one platform—saving one to two full-time roles in admin and building a scalable foundation for global growth.</p>
+                <div class="cta-buttons">
+                    <a href="#roi" class="btn btn-primary">Calculate Your ROI</a>
+                    <a href="#solutions" class="btn btn-secondary">Explore The Solution</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-Demonstration-for-BGB-Group-Global-Limited-::01K8JN0M9D0JGRV1B3Q29RBZJ0" target="_blank" class="btn btn-secondary">Watch Recording</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="pain-points">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+                    <h2>The "Scattergun Approach" Costing You Growth</h2>
+                    <p>Your ambitious plan to triple turnover is being undermined by a total reliance on manual spreadsheets. This is costing "at least one or two full time equivalents" in admin time and is not sustainable for global growth.</p>
+                </div>
+                <div class="pain-grid">
+                    <div class="pain-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <h3>Wasted Admin Time</h3>
+                        <p class="metric">Huge Admin Burden</p>
+                        <p>Your senior team spends "multiple days every month" on tasks that should be automated—manually handling timesheets, payroll, scheduling, and project reporting instead of their day jobs.</p>
+                    </div>
+                    <div class="pain-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg>
+                        <h3>Fragmented Data & Systems</h3>
+                        <p class="metric">5+ Spreadsheets</p>
+                        <p>You have a "CRM in a spreadsheet," plus separate systems for scheduling, timesheets, compliance (AdeptSoft), and digital forms (iAuditor). There is no single source of truth for your business.</p>
+                    </div>
+                    <div class="pain-card">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-1.5l-2.625 2.625M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <h3>Complex Global Workforce</h3>
+                        <p class="metric">No Central Hub</p>
+                        <p>You have no single portal for operatives to manage leave, view contracts, or access project documents. This lack of a central hub is unmanageable as you expand into new countries like Taiwan and the US.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
+                    <h2>From System Chaos to a Single Source of Truth</h2>
+                    <p>Visualising the move from a "scattergun" manual approach to a dynamic, all-in-one platform built for a global, multi-skilled workforce.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3>
+                            <svg class="icon" style="height:40px; width: 40px; color: var(--bc-orange);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>
+                            Current State: Spreadsheets & Disconnected Apps
+                        </h3>
+                        <ul>
+                            <li><strong>Fragmented Operations:</strong> Managing all processes via spreadsheets. This is "not very efficient, but manageable" now, but will not support your growth plans.</li>
+                            <li><strong>Manual Timesheets & Payroll:</strong> A huge admin drain. "one or two full-time roles" are wasted manually collecting and processing timesheets for complex, multi-rate pay structures (onshore/offshore, day/night).</li>
+                            <li><strong>"CRM in a Spreadsheet":</strong> Your multi-year tender process is managed on a spreadsheet, with no automation, follow-up tracking, or clear pipeline visibility.</li>
+                            <li><strong>Clunky Compliance:</strong> Critical H&S and skills data is siloed in AdeptSoft, which is "not user friendly" and "easy to delete things from," creating significant risk.</li>
+                            <li><strong>Disconnected Forms:</strong> You use iAuditor for digital forms, but it's a separate system that doesn't link to your jobs, schedule, or operatives' compliance records.</li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3>
+                             <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
+                             Future State with BigChange
+                        </h3>
+                        <ul>
+                            <li><strong>One Integrated Platform:</strong> BigChange acts as the core operational arm of your new ERP, providing one source of truth for jobs, operatives, and compliance.</li>
+                            <li><strong>Automated Timesheet Costing:</strong> Capture time on-site via the app. Our automation builder can handle your complex pay rules, applying the correct rate (onshore/offshore, UK/Taiwan) to the job, saving "multiple days" of admin.</li>
+                            <li><strong>Integrated Tender Management:</strong> Manage your entire tender pipeline, log every client interaction, and set automated follow-up tasks to ensure you win more high-value contracts.</li>
+                            <li><strong>Unified Compliance Hub:</strong> All operative training and certifications (e.g., GWO) are managed in one profile, with automated expiry alerts, creating a single, auditable compliance record.</li>
+                            <li><strong>Built-in Digital Forms:</strong> Replace iAuditor. Build your RAMS, rescue plans, and site inspections directly in BigChange. Force operatives to complete them before starting work, creating a perfect, instant audit trail.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="solutions">
+            <div class="container">
+                 <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>Your Blueprint for a Scalable Global Operation</h2>
+                    <p>Here’s exactly how BigChange resolves your core operational challenges, feature by feature.</p>
+                </div>
+                <div class="solution-grid">
+                    <div class="solution-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Automated Timesheets & Complex Pay</h4>
+                            <p><strong>The Pain: "one to two full-time roles" wasted on manual timesheets.</strong> Our app captures all operative time. We can then use our Automation Builder to handle your complex pay logic (onshore/offshore, day/night, Taiwan uplift) to save "multiple days" of admin.</p>
+                        </div>
+                    </div>
+                     <div class="solution-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Long-Term Project Scheduling</h4>
+                            <p><strong>The Pain: Managing 1-week to 2-year jobs on spreadsheets.</strong> Use our 'Group Jobs' feature to plan multi-year projects, see all operatives (UK, US, Taiwan) on one schedule, and manage resource availability.</p>
+                        </div>
+                    </div>
+                     <div class="solution-card">
+                         <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m.75 12l3 3m0 0l3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Unified Tender & CRM</h4>
+                            <p><strong>The Pain: "CRM in a spreadsheet".</strong> Replace your spreadsheet with a live pipeline. Manage your multi-year tender process, log all client interactions, and set automated follow-up tasks to ensure you win more high-value contracts.</p>
+                        </div>
+                    </div>
+                     <div class="solution-card">
+                         <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Replace iAuditor & AdeptSoft</h4>
+                            <p><strong>The Pain: Clunky, disconnected compliance.</strong> Build your digital forms (Inspections, RAMS, Toolbox Talks, Rescue Plans) directly in BigChange. Link them to the job and force operatives to complete them, creating a perfect, instant audit trail.</p>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                         <div class="icon-wrapper">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.5-2.282A9.094 9.094 0 003 18.72m10.5-2.282l-2.5-2.5m2.5 2.5l-2.5-2.5m-5.241-1.391a3 3 0 110 5.688 3 3 0 010-5.688zM12 12.75a3 3 0 110-6 3 3 0 010 6z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Holistic Workforce Management</h4>
+                            <p><strong>The Pain: No central hub for operatives.</strong> Use BigChange as your single portal. Operatives can request leave, access project documents (RAMS, plans), and view their timesheets—all from one app, anywhere in the world.</p>
+                        </div>
+                    </div>
+                    <div class="solution-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                 <path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>API-Ready for Your ERP</h4>
+                            <p><strong>The Pain: Future-proofing for an ERP.</strong> BigChange is built to integrate. Use our powerful RESTful APIs to connect BigChange as the operational arm of your new ERP, ensuring all your systems speak to each other seamlessly.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>ROI & Savings Calculator</h2>
+                    <p>An interactive tool to forecast the financial benefits of adopting BigChange. Adjust the sliders to see how your business inputs affect the potential savings.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3>Your Business Details</h3>
+                        <div>
+                            <div class="calculator-input">
+                                <label for="engineers"><span>Field Operatives</span><span id="engineers-value">60</span></label>
+                                <input type="range" id="engineers" min="20" max="200" value="60">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="jobsPerDay"><span>Projects per Operative/Month</span><span id="jobsPerDay-value">2</span></label>
+                                <input type="range" id="jobsPerDay" min="1" max="10" value="2" step="1">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeStaff"><span>Office Staff / PMs / HR</span><span id="officeStaff-value">10</span></label>
+                                <input type="range" id="officeStaff" min="5" max="40" value="10">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£40,000</span></label>
+                                <input type="range" id="officeSalary" min="25000" max="70000" value="40000" step="1000">
+                            </div>
+                        </div>
+                        
+                        <div id="assumptions-container">
+                            <h3 style="margin-bottom: var(--spacing-4);">Key Assumptions</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: var(--spacing-4);">Based on anonymised data from the BigChange customer base.</p>
+                            <div id="assumptions-list"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-results">
+                        <div>
+                             <h3>Your Estimated Annual Savings</h3>
+                             <div>
+                                 <p class="total-savings" id="total-savings">£0</p>
+                                 <p>Total Annual Business Benefit</p>
+                             </div>
+                             <div>
+                                <div class="donut-chart-container">
+                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                                    </svg>
+                                </div>
+                                    <ul class="donut-legend">
+                                    <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Team Productivity</li>
+                                    <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                                    <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                                    </ul>
+                             </div>
+                        </div>
+                        
+                        <div class="calculation-breakdown">
+                            <h3 style="margin-top: var(--spacing-8);">Calculation Breakdown</h3>
+                            <p style="opacity: 0.8; font-size: 0.9rem;">Our estimates are grounded in proven results. Expand each category to see the details.</p>
+                            <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Team Productivity</span>
+                                    <span id="engineer-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Office Productivity</span>
+                                    <span id="office-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Fuel Savings</span>
+                                    <span id="fuel-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="fuel-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rewatch-demo" style="background-color: var(--bc-light-grey); padding-bottom: var(--spacing-16);">
+            <div class="container" style="text-align: center;">
+                <div class="section-title" style="margin-bottom: var(--spacing-8);">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.357-.466.557-.327l5.603 3.112z" />
+                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 110-18 9 9 0 010 18z" />
+                       </svg>                      
+                    <h2>Re-watch the Discovery Meeting</h2>
+                    <p>Click the button below to watch the full recording of our demonstration and share with the wider team.</p>
+                </div>
+                <a href="https://app.fireflies.ai/view/BigChange-Demonstration-for-BGB-Group-Global-Limited-::01K8JN0M9D0JGRV1B3Q29RBZJ0" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); font-size: 1.1rem; padding: 1rem 2rem;">Watch Recording</a>
+            </div>
+        </section>
+    </main>
+    
+    <footer style="text-align: center;">
+        <div class="container">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: var(--spacing-6);">
+            <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
+            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-8);">This proposal has been built specifically for BGB Global Group.<br>© 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const assumptions = {
+            avgJobDriveTimeMins: 47.95,
+            avgJobDurationMins: 420, // 1 job per day = 7 hours work
+            avgDistancePerJobMiles: 24.26,
+            avgMpg: 30.8,
+            avgFuelCostPerLitre: 1.70,
+            jobDurationSavingPercent: 0.0922,
+            jobDriveTimeSavingPercent: 0.1054,
+            jobDistanceSavingPercent: 0.1051,
+            backOfficeSavingPercent: 0.2454,
+            workingDaysPerMonth: 21,
+            engineerSalary: 45000 // High skill HV/offshore
+        };
+
+        const inputs = {
+            engineers: document.getElementById('engineers'),
+            jobsPerDay: document.getElementById('jobsPerDay'),
+            officeStaff: document.getElementById('officeStaff'),
+            officeSalary: document.getElementById('officeSalary'),
+        };
+
+        const valueSpans = {
+            engineers: document.getElementById('engineers-value'),
+            jobsPerDay: document.getElementById('jobsPerDay-value'),
+            officeStaff: document.getElementById('officeStaff-value'),
+            officeSalary: document.getElementById('officeSalary-value'),
+        };
+        
+        const outputs = {
+            totalSavings: document.getElementById('total-savings'),
+            engineerSavingsTotal: document.getElementById('engineer-savings-total'),
+            officeSavingsTotal: document.getElementById('office-savings-total'),
+            fuelSavingsTotal: document.getElementById('fuel-savings-total'),
+            engineerCalcDetails: document.getElementById('engineer-calc-details'),
+            officeCalcDetails: document.getElementById('office-calc-details'),
+            fuelCalcDetails: document.getElementById('fuel-calc-details'),
+            donutEngineer: document.getElementById('donut-engineer'),
+            donutOffice: document.getElementById('donut-office'),
+            donutFuel: document.getElementById('donut-fuel'),
+        };
+
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+        }
+
+        function populateAssumptions() {
+            const list = document.getElementById('assumptions-list');
+            if (!list) return;
+            // Simplified assumptions for this model
+            list.innerHTML = `
+                <p><strong>Office Saving:</strong> ${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>FTE Admin Savings:</strong> 1.5</p>
+                <p><strong>Avg. Engineer Salary:</strong> ${formatCurrency(assumptions.engineerSalary)}</p>
+            `;
+        }
+
+        function calculateAndDisplay() {
+            const values = {};
+            for (const key in inputs) {
+                if(inputs[key]) {
+                    values[key] = parseFloat(inputs[key].value);
+                    if (valueSpans[key]) {
+                        if(key === 'officeSalary') {
+                           valueSpans[key].textContent = formatCurrency(values[key]);
+                        } else {
+                           valueSpans[key].textContent = values[key];
+                        }
+                    }
+                }
+            }
+
+            // Calculations based on transcript
+            const engineerProductivitySavings = 0; // Not the primary saving driver identified
+            
+            // Key saving: 1-2 FTEs. We'll use 1.5 as an average.
+            const fteSavings = 1.5 * values.officeSalary;
+            
+            // Standard office productivity saving
+            const officeProductivitySavings = (values.officeSalary * values.officeStaff * assumptions.backOfficeSavingPercent) + fteSavings;
+            
+            // Fuel savings are likely minimal for offshore/static site work, but we'll include a small calculation for onshore fleet
+            const onshoreEngineers = values.engineers * 0.3; // Based on 30% onshore
+            const totalAnnualMiles = (values.jobsPerDay * 20) * assumptions.avgDistancePerJobMiles * assumptions.workingDaysPerMonth * 12 * onshoreEngineers; // 20 jobs/month
+            const totalAnnualGallons = totalAnnualMiles / assumptions.avgMpg;
+            const totalAnnualLitres = totalAnnualGallons * 4.54609;
+            const totalAnnualFuelCost = totalAnnualLitres * assumptions.avgFuelCostPerLitre;
+            const fuelSavings = totalAnnualFuelCost * assumptions.jobDistanceSavingPercent;
+
+            const totalAnnualBenefit = engineerProductivitySavings + officeProductivitySavings + fuelSavings;
+
+            if (outputs.totalSavings) outputs.totalSavings.textContent = formatCurrency(totalAnnualBenefit);
+            if (outputs.engineerSavingsTotal) outputs.engineerSavingsTotal.textContent = formatCurrency(engineerProductivitySavings);
+            if (outputs.officeSavingsTotal) outputs.officeSavingsTotal.textContent = formatCurrency(officeProductivitySavings);
+            if (outputs.fuelSavingsTotal) outputs.fuelSavingsTotal.textContent = formatCurrency(fuelSavings);
+
+            const engineerCountForText = values.engineers || '...';
+            if (outputs.engineerCalcDetails) outputs.engineerCalcDetails.innerHTML = `By automating digital forms (replacing iAuditor) and standardising workflows for <strong>${engineerCountForText} operatives</strong>, you will ensure 100% compliance and accurate data capture.`;
+            if (outputs.officeCalcDetails) outputs.officeCalcDetails.innerHTML = `By automating manual timesheet processing and reporting, you can reclaim <strong>one to two Full-Time Employees</strong>, plus increase efficiency for <strong>${values.officeStaff} office staff</strong>, for a total gain of <strong>${formatCurrency(officeProductivitySavings)}</strong>.`;
+            if (outputs.fuelCalcDetails) outputs.fuelCalcDetails.innerHTML = `Smarter routing for your <strong>30% onshore fleet</strong> can cut travel. We estimate a <strong>${(assumptions.jobDistanceSavingPercent*100).toFixed(1)}% reduction</strong>, which could save <strong>${formatCurrency(fuelSavings)}</strong> in fuel costs annually.`;
+            
+            const savingsBreakdown = [engineerProductivitySavings, officeProductivitySavings, fuelSavings];
+            const totalForChart = savingsBreakdown.reduce((a, b) => a + b, 0);
+            
+            if (totalForChart > 0) {
+                const circumference = 2 * Math.PI * 40;
+                const percentages = savingsBreakdown.map(s => s / totalForChart);
+                let offset = 0;
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                percentages.forEach((p, i) => {
+                    const length = p * circumference;
+                    const dasharray = `${length} ${circumference - length}`;
+                    if(segments[i]) {
+                        segments[i].setAttribute('stroke-dasharray', dasharray);
+                        segments[i].setAttribute('stroke-dashoffset', offset);
+                    }
+                    offset -= length;
+                });
+            } else {
+                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                segments.forEach(seg => {
+                    if(seg) seg.setAttribute('stroke-dasharray', `0 251.2`);
+                });
+            }
+        }
+
+        Object.values(inputs).forEach(input => {
+            if(input) input.addEventListener('input', calculateAndDisplay);
+        });
+
+        populateAssumptions();
+        calculateAndDisplay();
+    });
+    </script>
+</body>
+</html>
