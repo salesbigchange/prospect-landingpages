@@ -474,143 +474,274 @@
         #proposal {
             background-color: var(--bc-light-grey);
         }
-        .proposal-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-8);
-            align-items: center;
-            margin-top: var(--spacing-8);
-        }
-        .proposal-card {
-            background-color: var(--bc-white);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-8);
-            box-shadow: var(--box-shadow);
-            border: 3px solid transparent;
-            text-align: center;
-            height: 100%;
-        }
-        .proposal-card.deal {
-            border-color: var(--bc-energy-blue);
-            transform: scale(1.05);
-            position: relative;
-        }
-        .proposal-card-deal-badge {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--bc-energy-blue);
-            color: var(--bc-white);
-            padding: var(--spacing-1) var(--spacing-4);
-            border-radius: 999px;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
-        .proposal-card h3 {
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--bc-navy);
-        }
-        .proposal-card .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--bc-navy);
-            margin: var(--spacing-4) 0;
-        }
-        .proposal-card .price-rrp {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #777;
-            text-decoration: line-through;
-            margin: var(--spacing-4) 0;
-        }
-        .proposal-card p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
         
-        /* New Savings Table */
-        .savings-table {
+        .proposal-table {
+            width: 100%;
+            border-collapse: collapse;
             margin-top: var(--spacing-8);
+            background-color: var(--bc-white);
+            box-shadow: var(--box-shadow);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            font-size: 0.9rem;
         }
-        .savings-table th, .savings-table td {
+        .proposal-table th, .proposal-table td {
+            border: 1px solid #e0e0e0;
+            padding: var(--spacing-4);
             text-align: left;
+            vertical-align: top;
         }
-        .savings-table .col-num {
-            text-align: right;
-            font-family: 'SFMono-Regular', Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            font-size: 0.95rem;
+        .proposal-table thead th {
+            background-color: var(--bc-light-grey);
+            color: var(--bc-navy);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.8rem;
         }
-        .savings-table .col-qty {
-            text-align: center;
-            font-family: 'SFMono-Regular', Consolas, "Liberation Mono", Menlo, Courier, monospace;
-            font-size: 0.95rem;
+        .proposal-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
         }
-        .savings-table .col-saving {
+        .proposal-table .item-description {
+            font-weight: 600;
+            color: var(--bc-charcoal);
+        }
+        .proposal-table .item-description span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.85rem;
+            color: #555;
+            margin-top: var(--spacing-1);
+        }
+        .proposal-table .price-rrp {
+            text-decoration: line-through;
+            color: #777;
+        }
+        .proposal-table .price-deal {
+            font-weight: 700;
+            color: var(--bc-energy-blue);
+        }
+        .proposal-table .price-saving {
             font-weight: 700;
             color: var(--bc-green);
-            background-color: #f0fff4;
         }
-        .savings-table tfoot td {
+        .proposal-table tfoot td {
             font-weight: 700;
             font-size: 1.1rem;
             background-color: var(--bc-light-grey);
-            color: var(--bc-navy);
         }
-        .savings-table tfoot .col-saving {
-            font-size: 1.2rem;
+        .proposal-table tfoot .total-saving {
             color: var(--bc-green);
-            background-color: #dcfce7;
+            font-size: 1.25rem;
         }
-        .savings-table small {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            display: block;
-        }
-
-        .savings-bonus {
+        
+        .savings-summary {
             background-color: var(--bc-white);
             border-radius: var(--border-radius);
             padding: var(--spacing-8);
-            margin-top: var(--spacing-8);
+            margin-top: var(--spacing-12);
             text-align: center;
-            border: 2px dashed var(--bc-energy-blue);
+            border: 2px dashed var(--bc-green);
         }
-        .savings-bonus h3 {
-            color: var(--bc-energy-blue);
-            font-size: 1.75rem;
-            margin-bottom: var(--spacing-4);
+        .savings-summary h3 {
+            color: var(--bc-green);
+            font-size: 2rem;
+            margin-bottom: var(--spacing-6);
         }
-        .savings-bonus .saving-value {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--bc-navy);
+        .savings-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-6);
+        }
+        .savings-item h4 {
+            font-size: 1.1rem;
+            color: var(--bc-charcoal);
             margin-bottom: var(--spacing-2);
         }
-
+        .savings-item .saving-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--bc-energy-blue);
+        }
         .cta-center {
             text-align: center;
             margin-top: var(--spacing-8);
         }
         
         @media (max-width: 768px) {
-            .proposal-wrapper {
-                grid-template-columns: 1fr;
+            .proposal-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
             }
-            .proposal-card.deal {
-                transform: scale(1);
+            .savings-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--spacing-8);
+            text-align: center;
+        }
+        .team-member {
+            background-color: var(--bc-white);
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative; /* For z-index to work */
+            z-index: 10; /* Place card above the line */
+        }
+        .team-member img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: var(--spacing-4);
+            border: 4px solid var(--bc-light-grey);
+            object-fit: cover;
+        }
+        .team-member h4 {
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-1);
+        }
+        .team-member .role {
+            font-size: 0.9rem;
+            color: var(--bc-energy-blue);
+            font-weight: 600;
+            margin-bottom: var(--spacing-4);
+        }
+        .team-member p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .escalation-group {
+            position: relative;
+            padding: var(--spacing-6);
+            background-color: var(--bc-light-grey);
+            border-radius: var(--border-radius);
+            margin-bottom: var(--spacing-8);
+        }
+        .escalation-group h3 {
+            text-align: center;
+            margin-bottom: var(--spacing-8);
+            color: var(--bc-navy);
+        }
+        .escalation-path {
+            display: flex;
+            justify-content: center;
+            align-items: stretch; /* Make cards same height */
+            gap: var(--spacing-12); /* Increased gap to make room for arrow */
+            flex-wrap: wrap;
+        }
+        .escalation-path .team-member {
+            flex: 1;
+            min-width: 250px;
+            max-width: 300px;
+            position: relative;
+            display: flex; /* Ensure flex properties apply */
+            flex-direction: column; /* Align content vertically */
+        }
+        
+        .escalation-line {
+            position: absolute;
+            top: 60px; /* Vertically center with image */
+            right: calc(-1 * var(--spacing-12) / 2); /* (gap / 2) */
+            width: var(--spacing-12); /* Increased gap */
+            height: 2px;
+            background-color: var(--bc-energy-blue);
+            opacity: 0.5;
+            z-index: 1; /* Place line behind the card */
+        }
+        
+        /* Arrowhead for the line */
+        .escalation-line::after {
+            content: '';
+            position: absolute;
+            top: -4px; /* Adjust to center on the 2px line */
+            right: -2px; /* Position at the end of the line */
+            border: solid var(--bc-energy-blue);
+            border-width: 0 2px 2px 0;
+            display: inline-block;
+            padding: 4px;
+            transform: rotate(-45deg);
+            opacity: 0.7;
+        }
+
+        .escalation-tag {
+            position: absolute;
+            top: var(--spacing-4);
+            right: var(--spacing-4);
+            background-color: var(--bc-orange);
+            color: var(--bc-white);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: var(--spacing-1) var(--spacing-2);
+            border-radius: 999px;
+            z-index: 11;
+        }
+        
+        /* Responsive for Team Section */
+        @media (max-width: 768px) {
+            .escalation-path {
+                flex-direction: column;
+                gap: var(--spacing-12); /* Increased gap for vertical arrow */
+                align-items: center; /* Center cards vertically */
+            }
+            .escalation-line {
+                width: 2px;
+                height: var(--spacing-12); /* Increased gap */
+                top: auto;
+                bottom: calc(-1 * var(--spacing-12) / 2); /* (gap / 2) */
+                left: 50%;
+                right: auto;
+                transform: translateX(-50%);
+            }
+            /* Arrowhead for vertical */
+            .escalation-line::after {
+                top: auto;
+                bottom: -2px; /* Position at the end of the line */
+                left: -4px; /* Adjust to center on the 2px line */
+                transform: rotate(45deg); /* Pointing down */
+            }
+            .team-member {
+                width: 100%;
+                max-width: 350px; /* Give a max width on mobile */
             }
         }
 
-        /* End New Styles */
-
         /* Footer */
-        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
-        #sources { margin-top: var(--spacing-4); }
-        #sources ul { list-style: none; }
-        
+        footer { 
+            background-color: var(--bc-navy); 
+            color: var(--bc-light-grey); 
+            padding: var(--spacing-8) 0; 
+            font-size: 0.9rem; 
+            text-align: center;
+        }
+        footer img {
+            height: 40px; 
+            margin-bottom: var(--spacing-6);
+        }
+        footer h3 {
+            color: var(--bc-white); 
+            font-size: 1.75rem; 
+            font-weight: 600;
+        }
+        footer p {
+            font-size: 1.1rem; 
+            opacity: 0.9; 
+            margin-bottom: var(--spacing-4);
+        }
+        footer .footer-legal {
+            font-size: 0.8rem; 
+            opacity: 0.7; 
+            margin-top: var(--spacing-8);
+        }
+
         /* Responsive Styles */
         @media (max-width: 1024px) {
             .infographic-grid, .calculator-wrapper { grid-template-columns: 1fr; }
@@ -637,7 +768,7 @@
                 <p class="subhead">A strategic proposal to move Target Lifts from a clunky, restrictive system to a dynamic, all-in-one cloud platform—delivering the visibility, financial control, and usability you need for both service and projects.</p>
                 <div class="cta-buttons">
                     <a href="https://app.fireflies.ai/view/BigChange-System-Demo-For-Target-Lifts-Ltd::01K6JMCZY151HE6E0RZZYDK9VX" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Demo Recording</a>
-                    <a href="#roi" class="btn btn-primary">Calculate ROI & Savings</a>
+                    <a href="#roi" class="btn btn-primary">Calculate ROI &amp; Savings</a>
                     <a href="#implementation" class="btn btn-secondary">View Implementation Plan</a>
                 </div>
             </div>
@@ -646,27 +777,27 @@
         <section id="current-future">
             <div class="container">
                 <div class="section-title">
-                       <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
                     <h2>Current State vs. Future State</h2>
                     <p>Mapping Target Lifts' operational pains to tangible solutions within the BigChange platform.</p>
                 </div>
                 <div class="infographic-grid">
                     <div class="state-card current">
                         <h3>
-                             <img src="https://iili.io/KhyNXPj.md.webp" alt="JobLogic Logo" style="height:32px">
+                                <img src="https://iili.io/KhyNXPj.md.webp" alt="JobLogic Logo" style="height:32px">
                             Current State with JobLogic
                         </h3>
                         <ul>
                             <li><strong>No Forward Visibility:</strong> Struggling to get a clear view of upcoming PPM jobs for the next month, making proactive planning and resource allocation difficult.</li>
                             <li><strong>Financial Blindspots:</strong> Inability to see granular costs, forcing the use of manual spreadsheets to track profitability and budget variance for jobs and projects.</li>
                             <li><strong>Disconnected Financials:</strong> Invoicing and purchasing are done manually in both JobLogic and Xero, doubling data entry and creating reconciliation headaches. The Xero integration is not trusted.</li>
-                            <li><strong>Clunky & Unintuitive App:</strong> The engineer's mobile app is described as "poor" and "far too busy," making it difficult for them to see outstanding jobs or asset history on site.</li>
-                            <li><strong>Messy & Inflexible Reporting:</strong> Extracting simple reports, like uninvoiced accepted quotes or jobs on a terminated contract, is described as "the hardest thing in the world".</li>
+                            <li><strong>Clunky &amp; Unintuitive App:</strong> The engineer's mobile app is described as "poor" and "far too busy," making it difficult for them to see outstanding jobs or asset history on site.</li>
+                            <li><strong>Messy &amp; Inflexible Reporting:</strong> Extracting simple reports, like uninvoiced accepted quotes or jobs on a terminated contract, is described as "the hardest thing in the world".</li>
                         </ul>
                     </div>
                     <div class="state-card future">
                         <h3>
-                             <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
+                                <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
                             Future State<br>with BigChange
                         </h3>
                         <ul>
@@ -686,7 +817,7 @@
         <section id="business-case">
             <div class="container">
                 <div class="section-title">
-                       <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                     <h2>The Business Case for Target Lifts</h2>
                     <p>A summary of the key drivers for this project, based on our discovery session.</p>
                 </div>
@@ -703,7 +834,7 @@
                     </div>
                     <div class="meddic-card">
                         <h4>
-                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
                             Decision Makers
                         </h4>
                         <p><strong>Key Stakeholders:</strong> Brendan Osborn (Operations Director), Julie (Financial Controller), Tom (Construction Manager), Sue (Service Manager).</p>
@@ -711,7 +842,7 @@
                     </div>
                     <div class="meddic-card">
                         <h4>
-                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                             Decision Criteria
                         </h4>
                         <ul>
@@ -724,14 +855,14 @@
                     </div>
                     <div class="meddic-card">
                         <h4>
-                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.75h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5-13.5h16.5" /></svg>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.75h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5-13.5h16.5" /></svg>
                             Decision Process
                         </h4>
                         <div class="gantt-mini">
-                            <div class="gantt-mini-item"><span>1. Online Demo</span> <span class="chip">Complete</span></div>
-                            <div class="gantt-mini-item"><span>2. On-site Demo & Discovery</span> <span class="chip">Complete</span></div>
-                            <div class="gantt-mini-item"><span>3. Commercial Discussion</span> <span class="chip">Complete</span></div>
-                            <div class="gantt-mini-item"><span>4. Internal Decision</span><span class="chip" style="background-color:var(--bc-orange); color:var(--bc-white)">In Progress</span></div>
+                            <div class="gantt-mini-item"><span>1. Initial Online Demo</span> <span class="chip">Complete</span></div>
+                            <div class="gantt-mini-item"><span>2. On-Site Discovery &amp; Demo</span><span class="chip">Complete</span></div>
+                            <div class="gantt-mini-item"><span>3. Commercial Discussion</span><span class="chip">Complete</span></div>
+                            <div class="gantt-mini-item"><span>4. Internal Decision Making</span><span class="chip" style="background-color:var(--bc-orange); color:var(--bc-white)">In Progress</span></div>
                         </div>
                     </div>
                     <div class="meddic-card">
@@ -745,15 +876,15 @@
                             <li>Project costing requires manual double-handling in spreadsheets.</li>
                             <li>Xero integration is non-existent or untrusted, forcing manual data entry.</li>
                             <li>The mobile app is clunky and provides poor visibility for engineers.</li>
-                             <li>Reporting is inflexible and extracting simple data is difficult.</li>
+                                <li>Reporting is inflexible and extracting simple data is difficult.</li>
                         </ul>
                     </div>
                     <div class="meddic-card">
                         <h4>
-                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
                             Champion
                         </h4>
-                        <p><strong>Role:</strong> Brendan Osborn & Julie.</p>
+                        <p><strong>Role:</strong> Brendan Osborn &amp; Julie.</p>
                         <p><strong>Motivation:</strong> The need to migrate financial data anyway presents a perfect opportunity to move to a superior system that solves long-standing frustrations and supports future growth, particularly in the service department.</p>
                     </div>
                 </div>
@@ -763,7 +894,7 @@
         <section id="metrics-framework" style="background-color: var(--bc-white); padding-top: 0;">
             <div class="container">
                 <div class="section-title">
-                       <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a9.75 9.75 0 0119.5 0m-19.5 0a9.75 9.75 0 0019.5 0M10.5 6H21m-10.5 0H3.375M10.5 18.375c.394.038.79.062 1.186.062s.792-.024 1.186-.062M10.5 18.375c-.394.038-.79.062-1.186.062s-.792-.024-1.186-.062m2.372 0H21m-2.372 0H3.375M17.25 12c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75S16.466 10.25 17.25 10.25s1.75.784 1.75 1.75zM9 12c0 .966-.784 1.75-1.75 1.75S5.5 12.966 5.5 12 6.284 10.25 7.25 10.25S9 11.034 9 12z" />
                           </svg>
                     <h2>From Pain Points to Proven Value: The Metrics That Matter</h2>
@@ -819,8 +950,8 @@
         <section id="roi">
             <div class="container">
                 <div class="section-title">
-                       <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    <h2>ROI & Savings Calculator</h2>
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>ROI &amp; Savings Calculator</h2>
                     <p>An interactive tool to forecast the financial benefits of adopting BigChange. Adjust the sliders to see how your business inputs affect the potential savings.</p>
                 </div>
                 <div class="calculator-wrapper">
@@ -835,7 +966,7 @@
                                 <label for="jobsPerDay"><span>Jobs per Engineer/Day</span><span id="jobsPerDay-value">4</span></label>
                                 <input type="range" id="jobsPerDay" min="1" max="15" value="4" step="1">
                             </div>
-                             <div class="calculator-input">
+                                <div class="calculator-input">
                                 <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">20</span></label>
                                 <input type="range" id="officeStaff" min="5" max="50" value="20">
                             </div>
@@ -854,26 +985,26 @@
                     
                     <div class="roi-results">
                         <div>
-                             <h3>Your Estimated Annual Savings</h3>
-                             <div>
-                                <p class="total-savings" id="total-savings">£0</p>
-                                <p>Total Annual Business Benefit</p>
-                            </div>
-                            <div>
-                                <div class="donut-chart-container">
-                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
-                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
-                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
-                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
-                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
-                                    </svg>
+                                <h3>Your Estimated Annual Savings</h3>
+                                <div>
+                                    <p class="total-savings" id="total-savings">£0</p>
+                                    <p>Total Annual Business Benefit</p>
                                 </div>
-                                 <ul class="donut-legend">
-                                 <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Engineer Productivity</li>
-                                 <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
-                                 <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
-                                 </ul>
-                            </div>
+                                <div>
+                                    <div class="donut-chart-container">
+                                        <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                                <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                                <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                                <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                                        </svg>
+                                    </div>
+                                        <ul class="donut-legend">
+                                        <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Engineer Productivity</li>
+                                        <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                                        <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                                        </ul>
+                                </div>
                         </div>
                         
                         <div class="calculation-breakdown">
@@ -886,14 +1017,14 @@
                                 </summary>
                                 <p id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
                             </details>
-                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
                                 <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
                                     <span>Improved Office Productivity</span>
                                     <span id="office-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
                                 </summary>
                                 <p id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
                             </details>
-                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
                                 <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
                                     <span>Fuel Savings</span>
                                     <span id="fuel-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
@@ -912,17 +1043,86 @@
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <h2>High Level Onboarding & Implementation Plan</h2>
+                    <h2>High Level Onboarding &amp; Implementation Plan</h2>
                     <p>A structured, low-risk approach to ensure a smooth transition and rapid time-to-value for Target Lifts.</p>
                 </div>
 
                 <div style="max-width: 800px; margin: 0 auto; text-align: center; margin-bottom: var(--spacing-12);">
                     <h3>A Collaborative Partnership for Success</h3>
-                    <p>This implementation is a true team effort between BigChange and your project team at Target Lifts. Our dedicated onboarding specialists will work hand-in-hand with your key stakeholders, but success requires active involvement from your side too. The GANTT chart below outlines tasks for both teams—the more your team invests in data preparation, testing, and championing the new system, the faster you will achieve your goals. This isn't just a software install; it's a joint project, and we'll manage it through our shared Implementation Portal for 100% transparency on all tasks and responsibilities.</p>
+                    <p>Our dedicated onboarding team will work hand-in-hand with your key stakeholders. This isn't just a software install; it's a <strong>joint project</strong> that requires commitment from both sides. We will provide the expertise, training, and tools, but your team's active participation in data preparation, workflow testing, and championing the change internally is what makes it a success. <strong>The more your team puts in, the more you will get out.</strong> We will manage this entire joint effort through our shared Implementation Portal, providing 100% transparency on tasks, timelines, and responsibilities for both teams.</p>
+                </div>
+                
+                <!-- Your BigChange Team Section -->
+                <h3 style="text-align: center; margin-bottom: var(--spacing-8);" id="team">Your BigChange Team</h3>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto var(--spacing-12);">You're not just buying software; you're gaining a dedicated team. Here are the key people who will support you, from this proposal to go-live and beyond, along with your direct escalation paths.</p>
+                
+                <div class="escalation-group">
+                    <h3>Sales &amp; Solutions Engineering</h3>
+                    <div class="escalation-path">
+                        <div class="team-member">
+                            <img src="https://i.postimg.cc/85sxRxmR/Serge1.jpg" alt="Serge Fagelman" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=SF'">
+                            <h4>Serge Fagelman</h4>
+                            <span class="role">Corporate Sales Director</span>
+                            <p>For anything sales related, managing the sales process and deals with new business enquiries.</p>
+                            <div class="escalation-line"></div>
+                        </div>
+                        <div class="team-member">
+                            <span class="escalation-tag">ESCALATION</span>
+                            <img src="https://i.postimg.cc/s2jkXMB0/Alex-Shep1.jpg" alt="Alex Shepherd" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=AS'">
+                            <h4>Alex Shepherd</h4>
+                            <span class="role">UK Sales Director</span>
+                            <p>Alex leads the BigChange Sales Team and is direct escalation for sales related enquiries.</p>
+                        </div>
+                    </div>
+                    <div class="escalation-path" style="margin-top: var(--spacing-8);">
+                         <div class="team-member">
+                            <img src="https://i.postimg.cc/hjw6pM2H/Lee1.jpg" alt="Lee Wilkinson" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=LW'">
+                            <h4>Lee Wilkinson</h4>
+                            <span class="role">Senior Sales Engineer</span>
+                            <p>Lee handles Pre-Sales Engineering requirements around custom automations and process mapping to handover to Onboarding.</p>
+                            <div class="escalation-line"></div>
+                        </div>
+                        <div class="team-member">
+                            <span class="escalation-tag">ESCALATION</span>
+                            <img src="https://iili.io/fJFqyhv.md.jpg" alt="Brad Towers" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=BT'">
+                            <h4>Brad Towers</h4>
+                            <span class="role">Global Sales Engineering Director</span>
+                            <p>Brad is global lead on sales engineering and acts as a direct escalation for anything sales engineering related.</p>
+                        </div>
+                    </div>
                 </div>
 
+                <div class="escalation-group">
+                    <h3>Onboarding &amp; Implementation</h3>
+                    <div class="escalation-path">
+                        <div class="team-member">
+                            <img src="https://i.postimg.cc/tgBLV9WR/Chris1.jpg" alt="Chris Wardley" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=CW'">
+                            <h4>Chris Wardley</h4>
+                            <span class="role">Senior Onboarding Manager</span>
+                            <p>Will manage the entire Onboarding process for Target Lifts and work closely with your team to get you live.</p>
+                            <div class="escalation-line"></div>
+                        </div>
+                        <div class="team-member">
+                            <span class="escalation-tag">ESCALATION</span>
+                            <img src="https://i.postimg.cc/BQCyvwch/DB.png" alt="David Barratt" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=DB'">
+                            <h4>David Barratt</h4>
+                            <span class="role">Onboarding Team Lead</span>
+                            <p>Direct escalation for any onboarding escalations or if additional onboarding assistance is needed.</p>
+                            <div class="escalation-line"></div>
+                        </div>
+                        <div class="team-member">
+                            <span class="escalation-tag">ESCALATION</span>
+                            <img src="https://i.postimg.cc/0j6J64hL/Claire.png" alt="Claire Reed" onerror="this.src='https://placehold.co/120x120/0A2240/FFFFFF?text=CR'">
+                            <h4>Claire Reed</h4>
+                            <span class="role">Onboarding Dept Manager</span>
+                            <p>Heads up the BigChange Onboarding function and can be used as a final escalation point.</p>
+                        </div>
+                    </div>
+                </div>
+
+
                 <!-- Project Governance -->
-                <h3 style="text-align: center; margin-bottom: var(--spacing-4);">Project Governance & Key Stakeholders</h3>
+                <h3 style="text-align: center; margin-top: var(--spacing-16); margin-bottom: var(--spacing-4);">Project Governance &amp; Key Stakeholders</h3>
                 <p style="text-align: center; max-width: 700px; margin: 0 auto var(--spacing-8);">Clear roles and responsibilities are critical. We propose the following joint project team to ensure all business requirements are met.</p>
                 
                 <table class="governance-table">
@@ -942,10 +1142,10 @@
                             <td>Strategic oversight, final sign-off, and alignment with Target Lifts' business goals.</td>
                         </tr>
                         <tr>
-                            <td><strong>Project Lead &amp; Operations</strong></td>
+                            <td><strong>Project Lead &amp;amp; Operations</strong></td>
                             <td>Brendan Osborn (Operations Director)</td>
                             <td>Senior Implementation Consultant</td>
-                            <td>Internal project coordination, workflow mapping (Service & Projects), and championing field-user adoption.</td>
+                            <td>Internal project coordination, workflow mapping (Service &amp; Projects), and championing field-user adoption.</td>
                         </tr>
                         <tr>
                             <td><strong>Finance Lead</strong></td>
@@ -955,7 +1155,7 @@
                         </tr>
                         <tr>
                             <td><strong>Super Users (Office)</strong></td>
-                            <td>Nominated Service &amp; Project Schedulers</td>
+                            <td>Nominated Service &amp;amp; Project Schedulers</td>
                             <td>Senior Implementation Consultant</td>
                             <td>Internal champions, first-line support, and key testers for all office-based workflows.</td>
                         </tr>
@@ -971,6 +1171,7 @@
                 <!-- Gantt Chart -->
                 <h3 style="text-align: center; margin-top: var(--spacing-16); margin-bottom: var(--spacing-4);">Phased Implementation GANTT Chart</h3>
                 <p style="text-align: center; max-width: 700px; margin: 0 auto;">We will follow a proven, phased methodology to de-risk the rollout and get you live faster. The plan is structured to tackle your key areas (Service & Projects) in logical steps.</p>
+                <p style="text-align: center; max-width: 700px; margin: 0 auto; font-style: italic; opacity: 0.8; margin-top: var(--spacing-2);"><strong>Tip:</strong> Click on the coloured bars in the chart below to see detailed tasks for each phase.</p>
 
                 <div class="gantt-chart-detailed" id="gantt-chart">
                     <div class="gantt-header">
@@ -988,21 +1189,21 @@
                         <div>Wk 11</div>
                         <div>Wk 12</div>
                     </div>
-                    
+                
                     <div class="gantt-row">
-                         <div class="gantt-row-label">
-                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5z" /></svg>
-                            <strong>Phase 0: Foundation</strong>
-                        </div>
-                        <div class="gantt-bar-task" data-task-id="lms-access">LMS Access</div>
+                            <div class="gantt-row-label">
+                                <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5z" /></svg>
+                                <strong>Phase 0: Foundation</strong>
+                            </div>
+                            <div class="gantt-bar-task" data-task-id="lms-access">LMS Access</div>
                     </div>
-                    
+                
                     <div class="gantt-row">
                         <div class="gantt-row-label">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12M3.75 3.75h16.5M3.75 12h16.5m-16.5 5.25h16.5M3.75 12a2.25 2.25 0 01-2.25-2.25V6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v3.75a2.25 2.25 0 01-2.25 2.25M16.5 16.5h.008v.008H16.5v-.008z" /></svg>
                             <strong>Phase 1: Discovery &amp; Planning</strong>
                         </div>
-                        <div class="gantt-bar-task" data-task-id="kickoff">Kick-off & Scoping</div>
+                        <div class="gantt-bar-task" data-task-id="kickoff">Kick-off &amp; Scoping</div>
                     </div>
                         
                     <div class="gantt-row">
@@ -1012,16 +1213,16 @@
                         </div>
                         <div class="gantt-bar-task" data-task-id="core-config">Core Config</div>
                     </div>
-                    
+                
                     <div class="gantt-row">
                         <div class="gantt-row-label">
-                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
                             <strong>Phase 3: Data Migration</strong>
                         </div>
                         <div class="gantt-bar-task" data-task-id="data-export">Export</div>
                         <div class="gantt-bar-task" data-task-id="data-import">Data Import</div>
                     </div>
-                    
+                
                     <div class="gantt-row">
                         <div class="gantt-row-label">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25m10.5-2.25v2.25m-10.5 0L12 21m0 0l-5.25-15.75m5.25 15.75L17.25 3" /></svg>
@@ -1030,7 +1231,7 @@
                         <div class="gantt-bar-task" data-task-id="ppm-build">PPM Build</div>
                         <div class="gantt-bar-task" data-task-id="service-training">Service Training</div>
                     </div>
-                    
+                
                     <div class="gantt-row">
                         <div class="gantt-row-label">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.75C2.25 5.006 2.006 4.5 1.5 4.5H.75M3 12h18M3 12a2.25 2.25 0 01-2.25-2.25V6.75A2.25 2.25 0 013 4.5h18A2.25 2.25 0 0123.25 6.75v3A2.25 2.25 0 0121 12M3 12v6.75A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V12" /></svg>
@@ -1040,7 +1241,7 @@
                         <div class="gantt-bar-task" data-task-id="xero-integration">Xero Sync</div>
                         <div class="gantt-bar-task" data-task-id="finance-training">Finance Training</div>
                     </div>
-                    
+                
                     <div class="gantt-row">
                         <div class="gantt-row-label">
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" /></svg>
@@ -1055,7 +1256,7 @@
                 <!-- GANTT Modal -->
                 <div id="gantt-modal" class="gantt-modal-overlay">
                     <div class="gantt-modal-content">
-                        <span class="gantt-modal-close" id="gantt-modal-close">×</span>
+                        <span class="gantt-modal-close" id="gantt-modal-close">&times;</span>
                         <h3 id="gantt-modal-title">Task Details</h3>
                         <div id="gantt-modal-body">
                             <!-- Content will be injected by JavaScript -->
@@ -1073,10 +1274,10 @@
                         </h4>
                         <p>A clean data import is the foundation of your new system. We will provide you with import templates and guides to migrate:</p>
                         <ul>
-                            <li><strong>Customers & Sites:</strong> All billing and service locations.</li>
+                            <li><strong>Customers &amp; Sites:</strong> All billing and service locations.</li>
                             <li><strong>Asset Data (Lifts):</strong> Your full database of 1200+ lifts, including make, model, type, and location.</li>
                             <li><strong>PPM Schedules:</strong> All recurring service contracts and visit frequencies to build your planning diary.</li>
-                            <li><strong>Users & Vehicles:</strong> All office (web) users, field (app) users, and vehicle records to build your operational structure.</li>
+                            <li><strong>Users &amp; Vehicles:</strong> All office (web) users, field (app) users, and vehicle records to build your operational structure.</li>
                             <li><strong>Parts List:</strong> (If applicable) Your core parts list to enable purchasing and van stock management.</li>
                         </ul>
                     </div>
@@ -1096,12 +1297,12 @@
                     <div class="meddic-card">
                         <h4>
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.87a3 3 0 01-.879-2.122v-1.007m-5.159 0a2.25 2.25 0 10-4.5 0v1.007a3 3 0 00.879 2.122l1.621.87m5.159 0a2.25 2.25 0 104.5 0v1.007a3 3 0 00-.879-2.122l-1.621.87m-1.5-6a3.375 3.375 0 00-6.75 0" /></svg>
-                            Training & Change Management
+                            Training &amp; Change Management
                         </h4>
                         <p>We use a "Train the Trainer" model to empower your Super Users, supported by our team and online resources.</p>
                         <ul>
                             <li><strong>Office Staff (Schedulers, Finance):</strong> Remote and on-site sessions focused on scheduling, financials, and reporting.</li>
-                            <li><strong>Engineers (Service & Projects):</strong> Mobile-focused training led by your Super Users, covering job management, forms, and asset history.</li>
+                            <li><strong>Engineers (Service &amp; Projects):</strong> Mobile-focused training led by your Super Users, covering job management, forms, and asset history.</li>
                             <li><strong>Leadership Team:</strong> 1-to-1 sessions on dashboards and Power BI reporting.</li>
                             <li><strong>LMS Access:</strong> On-demand video training via our Learning Management System for all users.</li>
                         </ul>
@@ -1131,7 +1332,7 @@
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h12M3.75 3.75h16.5M3.75 12h16.5m-16.5 5.25h16.5M3.75 12a2.25 2.25 0 01-2.25-2.25V6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v3.75a2.25 2.25 0 01-2.25 2.25M16.5 16.5h.008v.008H16.5v-.008z" /></svg>
                         </div>
                         <div class="journey-content">
-                            <h4>2. Discovery & Kick-Off</h4>
+                            <h4>2. Discovery &amp; Kick-Off</h4>
                             <p>With the basics covered, we host the formal project kick-off. Your Senior Implementation Consultant will align with your key stakeholders on scope, goals, and timelines, and collaboratively map your exact Service and Project workflows.</p>
                             <ul>
                                 <li><strong>Key Activity:</strong> Workflow Scoping Workshops</li>
@@ -1145,10 +1346,10 @@
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.242 1.417l-1.17 1.17c-.14.14-.213.33-.213.527v.92c0 .197.073.387.213.527l1.17 1.17a1.125 1.125 0 01.242 1.417l-1.296 2.247a1.125 1.125 0 01-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.075.124a6.57 6.57 0 01-.22.127c-.332.183-.582.495-.645.87l-.213 1.281c-.09.542-.56.94-1.11.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 01-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 01-1.37-.49l-1.296-2.247a1.125 1.125 0 01.242-1.417l1.17-1.17c.14-.14.213.33.213-.527v-.92c0-.197-.073-.387-.213-.527l-1.17-1.17a1.125 1.125 0 01-.242-1.417l1.296-2.247a1.125 1.125 0 011.37-.49l1.217.456c.355.133.75.072 1.075-.124.073-.044.146-.087.22-.127.332-.183.582.495.645-.87l.213-1.281z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                         </div>
                         <div class="journey-content">
-                            <h4>3. Configuration & Data Build</h4>
+                            <h4>3. Configuration &amp; Data Build</h4>
                             <p>This is the core build phase. We import your cleansed data (Assets, Customers, Sites) and configure the key modules, including your PPM schedules, custom forms, and the Xero integration. Your Super Users will be involved in User Acceptance Testing (UAT) to ensure everything works as expected.</p>
                             <ul>
-                                <li><strong>Key Activity:</strong> Data Import & UAT</li>
+                                <li><strong>Key Activity:</strong> Data Import &amp; UAT</li>
                                 <li><strong>Deliverable:</strong> Fully configured test system signed off by Super Users.</li>
                             </ul>
                         </div>
@@ -1159,10 +1360,10 @@
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.87a3 3 0 01-.879-2.122v-1.007m-5.159 0a2.25 2.25 0 10-4.5 0v1.007a3 3 0 00.879 2.122l1.621.87m5.159 0a2.25 2.25 0 104.5 0v1.007a3 3 0 00-.879-2.122l-1.621.87m-1.5-6a3.375 3.375 0 00-6.75 0" /></svg>
                         </div>
                         <div class="journey-content">
-                            <h4>4. Training & Go-Live</h4>
-                            <p>We empower your internal champions through a "Train the Trainer" program. Your Super Users, now experts, will lead the end-user training with our full support. We then execute a phased go-live, starting with the Service department, followed by Projects & Finance, with on-site "Floorwalking" support to ensure a smooth transition.</p>
+                            <h4>4. Training &amp; Go-Live</h4>
+                            <p>We empower your internal champions through a "Train the Trainer" program. Your Super Users, now experts, will lead the end-user training with our full support. We then execute a phased go-live, starting with the Service department, followed by Projects &amp; Finance, with on-site "Floorwalking" support to ensure a smooth transition.</p>
                             <ul>
-                                <li><strong>Key Activity:</strong> Train the Trainer & Phased Go-Live</li>
+                                <li><strong>Key Activity:</strong> Train the Trainer &amp; Phased Go-Live</li>
                                 <li><strong>Deliverable:</strong> All users trained and operating live on the BigChange platform.</li>
                             </ul>
                         </div>
@@ -1173,10 +1374,10 @@
                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" /></svg>
                         </div>
                         <div class="journey-content">
-                            <h4>5. Review, Optimise & Handover</h4>
+                            <h4>5. Review, Optimise &amp; Handover</h4>
                             <p>After your first month live, we conduct a Project Review to measure success against your original goals (e.g., PPM visibility, financial reporting). We'll help you set up your Power BI reports and then formally hand you over to your dedicated Customer Success Manager, who will be your partner for continuous improvement and future growth.</p>
                             <ul>
-                                <li><strong>Key Activity:</strong> Project Review & CSM Handover</li>
+                                <li><strong>Key Activity:</strong> Project Review &amp; CSM Handover</li>
                                 <li><strong>Deliverable:</strong> A live, stable system and a long-term plan for optimisation.</li>
                             </ul>
                         </div>
@@ -1184,7 +1385,7 @@
                 </div>
 
                 <div style="text-align: center; margin-top: var(--spacing-12);">
-                    <a href="httpshttps://bigchangeonboarding.github.io/onboardingwelcompack/" target="_blank" class="btn btn-primary">More Onboarding Information &gt;&gt;</a>
+                    <a href="https://bigchangeonboarding.github.io/onboardingwelcompack/" target="_blank" class="btn btn-primary">More Onboarding Information &gt;&gt;</a>
                 </div>
             </div>
         </section>
@@ -1198,437 +1399,431 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 9h.008v.008H6V9z" />
                     </svg>
                     <h2>Your Tailored Proposal</h2>
-                    <p style="max-width: 700px; margin: 0 auto;">Based on our discussions, we've prepared a comprehensive package to get your entire team live on BigChange. This proposal includes all 97 licences, 40 AI Dashcams, and the critical Xero & Power BI (DAAS) integrations.</p>
+                    <p style="max-width: 700px; margin: 0 auto;">Based on our discussions, we've prepared a comprehensive package to get your entire team live on BigChange. This proposal includes all 97 licences, 40 AI Dashcams, and the critical Xero &amp; Power BI (DAAS) integrations.</p>
                 </div>
-
-                <div class="proposal-wrapper">
-                    <div class="proposal-card">
-                        <h3>Standard RRP</h3>
-                        <div class="price-rrp">£11,187.37</div>
-                        <p>Per Month</p>
-                        <p>(Standard pricing for all components)</p>
-                    </div>
-                    <div class="proposal-card deal">
-                        <div class="proposal-card-deal-badge">Your November 2025 Offer</div>
-                        <h3>Your Exclusive Deal</h3>
-                        <div class="price">£9,120.82</div>
-                        <p>Per Month</p>
-                        <p>(Special pricing locked in for 36 months)</p>
-                    </div>
-                </div>
-
-                <!-- NEW Line by Line Savings -->
-                <h3 style="text-align: center; margin-top: var(--spacing-16); margin-bottom: var(--spacing-4);">Your Line-by-Line Monthly Savings</h3>
-                <p style="text-align: center; max-width: 700px; margin: 0 auto var(--spacing-8);">This table breaks down the exclusive deal pricing vs. standard RRP, showing your exact savings on every component, every month.</p>
-
-                <table class="governance-table savings-table">
+                
+                <table class="proposal-table">
                     <thead>
                         <tr>
+                            <th>Quantity</th>
                             <th>Product Description</th>
-                            <th class="col-qty">Qty</th>
-                            <th class="col-num">Standard RRP</th>
-                            <th class="col-num">Your Price</th>
-                            <th class="col-num col-saving">Monthly Saving</th>
+                            <th>RRP (Monthly)</th>
+                            <th>Your Deal (Monthly)</th>
+                            <th>Your Saving (Monthly)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>
-                                <strong>JobWatch Plus Unlimited</strong>
-                                <small>Inc. Hard-Wired Tracking & Rugged Tablet</small>
+                            <td>50</td>
+                            <td class="item-description">JobWatch Plus Unlimited + Tablet
+                                <span>(Software, Tracking, Rugged Tablet, Cradle, Unlimited UK Calls/Texts/Data)</span>
                             </td>
-                            <td class="col-qty">50</td>
-                            <td class="col-num">£4,997.50</td>
-                            <td class="col-num">£4,497.50</td>
-                            <td class="col-num col-saving">£500.00</td>
+                            <td class="price-rrp">£4,997.50</td>
+                            <td class="price-deal">£4,497.50</td>
+                            <td class="price-saving">£500.00</td>
                         </tr>
                         <tr>
-                            <td>
-                                <strong>JobWatch Back Office User</strong>
+                            <td>37</td>
+                            <td class="item-description">JobWatch Back Office User
+                                <span>(Web-based licence for office staff, planners, and management)</span>
                             </td>
-                            <td class="col-qty">37</td>
-                            <td class="col-num">£2,958.15</td>
-                            <td class="col-num">£2,403.15</td>
-                            <td class="col-num col-saving">£555.00</td>
+                            <td class="price-rrp">£2,958.15</td>
+                            <td class="price-deal">£2,403.15</td>
+                            <td class="price-saving">£555.00</td>
                         </tr>
                         <tr>
-                            <td>
-                                <strong>JobWatch Apprentice Licence</strong>
+                            <td>10</td>
+                            <td class="item-description">JobWatch Apprentice Licence
+                                <span>(Dedicated licence for apprentices)</span>
                             </td>
-                            <td class="col-qty">10</td>
-                            <td class="col-num">£249.50</td>
-                            <td class="col-num">£99.50</td>
-                            <td class="col-num col-saving">£150.00</td>
+                            <td class="price-rrp">£249.50</td>
+                            <td class="price-deal">£99.50</td>
+                            <td class="price-saving">£150.00</td>
                         </tr>
                         <tr>
-                            <td>
-                                <strong>Dual Facing AI Dashcam</strong>
+                            <td>40</td>
+                            <td class="item-description">Dual-Facing AI Dashcam
+                                <span>(Mitac K245)</span>
                             </td>
-                            <td class="col-qty">40</td>
-                            <td class="col-num">£1,198.00</td>
-                            <td class="col-num">£798.00</td>
-                            <td class="col-num col-saving">£400.00</td>
-                        </tr>
-                         <tr>
-                            <td>
-                                <strong>Customer Service Elite Package</strong>
-                            </td>
-                            <td class="col-qty">1</td>
-                            <td class="col-num">£200.00</td>
-                            <td class="col-num">£133.00</td>
-                            <td class="col-num col-saving">£67.00</td>
+                            <td class="price-rrp">£1,198.00</td>
+                            <td class="price-deal">£798.00</td>
+                            <td class="price-saving">£400.00</td>
                         </tr>
                         <tr>
-                            <td>
-                                <strong>Data as a Service (DAAS)</strong>
-                                <small>For Power BI Integration</small>
+                            <td>1</td>
+                            <td class="item-description">Data as a Service (DAAS)
+                                <span>(For your Power BI integration)</span>
                             </td>
-                            <td class="col-qty">1</td>
-                            <td class="col-num">£1,459.22</td>
-                            <td class="col-num">£1,189.67</td>
-                            <td class="col-num col-saving">£269.55</td>
+                            <td class="price-rrp">£1,459.22</td>
+                            <td class="price-deal">£1,189.67</td>
+                            <td class="price-saving">£269.55</td>
                         </tr>
                         <tr>
-                            <td>
-                                <strong>Xero Link Integration</strong>
+                            <td>1</td>
+                            <td class="item-description">Xero Integration
+                                <span>(Setup and ongoing support for your accounts link)</span>
                             </td>
-                            <td class="col-qty">1</td>
-                            <td class="col-num">£125.00</td>
-                            <td class="col-num">£0.00</td>
-                            <td class="col-num col-saving">£125.00</td>
+                            <td class="price-rrp">£125.00</td>
+                            <td class="price-deal">£0.00</td>
+                            <td class="price-saving">£125.00</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td class="item-description">Customer Service Elite Package
+                                <span>(New customer onboarding and support package)</span>
+                            </td>
+                            <td class="price-rrp">£200.00</td>
+                            <td class="price-deal">£133.00</td>
+                            <td class="price-saving">£67.00</td>
                         </tr>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td><strong>Total Monthly Cost & Saving</strong></td>
-                            <td class="col-qty"></td>
-                            <td class="col-num">£11,187.37</td>
-                            <td class="col-num">£9,120.82</td>
-                            <td class="col-num col-saving">£2,066.55</td>
+                            <td colspan="2">Total (per month)</td>
+                            <td class="price-rrp">£11,187.37</td>
+                            <td class="price-deal">£9,120.82</td>
+                            <td class="price-saving total-saving">£2,066.55</td>
                         </tr>
                     </tfoot>
                 </table>
 
-                <div class="savings-bonus">
-                    <h3>Partnership Investment & Signing Bonus</h3>
-                    <div class="saving-value">Signing Bonus</div>
-                    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">To make your transition seamless, we are also providing a signing bonus credit for your first 3 months of invoices, totalling <strong>£27,362.46</strong>. This covers your implementation period so you can go live and see the value first.</p>
-                </div>
-
-
-                <div class="cta-center">
-                    <a href="https://landing.bigchange.com/AxNzfDjyivg7HHVCOIOk" target="_blank" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2rem; background-color: var(--bc-green); color: var(--bc-navy);">View Deal &gt;&gt;</a>
-                    <p style="margin-top: var(--spacing-4); opacity: 0.8;">This exclusive pricing is time-sensitive and valid for acceptance this month.</p>
+                <div class="savings-summary">
+                    <h3>We're Investing in Your Success</h3>
+                    <p style="font-size: 1.1rem; max-width: 800px; margin: 0 auto var(--spacing-8);">To help you make the move from JobLogic, we have put together a significant investment package. This isn't just a discount; it's a partnership commitment.</p>
+                    <div class="savings-grid">
+                        <div class="savings-item">
+                            <h4>Monthly Saving</h4>
+                            <div class="saving-value">£2,066.55</div>
+                        </div>
+                        <div class="savings-item">
+                            <h4>Annual Saving</h4>
+                            <div class="saving-value">£24,798.60</div>
+                        </div>
+                        <div class="savings-item">
+                            <h4>Total 3-Year Saving</h4>
+                            <div class="saving-value">£74,395.80</div>
+                        </div>
+                        <div class="savings-item">
+                            <h4>Signing Bonus</h4>
+                            <div class="saving-value">£27,362.46</div>
+                            <small>(We will credit your first 3 months of invoices)</small>
+                        </div>
+                    </div>
+                    <div class="cta-center">
+                        <a href="https://landing.bigchange.com/AxNzfDjyivg7HHVCOIOk" target="_blank" class="btn btn-primary" style="font-size: 1.25rem; padding: 1rem 2rem; background-color: var(--bc-green); color: var(--bc-navy);">View Deal &gt;&gt;</a>
+                        <p style="margin-top: var(--spacing-4); opacity: 0.8;">This exclusive pricing is time-sensitive and valid for acceptance this month.</p>
+                    </div>
                 </div>
 
             </div>
         </section>
-        
-        <!-- REPLACED FOOTER -->
-        <footer style="background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; margin-top: var(--spacing-12); text-align: center;">
-            <div class="container">
-                <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: var(--spacing-6);">
-                <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
-                <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
-                <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-8);">This proposal has been built specifically for Target Lifts Ltd.<br>&copy; 2025 BigChange. All rights reserved.</p>
-            </div>
-        </footer>
-        <!-- END FOOTER -->
 
-        <script>
-            // --- ROI Calculator Logic ---
-            document.addEventListener('DOMContentLoaded', () => {
-                const sliders = ['engineers', 'jobsPerDay', 'officeStaff', 'officeSalary'];
-                const inputs = {};
-                
-                sliders.forEach(id => {
-                    const slider = document.getElementById(id);
-                    const valueEl = document.getElementById(`${id}-value`);
-                    
-                    if (slider && valueEl) {
-                        inputs[id] = slider;
-                        slider.addEventListener('input', () => {
-                            let value = Number(slider.value);
-                            if (id === 'officeSalary') {
-                                valueEl.textContent = `£${value.toLocaleString()}`;
-                            } else {
-                                valueEl.textContent = value;
-                            }
-                            calculateROI();
-                        });
-                    }
-                });
-
-                // --- GANTT Modal Logic ---
-                const modal = document.getElementById('gantt-modal');
-                const modalTitle = document.getElementById('gantt-modal-title');
-                const modalBody = document.getElementById('gantt-modal-body');
-                const closeModal = document.getElementById('gantt-modal-close');
-                
-                const taskDetails = {
-                    'lms-access': {
-                        title: 'Phase 0: Foundation (Weeks 1-12)',
-                        description: 'Your journey begins with immediate access to our on-demand Learning Management System (LMS), <strong>BigChange University</strong>. Before the formal project even starts, all your users can complete foundational learning modules at their own pace.',
-                        bullets: [
-                            '<strong>Target Lifts:</strong> Nominate all users for LMS access.',
-                            '<strong>Target Lifts:</strong> Encourage completion of "New User" modules before kick-off.',
-                            '<strong>BigChange:</strong> Provide login credentials and tracking reports for all 97 users.'
-                        ]
-                    },
-                    'kickoff': {
-                        title: 'Phase 1: Kick-Off & Scoping (Weeks 3-4)',
-                        description: 'Formal project kick-off with your dedicated Senior Implementation Consultant. We will align on the project scope, goals, timelines, and collaboratively map your exact Service and Project workflows.',
-                        bullets: [
-                            '<strong>Joint Activity:</strong> Initial project kick-off meeting.',
-                            '<strong>Joint Activity:</strong> Detailed workflow mapping sessions for Service, PPM, Callouts, and Projects.',
-                            '<strong>Deliverable:</strong> A signed-off Scope of Work (SoW) document available in the Implementation Portal.'
-                        ]
-                    },
-                    'core-config': {
-                        title: 'Phase 2: Core Configuration (Weeks 4-6)',
-                        description: 'Your Implementation Consultant configures the BigChange platform based on the SoW. This includes user roles, vehicle setup, job types, and custom fields.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Build system structure, user permissions, and job workflows.',
-                            '<strong>Target Lifts:</strong> Provide user lists, vehicle details, and any required logos/branding.',
-                            '<strong>Target Lifts:</strong> Super Users begin User Acceptance Testing (UAT) in the configured test environment.'
-                        ]
-                    },
-                    'data-export': {
-                        title: 'Phase 3: Data Export (Week 4)',
-                        description: 'Target Lifts team exports all required data from JobLogic. This is a critical step, and the quality of this data is key to a smooth migration.',
-                        bullets: [
-                            '<strong>Target Lifts:</strong> Export all Customers, Sites, and the full 1200+ Asset (Lift) records.',
-                            '<strong>Target Lifts:</strong> Export all current PPM/Service contract schedules.',
-                            '<strong>Target Lifts:</strong> Cleanse data and populate the BigChange import templates.'
-                        ]
-                    },
-                    'data-import': {
-                        title: 'Phase 3: Data Import (Weeks 5-6)',
-                        description: 'The BigChange team imports your cleansed data into the platform. We will perform an initial import for testing, followed by a final import just before go-live.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Provide data import templates and guidance.',
-                            '<strong>BigChange:</strong> Perform initial data import into the test system.',
-                            '<strong>Target Lifts:</strong> Super Users validate all imported data (sites, assets, contracts) in the test system.'
-                        ]
-                    },
-                    'ppm-build': {
-                        title: 'Phase 4: Service & PPM Build (Weeks 5-7)',
-                        description: 'Using the imported data, we build out your full PPM schedule. This will solve your primary pain point by giving you complete forward visibility of all 1200+ lift service contracts.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Configure all recurring PPM job schedules based on your contracts.',
-                            '<strong>Target Lifts:</strong> Validate the generated PPM diary for accuracy.',
-                            '<strong>Deliverable:</strong> A fully populated, long-range PPM planner visible in the system.'
-                        ]
-                    },
-                    'service-training': {
-                        title: 'Phase 4: Service & PPM Training (Weeks 7-8)',
-                        description: 'We train your Super Users (Brendan, Sue, Schedulers) on the new service and PPM workflows using the "Train the Trainer" model. They will then train the end-users (engineers).',
-                        bullets: [
-                            '<strong>BigChange:</strong> Conduct remote and on-site training sessions for office Super Users.',
-                            '<strong>BigChange:</strong> Provide training materials for engineer (mobile app) training.',
-                            '<strong>Target Lifts:</strong> Super Users schedule and conduct training for all 50-60 engineers.'
-                        ]
-                    },
-                    'project-costing': {
-                        title: 'Phase 5: Projects & Costing Setup (Weeks 6-8)',
-                        description: 'Running parallel to the service build, we will configure the project management and job costing modules. This is vital for Tom and the construction team to move away from manual spreadsheets.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Configure project workflows, including PO linking and timesheet allocation.',
-                            '<strong>Target Lifts:</strong> Julie & Tom to validate project costing setup.',
-                            '<strong>Deliverable:</strong> Ability to create a project, assign POs and costs, and track budget vs. actual in real-time.'
-                        ]
-                    },
-                    'xero-integration': {
-                        title: 'Phase 5: Xero Integration (Weeks 8-9)',
-                        description: 'Our Integrations Specialist works with Julie to connect BigChange and Xero. This will establish the two-way sync for invoices, POs, and payments, eliminating double entry.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Configure and test the Xero integration connector.',
-                            '<strong>Target Lifts:</strong> Julie to provide access and assist with mapping financial codes.',
-                            '<strong>Joint Activity:</strong> Test and sign off on the full financial data flow (PO -> Invoice -> Xero).'
-                        ]
-                    },
-                    'finance-training': {
-                        title: 'Phase 5: Finance Training (Weeks 9-10)',
-                        description: 'Dedicated training for Julie and the finance team on the new, integrated financial process, from invoicing in BigChange to reconciliation in Xero.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Train finance team on invoicing, credit notes, and PO management.',
-                            '<strong>Target Lifts:</strong> Finance team to UAT the end-to-end financial process.',
-                            '<strong>Deliverable:</strong> Finance team fully trained and confident in the new workflow.'
-                        ]
-                    },
-                    'power-bi': {
-                        title: 'Phase 6: Reporting & Power BI (Weeks 10-12)',
-                        description: 'We activate your "Data as a Service" (DAAS) feed. This provides a live, secure data connection for your Power BI dashboards, giving you the ultimate reporting flexibility you need.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Enable DAAS feed and provide connection details.',
-                            '<strong>Target Lifts:</strong> Connect Power BI to the new data source.',
-                            '<strong>Joint Activity:</strong> Workshop to identify key reports and dashboards to build (e.g., Asset Profitability, Engineer Performance).'
-                        ]
-                    },
-                    'floorwalking': {
-                        title: 'Phase 6: Go-Live Support (Weeks 11-12)',
-                        description: 'The system goes live! We will provide "Floorwalking" support (on-site and remote) to assist your team as they use the new platform for the first time, ensuring a smooth cutover.',
-                        bullets: [
-                            '<strong>BigChange:</strong> Provide dedicated support during the go-live week.',
-                            '<strong>Target Lifts:</strong> All users begin using BigChange exclusively for all jobs.',
-                            '<strong>Deliverable:</strong> A successful and low-stress transition to the new platform.'
-                        ]
-                    },
-                    'review': {
-                        title: 'Phase 6: Project Review (Week 12)',
-                        description: 'Approximately two weeks after go-live, we conduct a final Project Review to measure success against the original goals. We then formally hand you over to your dedicated Customer Success Manager.',
-                        bullets: [
-                            '<strong>Joint Activity:</strong> Review key metrics: Is PPM visibility achieved? Is financial data flowing?',
-                            '<strong>BigChange:</strong> Formally introduce your Customer Success Manager (CSM) for long-term partnership.',
-                            '<strong>Deliverable:</strong> Project signed off. Long-term success plan in place.'
-                        ]
-                    }
-                };
-
-                document.querySelectorAll('.gantt-bar-task').forEach(task => {
-                    task.addEventListener('click', () => {
-                        const taskId = task.dataset.taskId;
-                        const details = taskDetails[taskId];
-                        
-                        if (details) {
-                            modalTitle.textContent = details.title;
-                            let bodyHtml = `<p>${details.description}</p>`;
-                            if (details.bullets && details.bullets.length > 0) {
-                                bodyHtml += '<ul>';
-                                details.bullets.forEach(bullet => {
-                                    bodyHtml += `<li>${bullet}</li>`;
-                                });
-                                bodyHtml += '</ul>';
-                            }
-                            modalBody.innerHTML = bodyHtml;
-                            modal.style.display = 'block';
-                        }
-                    });
-                });
-
-                closeModal.onclick = () => {
-                    modal.style.display = 'none';
-                };
-
-                window.onclick = (event) => {
-                    if (event.target == modal) {
-                        modal.style.display = 'none';
-                    }
-                };
-
-                // --- ROI Calculation Logic ---
-                const assumptions = {
-                    engineerProductivity: {
-                        label: 'Engineer Productivity Gain',
-                        value: 0.15, // 15% (from gaining 1 extra job/day)
-                        description: 'Avg. 15% productivity gain (e.g., 1 extra job per day) from smart scheduling, reduced travel, and better on-site info.'
-                    },
-                    officeProductivity: {
-                        label: 'Office Productivity Gain',
-                        value: 0.20, // 20%
-                        description: 'Avg. 20% time saving on manual admin (scheduling, invoicing, reporting) through automation.'
-                    },
-                    fuelSaving: {
-                        label: 'Fuel Cost Reduction',
-                        value: 0.10, // 10%
-                        description: 'Avg. 10% reduction in fuel costs due to optimised routing and reduced mileage.'
-                    },
-                    avgEngineerSalary: {
-                        label: 'Avg. Engineer Salary',
-                        value: 45000, // £45,000
-                        description: 'Assumed avg. engineer loaded salary (incl. NI, pension, vehicle).'
-                    },
-                    avgFuelCost: {
-                        label: 'Avg. Annual Fuel/Vehicle Cost',
-                        value: 5000, // £5,000
-                        description: 'Assumed avg. annual fuel & maintenance cost per vehicle.'
-                    }
-                };
-
-                function populateAssumptions() {
-                    const listEl = document.getElementById('assumptions-list');
-                    listEl.innerHTML = '';
-                    for (const key in assumptions) {
-                        const item = assumptions[key];
-                        listEl.innerHTML += `<p><strong>${item.label}:</strong><br>${item.description}</p>`;
-                    }
-                }
-                
-                function calculateROI() {
-                    const numEngineers = Number(inputs.engineers.value);
-                    const numOfficeStaff = Number(inputs.officeStaff.value);
-                    const avgOfficeSalary = Number(inputs.officeSalary.value);
-                    
-                    const { engineerProductivity, officeProductivity, fuelSaving, avgEngineerSalary, avgFuelCost } = assumptions;
-
-                    // Engineer Savings
-                    const totalEngineerCost = numEngineers * avgEngineerSalary.value;
-                    const engineerSavings = totalEngineerCost * engineerProductivity.value;
-                    
-                    // Office Savings
-                    const totalOfficeCost = numOfficeStaff * avgOfficeSalary;
-                    const officeSavings = totalOfficeCost * officeProductivity.value;
-                    
-                    // Fuel Savings
-                    const totalFuelCost = numEngineers * avgFuelCost.value;
-                    const fuelSavings = totalFuelCost * fuelSaving.value;
-                    
-                    // Total
-                    const totalSavings = engineerSavings + officeSavings + fuelSavings;
-
-                    // Update UI
-                    document.getElementById('total-savings').textContent = `£${Math.round(totalSavings).toLocaleString()}`;
-                    document.getElementById('engineer-savings-total').textContent = `£${Math.round(engineerSavings).toLocaleString()}`;
-                    document.getElementById('office-savings-total').textContent = `£${Math.round(officeSavings).toLocaleString()}`;
-                    document.getElementById('fuel-savings-total').textContent = `£${Math.round(fuelSavings).toLocaleString()}`;
-                    
-                    // Update calculation details
-                    document.getElementById('engineer-calc-details').innerHTML = 
-                        `(${numEngineers} Engineers × £${avgEngineerSalary.value.toLocaleString()} Avg. Salary) × ${engineerProductivity.value * 100}% Productivity Gain = <strong>£${Math.round(engineerSavings).toLocaleString()}</strong>`;
-                    
-                    document.getElementById('office-calc-details').innerHTML = 
-                        `(${numOfficeStaff} Staff × £${avgOfficeSalary.toLocaleString()} Avg. Salary) × ${officeProductivity.value * 100}% Productivity Gain = <strong>£${Math.round(officeSavings).toLocaleString()}</strong>`;
-                    
-                    document.getElementById('fuel-calc-details').innerHTML = 
-                        `(${numEngineers} Vehicles × £${avgFuelCost.value.toLocaleString()} Avg. Fuel Cost) × ${fuelSaving.value * 100}% Reduction = <strong>£${Math.round(fuelSavings).toLocaleString()}</strong>`;
-
-                    // Update Donut Chart
-                    updateDonutChart(engineerSavings, officeSavings, fuelSavings);
-                }
-                
-                function updateDonutChart(engineer, office, fuel) {
-                    const total = engineer + office + fuel;
-                    if (total === 0) return;
-
-                    const circumference = 2 * Math.PI * 40; // 251.2
-                    
-                    const engineerPercent = engineer / total;
-                    const officePercent = office / total;
-                    const fuelPercent = fuel / total;
-                    
-                    const engineerDash = engineerPercent * circumference;
-                    const officeDash = officePercent * circumference;
-                    const fuelDash = fuelPercent * circumference;
-
-                    const engineerOffset = 0;
-                    const officeOffset = -engineerDash;
-                    const fuelOffset = -(engineerDash + officeDash);
-
-                    document.getElementById('donut-engineer').setAttribute('stroke-dasharray', `${engineerDash} ${circumference}`);
-                    document.getElementById('donut-engineer').setAttribute('stroke-dashoffset', engineerOffset);
-
-                    document.getElementById('donut-office').setAttribute('stroke-dasharray', `${officeDash} ${circumference}`);
-                    document.getElementById('donut-office').setAttribute('stroke-dashoffset', officeOffset);
-                    
-                    document.getElementById('donut-fuel').setAttribute('stroke-dasharray', `${fuelDash} ${circumference}`);
-                    document.getElementById('donut-fuel').setAttribute('stroke-dashoffset', fuelOffset);
-                }
-
-                // Initial calculation
-                populateAssumptions();
-                calculateROI();
-            });
-        </script>
     </main>
+    
+    <footer style="text-align: center;">
+        <div class="container">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo">
+            <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
+            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
+            <p class="footer-legal">This proposal has been built specifically for Target Lifts Ltd.<br>&copy; 2025 BigChange. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const sliders = ['engineers', 'jobsPerDay', 'officeStaff', 'officeSalary'];
+            const inputs = {};
+            const valueSpans = {};
+    
+            sliders.forEach(id => {
+                inputs[id] = document.getElementById(id);
+                valueSpans[id] = document.getElementById(id + '-value');
+            });
+    
+            const outputs = {
+                totalSavings: document.getElementById('total-savings'),
+                engineerSavingsTotal: document.getElementById('engineer-savings-total'),
+                officeSavingsTotal: document.getElementById('office-savings-total'),
+                fuelSavingsTotal: document.getElementById('fuel-savings-total'),
+                engineerCalcDetails: document.getElementById('engineer-calc-details'),
+                officeCalcDetails: document.getElementById('office-calc-details'),
+                fuelCalcDetails: document.getElementById('fuel-calc-details'),
+                donutEngineer: document.getElementById('donut-engineer'),
+                donutOffice: document.getElementById('donut-office'),
+                donutFuel: document.getElementById('donut-fuel'),
+            };
+    
+            const assumptions = {
+                avgJobDriveTimeMins: 47.95,
+                avgJobDurationMins: 105, // (4 * 60) / 4 jobs = 60 mins. Let's use 105 for lift service.
+                avgDistancePerJobMiles: 24.26,
+                avgMpg: 30.8,
+                avgFuelCostPerLitre: 1.70,
+                jobDurationSavingPercent: 0.0922,
+                jobDriveTimeSavingPercent: 0.1054,
+                jobDistanceSavingPercent: 0.1051,
+                backOfficeSavingPercent: 0.2454,
+                workingDaysPerMonth: 21,
+                engineerSalary: 45000 // Lift engineer avg salary
+            };
+    
+            function formatCurrency(value) {
+                return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
+            }
+    
+            function populateAssumptions() {
+                const list = document.getElementById('assumptions-list');
+                if (!list) return;
+                list.innerHTML = `
+                    <p><strong>Engineer Salary:</strong> ${formatCurrency(assumptions.engineerSalary)}</p>
+                    <p><strong>Office Saving:</strong> ${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</p>
+                    <p><strong>On-Site Time Saving:</strong> ${(assumptions.jobDurationSavingPercent * 100).toFixed(1)}%</p>
+                    <p><strong>Drive Time Saving:</strong> ${(assumptions.jobDriveTimeSavingPercent * 100).toFixed(1)}%</p>
+                    <p><strong>Fuel Saving %:</strong> ${(assumptions.jobDistanceSavingPercent * 100).toFixed(1)}%</p>
+                    <p><strong>Working Days/Month:</strong> ${assumptions.workingDaysPerMonth}</p>
+                `;
+            }
+    
+            function calculateAndDisplay() {
+                const values = {};
+                for (const key in inputs) {
+                    if(inputs[key]) {
+                        values[key] = parseFloat(inputs[key].value);
+                        if (valueSpans[key]) {
+                            if(key === 'officeSalary') {
+                                valueSpans[key].textContent = formatCurrency(values[key]);
+                            } else {
+                                valueSpans[key].textContent = values[key];
+                            }
+                        }
+                    }
+                }
+    
+                const engineerHourlyRate = assumptions.engineerSalary / (assumptions.workingDaysPerMonth * 12) / 8; // 8 hour day
+                const totalAnnualJobs = values.engineers * values.jobsPerDay * assumptions.workingDaysPerMonth * 12;
+    
+                const totalAnnualDriveTimeMins = totalAnnualJobs * assumptions.avgJobDriveTimeMins;
+                const totalAnnualOnSiteTimeMins = totalAnnualJobs * assumptions.avgJobDurationMins;
+                
+                const driveTimeSavingMins = totalAnnualDriveTimeMins * assumptions.jobDriveTimeSavingPercent;
+                const onSiteTimeSavingMins = totalAnnualOnSiteTimeMins * assumptions.jobDurationSavingPercent;
+                
+                const engineerProductivitySavings = ((driveTimeSavingMins + onSiteTimeSavingMins) / 60) * engineerHourlyRate;
+                const officeProductivitySavings = (values.officeSalary * values.officeStaff) * assumptions.backOfficeSavingPercent;
+    
+                const totalAnnualMiles = totalAnnualJobs * assumptions.avgDistancePerJobMiles;
+                const totalAnnualGallons = totalAnnualMiles / assumptions.avgMpg;
+                const totalAnnualLitres = totalAnnualGallons * 4.54609;
+                const totalAnnualFuelCost = totalAnnualLitres * assumptions.avgFuelCostPerLitre;
+                const fuelSavings = totalAnnualFuelCost * assumptions.jobDistanceSavingPercent;
+    
+                const totalAnnualBenefit = engineerProductivitySavings + officeProductivitySavings + fuelSavings;
+    
+                if (outputs.totalSavings) outputs.totalSavings.textContent = formatCurrency(totalAnnualBenefit);
+                if (outputs.engineerSavingsTotal) outputs.engineerSavingsTotal.textContent = formatCurrency(engineerProductivitySavings);
+                if (outputs.officeSavingsTotal) outputs.officeSavingsTotal.textContent = formatCurrency(officeProductivitySavings);
+                if (outputs.fuelSavingsTotal) outputs.fuelSavingsTotal.textContent = formatCurrency(fuelSavings);
+    
+                const engineerCountForText = values.engineers || '...';
+                if (outputs.engineerCalcDetails) outputs.engineerCalcDetails.innerHTML = `By cutting drive time (${(assumptions.jobDriveTimeSavingPercent*100).toFixed(1)}%) and on-site time (${(assumptions.jobDurationSavingPercent*100).toFixed(1)}%) for <strong>${engineerCountForText} engineers</strong>, we can recover <strong>${formatCurrency(engineerProductivitySavings)}</strong> in productive time.`;
+                if (outputs.officeCalcDetails) outputs.officeCalcDetails.innerHTML = `Automating manual tasks like invoicing, purchasing, and reporting can save <strong>${(assumptions.backOfficeSavingPercent*100).toFixed(1)}%</strong> of your <strong>${values.officeStaff} office staff's</strong> time, valued at <strong>${formatCurrency(officeProductivitySavings)}</strong>.`;
+                if (outputs.fuelCalcDetails) outputs.fuelCalcDetails.innerHTML = `Smarter scheduling and optimised routing can cut your annual fuel bill by <strong>${(assumptions.jobDistanceSavingPercent*100).toFixed(1)}%</strong>, saving an estimated <strong>${formatCurrency(fuelSavings)}</strong>.`;
+    
+                const savingsBreakdown = [engineerProductivitySavings, officeProductivitySavings, fuelSavings];
+                const totalForChart = savingsBreakdown.reduce((a, b) => a + b, 0);
+                
+                if (totalForChart > 0) {
+                    const circumference = 2 * Math.PI * 40;
+                    const percentages = savingsBreakdown.map(s => s / totalForChart);
+                    let offset = 0;
+                    const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                    percentages.forEach((p, i) => {
+                        const length = p * circumference;
+                        const dasharray = `${length} ${circumference - length}`;
+                        if(segments[i]) {
+                            segments[i].setAttribute('stroke-dasharray', dasharray);
+                            segments[i].setAttribute('stroke-dashoffset', -offset);
+                        }
+                        offset += length;
+                    });
+                } else {
+                    const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+                    segments.forEach(seg => {
+                        if(seg) seg.setAttribute('stroke-dasharray', '0 251.2');
+                    });
+                }
+            }
+    
+            for (const key in inputs) {
+                if(inputs[key]) {
+                    inputs[key].addEventListener('input', calculateAndDisplay);
+                }
+            }
+    
+            populateAssumptions();
+            calculateAndDisplay();
+
+            // GANTT Modal Logic
+            const modal = document.getElementById('gantt-modal');
+            const modalTitle = document.getElementById('gantt-modal-title');
+            const modalBody = document.getElementById('gantt-modal-body');
+            const closeModal = document.getElementById('gantt-modal-close');
+            const tasks = document.querySelectorAll('.gantt-bar-task');
+
+            const taskDetails = {
+                'lms-access': {
+                    title: 'Phase 0: Foundation (Weeks 2-12)',
+                    description: 'Your journey begins with access to our on-demand Learning Management System (LMS), <strong>BigChange University</strong>. Before the formal project starts, all your users—from field to office—can complete modules at their own pace.',
+                    bullets: [
+                        '<strong>Target Lifts:</strong> Nominate all 97 users for LMS access.',
+                        '<strong>BigChange:</strong> Provide login credentials for all users.',
+                        '<strong>Target Lifts Team:</strong> Complete foundational e-learning modules.'
+                    ]
+                },
+                'kickoff': {
+                    title: 'Phase 1: Discovery & Kick-Off (Weeks 3-4)',
+                    description: 'The formal project kick-off. Your Senior Implementation Consultant will align with your key stakeholders on scope, goals, and timelines, and collaboratively map your exact Service and Project workflows.',
+                    bullets: [
+                        '<strong>Joint Activity:</strong> Formal Project Kick-Off call.',
+                        '<strong>Joint Activity:</strong> In-depth workflow scoping workshops for Service/PPM.',
+                        '<strong>Joint Activity:</strong> In-depth workflow scoping workshops for Projects & Finance.',
+                        '<strong>Deliverable:</strong> Signed-off Scope Document.'
+                    ]
+                },
+                'core-config': {
+                    title: 'Phase 2: Core Configuration (Weeks 4-6)',
+                    description: 'We build the foundational elements of your BigChange system based on the discovery workshops. This includes user profiles, vehicle details, job types, and initial financial settings.',
+                    bullets: [
+                        '<strong>BigChange:</strong> Configure user roles, groups, and permissions.',
+                        '<strong>BigChange:</strong> Set up vehicle records and tracking hardware assignments.',
+                        '<strong>BigChange:</strong> Build custom job types (e.g., PPM, Callout, Project).',
+                        '<strong>Target Lifts:</strong> Provide all user and vehicle details.'
+                    ]
+                },
+                'data-export': {
+                    title: 'Phase 3: Data Export (Week 4)',
+                    description: 'The critical first step of data migration. Your team will be responsible for exporting clean, up-to-date data from JobLogic and any supplementary spreadsheets.',
+                    bullets: [
+                        '<strong>Target Lifts:</strong> Export all Customers & Sites.',
+                        '<strong>Target Lifts:</strong> Export all 1200+ Assets (Lifts) with full details.',
+                        '<strong>Target Lifts:</strong> Export all active PPM schedules and frequencies.'
+                    ]
+                },
+                'data-import': {
+                    title: 'Phase 3: Data Import & Validation (Weeks 5-6)',
+                    description: 'BigChange imports your data into a test environment. Your Super Users will then validate this data to ensure everything is correct before we move to the live system.',
+                    bullets: [
+                        '<strong>BigChange:</strong> Provide data import templates.',
+                        '<strong>Target Lifts:</strong> Cleanse and populate templates.',
+                        '<strong>BigChange:</strong> Import data into test environment.',
+                        '<strong>Target Lifts:</strong> User Acceptance Testing (UAT) and sign-off on all imported data.'
+                    ]
+                },
+                'ppm-build': {
+                    title: 'Phase 4: Service & PPM Build (Weeks 5-7)',
+                    description: 'Using your imported asset and contract data, we build your complete PPM schedule in BigChange, giving you the forward visibility you currently lack.',
+                    bullets: [
+                        '<strong>BigChange:</strong> Configure all recurring PPM schedules for 1200+ lifts.',
+                        '<strong>BigChange:</strong> Build custom mobile worksheets/forms for service visits (e.g., LOLER).',
+                        '<strong>Target Lifts:</strong> Super Users test and sign off on PPM schedules and forms.'
+                    ]
+                },
+                'service-training': {
+                    title: 'Phase 4: Service Team Training (Weeks 7-8)',
+                    description: 'We empower your internal champions using our "Train the Trainer" model. Your Super Users, now experts, will lead the end-user training for the service department with our full support.',
+                    bullets: [
+                        '<strong>BigChange:</strong> "Train the Trainer" sessions for Service Super Users (Office & Field).',
+                        '<strong>Target Lifts:</strong> Super Users deliver training to all service engineers and schedulers.',
+                        '<strong>BigChange:</strong> Provide support and "Go-Live" resources for the service team.'
+                    ]
+                },
+                'project-costing': {
+                    title: 'Phase 5: Project & Financials Build (Weeks 6-8)',
+                    description: 'We configure the financial heart of the system, focusing on your key requirement for granular project costing.',
+                    bullets: [
+                        '<strong>BigChange:</strong> Configure Job Costing module to track labour, parts, and POs.',
+                        '<strong>BigChange:</strong> Build "Group Jobs" structure for managing large-scale, multi-stage projects.',
+                        '<strong>Target Lifts:</strong> Finance team (Julie) to test and validate project costing workflows.'
+                    ]
+                },
+                'xero-integration': {
+                    title: 'Phase 5: Xero Integration (Weeks 8-9)',
+                    description: 'Our Integrations Specialist will connect BigChange to your Xero account, building the robust, two-way sync you need to eliminate double-entry.',
+                    bullets: [
+                        '<strong>BigChange:</strong> Configure and activate Xero integration.',
+                        '<strong>Target Lifts:</strong> Finance team to test invoice, PO, and payment sync.',
+                        '<strong>Joint Activity:</strong> Sign-off on integration UAT.'
+                    ]
+                },
+                'finance-training': {
+                    title: 'Phase 5: Finance & Project Team Training (Weeks 9-10)',
+                    description: 'Targeted training for the finance and project management teams on their specific workflows.',
+                    bullets: [
+                        '<strong>BigChange:</strong> "Train the Trainer" sessions for Finance/Project Super Users.',
+                        '<strong>Target Lifts:</strong> Super Users deliver training to finance and project teams.',
+                        '<strong>BigChange:</strong> Provide support and "Go-Live" resources.'
+                    ]
+                },
+                'power-bi': {
+                    title: 'Phase 6: Reporting & Power BI (Weeks 10-12)',
+                    description: 'We activate your "Data as a Service" (DAAS) feed. This provides a live, secure data connection for your Power BI dashboards, giving you the ultimate reporting flexibility you need.<br><br><strong>Prerequisite:</strong> This connectivity is achieved via Snowflake. You will need to sign up for a package at <a href="http://snowflake.com" target="_blank" rel="noopener noreferrer">Snowflake.com</a> before this step.',
+                    bullets: [
+                        '<strong>Target Lifts:</strong> Sign up for a <a href="http://snowflake.com" target="_blank" rel="noopener noreferrer">Snowflake</a> account and package.',
+                        '<strong>BigChange:</strong> Enable DAAS feed and provide connection details for Snowflake.',
+                        '<strong>Target Lifts:</strong> Connect Power BI to the new Snowflake data source.',
+                        '<strong>Joint Activity:</strong> Workshop to identify key reports and dashboards to build (e.g., Asset Profitability, Engineer Performance).'
+                    ]
+                },
+                'floorwalking': {
+                    title: 'Phase 6: Go-Live Support (Weeks 11-12)',
+                    description: 'We provide on-site and remote "Floorwalking" support as your teams go live, ensuring a smooth transition and rapid adoption. This is the final step before handing over to your Customer Success Manager.',
+                    bullets: [
+                        '<strong>BigChange:</strong> On-site support for office and field teams during the first days of Go-Live.',
+                        '<strong>BigChange:</strong> Remote hyper-care support for 1-2 weeks post Go-Live.',
+                        '<strong>Target Lifts:</strong> All 97 users are now live and operating on BigChange.'
+                    ]
+                },
+                'review': {
+                    title: 'Phase 6: Project Review & Handover (Week 12)',
+                    description: 'After your first few weeks live, we conduct a Project Review to measure success against your original goals (e.g., PPM visibility, financial reporting). We then formally hand you over to your dedicated Customer Success Manager.',
+                    bullets: [
+                        '<strong>Joint Activity:</strong> Formal Project Review meeting.',
+                        '<strong>Joint Activity:</strong> Measure success against original goals.',
+                        '<strong>BigChange:</strong> Formal handover from Onboarding to your Customer Success Manager.'
+                    ]
+                }
+            };
+
+            tasks.forEach(task => {
+                task.addEventListener('click', () => {
+                    const taskId = task.dataset.taskId;
+                    if (taskDetails[taskId]) {
+                        const details = taskDetails[taskId];
+                        modalTitle.textContent = details.title;
+                        
+                        let bulletsHtml = '<ul>';
+                        details.bullets.forEach(bullet => {
+                            bulletsHtml += `<li>${bullet}</li>`;
+                        });
+                        bulletsHtml += '</ul>';
+                        
+                        modalBody.innerHTML = `<p>${details.description}</p>${bulletsHtml}`;
+                        modal.style.display = 'block';
+                    }
+                });
+            });
+
+            closeModal.onclick = () => {
+                modal.style.display = 'none';
+            }
+
+            window.onclick = (event) => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            }
+        });
+    </script>
 </body>
 </html>
