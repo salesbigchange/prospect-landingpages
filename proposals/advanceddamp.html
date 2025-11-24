@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop the Chaos: A Digital Transformation for Advanced Damp Ltd</title>
+    <meta name="description" content="A tailored proposal for Advanced Damp Ltd outlining the efficiency gains by consolidating Monday.com, SafetyCulture, and Quartix into BigChange.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+    
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="BigChange & Advanced Damp Ltd: The Unified Solution">
+    <meta property="og:description" content="An interactive proposal exploring how eliminating disconnected systems and manual admin will streamline Advanced Damp's operations.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+    
+    <!-- JSON-LD for SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "BigChange Job Management Platform",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "79.95",
+        "priceCurrency": "GBP",
+        "description": "Per user per month, includes software, tracking hardware, and support."
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "BigChange"
+      }
+    }
+    </script>
+
+    <!-- Inline CSS for Single-File Deployment -->
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            /* Brand Colors */
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282922;
+            --bc-white: #FFFFFF;
+            
+            /* Spacing & Sizing Tokens */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            /* Other Design Tokens */
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* General Layout & Typography */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .section-title .icon {
+            color: var(--bc-energy-blue);
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-4);
+        }
+        .chip {
+            display: inline-block;
+            padding: var(--spacing-1) var(--spacing-2);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 9999px;
+            background-color: var(--bc-light-grey);
+            color: var(--bc-navy);
+        }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: var(--spacing-16);
+            padding-bottom: var(--spacing-16);
+            text-align: center;
+        }
+        #hero h1, #hero h2, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+        
+        /* Current -> Future Section */
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .state-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .state-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        /* Business Case Section */
+        .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
+        .meddic-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .meddic-card h4 { color: var(--bc-energy-blue); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: var(--spacing-2); }
+        .meddic-card h4 .icon { width: 20px; height: 20px; }
+        .meddic-card p, .meddic-card ul { font-size: 0.95rem; }
+        .meddic-card ul { list-style-position: inside; padding-left: var(--spacing-2); }
+        .assumption-flag { color: var(--bc-orange); font-style: italic; font-size: 0.8rem; }
+        
+        /* ROI Calculator Section */
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-8);
+            background-color: var(--bc-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: var(--spacing-2); }
+        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
+        #assumptions-container {
+            margin-top: var(--spacing-8);
+            background-color: #f9fafb;
+            border: 1px solid #e0e0e0;
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+        }
+        #assumptions-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-4);
+        }
+        #assumptions-list p { font-size: 0.85rem; }
+
+        /* SVG Donut Chart */
+        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        .donut-chart { transform: rotate(-90deg); border-radius: 50%; }
+        .donut-segment { fill: none; stroke-width: 20; transition: stroke-dashoffset 0.5s ease-in-out; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
+        .donut-legend li { display: flex; align-items: center; gap: var(--spacing-2); font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+        
+        .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
+        
+        /* Proposal Section */
+        #investment { background-color: var(--bc-white); }
+        .proposal-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-8);
+            align-items: center;
+            margin-top: var(--spacing-8);
+        }
+        .proposal-card {
+            background-color: var(--bc-light-grey);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-8);
+            box-shadow: var(--box-shadow);
+            border: 3px solid transparent;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .proposal-card h3 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--bc-navy);
+        }
+        .proposal-card .price {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--bc-navy);
+            margin: var(--spacing-4) 0;
+        }
+        .proposal-card .price-rrp {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--bc-navy); /* Solid color as per request, not crossed out */
+            margin: var(--spacing-4) 0;
+        }
+        .proposal-card p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .cta-center {
+            text-align: center;
+            margin-top: var(--spacing-8);
+        }
+        
+        @media (max-width: 768px) {
+            .proposal-wrapper {
+                flex-direction: column;
+            }
+        }
+
+        /* Footer */
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+        
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            #hero h1 { font-size: 2.5rem; }
+            section { padding: var(--spacing-12) 0; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <!-- Advanced Damp Logo on Navy Background -->
+                    <div style="padding: 10px;">
+                        <img src="https://iili.io/fKIugNS.png" alt="Advanced Damp Ltd Logo" style="height: 65px;">
+                    </div>
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
+                </div>
+                <h1>Stop the Chaos: A Unified Platform for Advanced Damp</h1>
+                <p class="subhead">A strategic proposal to move Advanced Damp Ltd from fragmented systems to a single source of truth. Eliminate the "headless chicken" chaos, enforce compliance, and streamline your damp surveys to quotes.</p>
+                <div class="cta-buttons">
+                    <a href="https://app.fireflies.ai/view/BigChange-x-Advanced-Damp-Ltd::01K9EYD9DTR9S151KJTK0CR4H7" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Meeting Recap</a>
+                    <a href="#roi" class="btn btn-primary">Calculate Savings</a>
+                    <a href="#investment" class="btn btn-secondary">View Investment</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
+                    <h2>Current State vs. Future State</h2>
+                    <p>Transforming Advanced Damp Ltd from app overload to streamlined efficiency.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3>
+                             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FF6B00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 10px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                            Current State (Fragmented)
+                        </h3>
+                        <ul>
+                            <li><strong>System Overload:</strong> Managing Monday.com, SafetyCulture, HubSpot, GoHighLevel, Quartix, and Excel separately.</li>
+                            <li><strong>Manual Automations:</strong> Monday.com isn't built for construction; you're manually clicking to trigger "automations" and building workarounds.</li>
+                            <li><strong>Data Disconnect:</strong> Surveyors do reports in SafetyCulture, download them, then attach to Monday. Estimating is done separately in Excel.</li>
+                            <li><strong>"Headless Chickens":</strong> Staff running around trying to piece together information creates operational chaos and miscommunication.</li>
+                            <li><strong>Learning Curve:</strong> New employees struggle to learn the complex, custom Monday.com setup, leading to missed steps.</li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3>
+                             <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
+                            Future State (Unified)
+                        </h3>
+                        <ul>
+                            <li><strong>One Truth:</strong> CRM, Job Scheduling, Vehicle Tracking (replacing Quartix), and Financials in one construction-specific platform.</li>
+                            <li><strong>True Automation:</strong> Workflows that actually flow. From lead -> damp survey -> quote -> job sheet -> invoice without re-keying data.</li>
+                            <li><strong>Seamless Surveys:</strong> Surveyors capture data (photos, moisture readings) directly in the app, which instantly populates professional quote templates.</li>
+                            <li><strong>Forced Compliance:</strong> Mandatory RAMS and vehicle checks on the app before work starts. No more chasing forms.</li>
+                            <li><strong>Subcontractor Friendly:</strong> Use the Subcontractor App (£1/job) for your flexible technician workforce.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="business-case">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <h2>The Business Case for Advanced Damp</h2>
+                    <p>Why shifting to a purpose-built platform makes sense for your 20-person team.</p>
+                </div>
+                <div class="meddic-grid">
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z" /></svg>
+                            The Opportunity
+                        </h4>
+                        <p><strong>Consolidation Savings:</strong> Remove the cost of Monday.com, SafetyCulture, Quartix, and potentially HubSpot/GHL.</p>
+                        <p><strong>Admin Efficiency:</strong> Eliminate the manual "download report -> upload to Monday" loop.</p>
+                        <p><strong>Faster Quoting:</strong> Move from 24hr turnaround to potentially same-day quoting using built-in templates.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
+                            Key Goals
+                        </h4>
+                        <p><strong>Streamline:</strong> Stop the "headless chicken" mode by having one system for the office and field.</p>
+                        <p><strong>Compliance:</strong> Ensure every job has a signed RAMS and vehicle check without fail.</p>
+                        <p><strong>Visibility:</strong> See exactly where your technicians are and what they are doing in real-time.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Why Now?
+                        </h4>
+                        <ul>
+                            <li><strong>New Year, New System:</strong> You mentioned looking to implement changes for the new year.</li>
+                            <li><strong>Growing Pains:</strong> With 20 staff, manual processes on Monday.com are becoming unsustainable.</li>
+                            <li><strong>Compliance Pressure:</strong> Ensuring MCS/Safety standards are met automatically.</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" /></svg>
+                            Current Pain Points
+                        </h4>
+                        <ul>
+                            <li><strong>Fragmented Data:</strong> "We use Monday, SafetyCulture, HubSpot, GoHighLevel, Quartix..."</li>
+                            <li><strong>Manual Work:</strong> Manually triggering automations and copy-pasting data between apps.</li>
+                            <li><strong>Communication:</strong> Field workers reverting to email because the systems don't sync well.</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" /></svg>
+                            Champion
+                        </h4>
+                        <p><strong>Sam:</strong> Doing the marketing, running the operations, and feeling the pain of the disjointed systems. Wants a solution that "actually works" for construction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="metrics-framework" style="background-color: var(--bc-white); padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a9.75 9.75 0 0119.5 0m-19.5 0a9.75 9.75 0 0019.5 0M10.5 6H21m-10.5 0H3.375M10.5 18.375c.394.038.79.062 1.186.062s.792-.024 1.186-.062M10.5 18.375c-.394.038-.79.062-1.186.062s-.792-.024-1.186-.062m2.372 0H21m-2.372 0H3.375M17.25 12c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75S16.466 10.25 17.25 10.25s1.75.784 1.75 1.75zM9 12c0 .966-.784 1.75-1.75 1.75S5.5 12.966 5.5 12 6.284 10.25 7.25 10.25S9 11.034 9 12z" />
+                      </svg>
+                    <h2>Success Metrics for Damp Proofing</h2>
+                    <p>How we measure the impact of moving to BigChange.</p>
+                </div>
+                <div class="meddic-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12.75l9-9m0 0l-9 9m9-9v10.5m-9-5.25h10.5" /></svg>
+                            Operational Wins
+                        </h4>
+                        <ul>
+                            <li><strong>Survey Speed:</strong> Reduce report writing time by 50% using integrated forms.</li>
+                            <li><strong>Quote Conversion:</strong> Improve win rates with professional, templated quotes sent immediately.</li>
+                            <li><strong>Stock Control:</strong> Accurate tracking of DPC cream, membranes, and materials.</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125z" /></svg>
+                            Financial Impact
+                        </h4>
+                        <ul>
+                            <li><strong>Reduce Software Spend:</strong> Eliminate multiple subscriptions (Monday, Quartix, etc.).</li>
+                            <li><strong>Recover Admin Hours:</strong> Save ~15 hours/week of admin time currently spent manually moving data.</li>
+                            <li><strong>Protect Margins:</strong> Accurate job costing (labor + materials) vs fixed price quotes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>Savings Calculator</h2>
+                    <p>Forecast the value of switching to BigChange. Defaults based on your team size of ~20.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3>Your Business Details</h3>
+                        <div>
+                            <div class="calculator-input">
+                                <label for="engineers"><span>Field Technicians/Surveyors</span><span id="engineers-value">12</span></label>
+                                <input type="range" id="engineers" min="5" max="50" value="12">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="jobsPerDay"><span>Jobs/Surveys per Day</span><span id="jobsPerDay-value">3</span></label>
+                                <input type="range" id="jobsPerDay" min="1" max="10" value="3" step="1">
+                            </div>
+                             <div class="calculator-input">
+                                <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">8</span></label>
+                                <input type="range" id="officeStaff" min="1" max="20" value="8">
+                            </div>
+                            <div class="calculator-input">
+                                <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£28,000</span></label>
+                                <input type="range" id="officeSalary" min="20000" max="60000" value="28000" step="500">
+                            </div>
+                        </div>
+                        
+                        <div id="assumptions-container">
+                            <h3 style="margin-bottom: var(--spacing-4);">Key Assumptions</h3>
+                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: var(--spacing-4);">Based on standard industry improvements.</p>
+                            <div id="assumptions-list">
+                                <p>Field Productivity Gain: 15%</p>
+                                <p>Office Admin Reduction: 20%</p>
+                                <p>Fuel Savings: 12%</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="roi-results">
+                        <div>
+                             <h3>Your Estimated Annual Savings</h3>
+                             <div>
+                                <p class="total-savings" id="total-savings">£0</p>
+                                <p>Total Annual Business Benefit</p>
+                             </div>
+                             <div>
+                                <div class="donut-chart-container">
+                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                                    </svg>
+                                </div>
+                                <ul class="donut-legend">
+                                    <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Field Productivity</li>
+                                    <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                                    <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                                </ul>
+                             </div>
+                        </div>
+                        
+                        <div class="calculation-breakdown">
+                            <h3 style="margin-top: var(--spacing-8);">Calculation Breakdown</h3>
+                            <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Field Productivity</span>
+                                    <span id="engineer-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Improved Office Productivity</span>
+                                    <span id="office-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
+                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
+                                    <span>Fuel Savings</span>
+                                    <span id="fuel-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
+                                </summary>
+                                <p id="fuel-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="implementation" style="margin-bottom: var(--spacing-16);">
+            <div class="container">
+                 <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2>Implementation & Onboarding</h2>
+                    <p>A collaborative, 3-month partnership to ensure a seamless transition.</p>
+                </div>
+
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="margin-bottom: var(--spacing-8);">We don't just hand you the software. We build it with you.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-6); text-align: left;">
+                        <div style="background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius);">
+                            <h4 style="color: var(--bc-energy-blue); margin-bottom: var(--spacing-2);">1. Setup</h4>
+                            <p style="font-size: 0.9rem;">We configure your job sheets, risk assessments, and vehicle checks to match your exact needs.</p>
+                        </div>
+                        <div style="background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius);">
+                            <h4 style="color: var(--bc-energy-blue); margin-bottom: var(--spacing-2);">2. Pilot</h4>
+                            <p style="font-size: 0.9rem;">We test the workflows with a small group of your surveyors and technicians to refine the process.</p>
+                        </div>
+                        <div style="background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius);">
+                            <h4 style="color: var(--bc-energy-blue); margin-bottom: var(--spacing-2);">3. Rollout</h4>
+                            <p style="font-size: 0.9rem;">Full training and go-live support, backed by our 24/7 HyperCare based in Leeds.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investment Section -->
+        <section id="investment">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 9h.008v.008H6V9z" />
+                    </svg>
+                    <h2>Your Investment</h2>
+                    <p style="max-width: 700px; margin: 0 auto;">Transparent pricing to support your growth journey.</p>
+                </div>
+
+                <div class="proposal-wrapper">
+                    <div class="proposal-card">
+                        <h3>Platform License</h3>
+                        <div class="price-rrp" style="text-decoration: none; color: var(--bc-navy);">£79.95</div>
+                        <p>Per User / Per Month</p>
+                        <p>(Includes Mobile App, Tracking Hardware & Back Office)</p>
+                    </div>
+                     <div class="proposal-card">
+                        <h3>Business Support</h3>
+                        <div class="price-rrp" style="text-decoration: none; color: var(--bc-navy);">£133.00</div>
+                        <p>Per Company / Per Month</p>
+                        <p>(Covers Unlimited Support, Setup & System Maintenance)</p>
+                    </div>
+                     <div class="proposal-card">
+                        <h3>Subcontractor App</h3>
+                        <div class="price-rrp" style="text-decoration: none; color: var(--bc-navy);">£1.00</div>
+                        <p>Per Job / Per Month</p>
+                        <p>(Pay-as-you-go for flexible sub-contractor usage)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="demo-recording" style="background-color: var(--bc-navy); color: var(--bc-white);">
+            <div class="container">
+                <div class="section-title" style="margin-bottom: var(--spacing-8);">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--bc-white);">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
+                    </svg>
+                    <h2 style="color: var(--bc-white);">Missed a Detail? Rewatch the Demo</h2>
+                    <p style="opacity: 0.9; max-width: 700px; margin: 0 auto;">Review our discussion on your bespoke workflow at your own pace.</p>
+                </div>
+                <div class="cta-center" style="margin-top: 0;">
+                    <a href="https://app.fireflies.ai/view/BigChange-x-Advanced-Damp-Ltd::01K9EYD9DTR9S151KJTK0CR4H7" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); border-color: var(--bc-orange); font-size: 1.2rem; padding: 1rem 2rem;">Rewatch Meeting</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container" style="text-align: center;">
+                <h3 style="color: var(--bc-light-grey); margin-bottom: var(--spacing-4);">Ready to streamline Advanced Damp?</h3>
+                <p style="font-size: 1.1rem; margin-bottom: var(--spacing-6);">Let's prepare for the new year together.</p>
+                <p style="opacity: 0.7;">This proposal has been built specifically for Advanced Damp Ltd.</p>
+                <p style="opacity: 0.7; margin-top: var(--spacing-4);">&copy; 2025 BigChange. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+    
+    <script>
+        // Logic for ROI Calculator
+        document.addEventListener('DOMContentLoaded', () => {
+            const engineersInput = document.getElementById('engineers');
+            const jobsPerDayInput = document.getElementById('jobsPerDay');
+            const officeStaffInput = document.getElementById('officeStaff');
+            const officeSalaryInput = document.getElementById('officeSalary');
+            
+            const engineersValue = document.getElementById('engineers-value');
+            const jobsPerDayValue = document.getElementById('jobsPerDay-value');
+            const officeStaffValue = document.getElementById('officeStaff-value');
+            const officeSalaryValue = document.getElementById('officeSalary-value');
+            
+            const totalSavingsDisplay = document.getElementById('total-savings');
+            const engineerSavingsDisplay = document.getElementById('engineer-savings-total');
+            const officeSavingsDisplay = document.getElementById('office-savings-total');
+            const fuelSavingsDisplay = document.getElementById('fuel-savings-total');
+            
+            const engineerDetails = document.getElementById('engineer-calc-details');
+            const officeDetails = document.getElementById('office-calc-details');
+            const fuelDetails = document.getElementById('fuel-calc-details');
+            
+            const donutEngineer = document.getElementById('donut-engineer');
+            const donutOffice = document.getElementById('donut-office');
+            const donutFuel = document.getElementById('donut-fuel');
+            
+            function updateCalculator() {
+                const numEngineers = parseInt(engineersInput.value);
+                const numJobs = parseInt(jobsPerDayInput.value);
+                const numOffice = parseInt(officeStaffInput.value);
+                const salaryOffice = parseInt(officeSalaryInput.value);
+                
+                // Update UI values
+                engineersValue.textContent = numEngineers;
+                jobsPerDayValue.textContent = numJobs;
+                officeStaffValue.textContent = numOffice;
+                officeSalaryValue.textContent = `£${salaryOffice.toLocaleString()}`;
+                
+                // Assumptions
+                const engineerHourlyRate = 35; // Assumed hourly cost to business
+                const productivityGain = 0.15; // 15% gain
+                const workingDays = 252; // Approx working days per year
+                const fuelCostPerYear = 4000; // Avg fuel spend per van
+                const fuelSavingsPct = 0.12; // 12% saving
+                const officeEfficiency = 0.20; // 20% admin reduction
+                
+                // Calculations
+                const dailyEngineerSaving = (8 * productivityGain) * engineerHourlyRate; 
+                const annualEngineerSaving = dailyEngineerSaving * workingDays * numEngineers;
+                
+                const annualOfficeSaving = (salaryOffice * officeEfficiency) * numOffice;
+                
+                const annualFuelSaving = (fuelCostPerYear * fuelSavingsPct) * numEngineers;
+                
+                const totalAnnualSaving = annualEngineerSaving + annualOfficeSaving + annualFuelSaving;
+                
+                // Update Text Displays
+                totalSavingsDisplay.textContent = `£${Math.round(totalAnnualSaving).toLocaleString()}`;
+                engineerSavingsDisplay.textContent = `£${Math.round(annualEngineerSaving).toLocaleString()}`;
+                officeSavingsDisplay.textContent = `£${Math.round(annualOfficeSaving).toLocaleString()}`;
+                fuelSavingsDisplay.textContent = `£${Math.round(annualFuelSaving).toLocaleString()}`;
+                
+                // Update Details Text
+                engineerDetails.textContent = `${numEngineers} field staff x 15% productivity gain (approx 1.2hrs/day) @ £${engineerHourlyRate}/hr x ${workingDays} working days.`;
+                officeDetails.textContent = `${numOffice} staff x 20% admin time reduction @ avg salary £${salaryOffice.toLocaleString()}.`;
+                fuelDetails.textContent = `${numEngineers} vehicles x 12% fuel reduction (based on approx £${fuelCostPerYear} annual spend).`;
+                
+                // Update Chart Segments
+                const total = totalAnnualSaving;
+                const engPct = annualEngineerSaving / total;
+                const offPct = annualOfficeSaving / total;
+                const fuelPct = annualFuelSaving / total;
+                
+                const circumference = 251.2;
+                
+                const engDash = engPct * circumference;
+                donutEngineer.style.strokeDasharray = `${engDash} ${circumference}`;
+                
+                const offDash = offPct * circumference;
+                donutOffice.style.strokeDasharray = `${offDash} ${circumference}`;
+                donutOffice.style.strokeDashoffset = -engDash;
+                
+                const fuelDash = fuelPct * circumference;
+                donutFuel.style.strokeDasharray = `${fuelDash} ${circumference}`;
+                donutFuel.style.strokeDashoffset = -(engDash + offDash);
+            }
+            
+            engineersInput.addEventListener('input', updateCalculator);
+            jobsPerDayInput.addEventListener('input', updateCalculator);
+            officeStaffInput.addEventListener('input', updateCalculator);
+            officeSalaryInput.addEventListener('input', updateCalculator);
+            
+            updateCalculator();
+        });
+    </script>
+</body>
+</html>
