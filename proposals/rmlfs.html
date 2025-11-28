@@ -203,191 +203,27 @@
         
         .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
         
-        /* Other Sections */
-        .gantt-chart { display: flex; flex-direction: column; gap: var(--spacing-4); }
-        .gantt-phase { background-color: var(--bc-white); padding: var(--spacing-4); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
-        .gantt-phase h4 { margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: var(--spacing-2); }
-        .gantt-phase .icon { width: 24px; height: 24px; color: var(--bc-energy-blue); }
-        .gantt-timeline { position: relative; height: 20px; background-color: #e0e0e0; border-radius: 10px; margin-top: var(--spacing-2); }
-        .gantt-bar { position: absolute; height: 100%; background-color: var(--bc-energy-blue); border-radius: 10px; }
+        /* Timeline Styles */
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; }
+        .timeline::after { content: ''; position: absolute; width: 4px; background-color: var(--bc-energy-blue); top: 0; bottom: 0; left: 24px; margin-left: -2px; }
+        .timeline-item { padding: 10px 40px; position: relative; background-color: inherit; width: 100%; box-sizing: border-box; }
+        .timeline-item::after { content: ''; position: absolute; width: 20px; height: 20px; right: auto; left: 15px; background-color: var(--bc-white); border: 4px solid var(--bc-orange); top: 24px; border-radius: 50%; z-index: 1; }
+        .timeline-content { padding: 20px 30px; background-color: var(--bc-light-grey); position: relative; border-radius: 6px; }
+        .timeline-content h3 { margin-top: 0; font-size: 1.2rem; color: var(--bc-navy); display: flex; justify-content: space-between; align-items: center; }
+        .timeline-content p { font-size: 0.95rem; margin-bottom: 10px; }
+        .timeline-content ul { padding-left: 20px; font-size: 0.9rem; margin-top: 10px; }
+        .timeline-content li { margin-bottom: 5px; }
+        .timeline-content .step-number { font-size: 0.8rem; font-weight: 700; color: var(--bc-energy-blue); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; display: block; }
 
-        /* New Detailed GANTT Chart Styles */
-        .gantt-chart-detailed {
-            display: grid;
-            grid-template-columns: 200px repeat(12, 1fr); /* 1 label column, 12 week columns */
-            gap: 5px;
-            background-color: var(--bc-white);
-            padding: var(--spacing-4);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            overflow-x: auto;
-            margin-top: var(--spacing-8);
-        }
-        .gantt-header {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 200px repeat(12, 1fr);
-            gap: 5px;
-            font-weight: 600;
-            text-align: center;
-            padding-bottom: var(--spacing-2);
-            border-bottom: 2px solid var(--bc-light-grey);
-        }
-        .gantt-header-label { text-align: left; }
-        .gantt-row {
-            grid-column: 1 / -1;
-            display: grid;
-            grid-template-columns: 200px repeat(12, 1fr);
-            gap: 5px;
-            align-items: center;
-            border-bottom: 1px solid var(--bc-light-grey);
-            padding: var(--spacing-2) 0;
-            min-height: 60px;
-        }
-        .gantt-row-label {
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding-right: var(--spacing-2);
-            display: flex;
-            align-items: center;
-            gap: var(--spacing-2);
-        }
-        .gantt-row-label .icon {
-            width: 20px;
-            height: 20px;
-            flex-shrink: 0;
-            color: var(--bc-energy-blue);
-        }
-        .gantt-bar-task {
-            height: 28px;
-            border-radius: 0.5rem;
-            background-color: var(--bc-energy-blue);
-            color: var(--bc-white);
-            font-size: 0.8rem;
-            padding: var(--spacing-1) var(--spacing-2);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity var(--transition-speed);
-        }
-        .gantt-bar-task:hover {
-            opacity: 0.8;
-            cursor: pointer;
-        }
-        
-        .gantt-bar-task[data-task-id="kickoff"] { grid-column: 3 / 5; background-color: var(--bc-navy); } /* Adjusted to start after LMS */
-        .gantt-bar-task[data-task-id="core-config"] { grid-column: 4 / 7; background-color: var(--bc-energy-blue); }
-        .gantt-bar-task[data-task-id="data-export"] { grid-column: 4 / 5; background-color: #0094d4; }
-        .gantt-bar-task[data-task-id="data-import"] { grid-column: 5 / 7; background-color: #0094d4; }
-        .gantt-bar-task[data-task-id="ppm-build"] { grid-column: 5 / 8; background-color: var(--bc-orange); }
-        .gantt-bar-task[data-task-id="service-training"] { grid-column: 7 / 9; background-color: var(--bc-orange); }
-        .gantt-bar-task[data-task-id="project-costing"] { grid-column: 6 / 9; background-color: #ff8c42; }
-        .gantt-bar-task[data-task-id="xero-integration"] { grid-column: 8 / 10; background-color: #ff8c42; }
-        .gantt-bar-task[data-task-id="finance-training"] { grid-column: 9 / 11; background-color: #ff8c42; }
-        .gantt-bar-task[data-task-id="power-bi"] { grid-column: 10 / 13; background-color: var(--bc-green); }
-        .gantt-bar-task[data-task-id="floorwalking"] { grid-column: 11 / 13; background-color: #22c55e; } /* Assuming go-live around week 10/11 */
-        .gantt-bar-task[data-task-id="review"] { grid-column: 13 / 14; background-color: var(--bc-navy); }
-        .gantt-bar-task[data-task-id="lms-access"] { grid-column: 2 / 14; background-color: var(--bc-light-grey); color: var(--bc-charcoal); border: 1px dashed var(--bc-energy-blue); } /* Spans all weeks */
-        
-        /* Project Governance Table */
-        .governance-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: var(--spacing-6);
-            background-color: var(--bc-white);
-            box-shadow: var(--box-shadow);
-            border-radius: var(--border-radius);
-            overflow: hidden;
-        }
-        .governance-table th, .governance-table td {
-            border: 1px solid var(--bc-light-grey);
-            padding: var(--spacing-4);
-            text-align: left;
-        }
-        .governance-table th {
-            background-color: var(--bc-light-grey);
-            color: var(--bc-navy);
-            font-size: 0.9rem;
-            text-transform: uppercase;
-        }
-        .governance-table td {
-            font-size: 0.95rem;
-        }
-        .governance-table td strong {
-            color: var(--bc-charcoal);
-        }
-
-        /* GANTT Modal Styles */
-        .gantt-modal-overlay {
-            display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
-            z-index: 1000; /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%; /* Full width */
-            height: 100%; /* Full height */
-            overflow: auto; /* Enable scroll if needed */
-            background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
-            padding-top: 60px;
-            animation: fadeIn 0.3s;
-        }
-        .gantt-modal-content {
-            background-color: var(--bc-white);
-            margin: 5% auto;
-            padding: var(--spacing-8);
-            border: 1px solid #888;
-            width: 80%;
-            max-width: 700px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            position: relative;
-            animation: slideIn 0.3s;
-        }
-        .gantt-modal-close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            position: absolute;
-            top: var(--spacing-4);
-            right: var(--spacing-6);
-        }
-        .gantt-modal-close:hover,
-        .gantt-modal-close:focus {
-            color: var(--bc-charcoal);
-            text-decoration: none;
-            cursor: pointer;
-        }
-        #gantt-modal-body ul {
-            list-style: disc;
-            list-style-position: inside;
-            margin-top: var(--spacing-4);
-        }
-        #gantt-modal-body li {
-            margin-bottom: var(--spacing-2);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideIn {
-            from { transform: translateY(-50px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
         /* Proposal Section */
-        #proposal {
+        #deal {
             background-color: var(--bc-light-grey);
         }
         .proposal-wrapper {
             display: flex;
             justify-content: center;
             gap: var(--spacing-8);
-            align-items: center;
+            align-items: stretch; /* Align to stretch */
             margin-top: var(--spacing-8);
         }
         .proposal-card {
@@ -399,11 +235,15 @@
             text-align: center;
             width: 100%;
             max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         .proposal-card.deal {
             border-color: var(--bc-energy-blue);
             transform: scale(1.05);
             position: relative;
+            z-index: 1;
         }
         .proposal-card-deal-badge {
             position: absolute;
@@ -416,29 +256,73 @@
             border-radius: 999px;
             font-size: 0.9rem;
             font-weight: 700;
+            white-space: nowrap;
         }
         .proposal-card h3 {
             font-size: 1.25rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             color: var(--bc-navy);
+            margin-bottom: var(--spacing-4);
+        }
+        .proposal-card .price-row {
+            margin: var(--spacing-6) 0;
         }
         .proposal-card .price {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--bc-navy);
-            margin: var(--spacing-4) 0;
+            line-height: 1.1;
         }
         .proposal-card .price-rrp {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 500;
             color: #777;
             text-decoration: line-through;
-            margin: var(--spacing-4) 0;
+            margin-bottom: var(--spacing-1);
+            display: block;
         }
         .proposal-card p {
             font-size: 0.9rem;
             opacity: 0.8;
+        }
+        .proposal-card ul {
+            list-style: none;
+            text-align: left;
+            margin: var(--spacing-6) 0;
+            padding: 0 var(--spacing-4);
+        }
+        .proposal-card li {
+            margin-bottom: var(--spacing-2);
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .proposal-card li::before {
+            content: '✓';
+            color: var(--bc-green);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        .savings-tag {
+            background-color: #dcfce7;
+            color: #166534;
+            font-weight: 700;
+            padding: var(--spacing-1) var(--spacing-4);
+            border-radius: 999px;
+            display: inline-block;
+            margin-top: var(--spacing-2);
+        }
+        .btn-outline {
+            border: 2px solid var(--bc-navy);
+            color: var(--bc-navy);
+            background: transparent;
+            width: 100%;
+            margin-top: var(--spacing-2);
+        }
+        .btn-outline:hover {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
         }
         
         .cta-center {
@@ -449,6 +333,11 @@
         @media (max-width: 768px) {
             .proposal-wrapper {
                 flex-direction: column;
+                align-items: center;
+            }
+            .proposal-card.deal {
+                transform: scale(1);
+                margin: var(--spacing-8) 0;
             }
         }
 
@@ -484,9 +373,10 @@
                 <h1>Consolidating 7+ Systems into One Powerful Platform for RMLFS</h1>
                 <p class="subhead">A strategic proposal to eliminate app fatigue and data silos. Move from Swiftcase, Monday.com, AssetGo, and manual spreadsheets to a single, unified solution that scales with your ambition.</p>
                 <div class="cta-buttons">
-                    <a href="https://app.fireflies.ai/view/BigChange-x-RMLFS-Ltd::01KAG7ZTQT2R066TPWFCAZCPHC" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Demo Recording</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-x-RMLFS-Ltd::01KAG7ZTQT2R066TPWFCAZCPHC" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Demo 1</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-Next-Steps::01KAGQC84J54SK8TSH7Q7TY6FC" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Demo 2</a>
                     <a href="#roi" class="btn btn-primary">Calculate ROI & Savings</a>
-                    <a href="#investment" class="btn btn-secondary">View Investment</a>
+                    <a href="#deal" class="btn btn-secondary">View Your Deal</a>
                 </div>
             </div>
         </section>
@@ -534,8 +424,8 @@
             <div class="container">
                 <div class="section-title">
                      <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    <h2>The Business Case for RMLFS</h2>
-                    <p>A summary of the key drivers for this project, based on our discovery session.</p>
+                    <h2>Meeting 1: Discovery & Business Case</h2>
+                    <p>A summary of the key drivers for this project, based on our initial discovery session.</p>
                 </div>
                 <div class="meddic-grid">
                     <div class="meddic-card">
@@ -647,7 +537,133 @@
                 </div>
             </div>
         </section>
+
+        <!-- New Second Meeting Section -->
+        <section id="second-meeting" style="background-color: var(--bc-white);">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+                    </svg>
+                    <h2>Meeting 2: Deep Dive & Financials</h2>
+                    <p>Key takeaways from our second session, focusing on real-world application and financial impact.</p>
+                </div>
+                <div class="meddic-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                    <div class="meddic-card">
+                        <h4>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                            Automated Reconciliation
+                        </h4>
+                        <p>We discussed the burden of manual checks. One existing client saved <strong>2 days a week</strong> for an admin staff member simply by automating the reconciliation of tracking data against timesheets—eliminating the need to manually cross-reference locations and hours.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" /></svg>
+                            Smart Estimating
+                        </h4>
+                        <p>We demonstrated "Pre-builds" and specific client pricing (e.g., Homebase vs B&M). This allows you to instantly pull through correct pricing and grouped line items for specific job types (like roofing installs), drastically speeding up quote generation.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>
+                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" /></svg>
+                            Project Financials
+                        </h4>
+                        <p>We explored the project overview screen, showing real-time margin tracking (e.g., seeing a project running at 51.3% margin live). This gives you the ability to catch cost overruns <em>before</em> the job is finished, rather than weeks later.</p>
+                    </div>
+                </div>
+                <div class="cta-center" style="margin-top: var(--spacing-8);">
+                    <p style="margin-bottom: var(--spacing-4); font-weight: bold;">"It works out to be about £2.50 a day per user... cheaper than a Starbucks."</p>
+                    <a href="https://app.fireflies.ai/view/BigChange-Next-Steps::01KAGQC84J54SK8TSH7Q7TY6FC" target="_blank" class="btn btn-secondary" style="border-color: var(--bc-navy); color: var(--bc-navy);">Watch 2nd Meeting Recording</a>
+                </div>
+            </div>
+        </section>
         
+        <section id="implementation" style="margin-bottom: var(--spacing-16);">
+            <div class="container">
+                 <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <h2>Your Roadmap to Success</h2>
+                    <p>We understand that moving from 7+ systems (including Swiftcase, Monday.com, and AssetGo) is a significant change. We have built a dedicated onboarding plan to ensure RMLFS sees value from day one.</p>
+                </div>
+
+                <div class="timeline">
+                    <!-- Step 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="step-number">Step 1: Kick-off & Alignment</span>
+                            <h3>Project Initiation</h3>
+                            <p>We start with a dedicated kick-off meeting with your project leads (Jack and Stuart) to map out the exact scope.</p>
+                            <ul>
+                                <li>Define the "Golden Thread" from quote to invoice tailored for RMLFS.</li>
+                                <li>Agree on the timeline for the 20+ engineers and office staff.</li>
+                                <li>Review current pain points with Monday.com and Swiftcase to ensure they are addressed immediately.</li>
+                                <li><strong>Project Portal Access:</strong> Gain immediate access to our dedicated onboarding portal to track progress, view workshop schedules, and access preliminary resources before the main scope call.</li>
+                                <li><strong>BigChange University (LMS):</strong> Immediate, unlimited access to our self-paced Learning Management System for ongoing staff certification and upskilling on new features.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="step-number">Step 2: Data Migration</span>
+                            <h3>Extract & Import</h3>
+                            <p>We take the heavy lifting out of moving your data. We will assist in extracting clean data from your legacy systems.</p>
+                            <ul>
+                                <li><strong>Customers & Sites:</strong> Import all commercial sites (e.g., Homebase, B&M) with accurate geofencing.</li>
+                                <li><strong>Stock & Assets:</strong> Migrate data from AssetGo into BigChange.</li>
+                                <li><strong>Financials:</strong> Ensure seamless mapping for the Xero integration.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="step-number">Step 3: Configuration (The Build)</span>
+                            <h3>Tailoring the System</h3>
+                            <p>We configure BigChange to mirror RMLFS's specific workflows, not the other way around.</p>
+                            <ul>
+                                <li><strong>Pre-Builds:</strong> Set up "Pre-build" job types for Roofing, Maintenance, and Reactive works to speed up quoting.</li>
+                                <li><strong>Mandatory Checks:</strong> Configure the mobile app to force vehicle checks and dynamic risk assessments before a job can start (as discussed with Stuart).</li>
+                                <li><strong>Templates:</strong> Build your branded Job Cards, Invoices, and Quotes.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="step-number">Step 4: Training</span>
+                            <h3>Empowering Your Team</h3>
+                            <p>A blended approach to ensure everyone is confident before we go live.</p>
+                            <ul>
+                                <li><strong>Office Training:</strong> Deep dive for Jack, Mike, and David on Scheduling, CRM, and Financial reporting.</li>
+                                <li><strong>"Train the Trainer":</strong> We will focus intensely on Stuart (your Champion) so he can lead the rollout to the engineers.</li>
+                                <li><strong>Engineer Sessions:</strong> Practical, hands-on sessions for the mobile app to ensure 100% adoption.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <span class="step-number">Step 5: Go-Live & Hypercare</span>
+                            <h3>Launch Day Support</h3>
+                            <p>We don't just switch it on and leave. We provide dedicated support during the transition.</p>
+                            <ul>
+                                <li><strong>Go-Live Standby:</strong> Dedicated support on the day of switchover to handle immediate queries.</li>
+                                <li><strong>Floorwalking:</strong> Option for on-site presence to assist office staff and engineers in real-time.</li>
+                                <li><strong>Post-Go-Live Review:</strong> A review meeting 4 weeks later to optimize workflows and ensure ROI is being met.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="roi">
             <div class="container">
                 <div class="section-title">
@@ -741,62 +757,69 @@
                 </div>
             </div>
         </section>
-        
-        <section id="implementation" style="margin-bottom: var(--spacing-16);">
-            <div class="container">
-                 <div class="section-title">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <h2>Implementation & Onboarding</h2>
-                    <p>A collaborative partnership to ensure a seamless transition to BigChange.</p>
-                </div>
-
-                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
-                    <p style="margin-bottom: var(--spacing-8);">We understand that moving from 7+ systems to one platform is a significant change. Our onboarding process is designed to de-risk this transition and ensure you get value quickly.</p>
-                    
-                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--spacing-6); text-align: left;">
-                        <div style="background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius);">
-                            <h4 style="color: var(--bc-energy-blue); margin-bottom: var(--spacing-2);">1. Data Migration</h4>
-                            <p style="font-size: 0.9rem;">We help you extract and clean your data from Swiftcase, Monday.com, and Xero, ensuring a smooth import into BigChange.</p>
-                        </div>
-                        <div style="background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius);">
-                            <h4 style="color: var(--bc-energy-blue); margin-bottom: var(--spacing-2);">2. Configuration</h4>
-                            <p style="font-size: 0.9rem;">We work with you to build your specific job workflows, risk assessments, and compliance forms to match RMLFS processes.</p>
-                        </div>
-                        <div style="background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius);">
-                            <h4 style="color: var(--bc-energy-blue); margin-bottom: var(--spacing-2);">3. Training</h4>
-                            <p style="font-size: 0.9rem;">Comprehensive training for your office staff and field engineers ("Train the Trainer" model) to ensure high adoption.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
         <!-- New Proposal Section -->
-        <section id="investment">
+        <section id="deal">
             <div class="container">
                 <div class="section-title">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 9h.008v.008H6V9z" />
                     </svg>
-                    <h2>Your Investment</h2>
-                    <p style="max-width: 700px; margin: 0 auto;">Transparent, scalable pricing to support your growth journey.</p>
+                    <h2>Your Deal</h2>
+                    <p style="max-width: 700px; margin: 0 auto;">Transparent options to support your growth. Our hardware-inclusive package offers exceptional value.</p>
                 </div>
 
                 <div class="proposal-wrapper">
-                    <div class="proposal-card">
-                        <h3>Platform License</h3>
-                        <div class="price-rrp" style="text-decoration: none; color: var(--bc-navy);">£79.95</div>
-                        <p>Per User / Per Month</p>
-                        <p>(Includes Mobile App, Tracking Hardware & Back Office)</p>
+                    <!-- Option 1: Hardware Included -->
+                    <div class="proposal-card deal">
+                        <div class="proposal-card-deal-badge">Recommended - Highest Savings</div>
+                        <h3>Option 1: Complete Package (With Tablets)</h3>
+                        <p>Everything you need. Rugged hardware, data, and software in one simple monthly cost.</p>
+                        
+                        <div class="price-row">
+                            <span class="price-rrp">RRP: £5,851.40 / month</span>
+                            <span class="price">£4,376.40</span>
+                            <span style="font-size: 1rem; color: var(--bc-charcoal);">/ month</span>
+                        </div>
+                        
+                        <div class="savings-tag">Save £1,475.00 per month</div>
+
+                        <ul>
+                            <li><strong>Full JobWatch Software</strong></li>
+                            <li><strong>Rugged Android Tablet & Cradle</strong></li>
+                            <li><strong>Professional Installation</strong></li>
+                            <li><strong>Unlimited Data SIM (UK)</strong></li>
+                            <li><strong>MDM (Device Management)</strong></li>
+                            <li><strong>Hard-wired Vehicle Tracking</strong></li>
+                        </ul>
+
+                        <a href="https://landing.bigchange.com/I1WSd0Ak6uX" target="_blank" class="btn btn-primary">View Deal</a>
+                        <a href="https://landing.bigchange.com/yGGFpdkZhlcg" target="_blank" class="btn btn-outline">View RRP Comparison</a>
                     </div>
-                     <div class="proposal-card">
-                        <h3>Business Support</h3>
-                        <div class="price-rrp" style="text-decoration: none; color: var(--bc-navy);">£133.00</div>
-                        <p>Per Company / Per Month</p>
-                        <p>(Covers Unlimited Support & System Maintenance)</p>
+
+                    <!-- Option 2: Software Only -->
+                    <div class="proposal-card">
+                        <h3>Option 2: Software Only (No Tablets)</h3>
+                        <p>Use your own hardware. Includes software and hard-wired tracking only.</p>
+                        
+                        <div class="price-row">
+                            <span class="price-rrp">RRP: £4,816.40 / month</span>
+                            <span class="price">£4,031.40</span>
+                            <span style="font-size: 1rem; color: var(--bc-charcoal);">/ month</span>
+                        </div>
+                        
+                        <div class="savings-tag" style="background-color: #f3f4f6; color: #4b5563;">Save £785.00 per month</div>
+
+                        <ul>
+                            <li><strong>Full JobWatch Software</strong></li>
+                            <li style="text-decoration: line-through; color: #9ca3af; padding-left: 0;"><span style="color: #9ca3af;">No Hardware / Tablets</span></li>
+                            <li style="text-decoration: line-through; color: #9ca3af; padding-left: 0;"><span style="color: #9ca3af;">No Data SIM</span></li>
+                            <li><strong>Hard-wired Vehicle Tracking</strong></li>
+                        </ul>
+
+                        <a href="https://landing.bigchange.com/jYbWoGsKiplA" target="_blank" class="btn btn-primary" style="background-color: var(--bc-navy);">View Deal</a>
+                        <a href="https://landing.bigchange.com/wOugIegeHoGGYM1rUV" target="_blank" class="btn btn-outline">View RRP Comparison</a>
                     </div>
                 </div>
             </div>
@@ -808,11 +831,12 @@
                      <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--bc-white);">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
                     </svg>
-                    <h2 style="color: var(--bc-white);">Missed a Detail? Rewatch the Demo</h2>
-                    <p style="opacity: 0.9; max-width: 700px; margin: 0 auto;">Review the full discovery call and platform demonstration at your own pace.</p>
+                    <h2 style="color: var(--bc-white);">Missed a Detail? Rewatch the Demos</h2>
+                    <p style="opacity: 0.9; max-width: 700px; margin: 0 auto;">Review the full discovery call and follow-up platform demonstration at your own pace.</p>
                 </div>
-                <div class="cta-center" style="margin-top: 0;">
-                    <a href="https://app.fireflies.ai/view/BigChange-x-RMLFS-Ltd::01KAG7ZTQT2R066TPWFCAZCPHC" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); border-color: var(--bc-orange); font-size: 1.2rem; padding: 1rem 2rem;">Rewatch Full Demo</a>
+                <div class="cta-center" style="margin-top: 0; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://app.fireflies.ai/view/BigChange-x-RMLFS-Ltd::01KAG7ZTQT2R066TPWFCAZCPHC" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); border-color: var(--bc-orange); font-size: 1.2rem; padding: 1rem 2rem;">Rewatch Demo 1</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-Next-Steps::01KAGQC84J54SK8TSH7Q7TY6FC" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); border-color: var(--bc-orange); font-size: 1.2rem; padding: 1rem 2rem;">Rewatch Demo 2</a>
                 </div>
             </div>
         </section>
