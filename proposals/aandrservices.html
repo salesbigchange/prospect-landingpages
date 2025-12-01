@@ -145,6 +145,15 @@
         .state-card.current li::before { background-color: var(--bc-orange); }
         .state-card.future li::before { background-color: var(--bc-green); }
 
+        /* Meeting Recaps Section */
+        .meetings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-8); }
+        .meeting-card { background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius); padding: var(--spacing-6); position: relative; overflow: hidden; }
+        .meeting-card::top { content: ''; display: block; height: 6px; width: 100%; background: var(--bc-navy); position: absolute; top: 0; left: 0; }
+        .meeting-number { background-color: var(--bc-light-grey); color: var(--bc-navy); font-weight: 700; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: var(--spacing-4); }
+        .meeting-card h3 { font-size: 1.25rem; margin-bottom: var(--spacing-4); }
+        .meeting-card ul { margin-left: var(--spacing-4); margin-bottom: var(--spacing-6); }
+        .meeting-card li { margin-bottom: var(--spacing-2); font-size: 0.95rem; }
+
         /* Business Case Section */
         .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
         .meddic-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
@@ -196,46 +205,24 @@
         
         .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
         
-        /* Proposal Section */
-        #investment { background-color: var(--bc-white); }
-        .proposal-wrapper {
-            display: flex;
-            justify-content: center;
-            gap: var(--spacing-8);
-            align-items: center;
-            margin-top: var(--spacing-8);
-        }
-        .proposal-card {
+        /* Your Proposal Section */
+        #your-proposal {
             background-color: var(--bc-light-grey);
-            border-radius: var(--border-radius);
-            padding: var(--spacing-8);
-            box-shadow: var(--box-shadow);
-            border: 3px solid transparent;
             text-align: center;
-            width: 100%;
-            max-width: 500px;
         }
-        .proposal-card h3 {
-            font-size: 1.25rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--bc-navy);
-        }
-        .proposal-card .price {
-            font-size: 3rem;
-            font-weight: 800;
-            color: var(--bc-navy);
-            margin: var(--spacing-4) 0;
-        }
-        .proposal-card .price-rrp {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--bc-navy); 
-            margin: var(--spacing-4) 0;
-        }
-        .proposal-card p {
-            font-size: 0.9rem;
-            opacity: 0.8;
+        .coming-soon-box {
+            background: repeating-linear-gradient(
+                45deg,
+                #ffffff,
+                #ffffff 10px,
+                var(--bc-light-grey) 10px,
+                var(--bc-light-grey) 20px
+            );
+            border: 2px dashed var(--bc-navy);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-12);
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .cta-center {
@@ -254,7 +241,7 @@
         
         /* Responsive Styles */
         @media (max-width: 1024px) {
-            .infographic-grid, .calculator-wrapper { grid-template-columns: 1fr; }
+            .infographic-grid, .calculator-wrapper, .meetings-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
@@ -278,9 +265,50 @@
                 <h1>Beyond E-Works: The Complete Package for A&R</h1>
                 <p class="subhead">A strategic proposal to move A&R Services from E-Works to a unified platform. Eliminate the timesheet nightmare, streamline Green King quoting, and give your engineers a system they can actually use.</p>
                 <div class="cta-buttons">
-                    <a href="https://app.fireflies.ai/view/BigChange-Demonstration-for-A-R-Electrical-ESW-Ltd-::01KAV3QHHNBYP6KVNW2WSJZ06F" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Meeting Recap</a>
-                    <a href="#roi" class="btn btn-primary">Calculate Savings</a>
-                    <a href="#business-case" class="btn btn-secondary">The Business Case</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-Demonstration-for-A-R-Electrical-ESW-Ltd-::01KAV3QHHNBYP6KVNW2WSJZ06F" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Meeting 1 (Discovery)</a>
+                    <a href="https://app.fireflies.ai/view/BigChange-Follow-Up-A-R-Services::01KB5JMZFQJQE9M2JN065BV2JM" target="_blank" class="btn btn-primary" style="background-color: var(--bc-energy-blue);">Watch Meeting 2 (Deep Dive)</a>
+                    <a href="#roi" class="btn btn-secondary">Calculate Savings</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Section: Meeting Recaps -->
+        <section id="meetings-recap" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                    <h2>Our Journey So Far</h2>
+                    <p>A summary of our discussions and how we are addressing your specific challenges.</p>
+                </div>
+                <div class="meetings-grid">
+                    <div class="meeting-card">
+                        <span class="meeting-number">Meeting 1: Discovery</span>
+                        <h3>Uncovering the Admin Bottlenecks</h3>
+                        <p><strong>Attendees:</strong> Rebecca, Graham, Dan, Hannah, Ellie, Serge.</p>
+                        <p style="margin-top: 1rem;">We identified that E-Works is no longer scaling with A&R Services. The primary pain points identified were:</p>
+                        <ul>
+                            <li><strong>"Timesheet Nightmare":</strong> Ellie is losing up to 2 days a week manually reconciling tracker data.</li>
+                            <li><strong>Quoting Delays:</strong> Dan needs a way to quote "bulky bits" for Green King without manual calculations.</li>
+                            <li><strong>Scheduling:</strong> Reliance on spreadsheets because E-Works scheduling isn't robust enough.</li>
+                        </ul>
+                        <p><strong>Our Commitment:</strong> To provide a single system that handles the full workflow, from quote to invoice.</p>
+                    </div>
+                    
+                    <div class="meeting-card">
+                        <div style="background: var(--bc-orange); height: 6px; width: 100%; position: absolute; top: 0; left: 0;"></div>
+                        <span class="meeting-number">Meeting 2: Technical Deep Dive</span>
+                        <h3>Solving the Complexities</h3>
+                        <p><strong>Attendees:</strong> Rebecca, Ellie, Serge, Lee (Sales Engineer).</p>
+                        <p style="margin-top: 1rem;">We brought in Lee to address the specific technical blockers and demo the Engineer App workflow:</p>
+                        <ul>
+                            <li><strong>Timesheet Solution:</strong> We confirmed using "Payable Site" flags and Blueprint exports to handle your specific "Pay Travel Once" rule automatically.</li>
+                            <li><strong>Job Cost Alerts:</strong> To tackle the £750 limit, we discussed proactive alerts and mandatory worksheet questions ("Work outside spec?") to flag overruns immediately.</li>
+                            <li><strong>Hardware Strategy:</strong> Discussed the benefits of managed tablets vs. BYOD to ensure reliability and remote support (Soti).</li>
+                        </ul>
+                        <p><strong>Next Step:</strong> Finalizing the commercial proposal based on your user mix.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -539,34 +567,21 @@
             </div>
         </section>
 
-        <!-- Rewatch Demo Section (Replaces Investment) -->
-        <section id="demo-recording" style="background-color: var(--bc-navy); color: var(--bc-white);">
-            <div class="container">
-                <div class="section-title" style="margin-bottom: var(--spacing-8);">
-                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="color: var(--bc-white);">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 010 1.971l-11.54 6.347a1.125 1.125 0 01-1.667-.985V5.653z" />
-                    </svg>
-                    <h2 style="color: var(--bc-white);">Missed a Detail? Rewatch the Meeting</h2>
-                    <p style="opacity: 0.9; max-width: 700px; margin: 0 auto;">Review the full demonstration with Serge covering quoting, scheduling, and the mobile app workflows.</p>
-                </div>
-                <div class="cta-center" style="margin-top: 0;">
-                    <a href="https://app.fireflies.ai/view/BigChange-Demonstration-for-A-R-Electrical-ESW-Ltd-::01KAV3QHHNBYP6KVNW2WSJZ06F" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); border-color: var(--bc-orange); font-size: 1.2rem; padding: 1rem 2rem;">Rewatch Meeting</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Next Steps Section -->
-        <section id="next-steps" style="background-color: var(--bc-light-grey);">
+        <!-- Your Proposal Section -->
+        <section id="your-proposal" style="background-color: var(--bc-light-grey);">
             <div class="container">
                 <div class="section-title">
                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
-                    <h2>Next Steps</h2>
-                    <p style="max-width: 700px; margin: 0 auto;">As discussed, we will arrange a follow-up session to focus specifically on the Engineer App experience for your team and answer any outstanding questions.</p>
+                    <h2>Your Proposal</h2>
+                    <p>Tailored pricing and package details.</p>
                 </div>
-                <div class="cta-center">
-                    <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height: 60px;">
+                
+                <div class="coming-soon-box">
+                    <h3 style="color: var(--bc-navy); margin-bottom: var(--spacing-4);">Proposal Coming Soon</h3>
+                    <p>We are currently finalizing your bespoke package based on our recent discussions regarding user roles (Lead Engineers vs. Apprentice users) and your hardware preferences (Tablets).</p>
+                    <p style="margin-top: var(--spacing-4); font-weight: 600; color: var(--bc-energy-blue);">Stay tuned for the full breakdown.</p>
                 </div>
             </div>
         </section>
