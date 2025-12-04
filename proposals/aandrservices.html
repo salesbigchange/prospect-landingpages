@@ -33,7 +33,7 @@
       }
     }
     </script>
-
+    
     <!-- Inline CSS for Single-File Deployment -->
     <style>
         /* CSS Reset & Base Styles */
@@ -229,6 +229,12 @@
             text-align: center;
             margin-top: var(--spacing-8);
         }
+
+        /* Video Card Styles */
+        .video-card-container:hover .video-thumbnail { opacity: 1 !important; transform: scale(1.02); }
+        .video-card-container:hover .video-play-btn { transform: translate(-50%, -50%) scale(1.1); background: #FF0000 !important; }
+        .video-thumbnail { transition: all 0.4s ease; }
+        .video-play-btn { transition: all 0.3s ease; }
         
         @media (max-width: 768px) {
             .proposal-wrapper {
@@ -442,6 +448,32 @@
                 </div>
             </div>
         </section>
+
+        <section id="engineer-spotlight" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                <div class="section-title">
+                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                     </svg>
+                    <h2>Built for Engineers, Loved by Engineers</h2>
+                    <p>It's so easy to use, your team will wonder how they ever managed without it.</p>
+                </div>
+                
+                <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+                    <p style="margin-bottom: var(--spacing-6); font-size: 1.1rem; opacity: 0.9;">Don't just take our word for it. See how Gary, a veteran engineer, found switching to the BigChange tablet app. It is designed to be intuitive for everyone, regardless of technical skill.</p>
+                    
+                    <!-- REPLACED IFRAME WITH ROBUST THUMBNAIL LINK TO FIX ERROR 153 -->
+                    <a href="https://www.youtube.com/watch?v=_KVrfmQ8EDE" target="_blank" class="video-card-container" style="display: block; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius); box-shadow: var(--box-shadow); background: #000; text-decoration: none;">
+                        <img class="video-thumbnail" src="https://img.youtube.com/vi/_KVrfmQ8EDE/maxresdefault.jpg" alt="Watch Gary's Story" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
+                        <div class="video-play-btn" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; background: rgba(255, 0, 0, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(0,0,0,0.4);">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="36" height="36"><path d="M8 5v14l11-7z"/></svg>
+                        </div>
+                    </a>
+                    
+                    <p style="margin-top: var(--spacing-4); font-size: 0.9rem; font-style: italic; color: var(--bc-energy-blue);">"I couldn't do without it now." — Gary</p>
+                </div>
+            </div>
+        </section>
         
         <section id="roi">
             <div class="container">
@@ -575,13 +607,77 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <h2>Your Proposal</h2>
-                    <p>Tailored pricing and package details.</p>
+                    <p>Tailored pricing and exclusive partnership discounts for A&R Services.</p>
                 </div>
-                
-                <div class="coming-soon-box">
-                    <h3 style="color: var(--bc-navy); margin-bottom: var(--spacing-4);">Proposal Coming Soon</h3>
-                    <p>We are currently finalizing your bespoke package based on our recent discussions regarding user roles (Lead Engineers vs. Apprentice users) and your hardware preferences (Tablets).</p>
-                    <p style="margin-top: var(--spacing-4); font-weight: 600; color: var(--bc-energy-blue);">Stay tuned for the full breakdown.</p>
+               
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: var(--spacing-8); align-items: start;">
+                    
+                    <!-- Pricing Breakdown Card -->
+                    <div style="background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow);">
+                        <h3 style="margin-bottom: var(--spacing-6); border-bottom: 2px solid var(--bc-light-grey); padding-bottom: var(--spacing-2);">Package Breakdown</h3>
+                        
+                        <div style="margin-bottom: var(--spacing-4);">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--spacing-2);">
+                                <span style="font-weight: 700;">JobWatch Plus (Tablet & Tracking)</span>
+                                <span style="color: var(--bc-green); font-weight: 700;">Save £15/mo per user</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #666;">
+                                <span>RRP: £99.95</span>
+                                <span style="color: var(--bc-navy); font-weight: 600;">Your Price: £84.95</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: var(--spacing-4);">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--spacing-2);">
+                                <span style="font-weight: 700;">Back Office Users</span>
+                                <span style="color: var(--bc-green); font-weight: 700;">Save £15/mo per user</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #666;">
+                                <span>RRP: £79.95</span>
+                                <span style="color: var(--bc-navy); font-weight: 600;">Your Price: £64.95</span>
+                            </div>
+                        </div>
+
+                        <div style="margin-bottom: var(--spacing-4);">
+                            <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: var(--spacing-2);">
+                                <span style="font-weight: 700;">Xero Integration</span>
+                                <span style="color: var(--bc-green); font-weight: 700;">Save £75/mo</span>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; color: #666;">
+                                <span>RRP: £125.00</span>
+                                <span style="color: var(--bc-navy); font-weight: 600;">Your Price: £50.00</span>
+                            </div>
+                        </div>
+
+                        <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; padding: var(--spacing-4); border-radius: var(--border-radius); margin-top: var(--spacing-6);">
+                            <div style="display: flex; align-items: center; gap: var(--spacing-2); color: #166534; font-weight: 700; margin-bottom: var(--spacing-1);">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                                BONUS INCLUSION
+                            </div>
+                            <p style="font-size: 0.95rem; color: #15803d;"><strong>1 Day On-Site Training</strong> included for your engineers (Standard Price: Chargeable). We are throwing this in to ensure a smooth rollout.</p>
+                        </div>
+                    </div>
+
+                    <!-- Total Savings Summary Card -->
+                    <div style="background-color: var(--bc-navy); color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                        <h3 style="color: var(--bc-white); margin-bottom: var(--spacing-6); opacity: 0.9;">Total Monthly Investment</h3>
+                        
+                        <div style="margin-bottom: var(--spacing-6);">
+                            <span style="display: block; font-size: 1.1rem; text-decoration: line-through; opacity: 0.6; margin-bottom: var(--spacing-2);">Standard RRP: ~£4,152.75</span>
+                            <span style="display: block; font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1;">£3,492.75</span>
+                            <span style="display: block; font-size: 1rem; opacity: 0.8; margin-top: var(--spacing-2);">per month (exc. VAT)</span>
+                        </div>
+
+                        <div style="background-color: rgba(255,255,255,0.1); padding: var(--spacing-4); border-radius: var(--border-radius); margin-bottom: var(--spacing-8);">
+                            <p style="font-size: 1.2rem; font-weight: 700;">That's a saving of over <span style="color: var(--bc-green);">£660 per month</span></p>
+                            <p style="font-size: 0.9rem; opacity: 0.8;">(£23,760+ saved over the 3-year term)</p>
+                        </div>
+
+                        <div style="display: flex; flex-direction: column; gap: var(--spacing-4);">
+                            <a href="https://landing.bigchange.com/vCZvuUT9Fy" target="_blank" class="btn btn-primary" style="background-color: var(--bc-green); color: var(--bc-navy); width: 100%;">View Official Deal PDF</a>
+                            <a href="https://landing.bigchange.com/ES9pgFNi5yD2M3iG" target="_blank" class="btn btn-secondary" style="font-size: 0.9rem; opacity: 0.8;">View Standard RRP PDF</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
