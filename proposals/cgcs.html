@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C&G Commercial Ltd: Forced Workflows & Operational Excellence</title>
+    <meta name="description" content="A tailored proposal for C&G Commercial Ltd to implement forced workflows, eliminate 'forgotten' notes, and streamline fleet management.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+    
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="C&G Commercial Ltd & BigChange: The Ultimate Field Service Solution">
+    <meta property="og:description" content="Interactive proposal showing how BigChange solves the lack of forced workflows and manual payroll issues for C&G Commercial.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+    
+    <style>
+        :root {
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282922;
+            --bc-white: #FFFFFF;
+            --bc-red: #E02B20;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .section-title .icon {
+            color: var(--bc-energy-blue);
+            width: 48px;
+            height: 48px;
+            margin: 0 auto var(--spacing-4);
+        }
+
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding-top: var(--spacing-16);
+            padding-bottom: var(--spacing-16);
+            text-align: center;
+        }
+        #hero h1, #hero h2, #hero p { color: var(--bc-white); }
+        #hero h1 { font-size: 3rem; }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            text-decoration: none;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-primary:hover { background-color: #005bb5; }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+        .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
+
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
+        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
+        .state-card ul { list-style: none; margin-top: var(--spacing-6); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
+        .state-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+        }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        .meetings-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-8); max-width: 800px; margin: 0 auto; }
+        .meeting-card { background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius); padding: var(--spacing-6); position: relative; overflow: hidden; }
+        .meeting-number { background-color: var(--bc-light-grey); color: var(--bc-navy); font-weight: 700; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; display: inline-block; margin-bottom: var(--spacing-4); }
+        .meeting-card h3 { font-size: 1.25rem; margin-bottom: var(--spacing-4); }
+        .meeting-card ul { margin-left: var(--spacing-4); margin-bottom: var(--spacing-6); list-style: disc; }
+        .meeting-card li { margin-bottom: var(--spacing-2); font-size: 0.95rem; }
+
+        .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
+        .meddic-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .meddic-card h4 { color: var(--bc-energy-blue); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: var(--spacing-2); }
+        .meddic-card h4 .icon { width: 20px; height: 20px; }
+
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--spacing-8);
+            background-color: var(--bc-white);
+            padding: var(--spacing-8);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: var(--spacing-2); }
+        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
+        #assumptions-container {
+            margin-top: var(--spacing-8);
+            background-color: #f9fafb;
+            border: 1px solid #e0e0e0;
+            padding: var(--spacing-6);
+            border-radius: var(--border-radius);
+        }
+        #assumptions-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-4);
+        }
+        #assumptions-list p { font-size: 0.85rem; }
+
+        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        .donut-chart { transform: rotate(-90deg); border-radius: 50%; }
+        .donut-segment { fill: none; stroke-width: 20; transition: stroke-dashoffset 0.5s ease-in-out; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
+        .donut-legend li { display: flex; align-items: center; gap: var(--spacing-2); font-size: 0.9rem; }
+        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
+
+        #next-steps {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            text-align: center;
+        }
+        .next-steps-card {
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            border-radius: var(--border-radius);
+            padding: var(--spacing-8);
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-top: 6px solid var(--bc-energy-blue);
+        }
+
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper, .meetings-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                    <div style="background: white; padding: 10px; border-radius: 8px;">
+                        <img src="https://iili.io/ftH7mFI.md.png" alt="C&G Commercial Ltd Logo" style="height: 60px; display: block;">
+                    </div>
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
+                </div>
+                <h1>C&G Commercial Ltd: Forced Workflows & Idiot-Proof Ops</h1>
+                <p class="subhead">Ending the era of "forgotten notes" and "optional steps." BigChange brings a structured, forced process to your 20-engineer fleet to ensure 100% compliance and accurate payroll.</p>
+                <div class="cta-buttons">
+                    <a href="https://copilot.clari.com/guest/sharedCall/6981d022b803cb49586f5004" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Demo Recording</a>
+                    <a href="#next-steps" class="btn btn-primary" style="background-color: var(--bc-green); border-color: var(--bc-green); color: var(--bc-navy);">View Next Steps</a>
+                    <a href="#business-case" class="btn btn-secondary">The Business Case</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="meetings-recap" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                    </svg>
+                    <h2>The Challenges We Discussed</h2>
+                    <p>Summary of the key pain points raised by Andy and Kevin during our session.</p>
+                </div>
+                <div class="meetings-grid">
+                    <div class="meeting-card">
+                        <span class="meeting-number">Operational Audit</span>
+                        <h3>Solving the "Lack of Forced Process"</h3>
+                        <p><strong>Stakeholders:</strong> Andy Golding, Kevin, Serge Fagelman.</p>
+                        <ul style="margin-top:15px">
+                            <li><strong>The Workflow Problem:</strong> Currently, engineers can bypass risk assessments, notes, and photos. BigChange implements a linear "Stop/Start" flow that forces completion before moving forward.</li>
+                            <li><strong>Payroll Accuracy:</strong> Inconsistent start/stop times mean payroll is a manual nightmare. Our automated timesheets linked to GPS tracking fix this.</li>
+                            <li><strong>"Idiot-Proof" Requirement:</strong> You need a system for "non-tech savvy" lads. BigChange uses large, simple buttons and a guided process to ensure engineer adoption.</li>
+                            <li><strong>Scheduling Waste:</strong> Moving from a "pot" of jobs to a drag-and-drop map view to minimize travel time and maximize engineer capacity.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
+                    <h2>Current State vs. Future State</h2>
+                    <p>The transformation from optional workflows to forced accountability.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3>Current State (C&G)</h3>
+                        <ul>
+                            <li><strong>Optional Steps:</strong> Engineers can add photos or notes without being on site or starting the job.</li>
+                            <li><strong>Manual Compliance:</strong> Risk assessments are frequently missed or done half-heartedly after the fact.</li>
+                            <li><strong>Payroll Blindness:</strong> No way to verify true return-to-base times vs. actual work hours.</li>
+                            <li><strong>Vehicle Tracking Split:</strong> Tracking is separate from the job sheet, leading to data silos.</li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3>Future State (BigChange)</h3>
+                        <ul>
+                            <li><strong>Forced Process:</strong> "You can't go further until you do your RAMS." Linear, step-by-step app experience.</li>
+                            <li><strong>Guided Worksheets:</strong> Photos must be taken as part of the job flow (annotated and time-stamped).</li>
+                            <li><strong>Integrated Fleet:</strong> Free trackers installed in 20 vans. Live traffic updates and precise Eta's for CBRE/clients.</li>
+                            <li><strong>Sage 50 Integration:</strong> Automated financial flow from job completion to invoice sync.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="business-case">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                    <h2>The Business Case for C&G</h2>
+                </div>
+                <div class="meddic-grid">
+                    <div class="meddic-card">
+                        <h4>Revenue & Scheduling</h4>
+                        <p><strong>Scheduling Assistant:</strong> Finds the nearest, most cost-effective engineer for every P1 call-out, saving fuel and travel time across 20 vehicles.</p>
+                        <p><strong>Client Portals:</strong> Give CBRE or domestic clients access to their own reports, reducing office "where's my engineer?" calls.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Compliance & Safety</h4>
+                        <p><strong>Vehicle Checks:</strong> Mandatory Monday morning checks. The system blocks job access until the van is declared safe.</p>
+                        <p><strong>Skill Tracking:</strong> Automated alerts for CSCS cards or gas certificates expiring 30 days in advance.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Operational Efficiency</h4>
+                        <p><strong>Forced Fire Surveys:</strong> Build specific workflows for fire door surveys (Before/During/After photos) to ensure 100% data quality.</p>
+                        <p><strong>Support Model:</strong> 24/7 UK-based support and a dedicated onboarding champion to build the "idiot-proof" views you need.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="success-metrics" style="background-color: var(--bc-white); padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a9.75 9.75 0 0119.5 0m-19.5 0a9.75 9.75 0 0019.5 0M10.5 6H21m-10.5 0H3.375M10.5 18.375c.394.038.79.062 1.186.062s.792-.024 1.186-.062M10.5 18.375c-.394.038-.79.062-1.186.062s-.792-.024-1.186-.062m2.372 0H21m-2.372 0H3.375M17.25 12c0 .966-.784 1.75-1.75 1.75s-1.75-.784-1.75-1.75S16.466 10.25 17.25 10.25s1.75.784 1.75 1.75zM9 12c0 .966-.784 1.75-1.75 1.75S5.5 12.966 5.5 12 6.284 10.25 7.25 10.25S9 11.034 9 12z" />
+                    </svg>
+                    <h2>Success Metrics for C&G Commercial</h2>
+                </div>
+                <div class="meddic-grid">
+                    <div class="meddic-card">
+                        <h4>Operational Scorecard</h4>
+                        <ul>
+                            <li><strong>Zero Missing Notes:</strong> Forced workflows mean 100% of jobs have mandatory completion data.</li>
+                            <li><strong>Reduced Overtime:</strong> Precise return-to-base tracking via GPS eliminates manual timesheet padding.</li>
+                            <li><strong>Audit Ready:</strong> Instant PDF exports of all RAMS and job sheets for client audits.</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Financial Scorecard</h4>
+                        <ul>
+                            <li><strong>True Margin Analysis:</strong> System works out cost-per-mile + hourly rates vs. job price to show actual profit per job.</li>
+                            <li><strong>Invoicing Velocity:</strong> Jobs completed on site can be invoiced the same day via Sage 50 integration.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    <h2>Savings Calculator</h2>
+                    <p>Forecast the value of switching to BigChange. Pre-set with your 20 engineers.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3>C&G Profile</h3>
+                        <div class="calculator-input">
+                            <label for="engineers"><span>Field Engineers</span><span id="engineers-value">20</span></label>
+                            <input type="range" id="engineers" min="5" max="50" value="20">
+                        </div>
+                        <div class="calculator-input">
+                            <label for="jobsPerDay"><span>Jobs per Day</span><span id="jobsPerDay-value">3</span></label>
+                            <input type="range" id="jobsPerDay" min="1" max="10" value="3">
+                        </div>
+                        <div class="calculator-input">
+                            <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">4</span></label>
+                            <input type="range" id="officeStaff" min="1" max="20" value="4">
+                        </div>
+                        <div class="calculator-input">
+                            <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£28,000</span></label>
+                            <input type="range" id="officeSalary" min="20000" max="60000" value="28000" step="1000">
+                        </div>
+                        <div id="assumptions-container">
+                            <h3>Key Assumptions</h3>
+                            <div id="assumptions-list">
+                                <p>Field Efficiency: 15%</p>
+                                <p>Office Productivity: 20%</p>
+                                <p>Fuel Reduction: 12%</p>
+                                <p>Avg. Hourly Rate: £35</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="roi-results">
+                        <h3>Estimated Annual Savings</h3>
+                        <p class="total-savings" id="total-savings">£0</p>
+                        <div class="donut-chart-container">
+                            <svg class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                            </svg>
+                        </div>
+                        <ul class="donut-legend">
+                            <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Field</li>
+                            <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office</li>
+                            <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top:20px">
+                    <details open style="background:white; padding:15px; border-radius:8px; border:1px solid #ddd;">
+                        <summary style="cursor:pointer; font-weight:bold;">Calculation Breakdown</summary>
+                        <p id="engineer-calc-details" style="margin-top:10px; font-size:0.9rem; color: #555;"></p>
+                        <p id="office-calc-details" style="margin-top:5px; font-size:0.9rem; color: #555;"></p>
+                        <p id="fuel-calc-details" style="margin-top:5px; font-size:0.9rem; color: #555;"></p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="next-steps">
+            <div class="container">
+                <div class="next-steps-card">
+                    <h3>Next Steps</h3>
+                    <p>Great to see how much BigChange can simplify your workflow, Andy.</p>
+                    <div style="text-align: left; margin: 20px 0;">
+                        <p><strong>1. Final Review:</strong> Discuss the discount offer (£60/user) vs. the current pains of manual scheduling.</p>
+                        <p><strong>2. Follow-up Call:</strong> Scheduled for <strong>Friday @ 2:00 PM</strong> to answer final questions on the hardware/tracking setup.</p>
+                        <p><strong>3. Onboarding Scope:</strong> Begin mapping your fire survey workflows and site imports from Excel.</p>
+                    </div>
+                    <a href="mailto:serge.fagelman@bigchange.com" class="btn btn-primary">Confirm Friday Call</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container" style="text-align: center;">
+                <h3 style="color: var(--bc-light-grey);">Ready to go "Idiot-Proof"?</h3>
+                <p>Ensuring C&G Commercial Ltd operates with 100% compliance.</p>
+                <p style="opacity: 0.7; margin-top: 2rem;">&copy; 2025 BigChange. All rights reserved.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = ['engineers', 'jobsPerDay', 'officeStaff', 'officeSalary'];
+            const elements = {};
+            inputs.forEach(id => {
+                elements[id] = document.getElementById(id);
+                elements[id + 'Value'] = document.getElementById(id + '-value');
+            });
+
+            const totalDisplay = document.getElementById('total-savings');
+            const donutEng = document.getElementById('donut-engineer');
+            const donutOff = document.getElementById('donut-office');
+            const donutFuel = document.getElementById('donut-fuel');
+            const engCalc = document.getElementById('engineer-calc-details');
+            const offCalc = document.getElementById('office-calc-details');
+            const fuelCalc = document.getElementById('fuel-calc-details');
+
+            function update() {
+                const eng = parseInt(elements.engineers.value);
+                const jobs = parseInt(elements.jobsPerDay.value);
+                const off = parseInt(elements.officeStaff.value);
+                const sal = parseInt(elements.officeSalary.value);
+
+                elements.engineersValue.textContent = eng;
+                elements.jobsPerDayValue.textContent = jobs;
+                elements.officeStaffValue.textContent = off;
+                elements.officeSalaryValue.textContent = '£' + sal.toLocaleString();
+
+                // Logic
+                const engHourly = 35;
+                const workingDays = 252;
+                const fieldGain = 0.15; // 15% efficiency
+                const fuelPerVan = 3500;
+                const fuelGain = 0.12;
+                const adminGain = 0.20;
+
+                const engSaving = (8 * fieldGain) * engHourly * workingDays * eng;
+                const offSaving = (sal * adminGain) * off;
+                const fuelSaving = (fuelPerVan * fuelGain) * eng;
+                const total = engSaving + offSaving + fuelSaving;
+
+                totalDisplay.textContent = '£' + Math.round(total).toLocaleString();
+
+                // Chart
+                const circum = 251.2;
+                const ePct = engSaving / total;
+                const oPct = offSaving / total;
+                const fPct = fuelSaving / total;
+
+                donutEng.style.strokeDasharray = `${ePct * circum} ${circum}`;
+                donutOff.style.strokeDasharray = `${oPct * circum} ${circum}`;
+                donutOff.style.strokeDashoffset = -(ePct * circum);
+                donutFuel.style.strokeDasharray = `${fPct * circum} ${circum}`;
+                donutFuel.style.strokeDashoffset = -((ePct + oPct) * circum);
+
+                // Details
+                engCalc.textContent = `Field: ${eng} engineers x 1.2 hrs saved/day @ £35/hr = £${Math.round(engSaving).toLocaleString()}/year.`;
+                offCalc.textContent = `Office: ${off} staff x 20% admin time reduction @ £${sal.toLocaleString()} = £${Math.round(offSaving).toLocaleString()}/year.`;
+                fuelCalc.textContent = `Fuel: ${eng} vans x 12% reduction in mileage = £${Math.round(fuelSaving).toLocaleString()}/year.`;
+            }
+
+            inputs.forEach(id => elements[id].addEventListener('input', update));
+            update();
+        });
+    </script>
+</body>
+</html>
