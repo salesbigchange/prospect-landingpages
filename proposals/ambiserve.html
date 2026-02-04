@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ambiserve Refrigeration: Future-Proofing for Growth</title>
+    <meta name="description" content="A tailored proposal for Ambiserve Refrigeration to replace manual processes with a proven, scalable platform.">
+    <meta name="author" content="Serge Fagelman, BigChange">
+    
+    <!-- SEO & Social Sharing -->
+    <meta property="og:title" content="Ambiserve & BigChange: The Enterprise Solution">
+    <meta property="og:description" content="An interactive proposal showing how BigChange solves manual reporting, asset tracking, and duplication bottlenecks.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://i.postimg.cc/9QYhwmgK/Big-Change-Logo1.png">
+    
+    <style>
+        /* CSS Reset & Base Styles */
+        :root {
+            --bc-energy-blue: #0072CE;
+            --bc-navy: #0A2240;
+            --bc-green: #28E289;
+            --bc-orange: #FF6B00;
+            --bc-light-grey: #F4F4F4;
+            --bc-charcoal: #282922;
+            --bc-white: #FFFFFF;
+            --bc-red: #E02B20;
+            
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-4: 1rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            
+            --border-radius: 0.75rem;
+            --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: var(--bc-white);
+            color: var(--bc-charcoal);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
+        section { padding: var(--spacing-16) 0; }
+        h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+        a { color: var(--bc-energy-blue); text-decoration: none; }
+        .section-title { text-align: center; margin-bottom: var(--spacing-12); }
+        .section-title .icon { color: var(--bc-energy-blue); width: 48px; height: 48px; margin: 0 auto var(--spacing-4); }
+
+        /* Hero Section */
+        #hero {
+            background-color: var(--bc-navy);
+            color: var(--bc-white);
+            padding: var(--spacing-16) 0;
+            text-align: center;
+        }
+        #hero h1, #hero p { color: var(--bc-white); }
+        #hero .subhead { font-size: 1.25rem; max-width: 800px; margin: var(--spacing-4) auto var(--spacing-8); opacity: 0.9; }
+        .cta-buttons { display: flex; justify-content: center; gap: var(--spacing-4); flex-wrap: wrap; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius);
+            font-weight: 700;
+            transition: all var(--transition-speed);
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .btn-primary { background-color: var(--bc-energy-blue); color: var(--bc-white); }
+        .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
+
+        /* Content Grids */
+        .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); }
+        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); list-style: none; }
+        .state-card li::before {
+            content: ''; position: absolute; left: 0; top: 5px; width: 16px; height: 16px; border-radius: 50%;
+        }
+        .state-card.current li::before { background-color: var(--bc-orange); }
+        .state-card.future li::before { background-color: var(--bc-green); }
+
+        .meetings-grid { display: grid; grid-template-columns: 1fr; gap: var(--spacing-8); max-width: 800px; margin: 0 auto; }
+        .meeting-card { background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius); padding: var(--spacing-8); }
+        .meeting-number { background-color: var(--bc-light-grey); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; display: inline-block; margin-bottom: var(--spacing-4); }
+
+        .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
+        .meddic-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
+        .meddic-card h4 { color: var(--bc-energy-blue); display: flex; align-items: center; gap: 0.5rem; text-transform: uppercase; font-size: 0.9rem; }
+        .meddic-card .icon { width: 20px; height: 20px; }
+
+        /* Case Studies */
+        .case-study-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-8); margin-top: var(--spacing-8); }
+        .case-study-card { border: 1px solid #e5e7eb; border-radius: var(--border-radius); overflow: hidden; background: white; transition: transform 0.3s; }
+        .case-study-card:hover { transform: translateY(-5px); box-shadow: var(--box-shadow); }
+        .case-study-img { width: 100%; height: 200px; object-fit: cover; }
+        .case-study-content { padding: var(--spacing-6); }
+
+        /* ROI Calculator */
+        #roi { background-color: var(--bc-light-grey); }
+        .calculator-wrapper {
+            display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--spacing-8);
+            background-color: var(--bc-white); padding: var(--spacing-8); border-radius: var(--border-radius); box-shadow: var(--box-shadow);
+        }
+        .calculator-input { margin-bottom: var(--spacing-6); }
+        .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: var(--spacing-2); }
+        input[type="range"] { width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; appearance: none; outline: none; }
+        input[type="range"]::-webkit-slider-thumb { appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); border-radius: 50%; cursor: pointer; }
+        .roi-results { text-align: center; }
+        .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); }
+        .donut-chart-container { position: relative; width: 220px; height: 220px; margin: 2rem auto; }
+        .donut-segment { fill: none; stroke-width: 15; transition: stroke-dashoffset 0.5s ease; }
+        .donut-legend { list-style: none; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; font-size: 0.85rem; }
+        .legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        
+        .calculation-breakdown details { background: white; border: 1px solid #eee; margin-bottom: 0.5rem; border-radius: 4px; }
+        .calculation-breakdown summary { padding: 1rem; cursor: pointer; font-weight: 600; display: flex; justify-content: space-between; }
+
+        footer { background: var(--bc-navy); color: white; padding: var(--spacing-12) 0; text-align: center; }
+
+        @media (max-width: 1024px) {
+            .infographic-grid, .calculator-wrapper, .case-study-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="container">
+                <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                    <img src="https://www.ambiserve.co.uk/communities/9/000/001/024/169/images/1448946.jpg" alt="Ambiserve Logo" style="height: 80px;">
+                    <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
+                    <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
+                </div>
+                <h1>Ambiserve Refrigeration: Future-Proofing for 21st Century Growth</h1>
+                <p class="subhead">A strategic proposal for David and the team. Move away from manual duplication and "parchment" processes to a platform that empowers your engineers and scales with your business.</p>
+                <div class="cta-buttons">
+                    <a href="https://copilot.clari.com/guest/sharedCall/698342be712ba46e8627165b" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Meeting Recording</a>
+                    <a href="#business-case" class="btn btn-secondary">The Business Case</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meeting Recap Section -->
+        <section id="meetings-recap" style="background-color: var(--bc-light-grey);">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2v16z"/></svg>
+                    <h2>Discovery & Goals</h2>
+                    <p>Summarising our session with David, Pete, and James.</p>
+                </div>
+                <div class="meetings-grid">
+                    <div class="meeting-card">
+                        <span class="meeting-number">Discovery Meeting</span>
+                        <h3>Replacing the "Manual Duplication" Bottleneck</h3>
+                        <p>Ambiserve is "slick" at delivery but heavily manual. Key focus areas identified:</p>
+                        <ul style="margin-top: 1rem; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 0.5rem;"><strong>The Duplication Drain:</strong> Information is being manually re-typed from WhatsApp and paper sheets into Xero and office systems.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Asset Blindspots:</strong> No easy way to track full service history per specific asset (make/model/serial) across your maintenance contracts.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Real-Time Professionalism:</strong> Moving away from "reading the engineer's handwriting" to instant, branded digital job sheets with embedded photos.</li>
+                            <li style="margin-bottom: 0.5rem;"><strong>Proactive Planning:</strong> Shifting from reactionary call-outs to smart, automated maintenance scheduling that builds itself.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Current vs Future State -->
+        <section id="current-future">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                    <h2>Current State vs. Future State</h2>
+                    <p>Modernising Ambiserve's field operations.</p>
+                </div>
+                <div class="infographic-grid">
+                    <div class="state-card current">
+                        <h3 style="color: var(--bc-orange);">Current State (Manual & Fragmented)</h3>
+                        <ul>
+                            <li><strong>WhatsApp Reliance:</strong> Vital job info and photos scattered across messaging threads and JPEGs.</li>
+                            <li><strong>Labour Intensive:</strong> Office staff spend hours re-typing engineer reports to generate invoices.</li>
+                            <li><strong>History Search:</strong> Office needs to manually check years of job sheets to find what was done to a specific fridge.</li>
+                            <li><strong>Static Planning:</strong> Scheduling is done via spreadsheets and manual diaries.</li>
+                        </ul>
+                    </div>
+                    <div class="state-card future">
+                        <h3 style="color: var(--bc-green);">Future State (BigChange)</h3>
+                        <ul>
+                            <li><strong>Integrated Ecosystem:</strong> Tracking, CRM, Scheduling, and Finance all living in one single source of truth.</li>
+                            <li><strong>Instant Invoicing:</strong> Job data flows straight from the engineer's tablet to Xero with no re-typing required.</li>
+                            <li><strong>Full Asset DNA:</strong> QR-code enabled history. Scan the fridge, see every service ever performed instantly.</li>
+                            <li><strong>Dynamic Scheduling:</strong> Live map tracking and intelligent job allocation based on proximity and skill.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Business Case -->
+        <section id="business-case">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                    <h2>The Business Case for Ambiserve</h2>
+                    <p>Why switching to BigChange drives value beyond just software.</p>
+                </div>
+                <div class="meddic-grid">
+                    <div class="meddic-card">
+                        <h4><svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Operational Efficiency</h4>
+                        <p><strong>Admin Recovery:</strong> Reclaim hours of office time by automating the transfer of engineer findings to client reports and Xero invoices.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4><svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/></svg> Asset Management</h4>
+                        <p><strong>Proactive Maintenance:</strong> Use the "Full Asset DNA" to prove value to your corporate clients, showing exactly what was fixed and when for every chiller.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4><svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg> Scalable Infrastructure</h4>
+                        <p><strong>One Source of Truth:</strong> Tracking, timesheets, job history, and billing in one place. Scale your workforce without scaling your admin overhead.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Metrics -->
+        <section id="success-metrics" style="padding-top: 0;">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    <h2>Success Metrics for Ambiserve</h2>
+                    <p>How we measure success together.</p>
+                </div>
+                <div class="meddic-grid">
+                    <div class="meddic-card">
+                        <h4>Financial Impact</h4>
+                        <ul>
+                            <li><strong>Zero Re-typing:</strong> Reducing office admin time spent on job sheets by 50%.</li>
+                            <li><strong>Cash Flow Velocity:</strong> Invoices sent as soon as the engineer leaves site, not days later.</li>
+                        </ul>
+                    </div>
+                    <div class="meddic-card">
+                        <h4>Field Performance</h4>
+                        <ul>
+                            <li><strong>Engineer Compliance:</strong> 100% completion of mandatory risk assessments and asset photos.</li>
+                            <li><strong>Fuel Economy:</strong> 10-15% reduction in fuel spend via smart routing and map tracking.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator -->
+        <section id="roi">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    <h2>Savings Calculator</h2>
+                    <p>Forecast the value of switching to BigChange. Defaults based on your current team of 4 engineers.</p>
+                </div>
+                <div class="calculator-wrapper">
+                    <div class="calculator-inputs">
+                        <h3>Your Business Details</h3>
+                        <div class="calculator-input">
+                            <label><span>Field Engineers</span><span id="engineers-val">4</span></label>
+                            <input type="range" id="engineers" min="1" max="20" value="4">
+                        </div>
+                        <div class="calculator-input">
+                            <label><span>Jobs per Day</span><span id="jobs-val">4</span></label>
+                            <input type="range" id="jobs" min="1" max="10" value="4">
+                        </div>
+                        <div class="calculator-input">
+                            <label><span>Office Staff</span><span id="office-val">2</span></label>
+                            <input type="range" id="office" min="1" max="10" value="2">
+                        </div>
+                        <div class="calculator-input">
+                            <label><span>Office Avg Salary (£)</span><span id="salary-val">£28,000</span></label>
+                            <input type="range" id="salary" min="20000" max="60000" value="28000" step="500">
+                        </div>
+                        <div id="assumptions-container" style="background:#f9f9f9; padding: 1rem; border-radius: 8px; font-size: 0.85rem; margin-top: 2rem;">
+                            <h3 style="font-size: 1rem;">Key Assumptions</h3>
+                            <p>Productivity Gain: 15% | Admin Reduction: 20% | Fuel Saving: 12%</p>
+                        </div>
+                    </div>
+                    <div class="roi-results">
+                        <h3>Estimated Annual Savings</h3>
+                        <p class="total-savings" id="total-savings">£0</p>
+                        <div class="donut-chart-container">
+                            <svg viewBox="0 0 100 100" width="100%" height="100%">
+                                <circle cx="50" cy="50" r="40" fill="transparent" stroke="#eee" stroke-width="15"/>
+                                <circle id="seg-field" class="donut-segment" cx="50" cy="50" r="40" stroke="var(--bc-energy-blue)" stroke-dasharray="0 251.2"/>
+                                <circle id="seg-office" class="donut-segment" cx="50" cy="50" r="40" stroke="var(--bc-green)" stroke-dasharray="0 251.2"/>
+                                <circle id="seg-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke="var(--bc-orange)" stroke-dasharray="0 251.2"/>
+                            </svg>
+                        </div>
+                        <ul class="donut-legend">
+                            <li><span class="legend-dot" style="background:var(--bc-energy-blue)"></span>Field</li>
+                            <li><span class="legend-dot" style="background:var(--bc-green)"></span>Office</li>
+                            <li><span class="legend-dot" style="background:var(--bc-orange)"></span>Fuel</li>
+                        </ul>
+                        <div class="calculation-breakdown" style="text-align: left; margin-top: 2rem;">
+                            <h3>Calculation Breakdown</h3>
+                            <details open>
+                                <summary>Field Productivity <span id="field-res">£0</span></summary>
+                                <p id="field-text" style="padding: 1rem; font-size: 0.85rem; border-top: 1px solid #eee;"></p>
+                            </details>
+                            <details open>
+                                <summary>Office Productivity <span id="office-res">£0</span></summary>
+                                <p id="office-text" style="padding: 1rem; font-size: 0.85rem; border-top: 1px solid #eee;"></p>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section id="case-studies">
+            <div class="container">
+                <div class="section-title">
+                    <svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"/></svg>
+                    <h2>Refrigeration & HVAC Success Stories</h2>
+                    <p>See how similar businesses are scaling with BigChange.</p>
+                </div>
+                <div class="case-study-grid">
+                    <div class="case-study-card">
+                        <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67d42a81bf9ae997bf33fb26_NWCE.webp" class="case-study-img" alt="NWCE Case Study">
+                        <div class="case-study-content">
+                            <h3>NWCE Foodservice</h3>
+                            <p>Helping NWCE treble their workforce and streamline complex catering and refrigeration maintenance.</p>
+                            <a href="https://www.bigchange.com/success-stories/bigchange-job-management-system-helps-nwce-treble-workforce" target="_blank" style="display:inline-block; margin-top: 1rem; font-weight: 700;">Read Story →</a>
+                        </div>
+                    </div>
+                    <div class="case-study-card">
+                        <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67da84326fc750a118d94249_HVAC.jpeg" class="case-study-img" alt="GasTech Case Study">
+                        <div class="case-study-content">
+                            <h3>GasTech HVAC</h3>
+                            <p>Boosting productivity for large-scale HVAC installation and maintenance services with automated workflows.</p>
+                            <a href="https://www.bigchange.com/success-stories/bigchange-boosts-productivity-for-gastech-hvac-installation-and-maintenance-services" target="_blank" style="display:inline-block; margin-top: 1rem; font-weight: 700;">Read Story →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="container">
+                <h2 style="color: white; margin-bottom: 1rem;">Ready to grow Ambiserve?</h2>
+                <p style="margin-bottom: 2rem; opacity: 0.8;">Let's stop re-typing data and start scaling your service delivery.</p>
+                <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2025 BigChange. All rights reserved. Created for Ambiserve Refrigeration.</p>
+            </div>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const inputs = {
+                engineers: document.getElementById('engineers'),
+                jobs: document.getElementById('jobs'),
+                office: document.getElementById('office'),
+                salary: document.getElementById('salary')
+            };
+
+            const displays = {
+                engineers: document.getElementById('engineers-val'),
+                jobs: document.getElementById('jobs-val'),
+                office: document.getElementById('office-val'),
+                salary: document.getElementById('salary-val'),
+                total: document.getElementById('total-savings'),
+                fieldRes: document.getElementById('field-res'),
+                officeRes: document.getElementById('office-res'),
+                fieldText: document.getElementById('field-text'),
+                officeText: document.getElementById('office-text')
+            };
+
+            const segments = {
+                field: document.getElementById('seg-field'),
+                office: document.getElementById('seg-office'),
+                fuel: document.getElementById('seg-fuel')
+            };
+
+            function update() {
+                const vals = {
+                    eng: parseInt(inputs.engineers.value),
+                    jobs: parseInt(inputs.jobs.value),
+                    off: parseInt(inputs.office.value),
+                    sal: parseInt(inputs.salary.value)
+                };
+
+                // Update UI Labels
+                displays.engineers.textContent = vals.eng;
+                displays.jobs.textContent = vals.jobs;
+                displays.office.textContent = vals.off;
+                displays.salary.textContent = `£${vals.sal.toLocaleString()}`;
+
+                // Calculations
+                const workingDays = 252;
+                const hourlyRate = 35; 
+                const fieldGain = (8 * 0.15) * hourlyRate * workingDays * vals.eng;
+                const officeGain = (vals.sal * 0.20) * vals.off;
+                const fuelGain = (4000 * 0.12) * vals.eng;
+                const total = fieldGain + officeGain + fuelGain;
+
+                // Update Results
+                displays.total.textContent = `£${Math.round(total).toLocaleString()}`;
+                displays.fieldRes.textContent = `£${Math.round(fieldGain).toLocaleString()}`;
+                displays.officeRes.textContent = `£${Math.round(officeGain).toLocaleString()}`;
+
+                displays.fieldText.textContent = `${vals.eng} engineers x 15% efficiency gain (1.2hrs/day) @ £${hourlyRate}/hr over ${workingDays} days.`;
+                displays.officeText.textContent = `${vals.off} office staff x 20% admin reduction based on £${vals.sal.toLocaleString()} avg salary.`;
+
+                // Chart Logic
+                const circ = 251.2;
+                const fieldDash = (fieldGain / total) * circ;
+                const officeDash = (officeGain / total) * circ;
+                const fuelDash = (fuelGain / total) * circ;
+
+                segments.field.style.strokeDasharray = `${fieldDash} ${circ}`;
+                
+                segments.office.style.strokeDasharray = `${officeDash} ${circ}`;
+                segments.office.style.strokeDashoffset = -fieldDash;
+
+                segments.fuel.style.strokeDasharray = `${fuelDash} ${circ}`;
+                segments.fuel.style.strokeDashoffset = -(fieldDash + officeDash);
+            }
+
+            Object.values(inputs).forEach(input => input.addEventListener('input', update));
+            update();
+        });
+    </script>
+</body>
+</html>
