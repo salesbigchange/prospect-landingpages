@@ -33,11 +33,9 @@
     }
     </script>
 
-    <!-- Inline CSS for Single-File Deployment -->
     <style>
         /* CSS Reset & Base Styles */
         :root {
-            /* Brand Colors from BigChange Brand Guidelines */
             --bc-energy-blue: #0072CE;
             --bc-navy: #0A2240;
             --bc-green: #28E289;
@@ -46,7 +44,6 @@
             --bc-charcoal: #282922;
             --bc-white: #FFFFFF;
             
-            /* Spacing & Sizing Tokens */
             --spacing-1: 0.25rem;
             --spacing-2: 0.5rem;
             --spacing-4: 1rem;
@@ -55,7 +52,6 @@
             --spacing-12: 3rem;
             --spacing-16: 4rem;
             
-            /* Other Design Tokens */
             --border-radius: 0.75rem;
             --box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.1);
             --transition-speed: 0.3s;
@@ -72,7 +68,6 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* General Layout & Typography */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-6); }
         section { padding: var(--spacing-16) 0; }
         h1, h2, h3, h4 { color: var(--bc-navy); line-height: 1.2; margin-bottom: var(--spacing-4); }
@@ -81,6 +76,19 @@
         h3 { font-size: 1.5rem; }
         a { color: var(--bc-energy-blue); text-decoration: none; }
         a:hover { text-decoration: underline; }
+        
+        .meeting-badge {
+            display: inline-block;
+            background-color: var(--bc-energy-blue);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 2rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
         .section-title { text-align: center; margin-bottom: var(--spacing-12); }
         .section-title .icon {
             color: var(--bc-energy-blue);
@@ -117,9 +125,9 @@
         .btn-secondary { background-color: transparent; color: var(--bc-white); border-color: var(--bc-white); }
         .btn-secondary:hover { background-color: var(--bc-white); color: var(--bc-navy); }
         
-        /* Current -> Future Section */
+        /* Infographic Grids */
         .infographic-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-12); align-items: start; }
-        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); }
+        .state-card { background-color: var(--bc-light-grey); padding: var(--spacing-8); border-radius: var(--border-radius); position: relative; }
         .state-card h3 { display: flex; align-items: center; gap: var(--spacing-4); }
         .state-card ul { list-style: none; margin-top: var(--spacing-6); }
         .state-card li { padding-left: 2rem; position: relative; margin-bottom: var(--spacing-4); }
@@ -135,13 +143,10 @@
         .state-card.current li::before { background-color: var(--bc-orange); }
         .state-card.future li::before { background-color: var(--bc-green); }
 
-        /* Business Case Section */
         .meddic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-6); }
         .meddic-card { background-color: var(--bc-light-grey); padding: var(--spacing-6); border-radius: var(--border-radius); }
         .meddic-card h4 { color: var(--bc-energy-blue); font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: var(--spacing-2); }
         .meddic-card h4 .icon { width: 20px; height: 20px; }
-        .meddic-card p, .meddic-card ul { font-size: 0.95rem; }
-        .meddic-card ul { list-style-position: inside; padding-left: var(--spacing-2); }
         
         /* ROI Calculator Section */
         #roi { background-color: var(--bc-light-grey); }
@@ -156,65 +161,41 @@
         }
         .calculator-input { margin-bottom: var(--spacing-6); }
         .calculator-input label { display: flex; justify-content: space-between; font-weight: 600; margin-bottom: var(--spacing-2); }
-        .calculator-input label span:last-child { color: var(--bc-energy-blue); }
-        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; transition: opacity 0.2s; }
+        input[type="range"] { -webkit-appearance: none; appearance: none; width: 100%; height: 8px; background: #e0e0e0; border-radius: 5px; outline: none; }
         input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 20px; height: 20px; background: var(--bc-energy-blue); cursor: pointer; border-radius: 50%; }
         .roi-results { text-align: center; }
         .total-savings { font-size: 3.5rem; font-weight: 800; color: var(--bc-green); line-height: 1; }
-        #assumptions-container {
-            margin-top: var(--spacing-8);
-            background-color: #f9fafb;
-            border: 1px solid #e0e0e0;
-            padding: var(--spacing-6);
-            border-radius: var(--border-radius);
-        }
-        #assumptions-list {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--spacing-4);
-        }
-        #assumptions-list p { font-size: 0.85rem; }
-
-        /* SVG Donut Chart */
-        .donut-chart-container { position: relative; width: 250px; height: 250px; margin: var(--spacing-6) auto; }
+        
+        .donut-chart-container { position: relative; width: 220px; height: 220px; margin: var(--spacing-6) auto; }
         .donut-chart { transform: rotate(-90deg); border-radius: 50%; }
         .donut-segment { fill: none; stroke-width: 20; transition: stroke-dashoffset 0.5s ease-in-out; }
-        .donut-legend { list-style: none; display: flex; justify-content: center; gap: var(--spacing-6); flex-wrap: wrap; margin-top: var(--spacing-4); }
-        .donut-legend li { display: flex; align-items: center; gap: var(--spacing-2); font-size: 0.9rem; }
-        .legend-dot { width: 12px; height: 12px; border-radius: 50%; }
         
-        .calculation-breakdown { display: flex; flex-direction: column; gap: var(--spacing-4); }
-        
-        /* Implementation Section */
+        /* Gantt/Timeline */
         .gantt-chart { display: flex; flex-direction: column; gap: var(--spacing-4); }
         .gantt-phase { background-color: var(--bc-white); padding: var(--spacing-4); border-radius: var(--border-radius); box-shadow: var(--box-shadow); }
-        .gantt-phase h4 { margin-bottom: var(--spacing-2); display: flex; align-items: center; gap: var(--spacing-2); }
-        .gantt-phase .icon { width: 24px; height: 24px; color: var(--bc-energy-blue); }
-        .gantt-timeline { position: relative; height: 20px; background-color: #e0e0e0; border-radius: 10px; margin-top: var(--spacing-2); }
+        .gantt-timeline { position: relative; height: 16px; background-color: #e0e0e0; border-radius: 10px; margin-top: var(--spacing-2); }
         .gantt-bar { position: absolute; height: 100%; background-color: var(--bc-energy-blue); border-radius: 10px; }
 
-        /* Case Studies Section */
+        /* Recording Section */
+        .recordings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        .recording-card { background: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--box-shadow); text-align: center; }
+
+        /* Case Studies */
         .case-studies-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--spacing-8); }
-        .case-study-card { background-color: var(--bc-white); border-radius: var(--border-radius); box-shadow: var(--box-shadow); overflow: hidden; text-align: center; }
+        .case-study-card { background-color: var(--bc-white); border-radius: var(--border-radius); box-shadow: var(--box-shadow); overflow: hidden; }
         .case-study-card img { width: 100%; height: 200px; object-fit: cover; }
         .case-study-card-content { padding: var(--spacing-6); }
 
-        /* Footer */
-        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-8) 0; font-size: 0.9rem; }
+        footer { background-color: var(--bc-navy); color: var(--bc-light-grey); padding: var(--spacing-12) 0; }
         
-        /* Responsive Styles */
         @media (max-width: 1024px) {
-            .infographic-grid, .calculator-wrapper { grid-template-columns: 1fr; }
-        }
-        @media (max-width: 768px) {
-            h1 { font-size: 2rem; }
-            #hero h1 { font-size: 2.5rem; }
-            section { padding: var(--spacing-12) 0; }
+            .infographic-grid, .calculator-wrapper, .recordings-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
     <main>
+        <!-- Hero -->
         <section id="hero">
             <div class="container">
                 <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap;">
@@ -222,288 +203,226 @@
                     <span style="font-size: 2.5rem; font-weight: 300; color: var(--bc-energy-blue);">+</span>
                     <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
                 </div>
-                <h1>From Disconnected Tools to a Single Source of Truth for CPC</h1>
-                <p class="subhead">A strategic proposal to replace fragmented systems like Jotform, Fixflo, and Masternaut with BigChange's all-in-one platform—driving efficiency, improving client communication, and eliminating missed revenue.</p>
+                <h1>A Unified Operational Roadmap for CPC</h1>
+                <p class="subhead">Consolidating Jotform, Fixflo, Datastation, and Masternaut into one "One-Stop Shop" to drive professional client delivery and eliminate revenue leakage.</p>
                 <div class="cta-buttons">
-                    <a href="#roi" class="btn btn-primary">Calculate Your ROI</a>
-                    <a href="#business-case" class="btn btn-secondary">View The Business Case</a>
+                    <a href="#meeting-2" class="btn btn-primary">Latest: Meeting 2 Deep-Dive</a>
+                    <a href="#roi" class="btn btn-secondary">ROI Calculator</a>
                 </div>
             </div>
         </section>
 
-        <section id="current-future">
+        <!-- Meeting 1 Section -->
+        <section id="meeting-1" style="border-bottom: 1px solid #eee;">
             <div class="container">
                 <div class="section-title">
-                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.898 20.562L16.25 22.5l-.648-1.938a2.25 2.25 0 01-1.473-1.473L12 18.75l1.938-.648a2.25 2.25 0 011.473-1.473L16.25 15l.648 1.938a2.25 2.25 0 011.473 1.473L20.25 18.75l-1.938.648a2.25 2.25 0 01-1.473 1.473z" /></svg>
-                    <h2>Current State vs. Future State</h2>
-                    <p>Mapping CPC's operational pains to tangible solutions within the BigChange platform.</p>
+                    <span class="meeting-badge">Meeting 1: Discovery & Strategy</span>
+                    <h2>Current Challenges vs. Future Vision</h2>
+                    <p>Recapping our initial session focused on strategic pains and the cost of maintaining fragmented systems.</p>
                 </div>
+
                 <div class="infographic-grid">
+                    <!-- Current State -->
                     <div class="state-card current">
-                        <h3>
-                            <svg class="icon" style="height:40px; width: 40px; color: var(--bc-orange);" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" />
-                            </svg>
-                            Current State with Multiple Systems
-                        </h3>
+                        <h3>Current Fragmented State</h3>
                         <ul>
-                            <li><strong>Fragmented Operations:</strong> Juggling Jotform for communication, Fixflo for reactive jobs, and Masternaut for tracking creates data silos and inefficient workflows.</li>
-                            <li><strong>Missed Revenue & Disputes:</strong> With ~2,000 Jotform submissions a month, missed visits are hard to track, leading to lost revenue and an inability to prove attendance during client disputes.</li>
-                            <li><strong>Outdated Client Communication:</strong> Client reports are seen as less professional than competitors', requiring manual clicks and attachments, damaging brand reputation.</li>
-                            <li><strong>Lack of Insight:</strong> No integrated way to track time-on-site vs. quoted time, leading to unprofitable contracts and missed opportunities for upselling.</li>
-                            <li><strong>Reactive Management:</strong> Without a central system, managers can't see if a scheduled job has been missed until a complaint comes in, forcing a reactive and defensive approach.</li>
+                            <li><strong>Data Silos:</strong> Juggling Jotform (comms), Fixflo (reactive), Datastation (compliance), and Masternaut (tracking) prevents a single source of truth.</li>
+                            <li><strong>Revenue Leakage:</strong> Inability to track ~2,000 monthly visits leads to "money back" disputes when attendance can't be evidenced.</li>
+                            <li><strong>Professional Gap:</strong> Client reports are falling behind competitors' tech-enabled formats.</li>
                         </ul>
                     </div>
+                    <!-- Future State -->
                     <div class="state-card future">
-                        <h3>
-                             <img src="https://i.postimg.cc/d00Kvcbm/Big-Change-Logo1.png" alt="BigChange Logo" style="height:40px">
-                             Future State<br>with BigChange
-                        </h3>
+                        <h3>Future BigChange State</h3>
                         <ul>
-                            <li><strong>One Unified Platform:</strong> All planned maintenance, reactive repairs, scheduling, tracking, and client communication are managed in a single, seamless system.</li>
-                            <li><strong>Guaranteed Proof of Service:</strong> Every scheduled job must be actioned on the app. Missed visits are instantly flagged, eliminating lost revenue and providing concrete evidence of attendance.</li>
-                            <li><strong>Full Profitability Analysis:</strong> Track actual time on site against scheduled duration. Reports highlight under-billed contracts, enabling data-driven repricing and improved profitability.</li>
-                            <li><strong>Proactive Job Management:</strong> A live schedule and real-time alerts provide full visibility. Managers can instantly see late or missed jobs, allowing for proactive intervention before it becomes a client issue.</li>
-                            <li><strong>Elevated Customer Journey:</strong> Delight clients with automated visit reminders and "en-route" text messages, complete with an "Uber-style" map to track their team's arrival.</li>
-                            <li><strong>Client Self-Service Portal:</strong> Offer a professional, branded portal where clients can view job reports, see upcoming appointments, and access historical service data 24/7.</li>
+                            <li><strong>One Source of Truth:</strong> Mapping, quoting, scheduling, and tracking in one unified interface.</li>
+                            <li><strong>Proof of Service:</strong> GPS-stamped evidence required for every job completion, eliminating disputes.</li>
+                            <li><strong>Automated Experience:</strong> Uber-style tracking links and real-time portal access for property managers.</li>
                         </ul>
+                    </div>
+                </div>
+
+                <div class="meddic-grid" style="margin-top: 4rem;">
+                    <div class="meddic-card">
+                        <h4><svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z" /></svg> The Business Case</h4>
+                        <p>With 60+ field teams and 2,000 monthly form submissions, CPC requires "Management by Exception." You need the system to tell you when Dave <em>hasn't</em> arrived, rather than hunting for proof after a complaint.</p>
+                    </div>
+                    <div class="meddic-card">
+                        <h4><svg class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.008v.008H12v-.008z" /></svg> Cost of Inaction</h4>
+                        <p>Small daily inefficiencies across 70 teams compound into massive financial drains. Waiting to upgrade means continued missed revenue and a widening technology gap vs. competitors.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="business-case" style="background-color: var(--bc-light-grey);">
+        <!-- Meeting 2 Section -->
+        <section id="meeting-2" style="background-color: #fafafa;">
             <div class="container">
                 <div class="section-title">
-                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                    <h2>The Business Case for CPC</h2>
-                    <p>A summary of the key drivers for this project, based on our discovery session.</p>
+                    <span class="meeting-badge">Meeting 2: Tailored Solution Deep-Dive</span>
+                    <h2>Functional Alignment for CPC Operations</h2>
+                    <p>Reviewing how BigChange maps specifically to your site hierarchies, asset inspections, and multi-skilled scheduling.</p>
                 </div>
+
                 <div class="meddic-grid">
-                    <div class="meddic-card">
-                        <h4>
-                            <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V5.75A2.25 2.25 0 0018 3.5H6A2.25 2.25 0 003.75 5.75v12.5A2.25 2.25 0 006 20.25z" /></svg>
-                            Metrics
-                        </h4>
-                        <p><strong>Field Teams:</strong> ~60</p>
-                        <p><strong>Reactive Repair Teams:</strong> 5</p>
-                        <p><strong>Sites:</strong> Several hundred+</p>
-                        <p><strong>Monthly Submissions:</strong> ~2,000 Jotforms</p>
+                    <!-- Site Hierarchies -->
+                    <div class="meddic-card" style="background: white; border-top: 4px solid var(--bc-energy-blue);">
+                        <h4 style="margin-bottom: 1rem;">Managing Agent Hierarchies</h4>
+                        <p><strong>Challenge:</strong> Site, Parent (Managing Agent), and Grandparent (FirstPort) structures for billing.</p>
+                        <p><strong>Solution:</strong> BigChange's tiered structure ensures the crew sees the property details (barrier codes/maps) while the bill automatically routes to the correct agent entity.</p>
                     </div>
-                    <div class="meddic-card">
-                        <h4>
-                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.008v.008H12v-.008z" /></svg>
-                            Identified Pains
-                        </h4>
-                        <ul>
-                            <li><strong>Revenue Leakage:</strong> Inability to track all 2,000 monthly visits leads to missed jobs, resulting in having to "give the money back" during disputes.</li>
-                            <li><strong>Reputational Risk:</strong> Client feedback indicates current reporting methods are outdated compared to competitors, impacting brand image.</li>
-                            <li><strong>Operational Inefficiency:</strong> Juggling multiple systems for jobs, communication, and tracking is cumbersome and prevents a unified view of operations.</li>
-                            <li><strong>Lack of Profit Insight:</strong> No easy way to compare time spent on site vs. quoted time, leading to unprofitable contracts going unnoticed.</li>
-                        </ul>
+                    <!-- Asset Tracking -->
+                    <div class="meddic-card" style="background: white; border-top: 4px solid var(--bc-energy-blue);">
+                        <h4 style="margin-bottom: 1rem;">Asset & Playground Inspections</h4>
+                        <p><strong>Challenge:</strong> Managing high-value added services like playground or fire door checks.</p>
+                        <p><strong>Solution:</strong> Individual asset records against a site. Crews scan a barcode to pull up specific inspection worksheets, ensuring 100% compliance for safety-critical items.</p>
                     </div>
-                    <div class="meddic-card">
-                        <h4>
-                             <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                            Decision Criteria
-                        </h4>
-                        <ul>
-                            <li>A single, all-in-one solution to replace Jotform, Fixflo, and Masternaut.</li>
-                            <li>Guaranteed, reportable proof of attendance for every scheduled job.</li>
-                            <li>Professional, automated client communication and reporting.</li>
-                            <li>Ability to report on profitability and time-on-site vs. planned.</li>
-                            <li>A practical, cost-effective solution that delivers clear business benefits.</li>
-                        </ul>
+                    <!-- Scheduling Logic -->
+                    <div class="meddic-card" style="background: white; border-top: 4px solid var(--bc-energy-blue);">
+                        <h4 style="margin-bottom: 1rem;">Dynamic "Rotor" Scheduling</h4>
+                        <p><strong>Challenge:</strong> 2-week schedules with flexibility for weather-based changes.</p>
+                        <p><strong>Solution:</strong> Route optimization for GM teams and "Schedule Assistant" for reactive repairs. High-visibility folders for "Unscheduled" work allow managers to quickly swap jobs when rain prevents grass cutting.</p>
+                    </div>
+                </div>
+
+                <div class="infographic-grid" style="margin-top: 3rem;">
+                    <div class="state-card" style="background: #fff; box-shadow: var(--box-shadow);">
+                        <h3 style="color: var(--bc-energy-blue);">The "Lazy PM" Problem</h3>
+                        <p>We discussed how many PMs prefer to just send a PO rather than e-signing a portal quote. BigChange allows your office to manually mark a quote as "Accepted" and attach their PO, keeping the digital trail clean without forcing new habits on your clients.</p>
+                    </div>
+                    <div class="state-card" style="background: #fff; box-shadow: var(--box-shadow);">
+                        <h3 style="color: var(--bc-green);">Variations in the Field</h3>
+                        <p>For reactive repairs where the cost changes on-site, operatives can be given a "menu" to add materials or extra labor hours. This sends a real-time alert to the office, allowing you to update the invoice before the van even leaves the site.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cost-of-inaction">
-            <div class="container">
-                <div class="section-title">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.008v.008H12v-.008z" />
-                    </svg>                      
-                    <h2>The Cost of Inaction: Can You Afford to Wait?</h2>
-                    <p>Maintaining the status quo is not a neutral choice; it comes with accumulating costs that can hinder growth and profitability.</p>
-                </div>
-                <div class="infographic-grid">
-                    <div class="state-card" style="background-color: #fffbe6; border: 1px solid #facc15;">
-                        <h3 style="color: #ca8a04;">
-                            <svg class="icon" style="color: #ca8a04; width: 32px; height: 32px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-3.75-3.75M19.5 4.5l3.75 3.75" /></svg>
-                            The Risk of Being Left Behind
-                        </h3>
-                        <p style="margin-top: var(--spacing-4);">Your clients have already noted that your communication and reporting are falling behind competitors. As technology evolves, this gap will only widen. Sticking with manual processes and outdated systems makes it harder to compete, retain clients, and win new business against more agile, tech-enabled firms.</p>
-                    </div>
-                    <div class="state-card" style="background-color: #fef2f2; border: 1px solid #f87171;">
-                        <h3 style="color: #dc2626;">
-                            <svg class="icon" style="color: #dc2626; width: 32px; height: 32px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" /></svg>
-                            The Compounding Cost of Inefficiency
-                        </h3>
-                        <p style="margin-top: var(--spacing-4);">Every month that passes is another month of potential revenue leakage from missed jobs and under-billed contracts. The time your team spends juggling spreadsheets, manually entering data, and chasing information is time not spent on growth or high-value activities. These small, daily inefficiencies add up to a significant financial drain over time.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
+        <!-- ROI Calculator -->
         <section id="roi">
             <div class="container">
                 <div class="section-title">
-                     <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 15.75V18m-7.5-6.75h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V13.5zm0 2.25h.008v.008H8.25v-.008zm0 2.25h.008v.008H8.25V18zm2.498-6.75h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V13.5zm0 2.25h.007v.008h-.007v-.008zm0 2.25h.007v.008h-.007V18zm2.504-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zm0 2.25h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V18zm2.498-6.75h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V13.5zM8.25 6h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                     <h2>ROI & Savings Calculator</h2>
-                    <p>An interactive tool to forecast the financial benefits of adopting BigChange. Adjust the sliders to see how your business inputs affect the potential savings.</p>
+                    <p>Forecast the financial impact of moving from fragmented Excel/Jotforms to a single automated platform.</p>
                 </div>
                 <div class="calculator-wrapper">
                     <div class="calculator-inputs">
-                        <h3>Your Business Details</h3>
-                        <div>
-                            <div class="calculator-input">
-                                <label for="engineers"><span>Field Teams</span><span id="engineers-value">60</span></label>
-                                <input type="range" id="engineers" min="10" max="150" value="60">
-                            </div>
-                            <div class="calculator-input">
-                                <label for="jobsPerDay"><span>Jobs per Team/Day</span><span id="jobsPerDay-value">5</span></label>
-                                <input type="range" id="jobsPerDay" min="1" max="20" value="5" step="1">
-                            </div>
-                             <div class="calculator-input">
-                                <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">10</span></label>
-                                <input type="range" id="officeStaff" min="2" max="50" value="10">
-                            </div>
-                            <div class="calculator-input">
-                                <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£28,000</span></label>
-                                <input type="range" id="officeSalary" min="20000" max="60000" value="28000" step="500">
-                            </div>
+                        <h3>Business Parameters</h3>
+                        <div class="calculator-input">
+                            <label for="engineers"><span>Field Teams</span><span id="engineers-value">60</span></label>
+                            <input type="range" id="engineers" min="10" max="150" value="60">
                         </div>
-                        
+                        <div class="calculator-input">
+                            <label for="jobsPerDay"><span>Jobs per Team/Day</span><span id="jobsPerDay-value">5</span></label>
+                            <input type="range" id="jobsPerDay" min="1" max="20" value="5" step="1">
+                        </div>
+                         <div class="calculator-input">
+                            <label for="officeStaff"><span>Office Staff</span><span id="officeStaff-value">10</span></label>
+                            <input type="range" id="officeStaff" min="2" max="50" value="10">
+                        </div>
+                        <div class="calculator-input">
+                            <label for="officeSalary"><span>Office Staff Avg. Salary (£)</span><span id="officeSalary-value">£28,000</span></label>
+                            <input type="range" id="officeSalary" min="20000" max="60000" value="28000" step="500">
+                        </div>
                         <div id="assumptions-container">
-                            <h3 style="margin-bottom: var(--spacing-4);">Key Assumptions</h3>
-                            <p style="font-size: 0.9rem; opacity: 0.8; margin-bottom: var(--spacing-4);">Based on anonymised data from the BigChange customer base.</p>
+                            <h3>Proven BigChange Assumptions</h3>
                             <div id="assumptions-list"></div>
                         </div>
                     </div>
                     
                     <div class="roi-results">
-                        <div>
-                             <h3>Your Estimated Annual Savings</h3>
-                             <div>
-                                <p class="total-savings" id="total-savings">£0</p>
-                                <p>Total Annual Business Benefit</p>
-                            </div>
-                            <div>
-                                <div class="donut-chart-container">
-                                    <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
-                                         <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
-                                         <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
-                                         <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
-                                         <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
-                                    </svg>
-                                </div>
-                                 <ul class="donut-legend">
-                                 <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Team Productivity</li>
-                                 <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
-                                 <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
-                                 </ul>
-                            </div>
-                        </div>
-                        
-                        <div class="calculation-breakdown">
-                            <h3 style="margin-top: var(--spacing-8);">Calculation Breakdown</h3>
-                            <p style="opacity: 0.8; font-size: 0.9rem;">Our estimates are grounded in proven results. Expand each category to see the details.</p>
-                            <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
-                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
-                                    <span>Improved Team Productivity</span>
-                                    <span id="engineer-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
-                                </summary>
-                                <p id="engineer-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
-                            </details>
-                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
-                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
-                                    <span>Improved Office Productivity</span>
-                                    <span id="office-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
-                                </summary>
-                                <p id="office-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
-                            </details>
-                             <details open style="background-color: var(--bc-white); border: 1px solid #e5e7eb; border-radius: var(--border-radius);">
-                                <summary style="padding: var(--spacing-4); cursor: pointer; display: flex; justify-content: space-between;">
-                                    <span>Fuel Savings</span>
-                                    <span id="fuel-savings-total" style="color:var(--bc-green); font-weight: bold;">£0</span>
-                                </summary>
-                                <p id="fuel-calc-details" style="padding: var(--spacing-4); border-top: 1px solid #e5e7eb; font-size: 0.9rem;">Calculation details here.</p>
-                            </details>
-                        </div>
+                         <h3>Estimated Annual Benefit</h3>
+                         <p class="total-savings" id="total-savings">£0</p>
+                         <div class="donut-chart-container">
+                            <svg id="savingsChart" class="donut-chart" width="100%" height="100%" viewBox="0 0 100 100">
+                                 <circle cx="50" cy="50" r="40" fill="transparent" stroke="#e0e0e0" stroke-width="15"></circle>
+                                 <circle id="donut-engineer" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-energy-blue)"></circle>
+                                 <circle id="donut-office" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-green)"></circle>
+                                 <circle id="donut-fuel" class="donut-segment" cx="50" cy="50" r="40" stroke-dasharray="0 251.2" stroke-dashoffset="0" stroke="var(--bc-orange)"></circle>
+                            </svg>
+                         </div>
+                         <ul class="donut-legend">
+                             <li><span class="legend-dot" style="background-color: var(--bc-energy-blue);"></span>Team Productivity</li>
+                             <li><span class="legend-dot" style="background-color: var(--bc-green);"></span>Office Productivity</li>
+                             <li><span class="legend-dot" style="background-color: var(--bc-orange);"></span>Fuel Savings</li>
+                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Recordings -->
+        <section id="recordings" style="background: #fafafa;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Re-watch Our Sessions</h2>
+                    <p>Access the full recordings of our demonstration and strategic discussions.</p>
+                </div>
+                <div class="recordings-grid">
+                    <div class="recording-card">
+                        <span class="meeting-badge">Meeting 1</span>
+                        <h3>Discovery & Strategy</h3>
+                        <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">The initial session exploring operational pains and current system fragmentation.</p>
+                        <a href="https://app.fireflies.ai/view/BigChange-X-CPC-Ltd::01K6X1ZJ2QPFNTQ78EKED0918N" target="_blank" class="btn btn-primary">Watch Recording</a>
+                    </div>
+                    <div class="recording-card">
+                        <span class="meeting-badge">Meeting 2</span>
+                        <h3>Solution Deep-Dive</h3>
+                        <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Tailored demo covering site hierarchies, asset inspections, and field variations.</p>
+                        <a href="https://copilot.clari.com/guest/sharedCall/6995d7db832bbf31da410291" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Recording</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implementation -->
         <section id="implementation">
             <div class="container">
                 <div class="section-title">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    <h2>Phased Implementation Plan for CPC</h2>
-                    <p>A structured, partnership-led approach to ensure a smooth transition and rapid time-to-value.</p>
+                    <h2>Phased Implementation Plan</h2>
+                    <p>A structured approach to migrating from Jotform and Fixflo to a single BigChange instance.</p>
                 </div>
                 <div class="gantt-chart">
                     <div class="gantt-phase">
-                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 11-3 0m3 0a1.5 1.5 0 10-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m-9.75 0h9.75" /></svg>Phase 1: Foundation & Data Setup (Weeks 1-4)</h4>
-                        <p>We'll work with you to export client, site, and contract data. We will configure core system settings, users, and build your primary grounds maintenance and cleaning worksheets.</p>
+                        <h4>Phase 1: Foundation & Site Data (Weeks 1-4)</h4>
+                        <p>Importing FirstPort site hierarchies, setting up parent/grandparent billing rules, and configuring core worksheets.</p>
                         <div class="gantt-timeline"><div class="gantt-bar" style="width: 33%; left: 0%;"></div></div>
                     </div>
                     <div class="gantt-phase">
-                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.87a3 3 0 01-.879-2.122v-1.007m-5.159 0a2.25 2.25 0 10-4.5 0v1.007a3 3 0 00.879 2.122l1.621.87m5.159 0a2.25 2.25 0 104.5 0v1.007a3 3 0 00-.879-2.122l-1.621.87m-1.5-6a3.375 3.375 0 00-6.75 0" /></svg>Phase 2: Pilot Group Go-Live (Weeks 5-8)</h4>
-                        <p>Roll out BigChange to a single region or a select group of ~10-15 teams. This allows for focused training, real-world testing of workflows, and gathering feedback before a company-wide launch.</p>
+                        <h4>Phase 2: Pilot Group Go-Live (Weeks 5-8)</h4>
+                        <p>Roll out to ~10-15 teams in a single region to test the "Management by Exception" workflow and automated PM comms.</p>
                          <div class="gantt-timeline"><div class="gantt-bar" style="width: 34%; left: 33%;"></div></div>
                     </div>
                     <div class="gantt-phase">
-                        <h4><svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.125 2.25h-4.5c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-9M10.125 2.25h.375a9 9 0 019 9v.375M10.125 2.25A3.375 3.375 0 0113.5 5.625v1.5c0 .621.504 1.125 1.125 1.125h1.5a3.375 3.375 0 013.375 3.375M9 15l2.25 2.25L15 12" /></svg>Phase 3: Full Rollout & Financial Integration (Weeks 9-12)</h4>
-                        <p>Using lessons from the pilot, we'll train and roll out to the remaining teams. The full Sage 50 integration will be enabled, and we will conduct a business review to measure initial KPIs and ROI.</p>
+                        <h4>Phase 3: National Rollout & Finance (Weeks 9-12)</h4>
+                        <p>Full rollout across 70 teams and enabling Sage 50 integration for automated invoicing post-job completion.</p>
                         <div class="gantt-timeline"><div class="gantt-bar" style="width: 33%; left: 67%;"></div></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="rewatch-demo" style="background-color: var(--bc-light-grey); padding-bottom: var(--spacing-16);">
-            <div class="container" style="text-align: center;">
-                <div class="section-title" style="margin-bottom: var(--spacing-8);">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 010 .656l-5.603 3.113a.375.375 0 01-.557-.328V8.887c0-.286.357-.466.557-.327l5.603 3.112z" />
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9 9 0 110-18 9 9 0 010 18z" />
-                      </svg>                      
-                    <h2>Re-watch the Discovery Meeting</h2>
-                    <p>Click the button below to watch the full recording of our demonstration and discussion.</p>
-                </div>
-                <a href="https://app.fireflies.ai/view/BigChange-X-CPC-Ltd::01K6X1ZJ2QPFNTQ78EKED0918N" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange); font-size: 1.1rem; padding: 1rem 2rem;">Watch Recording</a>
-            </div>
-        </section>
-
-        <section id="case-studies">
+        <!-- Case Studies -->
+        <section id="case-studies" style="background: #fafafa;">
             <div class="container">
                 <div class="section-title">
-                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m-7.284 2.72a3 3 0 01-4.682-2.72M12 18.72V15m0 3.72a9.094 9.094 0 013.741-.479 3 3 0 01-4.682-2.72m-7.284 2.72a3 3 0 004.682-2.72M9 12.75a3 3 0 11-6 0 3 3 0 016 0zm12 0a3 3 0 11-6 0 3 3 0 016 0zM9 6.75a3 3 0 11-6 0 3 3 0 016 0zm12 0a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                    <h2>Success Stories from Similar Businesses</h2>
-                    <p>See how other property maintenance and facilities management companies have transformed their operations with BigChange.</p>
+                    <h2>FM & Property Maintenance Success</h2>
                 </div>
                 <div class="case-studies-grid">
                     <div class="case-study-card">
                         <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67d92cbec0a9389575acc169_Pinnacle-p-3200.jpeg" alt="Pinnacle Group">
                         <div class="case-study-card-content">
                             <h4>Pinnacle Group</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: var(--spacing-4);">"BigChange has helped us to digitally transform our business... It has helped us to become more efficient, flexible, and responsive."</p>
-                            <a href="https://www.bigchange.com/success-stories/bigchange-facilitates-business-transformation-for-pinnacle-group" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Read Full Story</a>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem;">"BigChange helped us digitally transform into a more flexible and responsive partner for our clients."</p>
+                            <a href="https://www.bigchange.com/success-stories/bigchange-facilitates-business-transformation-for-pinnacle-group" target="_blank" style="font-weight: 700;">Read Case Study →</a>
                         </div>
                     </div>
                     <div class="case-study-card">
-                        <img src="https://www.thirteengroup.co.uk/uploaded/thirteen/passthrough/750-750/2400118thirteen_021.jpg" alt="Thirteen Group">
+                        <img src="https://cdn.prod.website-files.com/652e90c1583f67a8de233f2d/67d9ca6f7cf922a2f7575f1c_Thirteen.webp" alt="Thirteen Group">
                         <div class="case-study-card-content">
                             <h4>Thirteen Group</h4>
-                            <p style="font-size: 0.9rem; margin-bottom: var(--spacing-4);">"Using BigChange we have already transformed our grounds maintenance services... It's given us complete real-time visibility of every job."</p>
-                            <a href="https://www.bigchange.com/success-stories/thirteen-boosts-fm-services-with-bigchange-mobile-tech" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Read Full Story</a>
+                            <p style="font-size: 0.9rem; margin-bottom: 1rem;">"Transforming grounds maintenance with complete real-time visibility and GPS-backed attendance."</p>
+                            <a href="https://www.bigchange.com/success-stories/thirteen-boosts-fm-services-with-bigchange-mobile-tech" target="_blank" style="font-weight: 700;">Read Case Study →</a>
                         </div>
                     </div>
                 </div>
@@ -511,16 +430,14 @@
         </section>
     </main>
     
-    <footer style="text-align: center;">
-        <div class="container">
-            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: var(--spacing-6);">
-            <h3 style="color: var(--bc-white); font-size: 1.75rem; font-weight: 600;">Ready for your BigChange?</h3>
-            <p style="font-size: 1.1rem; opacity: 0.9; margin-bottom: var(--spacing-4);">Let's make your business unstoppable.</p>
-            <p style="font-size: 0.8rem; opacity: 0.7; margin-top: var(--spacing-8);">This proposal has been built specifically for CPC Ltd.<br>&copy; 2025 BigChange. All rights reserved.</p>
+    <footer>
+        <div class="container" style="text-align: center;">
+            <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 40px; margin-bottom: 2rem;">
+            <h3>Ready for your BigChange?</h3>
+            <p style="opacity: 0.7; font-size: 0.8rem; margin-top: 2rem;">Built specifically for CPC Ltd. &copy; 2025 BigChange.</p>
         </div>
     </footer>
 
-    <!-- Inline JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const assumptions = {
@@ -553,12 +470,6 @@
         
         const outputs = {
             totalSavings: document.getElementById('total-savings'),
-            engineerSavingsTotal: document.getElementById('engineer-savings-total'),
-            officeSavingsTotal: document.getElementById('office-savings-total'),
-            fuelSavingsTotal: document.getElementById('fuel-savings-total'),
-            engineerCalcDetails: document.getElementById('engineer-calc-details'),
-            officeCalcDetails: document.getElementById('office-calc-details'),
-            fuelCalcDetails: document.getElementById('fuel-calc-details'),
             donutEngineer: document.getElementById('donut-engineer'),
             donutOffice: document.getElementById('donut-office'),
             donutFuel: document.getElementById('donut-fuel'),
@@ -567,99 +478,57 @@
         function formatCurrency(value) {
             return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
         }
-        
-        function formatNumber(value) {
-           return new Intl.NumberFormat('en-GB', { minimumFractionDigits: 0, maximumFractionDigits: 0 }).format(value);
-        }
 
         function populateAssumptions() {
             const list = document.getElementById('assumptions-list');
-            if (!list) return;
             list.innerHTML = `
-                <p><strong>Avg. Drive Time:</strong> ${assumptions.avgJobDriveTimeMins.toFixed(1)} mins</p>
-                <p><strong>Avg. Work Duration:</strong> ${assumptions.avgJobDurationMins.toFixed(1)} mins</p>
-                <p><strong>Avg. Job Distance:</strong> ${assumptions.avgDistancePerJobMiles.toFixed(1)} miles</p>
-                <p><strong>Drive Time Saving:</strong> ${(assumptions.jobDriveTimeSavingPercent * 100).toFixed(1)}%</p>
-                <p><strong>Work Duration Saving:</strong> ${(assumptions.jobDurationSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Work Saving:</strong> ${(assumptions.jobDurationSavingPercent * 100).toFixed(1)}%</p>
+                <p><strong>Drive Saving:</strong> ${(assumptions.jobDriveTimeSavingPercent * 100).toFixed(1)}%</p>
                 <p><strong>Office Saving:</strong> ${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</p>
-                <p><strong>Fuel Distance Saving:</strong> ${(assumptions.jobDistanceSavingPercent * 100).toFixed(1)}%</p>
-                <p><strong>Avg. Vehicle MPG:</strong> ${assumptions.avgMpg}</p>
-                <p><strong>Diesel Cost:</strong> £${assumptions.avgFuelCostPerLitre.toFixed(2)} / litre</p>
+                <p><strong>Fuel Saving:</strong> ${(assumptions.jobDistanceSavingPercent * 100).toFixed(1)}%</p>
             `;
         }
 
         function calculateAndDisplay() {
             const values = {};
             for (const key in inputs) {
-                if(inputs[key]) {
-                    values[key] = parseFloat(inputs[key].value);
-                    if (valueSpans[key]) {
-                        if(key === 'officeSalary') {
-                           valueSpans[key].textContent = formatCurrency(values[key]);
-                        } else {
-                           valueSpans[key].textContent = values[key];
-                        }
-                    }
+                values[key] = parseFloat(inputs[key].value);
+                if (valueSpans[key]) {
+                    valueSpans[key].textContent = key === 'officeSalary' ? formatCurrency(values[key]) : values[key];
                 }
             }
 
             const dailyDriveHours = (values.jobsPerDay * assumptions.avgJobDriveTimeMins) / 60;
             const dailyWorkHours = (values.jobsPerDay * assumptions.avgJobDurationMins) / 60;
-            const dailyDriveTimeSaved = dailyDriveHours * assumptions.jobDriveTimeSavingPercent;
-            const dailyWorkTimeSaved = dailyWorkHours * assumptions.jobDurationSavingPercent;
-            const totalDailyTimeSavedHours = dailyDriveTimeSaved + dailyWorkTimeSaved;
-            const engineerProductivitySavings = (totalDailyTimeSavedHours / 8) * assumptions.engineerSalary * values.engineers;
-            const officeProductivitySavings = values.officeSalary * values.officeStaff * assumptions.backOfficeSavingPercent;
-            const totalAnnualMiles = values.jobsPerDay * assumptions.avgDistancePerJobMiles * assumptions.workingDaysPerMonth * 12 * values.engineers;
-            const totalAnnualGallons = totalAnnualMiles / assumptions.avgMpg;
-            const totalAnnualLitres = totalAnnualGallons * 4.54609;
-            const totalAnnualFuelCost = totalAnnualLitres * assumptions.avgFuelCostPerLitre;
-            const fuelSavings = totalAnnualFuelCost * assumptions.jobDistanceSavingPercent;
-            const totalAnnualBenefit = engineerProductivitySavings + officeProductivitySavings + fuelSavings;
-
-            if (outputs.totalSavings) outputs.totalSavings.textContent = formatCurrency(totalAnnualBenefit);
-            if (outputs.engineerSavingsTotal) outputs.engineerSavingsTotal.textContent = formatCurrency(engineerProductivitySavings);
-            if (outputs.officeSavingsTotal) outputs.officeSavingsTotal.textContent = formatCurrency(officeProductivitySavings);
-            if (outputs.fuelSavingsTotal) outputs.fuelSavingsTotal.textContent = formatCurrency(fuelSavings);
-
-            const engineerCountForText = values.engineers || '...';
-            if (outputs.engineerCalcDetails) outputs.engineerCalcDetails.innerHTML = `We estimate each of your <strong>${engineerCountForText} teams</strong> could save <strong>${(totalDailyTimeSavedHours * 60).toFixed(0)} mins/day</strong>. This translates to a productivity gain worth <strong>${formatCurrency(engineerProductivitySavings)}</strong>.`;
-            if (outputs.officeCalcDetails) outputs.officeCalcDetails.innerHTML = `BigChange can improve back-office efficiency by around <strong>${(assumptions.backOfficeSavingPercent * 100).toFixed(1)}%</strong>, representing an annual productivity saving of <strong>${formatCurrency(officeProductivitySavings)}</strong>.`;
-            if (outputs.fuelCalcDetails) outputs.fuelCalcDetails.innerHTML = `Smarter routing can reduce travel distance. We estimate a <strong>${(assumptions.jobDistanceSavingPercent*100).toFixed(1)}% reduction</strong>, which could save <strong>${formatCurrency(fuelSavings)}</strong> in fuel costs annually.`;
+            const dailyTimeSaved = (dailyDriveHours * assumptions.jobDriveTimeSavingPercent) + (dailyWorkHours * assumptions.jobDurationSavingPercent);
             
-            const savingsBreakdown = [engineerProductivitySavings, officeProductivitySavings, fuelSavings];
-            const totalForChart = savingsBreakdown.reduce((a, b) => a + b, 0);
+            const engineerSavings = (dailyTimeSaved / 8) * assumptions.engineerSalary * values.engineers;
+            const officeSavings = values.officeSalary * values.officeStaff * assumptions.backOfficeSavingPercent;
             
-            if (totalForChart > 0) {
-                const circumference = 2 * Math.PI * 40;
-                const percentages = savingsBreakdown.map(s => s / totalForChart);
-                let offset = 0;
-                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
-                percentages.forEach((p, i) => {
-                    const length = p * circumference;
-                    const dasharray = `${length} ${circumference - length}`;
-                    if(segments[i]) {
-                        segments[i].setAttribute('stroke-dasharray', dasharray);
-                        segments[i].setAttribute('stroke-dashoffset', offset);
-                    }
-                    offset -= length;
-                });
-            } else {
-                const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
-                segments.forEach(seg => {
-                    if(seg) seg.setAttribute('stroke-dasharray', `0 251.2`);
-                });
-            }
+            const annualMiles = values.jobsPerDay * assumptions.avgDistancePerJobMiles * assumptions.workingDaysPerMonth * 12 * values.engineers;
+            const fuelSavings = (annualMiles / assumptions.avgMpg) * 4.546 * assumptions.avgFuelCostPerLitre * assumptions.jobDistanceSavingPercent;
+            
+            const totalBenefit = engineerSavings + officeSavings + fuelSavings;
+            outputs.totalSavings.textContent = formatCurrency(totalBenefit);
+
+            const circumference = 2 * Math.PI * 40;
+            const segments = [outputs.donutEngineer, outputs.donutOffice, outputs.donutFuel];
+            const breakdown = [engineerSavings, officeSavings, fuelSavings];
+            let offset = 0;
+
+            breakdown.forEach((s, i) => {
+                const p = s / totalBenefit;
+                const length = p * circumference;
+                segments[i].setAttribute('stroke-dasharray', `${length} ${circumference - length}`);
+                segments[i].setAttribute('stroke-dashoffset', offset);
+                offset -= length;
+            });
         }
 
-        Object.values(inputs).forEach(input => {
-            if(input) input.addEventListener('input', calculateAndDisplay);
-        });
-
+        Object.values(inputs).forEach(input => input.addEventListener('input', calculateAndDisplay));
         populateAssumptions();
         calculateAndDisplay();
     });
     </script>
 </body>
 </html>
-
