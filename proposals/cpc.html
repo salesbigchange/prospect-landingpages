@@ -204,7 +204,7 @@
                     <img src="https://i.postimg.cc/ydbgqXFm/Big-Change-White.png" alt="BigChange Logo" style="height: 54px;">
                 </div>
                 <h1>A Unified Operational Roadmap for CPC</h1>
-                <p class="subhead">Consolidating Jotform, Fixflo, Datastation, and Masternaut into one "One-Stop Shop" to drive professional client delivery and eliminate revenue leakage.</p>
+                <p class="subhead">Consolidating Jotform, Fixflo, and Masternaut into one "One-Stop Shop" to drive professional client delivery and eliminate revenue leakage.</p>
                 <div class="cta-buttons">
                     <a href="#meeting-2" class="btn btn-primary">Latest: Meeting 2 Deep-Dive</a>
                     <a href="#roi" class="btn btn-secondary">ROI Calculator</a>
@@ -226,7 +226,7 @@
                     <div class="state-card current">
                         <h3>Current Fragmented State</h3>
                         <ul>
-                            <li><strong>Data Silos:</strong> Juggling Jotform (comms), Fixflo (reactive), Datastation (compliance), and Masternaut (tracking) prevents a single source of truth.</li>
+                            <li><strong>Data Silos:</strong> Juggling Jotform (comms), Fixflo (reactive), and Masternaut (tracking) prevents a single source of truth.</li>
                             <li><strong>Revenue Leakage:</strong> Inability to track ~2,000 monthly visits leads to "money back" disputes when attendance can't be evidenced.</li>
                             <li><strong>Professional Gap:</strong> Client reports are falling behind competitors' tech-enabled formats.</li>
                         </ul>
@@ -261,7 +261,7 @@
                 <div class="section-title">
                     <span class="meeting-badge">Meeting 2: Tailored Solution Deep-Dive</span>
                     <h2>Functional Alignment for CPC Operations</h2>
-                    <p>Reviewing how BigChange maps specifically to your site hierarchies, asset inspections, and multi-skilled scheduling.</p>
+                    <p>Reviewing how BigChange maps specifically to your site hierarchies, amenity inspections, and multi-skilled scheduling.</p>
                 </div>
 
                 <div class="meddic-grid">
@@ -273,9 +273,9 @@
                     </div>
                     <!-- Asset Tracking -->
                     <div class="meddic-card" style="background: white; border-top: 4px solid var(--bc-energy-blue);">
-                        <h4 style="margin-bottom: 1rem;">Asset & Playground Inspections</h4>
-                        <p><strong>Challenge:</strong> Managing high-value added services like playground or fire door checks.</p>
-                        <p><strong>Solution:</strong> Individual asset records against a site. Crews scan a barcode to pull up specific inspection worksheets, ensuring 100% compliance for safety-critical items.</p>
+                        <h4 style="margin-bottom: 1rem;">Playground & Amenity Inspections</h4>
+                        <p><strong>Challenge:</strong> Managing high-value value-added services like playground inspections independently of core maintenance.</p>
+                        <p><strong>Solution:</strong> Individual asset records linked to the site record. Operatives complete safety-specific worksheets, providing a permanent digital audit trail for high-liability areas without needing separate systems.</p>
                     </div>
                     <!-- Scheduling Logic -->
                     <div class="meddic-card" style="background: white; border-top: 4px solid var(--bc-energy-blue);">
@@ -287,8 +287,8 @@
 
                 <div class="infographic-grid" style="margin-top: 3rem;">
                     <div class="state-card" style="background: #fff; box-shadow: var(--box-shadow);">
-                        <h3 style="color: var(--bc-energy-blue);">The "Lazy PM" Problem</h3>
-                        <p>We discussed how many PMs prefer to just send a PO rather than e-signing a portal quote. BigChange allows your office to manually mark a quote as "Accepted" and attach their PO, keeping the digital trail clean without forcing new habits on your clients.</p>
+                        <h3 style="color: var(--bc-energy-blue);">Adaptive Approval Workflows</h3>
+                        <p>Bridge the gap between digital efficiency and existing client habits. If Property Managers prefer sending an email PO rather than signing a portal quote, BigChange allows your office to manually convert those POs into "Accepted" jobs instantly, maintaining a clean audit trail without disrupting your clients' preferred ways of working.</p>
                     </div>
                     <div class="state-card" style="background: #fff; box-shadow: var(--box-shadow);">
                         <h3 style="color: var(--bc-green);">Variations in the Field</h3>
@@ -368,7 +368,7 @@
                     <div class="recording-card">
                         <span class="meeting-badge">Meeting 2</span>
                         <h3>Solution Deep-Dive</h3>
-                        <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Tailored demo covering site hierarchies, asset inspections, and field variations.</p>
+                        <p style="margin-bottom: 1.5rem; font-size: 0.9rem;">Tailored demo covering site hierarchies, amenity inspections, and field variations.</p>
                         <a href="https://copilot.clari.com/guest/sharedCall/6995d7db832bbf31da410291" target="_blank" class="btn btn-primary" style="background-color: var(--bc-orange);">Watch Recording</a>
                     </div>
                 </div>
@@ -517,7 +517,7 @@
             let offset = 0;
 
             breakdown.forEach((s, i) => {
-                const p = s / totalBenefit;
+                const p = totalBenefit > 0 ? s / totalBenefit : 0;
                 const length = p * circumference;
                 segments[i].setAttribute('stroke-dasharray', `${length} ${circumference - length}`);
                 segments[i].setAttribute('stroke-dashoffset', offset);
